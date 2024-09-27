@@ -1,6 +1,12 @@
+import type { Metadata } from 'next';
 import React from 'react';
 import Seo from '../../components/Seo';
 import { fetchArticles } from '../../utils/api';
+
+export const metadata: Metadata = {
+  title: 'Blog',
+  description: 'Read the latest insights and updates from Articul8',
+};
 
 async function BlogPage() {
   const articles = await fetchArticles();

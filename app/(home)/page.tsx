@@ -1,16 +1,15 @@
-import Hero from './Hero';
-import Features from './Features';
-import BlogPreview from './BlogPreview';
-import Contact from './Contact';
-import type { Metadata } from 'next';
+import type { Metadata } from 'next'
+import Hero from './Hero'
+import Features from './Features'
+import BlogPreview from './BlogPreview'
+import Contact from './Contact'
 
 export const metadata: Metadata = {
-  title: 'Home Page',
-  description: 'Welcome to our home page',
-};
+  title: 'Home',
+  description: 'Welcome to Articul8 - The GenAI platform that brings order to chaos.',
+}
 
 const HomePage = () => {
- 
   return (
     <div>
       <Hero />

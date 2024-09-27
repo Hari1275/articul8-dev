@@ -5,12 +5,12 @@ const api = axios.create({
 });
 
 export const fetchArticles = async () => {
-  const response = await api.get('/api/articles');
+  const response = await api.get('/api/blogs');
   console.log(response.data);
   return response.data;
 };
 
 export const fetchArticleBySlug = async (slug: string) => {
-  const response = await api.get(`/api/articles?slug=${slug}`);
+  const response = await api.get(`/api/blogs?slug=${slug}`);
   return response.data[0];
 };
