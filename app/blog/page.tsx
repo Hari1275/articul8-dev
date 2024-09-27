@@ -9,8 +9,8 @@ export const metadata: Metadata = {
 };
 
 async function BlogPage() {
-  const articles = await fetchArticles();
-  console.log(articles);
+  const {data} = await fetchArticles();
+  console.log(data);
   return (
     <div>
       <Seo
@@ -18,9 +18,9 @@ async function BlogPage() {
         description='List of blog posts will be fetched from Strapi.'
       />
       <h1>Blog</h1>
-      {articles.length > 0 ? (
+      {data.length > 0 ? (
         <ul>
-          {articles.map((article) => (
+          {data.map((article) => (
             <li key={article.id}>
               <a href={`/blog/${article.slug}`}>{article.title}</a>
             </li>

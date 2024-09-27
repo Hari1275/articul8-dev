@@ -21,7 +21,7 @@ const Header = () => {
           <Image src="/images/logo.svg" alt="Articul8 Logo" width={120} height={40} />
         </Link>
         <nav className={`${isMenuOpen ? 'flex' : 'hidden'} md:flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8 absolute md:relative top-full left-0 right-0 bg-white md:bg-transparent p-4 md:p-0 transition-all duration-300 ease-in-out`}>
-          <Link href="/" className="text-black text-lg" onClick={closeMenu}>Home</Link>
+          <Link href="/" className="text-black text-lg" onClick={closeMenu}>Product</Link>
           <Link href="/about" className="text-black text-lg" onClick={closeMenu}>About</Link>
           <Link href="/blog" className="text-black text-lg" onClick={closeMenu}>Blog</Link>
           <Link href="/contact-us" className="text-black text-lg" onClick={closeMenu}>Contact Us</Link>
