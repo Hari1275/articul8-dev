@@ -1,40 +1,20 @@
-'use client';
-
-import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
-import Seo from '../../../components/Seo';
+import type { Metadata } from 'next';
 import { fetchArticleBySlug } from '../../../utils/api';
 
-const BlogPost = () => {
-  const router = useRouter();
-  const { slug } = router.query;
-  const [article, setArticle] = useState(null);
+type Props = {
+  params: { slug: string }
+}
 
-  useEffect(() => {
-    if (slug) {
-      const getArticle = async () => {
-        const data = await fetchArticleBySlug(slug as string);
-        setArticle(data);
-      };
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+ 
+  const post = await fetchArticleBySlug(params.slug)
 
-      getArticle();
-    }
-  }, [slug]);
-
-  if (!article) {
-    return <div>Loading...</div>;
+  return {
+    title: post.title,
+    description: post.excerpt,
   }
+}
 
-  return (
-    <div>
-      <Seo
-        title={`${article.title} - Articul8`}
-        description={article.description}
-      />
-      <h1>{article.title}</h1>
-      <p>{article.content}</p>
-    </div>
-  );
-};
+export default function BlogPost({ params }: Props) {
 
-export default BlogPost;
+}

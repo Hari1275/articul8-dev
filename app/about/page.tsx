@@ -1,17 +1,10 @@
-import React from 'react';
-import Seo from '../../components/Seo';
+import type { Metadata } from 'next'
 
-const AboutPage = () => {
-  return (
-    <div>
-      <Seo
-        title='About Us - Articul8'
-        description='Learn more about our platform and team.'
-      />
-      <h1>About Us</h1>
-      <p>Learn more about our platform and team.</p>
-    </div>
-  );
-};
+export const metadata: Metadata = {
+  title: 'About Us',
+  description: 'Learn more about our company',
+}
 
-export default AboutPage;
+export default function AboutPage() {
+  // Your about page content
+}

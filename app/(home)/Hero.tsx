@@ -6,6 +6,7 @@ const Hero = () => {
       <h1>Welcome to Articul8</h1>
       <p>Your go-to platform for insightful blogs.</p>
     </section>
+    
   );
 };
 

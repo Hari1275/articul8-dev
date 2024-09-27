@@ -1,17 +1,18 @@
-import React from 'react';
 import Hero from './Hero';
 import Features from './Features';
 import BlogPreview from './BlogPreview';
 import Contact from './Contact';
-import Seo from '../../components/Seo';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Home Page',
+  description: 'Welcome to our home page',
+};
 
 const HomePage = () => {
+ 
   return (
     <div>
-      <Seo
-        title='Home - Articul8'
-        description='Welcome to Articul8, your go-to platform for insightful blogs.'
-      />
       <Hero />
       <Features />
       <BlogPreview />
