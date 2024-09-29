@@ -24,3 +24,25 @@ body {
     text-wrap: balance;
   }
 }
+
+.innovation-item {
+  padding: 16px 20px;
+}
+
+.innovation-item:not(:last-child) {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.product-card {
+  padding: 24px;
+}
+
+.product-card h3 {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.product-card p {
+  font-size: 14px;
+  line-height: 20px;
+}

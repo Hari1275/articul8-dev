@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Hero from './Hero';
 import TrustedBy from './TrustedBy';
 import UnlockSection from './UnlockSection';
+import InnovationsSection from './InnovationsSection';
 import Features from './Features';
 import BlogPreview from './BlogPreview';
 import Contact from './Contact';
@@ -18,6 +19,7 @@ const HomePage = () => {
       <Hero />
       <TrustedBy />
       <UnlockSection />
+      <InnovationsSection />
       <Features />
       <BlogPreview />
       <Contact />
