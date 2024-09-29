@@ -8,11 +8,6 @@ const Hero = () => {
   const [currentWord, setCurrentWord] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
 
   useEffect(() => {
     const typeEffect = () => {
@@ -37,20 +32,18 @@ const Hero = () => {
 
   return (
     <section className='relative h-screen overflow-hidden'>
-      {isClient && (
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload='auto'
-          className='absolute inset-0 w-full h-full object-cover'
-          style={{ top: '-50px', height: 'calc(100% + 100px)' }}
-        >
-          <source src='/images/video.mp4' type='video/mp4' />
-          Your browser does not support the video tag.
-        </video>
-      )}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload='auto'
+        className='absolute inset-0 w-full h-full object-cover'
+        style={{ top: '-50px', height: 'calc(100% + 100px)' }}
+      >
+        <source src='/images/video.mp4' type='video/mp4' />
+        Your browser does not support the video tag.
+      </video>
       <div className='relative z-20 flex items-center justify-start h-full px-4 md:px-8 lg:px-16'>
         <div className='text-left max-w-3xl'>
           <h1
