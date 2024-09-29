@@ -1,5 +1,9 @@
-module.exports = {
-  env: {
-    NEXT_PUBLIC_STRAPI_API_URL: process.env.NEXT_PUBLIC_STRAPI_API_URL,
+const nextConfig = {
+  reactStrictMode: true,
+  webpack: (config) => {
+    config.externals = [...config.externals, { canvas: 'canvas' }];
+    return config;
   },
 };
+
+module.exports = nextConfig;
