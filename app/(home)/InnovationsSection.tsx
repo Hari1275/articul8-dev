@@ -229,13 +229,14 @@ const InnovationsSection = () => {
   const [selectedInnovation, setSelectedInnovation] = useState(0);
 
   return (
-    <section className='py-20 bg-[#F8FAFC]'>
+    <section className='py-20 px-4 bg-[#F8FAFC]'>
       <div className='container mx-auto px-4'>
-        <h2 className='text-4xl font-bold mb-16 text-center'>
-          There are{' '}
-          <span className='text-pink-500'>groundbreaking innovations</span>
-          <br />
-          behind the magic.
+        <h2 className='text-4xl font-bold mb-16 text-center leading-tight'>
+          <span className='block mb-2'>
+            There are{' '}
+            <span className='text-pink-500'>groundbreaking innovations</span>
+          </span>
+          <span className='block'>behind the magic.</span>
         </h2>
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-12'>
           <div className='space-y-2'>

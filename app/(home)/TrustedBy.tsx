@@ -6,9 +6,16 @@ const TrustedBy = () => {
   return (
     <section className='relative py-8 sm:py-12 md:py-16 bg-white w-full'>
       {/* Top horizontal blue stroke */}
-      <div className='absolute top-0 left-0 right-0 h-1 bg-blue-500'></div>
-
-      <div className='max-w-full mx-auto px-4 sm:px-6 md:px-8'>
+      {/* <div className='absolute top-0 left-0 right-0 h-1 bg-blue-500'></div> */}
+      <Image
+        src='/images/horizontal-line.svg'
+        alt='horizontal line'
+        width={120}
+        height={60}
+        objectFit='cover'
+        className='w-full h-auto'
+      />
+      <div className='max-w-full mx-auto px-4 sm:px-6 md:px-8 py-8 sm:py-12 md:py-16'>
         <h2 className='text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 md:mb-16'>
           Trusted by leading global enterprises
         </h2>
@@ -19,10 +26,10 @@ const TrustedBy = () => {
               className='flex items-center justify-center bg-white rounded-lg p-4 sm:p-5 md:p-6 shadow-sm'
             >
               <Image
-                src={`/images/${company}-logo.svg`}
+                src={`/images/logos/${company}-logo.svg`}
                 alt={company}
-                width={120}
-                height={60}
+                width={100}
+                height={50}
                 objectFit='contain'
                 className='w-24 sm:w-28 md:w-32 h-auto'
               />

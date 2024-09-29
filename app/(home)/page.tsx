@@ -3,6 +3,7 @@ import Hero from './Hero';
 import TrustedBy from './TrustedBy';
 import UnlockSection from './UnlockSection';
 import InnovationsSection from './InnovationsSection';
+import ConvertSection from './ConvertSection';
 import Features from './Features';
 import BlogPreview from './BlogPreview';
 import Contact from './Contact';
@@ -20,9 +21,10 @@ const HomePage = () => {
       <TrustedBy />
       <UnlockSection />
       <InnovationsSection />
-      <Features />
+      <ConvertSection />
+      {/* <Features />
       <BlogPreview />
-      <Contact />
+      <Contact /> */}
     </div>
   );
 };

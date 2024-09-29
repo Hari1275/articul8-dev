@@ -27,8 +27,9 @@ const Card = React.memo<{
       <Image
         src={card.image}
         alt={card.title}
-        layout='fill'
-        objectFit='cover'
+        width={0}
+        height={100}
+        style={{ width: 'auto', height: '100%' }}
         className='card-image transition-all duration-300'
         loading='lazy'
       />
