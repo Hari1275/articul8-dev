@@ -110,7 +110,7 @@ const ConvertSection = () => {
               Behind
             </h3>
             <button className='bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors text-lg self-start mt-4'>
-              Start Articul8'ing
+              Start Articul8&apos;ing
             </button>
           </div>
           <div className='w-full md:w-1/2 relative min-h-[400px]'>

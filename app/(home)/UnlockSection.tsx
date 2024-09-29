@@ -87,7 +87,7 @@ const UnlockSection = () => {
       });
 
       tl.to(cards, {
-        x: (i, target) => {
+        x: (i) => {
           const visibleCards = Math.min(cards.length, 3);
           const centerIndex = Math.floor((visibleCards - 1) / 2);
           const offset = (i - centerIndex) * 400;

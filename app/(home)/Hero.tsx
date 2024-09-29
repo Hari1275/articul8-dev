@@ -1,5 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 const words = ['EXPERTISE', 'VALUE', 'GREATNESS'];
 
@@ -51,16 +52,18 @@ const Hero = () => {
             <span className='block'>
               YOUR{' '}
               <span className='text-blue-600 inline-flex items-center'>
-                <img
+                <Image
                   src='/images/open-bracket.svg'
                   alt='Open bracket'
-                  className='h-8 md:h-12 lg:h-14 mr-2'
+                  width={24}
+                  height={24}
                 />
                 <span className='inline-block'>{currentWord}</span>
-                <img
+                <Image
                   src='/images/close-bracket.svg'
                   alt='Close bracket'
-                  className='h-8 md:h-12 lg:h-14 ml-2'
+                  width={24}
+                  height={24}
                 />
               </span>
             </span>
