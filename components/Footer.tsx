@@ -14,6 +14,7 @@ const Footer = () => {
               alt='Articul8 Logo'
               width={100}
               height={30}
+              priority
             />
           </div>
 
@@ -50,6 +51,7 @@ const Footer = () => {
                 alt='LinkedIn'
                 width={24}
                 height={24}
+                priority
               />
             </a>
           </div>

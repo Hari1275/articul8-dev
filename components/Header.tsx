@@ -17,6 +17,7 @@ const Header = () => {
               alt='Articul8 Logo'
               width={130}
               height={30}
+              priority
             />
           </Link>
           {/* Vertical separator */}
@@ -26,7 +27,7 @@ const Header = () => {
         {/* Product link */}
         <nav className='flex-grow'>
           <Link
-            href='/product'
+            href='/'
             className='text-black-500 text-sm font-bold hover:text-black transition duration-300'
           >
             Product

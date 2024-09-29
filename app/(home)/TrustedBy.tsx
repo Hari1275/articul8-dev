@@ -14,6 +14,7 @@ const TrustedBy = () => {
         height={60}
         objectFit='cover'
         className='w-full h-auto'
+        priority
       />
       <div className='max-w-full mx-auto px-4 sm:px-6 md:px-8 py-8 sm:py-12 md:py-16'>
         <h2 className='text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 md:mb-16'>
@@ -32,6 +33,7 @@ const TrustedBy = () => {
                 height={50}
                 objectFit='contain'
                 className='w-24 sm:w-28 md:w-32 h-auto'
+                priority
               />
             </div>
           ))}
@@ -45,6 +47,7 @@ const TrustedBy = () => {
               height={100}
               style={{ width: 'auto', height: '100%' }}
               className='h-[60px] sm:h-[80px] md:h-[100px] w-auto'
+              priority
             />
           </div>
         </div>
@@ -67,6 +70,7 @@ const TrustedBy = () => {
               height={100}
               style={{ width: 'auto', height: '100%' }}
               className='h-[60px] sm:h-[80px] md:h-[100px] w-auto'
+              priority
             />
           </div>
         </div>

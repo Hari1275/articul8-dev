@@ -12,7 +12,14 @@ const FeatureCard = ({
   description: string;
 }) => (
   <div className='bg-[#F8FAFC] rounded-lg p-6 shadow-sm'>
-    <Image src={icon} alt='' width={24} height={24} className='mb-4' />
+    <Image
+      src={icon}
+      alt={title}
+      width={24}
+      height={24}
+      className='mb-4'
+      priority
+    />
     <h3 className='text-xl font-bold mb-2'>{title}</h3>
     <p className='text-sm text-gray-600 leading-relaxed'>{description}</p>
   </div>
@@ -119,6 +126,7 @@ const ConvertSection = () => {
               alt='Abstract shapes'
               layout='fill'
               objectFit='cover'
+              priority
             />
           </div>
         </div>

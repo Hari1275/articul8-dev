@@ -31,7 +31,7 @@ const Card = React.memo<{
         height={100}
         style={{ width: 'auto', height: '100%' }}
         className='card-image transition-all duration-300'
-        loading='lazy'
+        priority
       />
     </div>
   </div>

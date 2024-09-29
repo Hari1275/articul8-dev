@@ -57,6 +57,7 @@ const Hero = () => {
                   alt='Open bracket'
                   width={24}
                   height={24}
+                  priority
                 />
                 <span className='inline-block'>{currentWord}</span>
                 <Image
@@ -64,6 +65,7 @@ const Hero = () => {
                   alt='Close bracket'
                   width={24}
                   height={24}
+                  priority
                 />
               </span>
             </span>

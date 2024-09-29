@@ -24,6 +24,7 @@ const InnovationItem = ({
       alt={title}
       width={24}
       height={24}
+      priority
       className={`mr-4 ${isSelected ? 'filter brightness-0 invert' : ''}`}
     />
     <h3
@@ -47,7 +48,14 @@ const ProductCard = ({
 }) => (
   <div className='border-b border-gray-200 pb-6 mb-6 last:border-b-0 last:pb-0 last:mb-0'>
     <div className='flex items-center mb-4'>
-      <Image src={icon} alt={title} width={24} height={24} className='mr-3' />
+      <Image
+        src={icon}
+        alt={title}
+        width={24}
+        height={24}
+        className='mr-3'
+        priority
+      />
       <h3 className='text-xl font-semibold text-gray-800'>{title}</h3>
     </div>
     <p className='text-sm text-gray-600 leading-relaxed'>{description}</p>
