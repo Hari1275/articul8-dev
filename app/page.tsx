@@ -5,6 +5,7 @@ import InnovationsSection from './(home)/InnovationsSection';
 import SimplestWay from './(home)/SimplestWay';
 import TrustedBy from './(home)/TrustedBy';
 import UnlockSection from './(home)/UnlockSection';
+import PlatformArchitecture from './(home)/PlatformArchitecture';
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -19,6 +20,7 @@ const HomePage = () => {
       <TrustedBy />
       <SimplestWay />
       <UnlockSection />
+      <PlatformArchitecture />
       <InnovationsSection />
       <ConvertSection />
       {/* <Features />
