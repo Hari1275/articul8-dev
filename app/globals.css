@@ -16,7 +16,7 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-  font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-custom), sans-serif;
 }
 
 @layer utilities {
@@ -46,3 +46,10 @@ body {
   font-size: 14px;
   line-height: 20px;
 }
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-space-grotesk), sans-serif;
+}
+/* h1{
+  font-size: 58px;
+  line-height: 56px;
+} */

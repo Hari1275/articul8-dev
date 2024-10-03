@@ -10,7 +10,17 @@ module.exports = {
       },
       fontSize: {
         '7xl': '5rem',
+        'xl': '2rem',
+        '4xl': '3rem',
+        '5xl': '4rem',
+        'lg':'1.4rem'
       },
+
+      fontWeight:{
+        'bold': '700',
+        'medium': '500',
+        'normal': '400',
+      }
     },
     screens: {
       sm: '640px',

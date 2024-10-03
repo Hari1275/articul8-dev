@@ -31,57 +31,70 @@ const Hero = () => {
   }, [currentWord, currentIndex, isDeleting]);
 
   return (
-    <section className='relative h-screen overflow-hidden'>
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload='auto'
-        className='absolute inset-0 w-full h-full object-cover'
-        style={{ top: '-50px', height: 'calc(100% + 100px)' }}
-      >
-        <source src='/images/video.mp4' type='video/mp4' />
-        Your browser does not support the video tag.
-      </video>
-      <div className='relative z-20 flex items-center justify-start h-full px-4 md:px-8 lg:px-16'>
+    <section className='relative h-screen md:min-h-[600px]  min-h-[400px] bg-[#112FFF] text-white'>
+      
+      <div className='relative z-20 flex flex-col items-start justify-center h-full px-4 md:px-8 lg:px-16'>
+     
         <div className='text-left max-w-3xl'>
-          <h1
-            className='font-bold mb-4'
-            style={{ fontSize: 'clamp(2rem, 5vw, 4rem)', lineHeight: '1.2' }}
-          >
-            <span className='block mb-2'>ARTICUL8</span>
+          <h1 className='font-bold mb-4 text-4xl md:text-5xl lg:text-5xl'>
+            <span className='block leading-[3.5rem]'>ARTICUL8</span>
             <span className='block'>
               YOUR{' '}
-              <span className='text-blue-600 inline-flex items-center'>
+              <span className='text-[#00F4C5] inline-flex items-center'>
                 <Image
                   src='/images/open-bracket.svg'
                   alt='Open bracket'
-                  width={24}
-                  height={24}
+                  width={25}
+                  height={25}
+                  className='mr-1'
                   priority
                 />
-                <span className='inline-block'>{currentWord}</span>
+                {currentWord}
                 <Image
                   src='/images/close-bracket.svg'
                   alt='Close bracket'
-                  width={24}
-                  height={24}
+                  width={25}
+                  height={25}
+                  className='ml-1'
                   priority
                 />
               </span>
             </span>
           </h1>
-          <p className='text-lg sm:text-xl md:text-2xl lg:text-3xl mb-8 max-w-2xl'>
-            The GenAI platform that simply works.{' '}
-            <br className='hidden sm:inline' />
+          <p className='text-lg  sm:text-xl md:text-2xl mb-8 max-w-2xl '>
+            The GenAI platform that simply works.
+            <br />
             Bring order to chaos.
           </p>
-          <button className='bg-blue-600 text-white px-6 py-2 md:px-8 md:py-3 rounded-md text-lg md:text-xl font-semibold hover:bg-blue-700 transition duration-300'>
-            Try Articul8
-          </button>
         </div>
+        
       </div>
+      {/* <div className='absolute bottom-0 right-0 w-f h-1/2'>
+        <Image
+          src='/images/hero-banner.svg'
+          alt='Hand holding a lightbulb'
+          layout='fill'
+          objectFit='contain'
+          objectPosition='bottom right'
+          priority
+        />
+      </div> */}
+      
+      {/* <HandLightbulb /> */}
+      
+
+      <div className='absolute bottom-[-50px] left-0 w-full  zIndex-[99] h-auto'>
+      <Image
+                src='/images/hero-banner.svg'
+                alt="hero-banner"
+                width={200}
+                height={20}
+                objectPosition='bottom right'
+                className='w-full '
+        priority
+      />
+          </div>
+
     </section>
   );
 };

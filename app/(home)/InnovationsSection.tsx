@@ -4,36 +4,38 @@ import Image from 'next/image';
 
 const InnovationItem = ({
   icon,
+  selectedIcon,
   title,
   isSelected = false,
   onClick,
 }: {
   icon: string;
+  selectedIcon: string;
   title: string;
   isSelected?: boolean;
   onClick: () => void;
 }) => (
   <div
-    className={`flex items-center py-4 px-4 ${
-      isSelected ? 'bg-blue-600 rounded-lg' : 'border-b border-gray-200'
-    } cursor-pointer transition-all duration-300`}
+    className={`flex items-center py-6 px-6 ${
+      isSelected ? 'bg-[#1130FF] rounded-sm' : 'border-b border-gray-200'
+    } cursor-pointer transition-all duration-300 `}
     onClick={onClick}
   >
     <Image
-      src={icon}
+      src={isSelected ? selectedIcon : icon}
       alt={title}
       width={24}
       height={24}
       priority
       className={`mr-4 ${isSelected ? 'filter brightness-0 invert' : ''}`}
     />
-    <h3
+    <p
       className={`text-lg font-medium ${
-        isSelected ? 'text-white' : 'text-gray-800'
+        isSelected ? 'text-white font-bold' : 'text-gray-800'
       }`}
     >
       {title}
-    </h3>
+    </p>
   </div>
 );
 
@@ -56,7 +58,7 @@ const ProductCard = ({
         className='mr-3'
         priority
       />
-      <h3 className='text-xl font-semibold text-gray-800'>{title}</h3>
+      <p className='text-xl font-semibold text-gray-800'>{title}</p>
     </div>
     <p className='text-sm text-gray-600 leading-relaxed'>{description}</p>
   </div>
@@ -66,9 +68,11 @@ const innovationData = [
   {
     icon: '/images/icons/data.svg',
     title: 'Data',
+    selectedIcon:'images/icons/selected.svg',
     products: [
       {
         icon: '/images/icons/data.svg',
+       
         title: 'TruData',
         description:
           'Sift is a powerful tool that creates high-quality datasets for AI model training, resulting in more accurate and efficient AI solutions.',
@@ -90,6 +94,7 @@ const innovationData = [
   {
     icon: '/images/icons/embedding.svg',
     title: 'Embedding and Recovery',
+    selectedIcon:'images/icons/selected.svg',
     products: [
       {
         icon: '/images/icons/embedding.svg',
@@ -114,6 +119,7 @@ const innovationData = [
   {
     icon: '/images/icons/model.svg',
     title: 'Advancing Existing Models Architecture',
+    selectedIcon:'images/icons/selected.svg',
     products: [
       {
         icon: '/images/icons/model.svg',
@@ -138,6 +144,7 @@ const innovationData = [
   {
     icon: '/images/icons/agent.svg',
     title: 'New Models and System Architecture ',
+    selectedIcon:'images/icons/selected.svg',
     products: [
       {
         icon: '/images/icons/agent.svg',
@@ -162,6 +169,7 @@ const innovationData = [
   {
     icon: '/images/icons/library.svg',
     title: 'A8 Library of Domain & Task',
+    selectedIcon:'images/icons/selected.svg',
     products: [
       {
         icon: '/images/icons/library.svg',
@@ -186,6 +194,7 @@ const innovationData = [
   {
     icon: '/images/icons/scoring.svg',
     title: 'Autonomous Multi-Agent Decisions & Actions',
+    selectedIcon:'images/icons/selected.svg',
     products: [
       {
         icon: '/images/icons/scoring.svg',
@@ -210,6 +219,7 @@ const innovationData = [
   {
     icon: '/images/icons/system.svg',
     title: 'Scoring and  Evaluation',
+    selectedIcon:'images/icons/selected.svg',
     products: [
       {
         icon: '/images/icons/system.svg',
@@ -237,7 +247,7 @@ const InnovationsSection = () => {
   const [selectedInnovation, setSelectedInnovation] = useState(0);
 
   return (
-    <section className='py-20 px-4 bg-[#F8FAFC]'>
+    <section className='py-20 px-4 bg-[#F2F7FF]'>
       <div className='container mx-auto px-4'>
         <h2 className='text-4xl font-bold mb-16 text-center leading-tight'>
           <span className='block mb-2'>
@@ -246,12 +256,13 @@ const InnovationsSection = () => {
           </span>
           <span className='block'>behind the magic.</span>
         </h2>
-        <div className='grid grid-cols-1 lg:grid-cols-2 gap-12'>
+        <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 px-10'>
           <div className='space-y-2'>
             {innovationData.map((item, index) => (
               <InnovationItem
                 key={index}
-                icon={item.icon}
+                icon={ item.icon}
+                selectedIcon={item.selectedIcon}
                 title={item.title}
                 isSelected={index === selectedInnovation}
                 onClick={() => setSelectedInnovation(index)}

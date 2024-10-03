@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import ConvertSection from './(home)/ConvertSection';
 import Hero from './(home)/Hero';
 import InnovationsSection from './(home)/InnovationsSection';
+import SimplestWay from './(home)/SimplestWay';
 import TrustedBy from './(home)/TrustedBy';
 import UnlockSection from './(home)/UnlockSection';
 
@@ -16,6 +17,7 @@ const HomePage = () => {
     <div>
       <Hero />
       <TrustedBy />
+      <SimplestWay />
       <UnlockSection />
       <InnovationsSection />
       <ConvertSection />

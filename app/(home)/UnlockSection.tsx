@@ -7,12 +7,18 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const Card = React.memo<{
-  card: { color: string; title: string; description: string; image: string };
+  card: {
+    title: string;
+    description: string;
+    image: string;
+    footerText: string;
+    logo: string;
+  };
   index: number;
   totalCards: number;
 }>(({ card, index, totalCards }) => (
   <div
-    className={`card absolute ${card.color} rounded-lg shadow-lg p-8 w-[320px] h-[450px] flex flex-col justify-between cursor-pointer transition-all duration-300`}
+    className="card absolute bg-white rounded-lg shadow-lg p-4 w-[280px] h-[350px] flex flex-col justify-between cursor-pointer transition-all duration-300"
     style={{
       zIndex: totalCards - index,
       transformStyle: 'preserve-3d',
@@ -20,24 +26,34 @@ const Card = React.memo<{
     aria-label={`Card ${index + 1}: ${card.title}`}
   >
     <div className='card-content'>
-      <h3 className='text-2xl font-bold mb-3'>{card.title}</h3>
-      <p className='text-gray-700 text-lg'>{card.description}</p>
+      <h3 className='text-2xl font-bold mb-2'>{card.title}</h3>
+      <p className='text-gray-700 text-xs mb-3'>{card.description}</p>
     </div>
-    <div className='relative h-60 w-full overflow-hidden rounded-md'>
+    <div className='relative flex-grow'>
       <Image
         src={card.image}
         alt={card.title}
-        width={0}
-        height={100}
-        style={{ width: 'auto', height: '100%' }}
+        layout="fill"
+        objectFit="contain"
         className='card-image transition-all duration-300'
         priority
+      />
+    </div>
+    <div className='mt-3 flex flex-row justify-between gap-2'>
+      <p className='text-xs text-gray-600 mb-1'>{card.footerText}</p>
+      <Image
+        src={card.logo}
+        alt="Logo"
+        width={20}
+        height={20}
+        className='card-logo'
       />
     </div>
   </div>
 ));
 
 Card.displayName = 'Card';
+const words = ['New revenue', ];
 
 const UnlockSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -45,6 +61,30 @@ const UnlockSection = () => {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const [animationComplete, setAnimationComplete] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [currentWord, setCurrentWord] = useState('');
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const typeEffect = () => {
+      const current = words[currentIndex];
+      if (isDeleting) {
+        setCurrentWord(current.substring(0, currentWord.length - 1));
+      } else {
+        setCurrentWord(current.substring(0, currentWord.length + 1));
+      }
+
+      if (!isDeleting && currentWord === current) {
+        setTimeout(() => setIsDeleting(true), 1000);
+      } else if (isDeleting && currentWord === '') {
+        setIsDeleting(false);
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % words.length);
+      }
+    };
+
+    const timer = setTimeout(typeEffect, isDeleting ? 50 : 150);
+    return () => clearTimeout(timer);
+  }, [currentWord, currentIndex, isDeleting]);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -90,7 +130,8 @@ const UnlockSection = () => {
         x: (i) => {
           const visibleCards = Math.min(cards.length, 3);
           const centerIndex = Math.floor((visibleCards - 1) / 2);
-          const offset = (i - centerIndex) * 400;
+          const offset = (i - centerIndex) * 330;
+          
           return `${offset}px`;
         },
         y: 0,
@@ -138,27 +179,71 @@ const UnlockSection = () => {
   const cardData = [
     {
       title: 'Improvement in Accuracy',
-      description: 'With intelligent model selection and routing.',
+      description: 'With intelligent model selection and routing',
       image: '/images/card-image-1.svg',
-      color: 'bg-purple-200',
+      
+      footerText: 'General Purpose GenAI Model',
+      logo: '/images/logos/Isolation_Mode.svg',
     },
     {
-      title: 'Improvement in Accuracy',
-      description: 'All in one place.',
+      title: 'Improvement in Precision',
+      description: 'Total Cost of Ownership (TCO) for Expert GenAI Application at Production scale',
       image: '/images/card-image-2.svg',
-      color: 'bg-indigo-200',
+    
+      
+      footerText: 'Built with PCS + General Purpose GenAI models',
+      logo: '/images/logos/Isolation_Mode.svg',
+
     },
     {
-      title: 'Improvement in Accuracy',
-      description: 'Display your digital assets.',
+      title: 'Traceability',
+      description: '% of decisions that you can trace',
       image: '/images/card-image-3.svg',
-      color: 'bg-pink-200',
+      
+     
+      footerText: 'Built with PCS + General Purpose GenAI models',
+      logo: '/images/logos/Isolation_Mode.svg',
+
     },
     {
-      title: 'Improvement in Accuracy',
-      description: 'Transaction history notifications.',
+      title: 'Reduction',
+      description: 'in number of complex human in the loop decisions',
       image: '/images/card-image-4.svg',
-      color: 'bg-yellow-200',
+     
+     
+      footerText: 'Built with PCS + General Purpose GenAI models',
+      logo: '/images/logos/Isolation_Mode.svg',
+
+    },
+    {
+      title: '2x richer',
+      description: 'semantic understanding your enterprise data',
+      image: '/images/card-image-5.svg',
+     
+     
+      footerText: 'Built with PCS + General Purpose GenAI models',
+      logo: '/images/logos/Isolation_Mode.svg',
+
+    },
+    {
+      title: 'Time to ROI',
+      description: 'semantic understanding your enterprise data',
+      image: '/images/card-image-6.svg',
+    
+      
+      footerText: 'Built with PCS + General Purpose GenAI models',
+      logo: '/images/logos/Isolation_Mode.svg',
+
+    },
+    {
+      title: 'Reduction',
+      description: 'in number of components needed to build an enterprise GenAI Application',
+      image: '/images/card-image-7.svg',
+     
+     
+      footerText: 'Built with PCS + General Purpose GenAI models',
+      logo: '/images/logos/Isolation_Mode.svg',
+
     },
   ];
 
@@ -167,24 +252,44 @@ const UnlockSection = () => {
   return (
     <section
       ref={sectionRef}
-      className='py-20 overflow-hidden relative'
+      className='py-16 overflow-hidden relative'
       style={{ backgroundColor: '#F2F7FF' }}
     >
       <div className='container mx-auto px-4'>
-        <h2
-          ref={titleRef}
-          className='text-5xl font-bold mb-12 text-center relative z-10'
-        >
-          Unlock <span className='text-blue-600'>[</span>
-          <span className='text-pink-500'>New revenue</span>
-          <span className='text-blue-600'>]</span> with
-          <br />
-          your data.
-        </h2>
+      <h2
+  ref={titleRef}
+  className='text-4xl font-bold mb-10 text-center relative z-10'
+>
+  Unlock{' '}
+  <span className='text-blue-600 inline-block align-middle'>
+  <Image
+                  src='/images/icons/open.svg'
+                  alt='Open bracket'
+                  width={20}
+                  height={20}
+                  className='mr-2'
+                  priority
+                />
+  </span>
+  <span className='text-pink-500 align-middle' > {currentWord}</span>
+  <span className='text-blue-600 inline-block align-middle'>
+  <Image
+                  src='/images/icons/close.svg'
+                  alt='Open bracket'
+                  width={20}
+                  height={20}
+                  className='mr-2'
+                  priority
+                />
+  </span>{' '}
+  with
+  <br />
+  your data.
+</h2>
 
         <div
           ref={cardsContainerRef}
-          className={`relative h-[500px] ${
+          className={`relative h-[400px] ${
             animationComplete && shouldEnableScroll
               ? 'overflow-x-auto'
               : 'overflow-x-hidden'
