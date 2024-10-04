@@ -11,7 +11,7 @@ const TrustedBy = () => {
 
       
       <div className='container mx-auto px-4 py-20'>
-        <h2 className='text-xl font-semibold text-center mb-6'>
+        <h2 className='text-xl font-semibold text-center mb-8'>
           Trusted by leading global enterprises
         </h2>
         <div className='flex flex-wrap justify-center items-center gap-8'>

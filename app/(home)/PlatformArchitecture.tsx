@@ -53,14 +53,13 @@ const PlatformArchitecture = () => {
   return (
     <section className='py-8 sm:py-12 md:py-16 px-4 sm:px-8 md:px-16 bg-white'>
       <div className='container mx-auto'>
-        <h2 className='text-2xl sm:text-3xl md:text-4xl font-bold mb-2'>
+        <h2 className='text-2xl sm:text-3xl md:text-4xl font-bold mb-8' style={{ lineHeight: '1.4' }}>
           Articul8 platform makes the
+          <br />
+          <span className='text-pink-500'>impossible possible.</span>
         </h2>
-        <h2 className='text-2xl sm:text-3xl md:text-4xl font-bold text-pink-500 mb-6 sm:mb-8'>
-          impossible possible.
-        </h2>
-        <div className='flex flex-col lg:flex-row items-center gap-8 lg:gap-10'>
-          <div className='w-full lg:w-1/2 mb-8 lg:mb-0'>
+        <div className='flex flex-col lg:flex-row items-start gap-8 lg:gap-10 lg:h-[600px]'>
+          <div className='w-full lg:w-1/2 mb-8 lg:mb-0 lg:overflow-y-auto'>
             <div className='space-y-3 sm:space-y-4'>
               {items.map((item, index) => (
                 <Disclosure key={index} defaultOpen={index === 0}>
@@ -95,12 +94,19 @@ const PlatformArchitecture = () => {
             </div>
             <a
               href='#'
-              className='inline-block mt-6 sm:mt-8 text-blue-600 hover:underline font-semibold'
+              className='inline-flex items-center mt-6 sm:mt-8 text-[#112FFF] hover:underline font-semibold'
             >
-              Learn More <span className='text-pink-500'>→</span>
+              <span className="text-lg sm:text-lg">Learn More</span>
+              <Image
+                src='/images/icons/arrow.svg'
+                alt='Arrow right'
+                width={13}
+                height={13}
+                className='ml-2'
+              />
             </a>
           </div>
-          <div className='w-full lg:w-1/2 flex justify-center items-center'>
+          <div className='w-full lg:w-1/2 flex justify-center items-center lg:sticky lg:top-0'>
             <div className='relative w-full max-w-md lg:max-w-full'>
               <Image
                 src='/images/architecture-diagram.svg'

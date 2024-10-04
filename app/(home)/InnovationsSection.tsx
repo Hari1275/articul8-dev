@@ -27,7 +27,7 @@ const InnovationItem = ({
       width={24}
       height={24}
       priority
-      className={`mr-4 ${isSelected ? 'filter brightness-0 invert' : ''}`}
+      className={`mr-4 ${isSelected ? '' : ''}`}
     />
     <p
       className={`text-lg font-medium ${
@@ -245,6 +245,15 @@ const innovationData = [
 
 const InnovationsSection = () => {
   const [selectedInnovation, setSelectedInnovation] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  const handleInnovationClick = (index: number) => {
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setSelectedInnovation(index);
+      setIsTransitioning(false);
+    }, 300); 
+  };
 
   return (
     <section className='py-20 px-4 bg-[#F2F7FF]'>
@@ -261,25 +270,27 @@ const InnovationsSection = () => {
             {innovationData.map((item, index) => (
               <InnovationItem
                 key={index}
-                icon={ item.icon}
+                icon={item.icon}
                 selectedIcon={item.selectedIcon}
                 title={item.title}
                 isSelected={index === selectedInnovation}
-                onClick={() => setSelectedInnovation(index)}
+                onClick={() => handleInnovationClick(index)}
               />
             ))}
           </div>
-          <div>
-            {innovationData[selectedInnovation].products.map(
-              (product, index) => (
-                <ProductCard
-                  key={index}
-                  icon={product.icon}
-                  title={product.title}
-                  description={product.description}
-                />
-              )
-            )}
+          <div className='h-[500px] overflow-y-auto relative'>
+            <div className={`transition-opacity duration-300 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
+              {innovationData[selectedInnovation].products.map(
+                (product, index) => (
+                  <ProductCard
+                    key={index}
+                    icon={product.icon}
+                    title={product.title}
+                    description={product.description}
+                  />
+                )
+              )}
+            </div>
           </div>
         </div>
       </div>

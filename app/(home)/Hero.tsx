@@ -38,30 +38,40 @@ const Hero = () => {
         <div className='text-left max-w-3xl'>
           <h1 className='font-bold mb-4 text-4xl md:text-5xl lg:text-5xl'>
             <span className='block leading-[3.5rem]'>ARTICUL8</span>
-            <span className='block'>
+            <span className='block leading-[2.5rem] pt-6'>
               YOUR{' '}
               <span className='text-[#00F4C5] inline-flex items-center'>
-                <Image
-                  src='/images/open-bracket.svg'
-                  alt='Open bracket'
-                  width={25}
-                  height={25}
-                  className='mr-1'
-                  priority
-                />
-                {currentWord}
-                <Image
-                  src='/images/close-bracket.svg'
-                  alt='Close bracket'
-                  width={25}
-                  height={25}
-                  className='ml-1'
-                  priority
-                />
+              <Image
+    src='/images/open-bracket.svg'
+    alt='Open bracket'
+    width={25}
+    height={25}
+    className='mr-1'
+    sizes="(max-width: 640px) 15px, (max-width: 768px) 20px, 25px"
+    // style={{
+    //   width: 'auto',
+    //   height: 'auto'
+    // }}
+    priority
+  />
+  {currentWord}
+  <Image
+    src='/images/close-bracket.svg'
+    alt='Close bracket'
+    width={25}
+    height={25}
+    className='ml-1'
+    sizes="(max-width: 640px) 15px, (max-width: 768px) 20px, 25px"
+    // style={{
+    //   width: 'auto',
+    //   height: 'auto'
+    // }}
+    priority
+  />
               </span>
             </span>
           </h1>
-          <p className='text-lg  sm:text-xl md:text-2xl mb-8 max-w-2xl '>
+          <p className='text-lg  sm:text-xl md:text-2xl mb-8 max-w-2xl pt-6 font-medium'>
             The GenAI platform that simply works.
             <br />
             Bring order to chaos.
@@ -69,21 +79,9 @@ const Hero = () => {
         </div>
         
       </div>
-      {/* <div className='absolute bottom-0 right-0 w-f h-1/2'>
-        <Image
-          src='/images/hero-banner.svg'
-          alt='Hand holding a lightbulb'
-          layout='fill'
-          objectFit='contain'
-          objectPosition='bottom right'
-          priority
-        />
-      </div> */}
-      
-      {/* <HandLightbulb /> */}
-      
+     
 
-      <div className='absolute bottom-[-50px] left-0 w-full  zIndex-[99] h-auto'>
+      <div className='absolute bottom-[-55px] left-0 w-full  zIndex-[99] h-auto'>
       <Image
                 src='/images/hero-banner.svg'
                 alt="hero-banner"

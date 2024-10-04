@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 
 const FeatureCard = ({
@@ -26,6 +26,31 @@ const FeatureCard = ({
 );
 
 const ConvertSection = () => {
+  const words = ['Success'];
+  const [currentWord, setCurrentWord] = useState('');
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const typeEffect = () => {
+      const current = words[currentIndex];
+      if (isDeleting) {
+        setCurrentWord(current.substring(0, currentWord.length - 1));
+      } else {
+        setCurrentWord(current.substring(0, currentWord.length + 1));
+      }
+
+      if (!isDeleting && currentWord === current) {
+        setTimeout(() => setIsDeleting(true), 1000);
+      } else if (isDeleting && currentWord === '') {
+        setIsDeleting(false);
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % words.length);
+      }
+    };
+
+    const timer = setTimeout(typeEffect, isDeleting ? 50 : 150);
+    return () => clearTimeout(timer);
+  }, [currentWord, currentIndex, isDeleting]);
   const features = [
     {
       icon: '/images/icons/scale.svg',
@@ -91,16 +116,33 @@ const ConvertSection = () => {
   };
 
   return (
-    <section className='py-20 bg-white overflow-hidden'>
+    <section className='pt-20 bg-white overflow-hidden'>
       <div className='container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl'>
         <h2 className='text-4xl md:text-5xl font-bold mb-12 text-center'>
           <span className='block leading-tight mb-2'>
             Convert your GenAI chaos to
           </span>
           <span className='block leading-tight mb-2'>
-            <span className='relative inline-block'>
-              <span className='text-pink-500'>[Success]</span>
-              <span className='absolute left-0 right-0 h-3 bg-blue-200 bottom-1 -z-10'></span>
+            <span className='text-[#FA05C3] inline-flex items-center'>
+              <Image
+                src='/images/icons/section-open.svg'
+                alt='Open bracket'
+                width={25}
+                height={25}
+                className='mr-1'
+                sizes="(max-width: 640px) 15px, (max-width: 768px) 20px, 25px"
+                priority
+              />
+              {currentWord}
+              <Image
+                src='/images/icons/section-closed.svg'
+                alt='Close bracket'
+                width={25}
+                height={25}
+                className='ml-1'
+                sizes="(max-width: 640px) 15px, (max-width: 768px) 20px, 25px"
+                priority
+              />
             </span>{' '}
             with
           </span>
