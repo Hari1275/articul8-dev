@@ -31,68 +31,56 @@ const Hero = () => {
   }, [currentWord, currentIndex, isDeleting]);
 
   return (
-    <section className='relative h-screen md:min-h-[600px]  min-h-[400px] bg-[#112FFF] text-white'>
-      
-      <div className='relative z-20 flex flex-col items-start justify-center h-full px-4 md:px-8 lg:px-16'>
-     
-        <div className='text-left max-w-3xl'>
-          <h1 className='font-bold mb-4 text-4xl md:text-5xl lg:text-5xl'>
-            <span className='block leading-[3.5rem]'>ARTICUL8</span>
-            <span className='block leading-[2.5rem] pt-6'>
-              YOUR{' '}
-              <span className='text-[#00F4C5] inline-flex items-center'>
+    <section className='relative h-screen flex items-center justify-center bg-[#112FFF] text-white overflow-hidden'>
+      <div className='container mx-auto px-4 flex items-center justify-between'>
+        <div className='text-left max-w-2xl'>
+          <h1 className='font-bold mb-4 text-5xl md:text-6xl lg:text-6xl'>
+            <span className='block leading-tight'>ARTICUL8 YOUR</span>
+            <span className='text-[#00F4C5] mt-2 inline-flex items-center h-[1.2em] overflow-hidden'>
               <Image
-    src='/images/open-bracket.svg'
-    alt='Open bracket'
-    width={25}
-    height={25}
-    className='mr-1'
-    sizes="(max-width: 640px) 15px, (max-width: 768px) 20px, 25px"
-    // style={{
-    //   width: 'auto',
-    //   height: 'auto'
-    // }}
-    priority
-  />
-  {currentWord}
-  <Image
-    src='/images/close-bracket.svg'
-    alt='Close bracket'
-    width={25}
-    height={25}
-    className='ml-1'
-    sizes="(max-width: 640px) 15px, (max-width: 768px) 20px, 25px"
-    // style={{
-    //   width: 'auto',
-    //   height: 'auto'
-    // }}
-    priority
-  />
-              </span>
+                src='/images/open-bracket.svg'
+                alt='Open bracket'
+                width={25}
+                height={25}
+                className='mr-1'
+                sizes="(max-width: 640px) 15px, (max-width: 768px) 20px, 25px"
+                priority
+              />
+              <span className='inline-block min-w-[0.1em]'>{currentWord}</span>
+              <Image
+                src='/images/close-bracket.svg'
+                alt='Close bracket'
+                width={25}
+                height={25}
+                className='ml-1'
+                sizes="(max-width: 640px) 15px, (max-width: 768px) 20px, 25px"
+                priority
+              />
             </span>
           </h1>
-          <p className='text-lg  sm:text-xl md:text-2xl mb-8 max-w-2xl pt-6 font-medium'>
+          <p className='text-xl md:text-2xl mt-6 font-medium'>
             The GenAI platform that simply works.
             <br />
             Bring order to chaos.
           </p>
         </div>
         
+        <div className='hidden md:block w-1/2'>
+          <Image
+            src='/images/banner.png'
+            alt='3D Cubes'
+            width={500}
+            height={500}
+            className='w-full h-auto object-contain'
+            sizes="(max-width: 768px) 100vw, 50vw"
+            style={{
+              width: '100%',
+              height: 'auto'
+            }}
+            priority
+          />
+        </div>
       </div>
-     
-
-      <div className='absolute bottom-[-55px] left-0 w-full  zIndex-[99] h-auto'>
-      <Image
-                src='/images/hero-banner.svg'
-                alt="hero-banner"
-                width={200}
-                height={20}
-                objectPosition='bottom right'
-                className='w-full '
-        priority
-      />
-          </div>
-
     </section>
   );
 };

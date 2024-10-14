@@ -7,48 +7,36 @@ gsap.registerPlugin(ScrollTrigger);
 
 const AnimatedText = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const textRef = useRef<HTMLHeadingElement>(null);
+  const textRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const section = sectionRef.current;
     const text = textRef.current;
 
     if (section && text) {
-      const lines = text.children;
-
-      // Set initial state for all lines
-      gsap.set(lines, {
-        color: '#CCCCCC', // Light gray color
-        backgroundImage: 'linear-gradient(to right, #000, #000)', // Black color for fill
-        backgroundSize: '0% 100%',
-        backgroundRepeat: 'no-repeat',
-        backgroundClip: 'text',
-        WebkitBackgroundClip: 'text',
+      // Initial state: large text
+      gsap.set(text, {
+        scale: 10,
+        opacity: 1,
       });
 
-      // Create a timeline for sequential animation
+      // Create a timeline for the animation
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
-          start: 'top 80%',
-          end: 'bottom 20%',
-          scrub: 1,
-          toggleActions: 'play none none reverse',
+          start: 'top top',
+          end: '+=100%',
+          scrub: true,
+          pin: true,
         }
       });
 
-      // Animate each line sequentially
-      Array.from(lines).forEach((line, index) => {
-        tl.to(line, {
-          backgroundSize: '100% 100%',
-          color: 'transparent',
-          duration: 0.5,
-          ease: 'power1.inOut',
-        }, index * 0.3);
+      // Animate text shrinking and fading
+      tl.to(text, {
+        scale: 1, // Shrink to normal size
+        opacity: 0.8,
+        ease: 'power2.out',
       });
-
-      // Ensure all lines are filled when scrolling past the section
-      tl.to({}, { duration: 0.5 });
     }
 
     return () => {
@@ -57,14 +45,16 @@ const AnimatedText = () => {
   }, []);
 
   return (
-    <div ref={sectionRef} className='px-4 sm:px-6 md:px-8 py-8 sm:py-12 md:py-20'>
-      <h2 ref={textRef} className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center leading-[1.1] sm:leading-[1.05] flex flex-col gap-2 sm:gap-3 md:gap-4'>
-        <span>Our platform simplifies</span>
-        <span>enterprise-wide implementation,</span>
-        <span>bringing order to the chaos and</span>
-        <span>allowing you to harness the full</span>
-        <span>potential of Gen AI.</span>
-      </h2>
+    <div ref={sectionRef} className='h-screen flex flex-col items-center justify-center overflow-hidden bg-white'>
+      <div ref={textRef} >
+       <p className='text-[15vw] sm:text-[12vw] md:text-[10vw] font-bold text-[#112FFF] leading-none mb-4 text-center'>
+       4x
+        </p> 
+     
+        <p className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center font-bold py-2 sm:py-4 md:py-6 lg:py-6'>Faster Time to ROI</p>
+    
+      </div>
+     
     </div>
   );
 };

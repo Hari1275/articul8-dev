@@ -6,7 +6,7 @@ import SimplestWay from './(home)/SimplestWay';
 import TrustedBy from './(home)/TrustedBy';
 import UnlockSection from './(home)/UnlockSection';
 import PlatformArchitecture from './(home)/PlatformArchitecture';
-
+import '../styles/globals.css';
 export const metadata: Metadata = {
   title: 'Home',
   description:

@@ -3,50 +3,44 @@ import React, { useEffect, useRef, useState, useCallback } from 'react';
 import Image from 'next/image';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import AnimatedText from './AnimatedText';
+import UnlockSectionHeader from './UnlockSectionHeader';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Card = React.memo<{
   card: {
-    title: string;
-    description: string;
+    title: string[];
     image: string;
-    footerText: string;
-    logo: string;
   };
   index: number;
   totalCards: number;
 }>(({ card, index, totalCards }) => (
   <div
-    className="card absolute bg-white rounded-lg shadow-lg p-4 w-[280px] h-[350px] flex flex-col justify-between cursor-pointer transition-all duration-300"
+    className="card absolute rounded-2xl p-4 w-[280px] h-[340px] flex flex-col justify-between cursor-pointer transition-all duration-300"
     style={{
       zIndex: totalCards - index,
       transformStyle: 'preserve-3d',
+      background: 'linear-gradient(to bottom right, #E8F1FF, #C1F0F4, #C2D3FD)',
     }}
-    aria-label={`Card ${index + 1}: ${card.title}`}
+    aria-label={`Card ${index + 1}: ${card.title.join(' ')}`}
   >
     <div className='card-content'>
-      <h3 className='text-2xl font-bold mb-2'>{card.title}</h3>
-      <p className='text-gray-700 text-xs mb-3'>{card.description}</p>
+      <h3 className='text-2xl font-bold leading-tight'>
+        {card.title[0]}
+        <br />
+        {card.title[1]}
+      </h3>
     </div>
-    <div className='relative flex-grow'>
+    <div className='relative flex items-end justify-start h-32'>
       <Image
         src={card.image}
-        alt={card.title}
-        layout="fill"
-        objectFit="contain"
+        alt={card.title.join(' ')}
+        width={80}
+        height={80}
         className='card-image transition-all duration-300'
         priority
-      />
-    </div>
-    <div className='mt-3 flex flex-row justify-between gap-2'>
-      <p className='text-xs text-gray-600 mb-1'>{card.footerText}</p>
-      <Image
-        src={card.logo}
-        alt="Logo"
-        width={20}
-        height={20}
-        className='card-logo'
       />
     </div>
   </div>
@@ -64,6 +58,8 @@ const UnlockSection = () => {
   const [currentWord, setCurrentWord] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
 
   useEffect(() => {
     const typeEffect = () => {
@@ -100,12 +96,9 @@ const UnlockSection = () => {
 
     const section = sectionRef.current;
     const cardsContainer = cardsContainerRef.current;
-    const title = titleRef.current;
 
-    if (section && cardsContainer && title) {
+    if (section && cardsContainer) {
       const cards = cardsContainer.querySelectorAll('.card');
-
-      gsap.set(title, { zIndex: 10, position: 'relative' });
 
       gsap.set(cards, {
         x: 0,
@@ -118,20 +111,18 @@ const UnlockSection = () => {
 
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: section,
-          start: 'top center',
-          end: 'center center',
-          scrub: 1,
+          trigger: cardsContainer,
+          start: 'top bottom-=100',
+          end: 'bottom center',
+          // scrub: 1,
         },
         onComplete: () => setAnimationComplete(true),
       });
 
       tl.to(cards, {
         x: (i) => {
-          const visibleCards = Math.min(cards.length, 3);
-          const centerIndex = Math.floor((visibleCards - 1) / 2);
-          const offset = (i - centerIndex) * 330;
-          
+          const centerIndex = Math.floor((cards.length - 1) / 2);
+          const offset = (i - centerIndex) * 330; // 330px is the card width + gap
           return `${offset}px`;
         },
         y: 0,
@@ -178,15 +169,14 @@ const UnlockSection = () => {
 
   const cardData = [
     {
-      title: 'Improvement in Accuracy',
-      description: 'With intelligent model selection and routing',
+      title: ['Improved', 'Accuracy'],
       image: '/images/card-image-1.svg',
       
       footerText: 'General Purpose GenAI Model',
       logo: '/images/logos/Isolation_Mode.svg',
     },
     {
-      title: 'Improvement in Precision',
+      title: ['Improved', 'Precision'],
       description: 'Total Cost of Ownership (TCO) for Expert GenAI Application at Production scale',
       image: '/images/card-image-2.svg',
     
@@ -196,7 +186,7 @@ const UnlockSection = () => {
 
     },
     {
-      title: 'Traceability',
+      title: ['100%', 'Traceability'],
       description: '% of decisions that you can trace',
       image: '/images/card-image-3.svg',
       
@@ -206,7 +196,7 @@ const UnlockSection = () => {
 
     },
     {
-      title: 'Reduction',
+      title: ['Reduction', 'in number of complex human in the loop decisions'],
       description: 'in number of complex human in the loop decisions',
       image: '/images/card-image-4.svg',
      
@@ -216,7 +206,7 @@ const UnlockSection = () => {
 
     },
     {
-      title: '2x richer',
+      title: ['2x richer', 'semantic understanding your enterprise data'],
       description: 'semantic understanding your enterprise data',
       image: '/images/card-image-5.svg',
      
@@ -226,7 +216,7 @@ const UnlockSection = () => {
 
     },
     {
-      title: 'Time to ROI',
+      title: ['Time to ROI', 'semantic understanding your enterprise data'],
       description: 'semantic understanding your enterprise data',
       image: '/images/card-image-6.svg',
     
@@ -236,7 +226,7 @@ const UnlockSection = () => {
 
     },
     {
-      title: 'Reduction',
+      title: ['Reduction', 'in number of components needed to build an enterprise GenAI Application'],
       description: 'in number of components needed to build an enterprise GenAI Application',
       image: '/images/card-image-7.svg',
      
@@ -249,62 +239,87 @@ const UnlockSection = () => {
 
   const shouldEnableScroll = cardData.length > 3;
 
-  return (
-    <section
-      ref={sectionRef}
-      className='py-16 overflow-hidden relative'
-      style={{ backgroundColor: '#F2F7FF' }}
-    >
-      <div className='container mx-auto px-4'>
-      <h2
-  ref={titleRef}
-  className='text-4xl font-bold mb-10 text-center relative z-10'
->
-  Unlock{' '}
-  <span className='text-blue-600 inline-block align-middle'>
-  <Image
-                  src='/images/icons/open.svg'
-                  alt='Open bracket'
-                  width={20}
-                  height={20}
-                  className='mr-2'
-                  priority
-                />
-  </span>
-  <span className='text-pink-500 align-middle' > {currentWord}</span>
-  <span className='text-blue-600 inline-block align-middle'>
-  <Image
-                  src='/images/icons/close.svg'
-                  alt='Open bracket'
-                  width={20}
-                  height={20}
-                  className='mr-2'
-                  priority
-                />
-  </span>{' '}
-  with
-  <br />
-  your data.
-</h2>
+  const updateScrollButtons = useCallback(() => {
+    if (cardsContainerRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = cardsContainerRef.current;
+      setCanScrollLeft(scrollLeft > 0);
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth);
+    }
+  }, []);
 
-        <div
-          ref={cardsContainerRef}
-          className={`relative h-[400px] ${
-            animationComplete && shouldEnableScroll
-              ? 'overflow-x-auto'
-              : 'overflow-x-hidden'
-          } hide-scrollbar`}
-          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-        >
-          <div className='flex justify-center items-center h-full'>
-            {cardData.map((card, index) => (
-              <Card
-                key={index}
-                card={card}
-                index={index}
-                totalCards={cardData.length}
-              />
-            ))}
+  useEffect(() => {
+    const container = cardsContainerRef.current;
+    if (container) {
+      container.addEventListener('scroll', updateScrollButtons);
+      updateScrollButtons(); // Initial check
+    }
+    return () => container?.removeEventListener('scroll', updateScrollButtons);
+  }, [updateScrollButtons]);
+
+  const scrollLeft = () => {
+    if (cardsContainerRef.current) {
+      cardsContainerRef.current.scrollBy({ left: -300, behavior: 'smooth' });
+    }
+  };
+
+  const scrollRight = () => {
+    if (cardsContainerRef.current) {
+      cardsContainerRef.current.scrollBy({ left: 300, behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <section className="bg-white">
+      <UnlockSectionHeader />
+      <AnimatedText />
+     
+      <div
+        ref={sectionRef as React.RefObject<HTMLDivElement>}
+        className='py-5 overflow-hidden relative'
+      >
+        <div className='container mx-auto px-4 relative'>
+          <div className="absolute top-0 right-4 flex space-x-2 z-10">
+            <button
+              onClick={scrollLeft}
+              disabled={!canScrollLeft}
+              aria-label="Scroll left"
+              className={`w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300 ${
+                canScrollLeft 
+                  ? 'bg-blue-600 hover:bg-blue-700 text-white cursor-pointer' 
+                  : 'bg-gray-200 text-gray-400 cursor-not-allowed'
+              }`}
+            >
+              <ChevronLeft size={24} />
+            </button>
+            <button
+              onClick={scrollRight}
+              disabled={!canScrollRight}
+              aria-label="Scroll right"
+              className={`w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300 ${
+                canScrollRight 
+                  ? 'bg-blue-600 hover:bg-blue-700 text-white cursor-pointer' 
+                  : 'bg-gray-200 text-gray-400 cursor-not-allowed'
+              }`}
+            >
+              <ChevronRight size={24} />
+            </button>
+          </div>
+          <br/>
+          <div
+            ref={cardsContainerRef}
+            className='relative h-[400px] overflow-x-auto hide-scrollbar py-16'
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            <div className='flex justify-center items-center h-full'>
+              {cardData.map((card, index) => (
+                <Card
+                  key={index}
+                  card={card}
+                  index={index}
+                  totalCards={cardData.length}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
