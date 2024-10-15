@@ -25,10 +25,10 @@ const AnimatedText = () => {
         scrollTrigger: {
           trigger: section,
           start: 'top top',
-          end: '+=100%',
+          end: '+=80%', // Reduced from 100% to 80%
           scrub: true,
           pin: true,
-        }
+        },
       });
 
       // Animate text shrinking and fading, then increase size slightly
@@ -44,17 +44,22 @@ const AnimatedText = () => {
     }
 
     return () => {
-      ScrollTrigger.getAll().forEach(t => t.kill());
+      ScrollTrigger.getAll().forEach((t) => t.kill());
     };
   }, []);
 
   return (
-    <div ref={sectionRef} className='h-screen flex flex-col items-center justify-center overflow-hidden bg-white'>
+    <div
+      ref={sectionRef}
+      className='h-[60vh] flex flex-col items-center justify-center overflow-hidden bg-white' // Reduced height from 80vh to 60vh
+    >
       <div ref={textRef} className='flex flex-col items-center'>
-        <p className='text-[20vw] sm:text-[18vw] md:text-[16vw] font-bold text-[#112FFF] leading-none mb-2'>
+        <p className='text-[18vw] sm:text-[16vw] md:text-[14vw] font-bold text-[#112FFF] leading-none mb-2'>
           4x
-        </p> 
-        <p className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-center font-bold'>Faster Time to ROI</p>
+        </p>
+        <p className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center font-bold'>
+          Faster Time to ROI
+        </p>
       </div>
     </div>
   );
