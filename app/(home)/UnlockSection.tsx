@@ -18,11 +18,12 @@ const Card = React.memo<{
   totalCards: number;
 }>(({ card, index, totalCards }) => (
   <div
-    className="card rounded-2xl p-4 w-[280px] h-[340px] flex flex-col justify-between cursor-pointer transition-all duration-300"
+    className="card rounded-2xl p-4 w-[280px] h-[340px] flex flex-col justify-between cursor-pointer transition-all duration-500"
     style={{
       zIndex: totalCards - index,
       transformStyle: 'preserve-3d',
       background: 'linear-gradient(to bottom right, #E8F1FF, #C1F0F4, #C2D3FD)',
+      boxShadow: '0 10px 20px rgba(0,0,0,0.1)',
     }}
     aria-label={`Card ${index + 1}: ${card.title.join(' ')}`}
   >
@@ -68,6 +69,11 @@ const UnlockSection = () => {
     return () => mediaQuery.removeEventListener('change', handleChange);
   }, []);
 
+  // Update these constants
+  const cardWidth = 280;
+  const gap = 20;
+  const visibleCards = 3;
+
   const animateCards = useCallback(() => {
     if (prefersReducedMotion) return;
 
@@ -75,16 +81,14 @@ const UnlockSection = () => {
     if (!cardsContainer) return;
 
     const cards = cardsContainer.querySelectorAll('.card');
-    const cardWidth = 280;
-    const gap = 10;
-    const visibleCards = 4;
     const totalWidth = visibleCards * (cardWidth + gap) - gap;
 
     // Initial stacked position
     gsap.set(cards, {
-      x: (i) => i * stackOffset - ((cards.length - 1) * stackOffset) / 2,
+      x: (i) => i * stackOffset,
       y: (i) => -i * stackOffset,
       rotationY: -5,
+      rotationX: 5,
       scale: (i) => 1 - i * 0.05,
       opacity: (i) => 1 - i * 0.1,
       zIndex: (i) => cards.length - i,
@@ -95,7 +99,7 @@ const UnlockSection = () => {
         trigger: cardsContainer,
         start: 'top center',
         end: 'center center',
-        scrub: true,
+        scrub: 0.5,
         onUpdate: (self) => {
           setIsAnimationComplete(self.progress === 1);
         },
@@ -106,13 +110,19 @@ const UnlockSection = () => {
       x: (i) => i * (cardWidth + gap),
       y: 0,
       rotationY: 0,
+      rotationX: 0,
       scale: 1,
       opacity: 1,
-      duration: 0.5,
-      ease: 'power2.out',
+      zIndex: 1,
+      stagger: {
+        each: 0.05,
+        from: "start",
+      },
+      ease: "power2.inOut",
+      duration: 1,
     });
 
-  }, [prefersReducedMotion, stackOffset]);
+  }, [prefersReducedMotion, stackOffset, cardWidth, gap, visibleCards]);
 
   useEffect(() => {
     animateCards();
@@ -209,13 +219,13 @@ const UnlockSection = () => {
 
   const scrollLeft = () => {
     if (cardsContainerRef.current) {
-      cardsContainerRef.current.scrollBy({ left: -(280 + 10), behavior: 'smooth' });
+      cardsContainerRef.current.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
     }
   };
 
   const scrollRight = () => {
     if (cardsContainerRef.current) {
-      cardsContainerRef.current.scrollBy({ left: 280 + 10, behavior: 'smooth' });
+      cardsContainerRef.current.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
     }
   };
 
@@ -269,21 +279,21 @@ const UnlockSection = () => {
             }}
           >
             <div 
-              className={`absolute top-1/2 ${isAnimationComplete ? 'left-0' : 'left-1/2'} transform ${isAnimationComplete ? '-translate-y-1/2' : '-translate-x-1/2 -translate-y-1/2'}`}
+              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
               style={{ 
-                width: `${cardData.length * (280 + 10)}px`,
+                width: `${cardData.length * (cardWidth + gap)}px`,
                 height: '340px',
               }}
             >
               {cardData.map((card, index) => (
                 <div 
                   key={index} 
-                  className={`absolute top-1/2 transform -translate-y-1/2 ${isAnimationComplete ? '' : 'left-1/2 -translate-x-1/2'}`}
+                  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
                   style={{ 
-                    width: '280px',
+                    width: `${cardWidth}px`,
                     height: '340px',
-                    zIndex: isAnimationComplete ? 1 : cardData.length - index,
-                    left: isAnimationComplete ? `${index * (280 + 10)}px` : undefined,
+                    zIndex: cardData.length - index,
+                    transition: 'all 0.5s ease',
                   }}
                 >
                   <Card
