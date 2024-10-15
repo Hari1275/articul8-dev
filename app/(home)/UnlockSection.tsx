@@ -105,7 +105,7 @@ const UnlockSection = () => {
         y: 0,
         opacity: 0,
         scale: 0.8,
-        rotationY: -45,
+        rotationY: 0,
         zIndex: (i) => cards.length - i,
       });
 
@@ -114,16 +114,19 @@ const UnlockSection = () => {
           trigger: cardsContainer,
           start: 'top bottom-=100',
           end: 'bottom center',
-          // scrub: 1,
+          scrub: 1,
         },
         onComplete: () => setAnimationComplete(true),
       });
 
       tl.to(cards, {
         x: (i) => {
-          const centerIndex = Math.floor((cards.length - 1) / 2);
-          const offset = (i - centerIndex) * 330; // 330px is the card width + gap
-          return `${offset}px`;
+          const cardWidth = 280; // Width of each card
+          const gap = 50; // Gap between cards
+          const totalWidth = cards.length * (cardWidth + gap) - gap;
+          const containerWidth = cardsContainer.offsetWidth;
+          const startX = (containerWidth - totalWidth) / 2;
+          return `${startX + i * (cardWidth + gap)}px`;
         },
         y: 0,
         opacity: 1,
@@ -275,7 +278,7 @@ const UnlockSection = () => {
      
       <div
         ref={sectionRef as React.RefObject<HTMLDivElement>}
-        className='py-5 overflow-hidden relative'
+        className='py-20 overflow-hidden relative'
       >
         <div className='container mx-auto px-4 relative'>
           <div className="absolute top-0 right-4 flex space-x-2 z-10">
@@ -307,17 +310,29 @@ const UnlockSection = () => {
           <br/>
           <div
             ref={cardsContainerRef}
-            className='relative h-[400px] overflow-x-auto hide-scrollbar py-16'
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            className='relative overflow-x-auto hide-scrollbar'
+            style={{ 
+              scrollbarWidth: 'none', 
+              msOverflowStyle: 'none',
+              width: '100%',
+              height: '400px', // Set a fixed height
+            }}
           >
-            <div className='flex justify-center items-center h-full'>
+            <div 
+              className='flex justify-start items-center h-full' // Added h-full
+              style={{ 
+                width: `${cardData.length * 330}px`,
+                padding: '20px 0',
+              }}
+            >
               {cardData.map((card, index) => (
-                <Card
-                  key={index}
-                  card={card}
-                  index={index}
-                  totalCards={cardData.length}
-                />
+                <div key={index} className="mx-[25px]">
+                  <Card
+                    card={card}
+                    index={index}
+                    totalCards={cardData.length}
+                  />
+                </div>
               ))}
             </div>
           </div>
@@ -326,6 +341,9 @@ const UnlockSection = () => {
       <style jsx global>{`
         .hide-scrollbar::-webkit-scrollbar {
           display: none;
+        }
+        .card {
+          position: relative !important; // Override absolute positioning
         }
       `}</style>
     </section>
