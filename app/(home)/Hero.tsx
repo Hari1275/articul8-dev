@@ -1,61 +1,82 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const words = ['EXPERTISE', 'VALUE', 'GREATNESS'];
 
 const Hero = () => {
-  const [currentWord, setCurrentWord] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(true);
 
   useEffect(() => {
-    const typeEffect = () => {
-      const current = words[currentIndex];
-      if (isDeleting) {
-        setCurrentWord(current.substring(0, currentWord.length - 1));
-      } else {
-        setCurrentWord(current.substring(0, currentWord.length + 1));
-      }
-
-      if (!isDeleting && currentWord === current) {
-        setTimeout(() => setIsDeleting(true), 1000);
-      } else if (isDeleting && currentWord === '') {
-        setIsDeleting(false);
+    const interval = setInterval(() => {
+      setIsExpanded(false);
+      setTimeout(() => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % words.length);
-      }
-    };
+        setTimeout(() => {
+          setIsExpanded(true);
+        }, 100); // Small delay before expanding
+      }, 400); // Wait for brackets to close
+    }, 3000);
 
-    const timer = setTimeout(typeEffect, isDeleting ? 50 : 150);
-    return () => clearTimeout(timer);
-  }, [currentWord, currentIndex, isDeleting]);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section className='relative h-screen flex items-center justify-center bg-[#112FFF] text-white overflow-hidden'>
       <div className='container mx-auto px-4 flex items-center justify-between'>
         <div className='text-left max-w-2xl'>
-          <h1 className='font-bold mb-4 text-5xl md:text-6xl lg:text-6xl'>
+        <h1 className='font-bold mb-4 text-5xl md:text-6xl lg:text-7xl'>
             <span className='block leading-tight'>ARTICUL8 YOUR</span>
             <span className='text-[#00F4C5] mt-2 inline-flex items-center h-[1.2em] overflow-hidden'>
-              <Image
-                src='/images/open-bracket.svg'
-                alt='Open bracket'
-                width={25}
-                height={25}
-                className='mr-1'
-                sizes="(max-width: 640px) 15px, (max-width: 768px) 20px, 25px"
-                priority
-              />
-              <span className='inline-block min-w-[0.1em]'>{currentWord}</span>
-              <Image
-                src='/images/close-bracket.svg'
-                alt='Close bracket'
-                width={25}
-                height={25}
-                className='ml-1'
-                sizes="(max-width: 640px) 15px, (max-width: 768px) 20px, 25px"
-                priority
-              />
+              <motion.div
+                animate={{ width: isExpanded ? 'auto' : 'auto' }}
+                transition={{ duration: 0.5, ease: [0.6, -0.05, 0.01, 0.99] }}
+                className='flex items-center'
+              >
+                <Image
+                  src='/images/open-bracket.svg'
+                  alt='Open bracket'
+                  width={32}
+                  height={32}
+                  className='mr-1'
+                  sizes="(max-width: 640px) 20px, (max-width: 768px) 25px, 30px"
+                  priority
+                />
+                <motion.div
+                  animate={{ width: isExpanded ? 'auto' : '1px' }}
+                  transition={{ duration: 0.3, ease: [0.6, -0.05, 0.01, 0.99] }}
+                  className='overflow-hidden h-full'
+                  style={{ minWidth: '1px' }}
+                >
+                  <AnimatePresence mode="wait" initial={false}>
+                    <motion.span
+                      key={currentIndex}
+                      initial={{ y: '100%', opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      exit={{ y: '-100%', opacity: 0 }}
+                      transition={{ 
+                        y: { duration: 0.3, ease: [0.33, 1, 0.68, 1] },
+                        opacity: { duration: 0.2, ease: 'easeInOut' }
+                      }}
+                      className='inline-block whitespace-nowrap'
+                      style={{ display: 'block', position: 'relative' }}
+                    >
+                      {words[currentIndex]}
+                    </motion.span>
+                  </AnimatePresence>
+                </motion.div>
+                <Image
+                  src='/images/close-bracket.svg'
+                  alt='Close bracket'
+                  width={32}
+                  height={32}
+                  className='ml-1'
+                  sizes="(max-width: 640px) 20px, (max-width: 768px) 25px, 30px"
+                  priority
+                />
+              </motion.div>
             </span>
           </h1>
           <p className='text-xl md:text-2xl mt-6 font-medium'>

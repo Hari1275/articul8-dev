@@ -109,7 +109,7 @@ const PlatformArchitecture = () => {
           <div className='w-full lg:w-1/2 flex justify-center items-center lg:sticky lg:top-0'>
             <div className='relative w-full max-w-md lg:max-w-full'>
               <Image
-                src='/images/architecture-diagram.svg'
+                src='/images/Condensed-Version.svg'
                 alt='Articul8 Platform Architecture'
                 width={0}
                 height={0}

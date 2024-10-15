@@ -31,11 +31,15 @@ const AnimatedText = () => {
         }
       });
 
-      // Animate text shrinking and fading
+      // Animate text shrinking and fading, then increase size slightly
       tl.to(text, {
         scale: 1, // Shrink to normal size
-        opacity: 0.8,
+        opacity: 0.9,
         ease: 'power2.out',
+        duration: 0.8,
+      }).to(text, {
+        scale: 1.2, // Increase size slightly
+        duration: 0.2,
       });
     }
 
@@ -46,15 +50,12 @@ const AnimatedText = () => {
 
   return (
     <div ref={sectionRef} className='h-screen flex flex-col items-center justify-center overflow-hidden bg-white'>
-      <div ref={textRef} >
-       <p className='text-[15vw] sm:text-[12vw] md:text-[10vw] font-bold text-[#112FFF] leading-none mb-4 text-center'>
-       4x
+      <div ref={textRef} className='flex flex-col items-center'>
+        <p className='text-[20vw] sm:text-[18vw] md:text-[16vw] font-bold text-[#112FFF] leading-none mb-2'>
+          4x
         </p> 
-     
-        <p className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center font-bold py-2 sm:py-4 md:py-6 lg:py-6'>Faster Time to ROI</p>
-    
+        <p className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-center font-bold'>Faster Time to ROI</p>
       </div>
-     
     </div>
   );
 };

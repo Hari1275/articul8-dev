@@ -23,6 +23,15 @@ module.exports = {
         normal: '400',
         light: '300',
       },
+      keyframes: {
+        dropdown: {
+          '0%': { transform: 'translateY(100%)', opacity: 0 },
+          '100%': { transform: 'translateY(0)', opacity: 1 },
+        },
+      },
+      animation: {
+        dropdown: 'dropdown 0.5s ease-out',
+      },
     },
     screens: {
       sm: '640px',

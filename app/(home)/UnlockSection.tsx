@@ -26,7 +26,7 @@ const useResponsiveValues = () => {
         setValues({ cardWidth: 250, gap: 10, visibleCards: 3 });
       } else {
         // Desktop
-        setValues({ cardWidth: 280, gap: 60, visibleCards: 5 });
+        setValues({ cardWidth: 300, gap: 70, visibleCards: 5 });
       }
     };
 
@@ -45,38 +45,68 @@ const Card = React.memo<{
   };
   index: number;
   totalCards: number;
-}>(({ card, index, totalCards }) => (
-  <div
-    className="card rounded-2xl p-4 flex flex-col justify-between cursor-pointer transition-all duration-500"
-    style={{
-      width: '100%',
-      height: '100%',
-      zIndex: totalCards - index,
-      transformStyle: 'preserve-3d',
-      background: 'linear-gradient(to bottom right, #E8F1FF, #C1F0F4, #C2D3FD)',
-      boxShadow: '0 10px 20px rgba(0,0,0,0.1)',
-    }}
-    aria-label={`Card ${index + 1}: ${card.title.join(' ')}`}
-  >
-    <div className='card-content'>
-      <h3 className='text-lg sm:text-xl md:text-2xl font-bold leading-tight'>
-        {card.title[0]}
-        <br />
-        {card.title[1]}
-      </h3>
+}>(({ card, index, totalCards }) => {
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const cardElement = cardRef.current;
+    if (!cardElement) return;
+
+    const image = cardElement.querySelector('.card-image') as HTMLElement;
+    const content = cardElement.querySelector('.card-content') as HTMLElement;
+
+    const hoverAnimation = gsap.timeline({ paused: true });
+    hoverAnimation
+      .to(cardElement, { y: -10, scale: 1.05, boxShadow: '0 20px 30px rgba(0,0,0,0.2)', duration: 0.3 })
+      .to(image, { scale: 1.1, duration: 0.3 }, 0)
+      .to(content, { y: -5, duration: 0.3 }, 0);
+
+    const playAnimation = () => hoverAnimation.play();
+    const reverseAnimation = () => hoverAnimation.reverse();
+
+    cardElement.addEventListener('mouseenter', playAnimation);
+    cardElement.addEventListener('mouseleave', reverseAnimation);
+
+    return () => {
+      cardElement.removeEventListener('mouseenter', playAnimation);
+      cardElement.removeEventListener('mouseleave', reverseAnimation);
+    };
+  }, []);
+
+  return (
+    <div
+      ref={cardRef}
+      className="card rounded-2xl p-4 flex flex-col justify-between cursor-pointer transition-all duration-500"
+      style={{
+        width: '100%',
+        height: '100%',
+        zIndex: totalCards - index,
+        transformStyle: 'preserve-3d',
+        background: 'linear-gradient(to bottom right, #E8F1FF, #C1F0F4, #C2D3FD)',
+        boxShadow: '0 10px 20px rgba(0,0,0,0.1)',
+      }}
+      aria-label={`Card ${index + 1}: ${card.title.join(' ')}`}
+    >
+      <div className='card-content'>
+        <h3 className='text-lg sm:text-xl md:text-2xl font-bold leading-tight'>
+          {card.title[0]}
+          <br />
+          {card.title[1]}
+        </h3>
+      </div>
+      <div className='relative flex items-end justify-start h-24 sm:h-28 md:h-32'>
+        <Image
+          src={card.image}
+          alt={card.title.join(' ')}
+          width={60}
+          height={60}
+          className='card-image transition-all duration-300'
+          priority
+        />
+      </div>
     </div>
-    <div className='relative flex items-end justify-start h-24 sm:h-28 md:h-32'>
-      <Image
-        src={card.image}
-        alt={card.title.join(' ')}
-        width={60}
-        height={60}
-        className='card-image transition-all duration-300'
-        priority
-      />
-    </div>
-  </div>
-));
+  );
+});
 
 Card.displayName = 'Card';
 
@@ -301,7 +331,7 @@ const UnlockSection = () => {
             className={`relative ${isAnimationComplete ? 'overflow-x-auto' : 'overflow-hidden'}`}
             style={{ 
               width: '100%',
-              height: `${cardWidth * 1.2}px`,
+              height: `${cardWidth * 1.2 + 40}px`,
               scrollbarWidth: 'none',
               msOverflowStyle: 'none',
             }}
@@ -310,7 +340,7 @@ const UnlockSection = () => {
               className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
               style={{ 
                 width: `${cardData.length * (cardWidth + gap) - gap}px`,
-                height: `${cardWidth * 1.2}px`,
+                height: `${cardWidth * 1.2+ 40}px`,
               }}
             >
               {cardData.map((card, index) => (
