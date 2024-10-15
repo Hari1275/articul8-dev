@@ -1,10 +1,10 @@
-import { Inter,Space_Grotesk } from 'next/font/google';
+import { Inter, Space_Grotesk } from 'next/font/google';
 import localFont from 'next/font/local';
-import './globals.css';
+
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-const spaceGrotesk = Space_Grotesk({ 
+const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
   variable: '--font-space-grotesk',
 });
@@ -42,7 +42,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-       <body className={`${customFont.variable} ${spaceGrotesk.variable} font-custom`}>
+      <body
+        className={`${customFont.variable} ${spaceGrotesk.variable} font-custom`}
+      >
         <Header />
         <main>{children}</main>
         <Footer />
