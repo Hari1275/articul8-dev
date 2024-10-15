@@ -18,7 +18,7 @@ const Card = React.memo<{
   totalCards: number;
 }>(({ card, index, totalCards }) => (
   <div
-    className="card absolute rounded-2xl p-4 w-[280px] h-[340px] flex flex-col justify-between cursor-pointer transition-all duration-300"
+    className="card rounded-2xl p-4 w-[280px] h-[340px] flex flex-col justify-between cursor-pointer transition-all duration-300"
     style={{
       zIndex: totalCards - index,
       transformStyle: 'preserve-3d',
@@ -47,40 +47,17 @@ const Card = React.memo<{
 ));
 
 Card.displayName = 'Card';
-const words = ['New revenue', ];
 
 const UnlockSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const cardsContainerRef = useRef<HTMLDivElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const [animationComplete, setAnimationComplete] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-  const [currentWord, setCurrentWord] = useState('');
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
+  const [isAnimationComplete, setIsAnimationComplete] = useState(false);
 
-  useEffect(() => {
-    const typeEffect = () => {
-      const current = words[currentIndex];
-      if (isDeleting) {
-        setCurrentWord(current.substring(0, currentWord.length - 1));
-      } else {
-        setCurrentWord(current.substring(0, currentWord.length + 1));
-      }
-
-      if (!isDeleting && currentWord === current) {
-        setTimeout(() => setIsDeleting(true), 1000);
-      } else if (isDeleting && currentWord === '') {
-        setIsDeleting(false);
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % words.length);
-      }
-    };
-
-    const timer = setTimeout(typeEffect, isDeleting ? 50 : 150);
-    return () => clearTimeout(timer);
-  }, [currentWord, currentIndex, isDeleting]);
+  // Define stackOffset at the component level
+  const stackOffset = 5;
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -94,77 +71,48 @@ const UnlockSection = () => {
   const animateCards = useCallback(() => {
     if (prefersReducedMotion) return;
 
-    const section = sectionRef.current;
     const cardsContainer = cardsContainerRef.current;
+    if (!cardsContainer) return;
 
-    if (section && cardsContainer) {
-      const cards = cardsContainer.querySelectorAll('.card');
+    const cards = cardsContainer.querySelectorAll('.card');
+    const cardWidth = 280;
+    const gap = 10;
+    const visibleCards = 4;
+    const totalWidth = visibleCards * (cardWidth + gap) - gap;
 
-      gsap.set(cards, {
-        x: 0,
-        y: 0,
-        opacity: 0,
-        scale: 0.8,
-        rotationY: 0,
-        zIndex: (i) => cards.length - i,
-      });
+    // Initial stacked position
+    gsap.set(cards, {
+      x: (i) => i * stackOffset - ((cards.length - 1) * stackOffset) / 2,
+      y: (i) => -i * stackOffset,
+      rotationY: -5,
+      scale: (i) => 1 - i * 0.05,
+      opacity: (i) => 1 - i * 0.1,
+      zIndex: (i) => cards.length - i,
+    });
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: cardsContainer,
-          start: 'top bottom-=100',
-          end: 'bottom center',
-          scrub: 1,
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: cardsContainer,
+        start: 'top center',
+        end: 'center center',
+        scrub: true,
+        onUpdate: (self) => {
+          setIsAnimationComplete(self.progress === 1);
         },
-        onComplete: () => setAnimationComplete(true),
-      });
+      },
+    });
 
-      tl.to(cards, {
-        x: (i) => {
-          const cardWidth = 280; // Width of each card
-          const gap = 50; // Gap between cards
-          const totalWidth = cards.length * (cardWidth + gap) - gap;
-          const containerWidth = cardsContainer.offsetWidth;
-          const startX = (containerWidth - totalWidth) / 2;
-          return `${startX + i * (cardWidth + gap)}px`;
-        },
-        y: 0,
-        opacity: 1,
-        scale: 1,
-        rotationY: 0,
-        stagger: 0.1,
-        ease: 'power3.out',
-        duration: 1,
-      });
+    tl.to(cards, {
+      x: (i) => i * (cardWidth + gap),
+      y: 0,
+      rotationY: 0,
+      scale: 1,
+      opacity: 1,
+      duration: 0.5,
+      ease: 'power2.out',
+    });
 
-      cards.forEach((card) => {
-        const image = card.querySelector('.card-image');
-        const content = card.querySelector('.card-content');
-
-        card.addEventListener('mouseenter', () => {
-          gsap.to(card, {
-            y: -20,
-            scale: 1.05,
-            boxShadow: '0 20px 30px rgba(0,0,0,0.2)',
-            duration: 0.3,
-          });
-          gsap.to(image, { scale: 1.1, duration: 0.3 });
-          gsap.to(content, { y: -10, duration: 0.3 });
-        });
-
-        card.addEventListener('mouseleave', () => {
-          gsap.to(card, {
-            y: 0,
-            scale: 1,
-            boxShadow: '0 10px 20px rgba(0,0,0,0.1)',
-            duration: 0.3,
-          });
-          gsap.to(image, { scale: 1, duration: 0.3 });
-          gsap.to(content, { y: 0, duration: 0.3 });
-        });
-      });
-    }
-  }, [prefersReducedMotion]);
+  }, [prefersReducedMotion, stackOffset]);
 
   useEffect(() => {
     animateCards();
@@ -261,13 +209,13 @@ const UnlockSection = () => {
 
   const scrollLeft = () => {
     if (cardsContainerRef.current) {
-      cardsContainerRef.current.scrollBy({ left: -300, behavior: 'smooth' });
+      cardsContainerRef.current.scrollBy({ left: -(280 + 10), behavior: 'smooth' });
     }
   };
 
   const scrollRight = () => {
     if (cardsContainerRef.current) {
-      cardsContainerRef.current.scrollBy({ left: 300, behavior: 'smooth' });
+      cardsContainerRef.current.scrollBy({ left: 280 + 10, behavior: 'smooth' });
     }
   };
 
@@ -281,52 +229,63 @@ const UnlockSection = () => {
         className='py-20 overflow-hidden relative'
       >
         <div className='container mx-auto px-4 relative'>
-          <div className="absolute top-0 right-4 flex space-x-2 z-10">
-            <button
-              onClick={scrollLeft}
-              disabled={!canScrollLeft}
-              aria-label="Scroll left"
-              className={`w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300 ${
-                canScrollLeft 
-                  ? 'bg-blue-600 hover:bg-blue-700 text-white cursor-pointer' 
-                  : 'bg-gray-200 text-gray-400 cursor-not-allowed'
-              }`}
-            >
-              <ChevronLeft size={24} />
-            </button>
-            <button
-              onClick={scrollRight}
-              disabled={!canScrollRight}
-              aria-label="Scroll right"
-              className={`w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300 ${
-                canScrollRight 
-                  ? 'bg-blue-600 hover:bg-blue-700 text-white cursor-pointer' 
-                  : 'bg-gray-200 text-gray-400 cursor-not-allowed'
-              }`}
-            >
-              <ChevronRight size={24} />
-            </button>
-          </div>
+          {isAnimationComplete && (
+            <div className="absolute top-0 right-4 flex space-x-2 z-10">
+              <button
+                onClick={scrollLeft}
+                disabled={!canScrollLeft}
+                aria-label="Scroll left"
+                className={`w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300 ${
+                  canScrollLeft 
+                    ? 'bg-blue-600 hover:bg-blue-700 text-white cursor-pointer' 
+                    : 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                }`}
+              >
+                <ChevronLeft size={24} />
+              </button>
+              <button
+                onClick={scrollRight}
+                disabled={!canScrollRight}
+                aria-label="Scroll right"
+                className={`w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300 ${
+                  canScrollRight 
+                    ? 'bg-blue-600 hover:bg-blue-700 text-white cursor-pointer' 
+                    : 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                }`}
+              >
+                <ChevronRight size={24} />
+              </button>
+            </div>
+          )}
           <br/>
           <div
             ref={cardsContainerRef}
-            className='relative overflow-x-auto hide-scrollbar'
+            className={`relative ${isAnimationComplete ? 'overflow-x-auto' : 'overflow-hidden'}`}
             style={{ 
-              scrollbarWidth: 'none', 
-              msOverflowStyle: 'none',
               width: '100%',
-              height: '400px', // Set a fixed height
+              height: '400px',
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none',
             }}
           >
             <div 
-              className='flex justify-start items-center h-full' // Added h-full
+              className={`absolute top-1/2 ${isAnimationComplete ? 'left-0' : 'left-1/2'} transform ${isAnimationComplete ? '-translate-y-1/2' : '-translate-x-1/2 -translate-y-1/2'}`}
               style={{ 
-                width: `${cardData.length * 330}px`,
-                padding: '20px 0',
+                width: `${cardData.length * (280 + 10)}px`,
+                height: '340px',
               }}
             >
               {cardData.map((card, index) => (
-                <div key={index} className="mx-[25px]">
+                <div 
+                  key={index} 
+                  className={`absolute top-1/2 transform -translate-y-1/2 ${isAnimationComplete ? '' : 'left-1/2 -translate-x-1/2'}`}
+                  style={{ 
+                    width: '280px',
+                    height: '340px',
+                    zIndex: isAnimationComplete ? 1 : cardData.length - index,
+                    left: isAnimationComplete ? `${index * (280 + 10)}px` : undefined,
+                  }}
+                >
                   <Card
                     card={card}
                     index={index}
@@ -339,11 +298,12 @@ const UnlockSection = () => {
         </div>
       </div>
       <style jsx global>{`
-        .hide-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
         .card {
-          position: relative !important; // Override absolute positioning
+          transition: all 0.5s ease;
+          will-change: transform, opacity, scale;
+        }
+        ::-webkit-scrollbar {
+          display: none;
         }
       `}</style>
     </section>
