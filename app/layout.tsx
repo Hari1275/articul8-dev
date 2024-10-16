@@ -1,4 +1,4 @@
-import { Space_Grotesk } from 'next/font/google';
+import { Inter, Space_Grotesk } from 'next/font/google';
 import localFont from 'next/font/local';
 
 import Header from '../components/Header';
@@ -8,46 +8,31 @@ const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
   variable: '--font-space-grotesk',
 });
+// // Load your custom font
+// const customFont = localFont({
+//   src: './fonts/Fontspring-DEMO-proximanova-bold.otf',
+//   variable: '--font-custom',
+// });
 
-const proximaNova = localFont({
+const customFont = localFont({
   src: [
     {
-      path: './fonts/Proxima Nova Thin.otf',
-      weight: '300',
-      style: 'normal',
-    },
-    {
-      path: './fonts/ProximaNova-Regular.otf',
+      path: './fonts/Fontspring-DEMO-proximanova-regular.otf',
       weight: '400',
       style: 'normal',
     },
-    // {
-    //   path: './fonts/Fontspring-DEMO-proximanova-medium.otf',
-    //   weight: '500',
-    //   style: 'normal',
-    // },
     {
-      path: './fonts/Proxima Nova Semibold.otf',
-      weight: '600',
+      path: './fonts/Fontspring-DEMO-proximanova-medium.otf',
+      weight: '500',
       style: 'normal',
     },
     {
-      path: './fonts/Proxima Nova ScOsf Condensed Bold.otf',
+      path: './fonts/Fontspring-DEMO-proximanova-bold.otf',
       weight: '700',
       style: 'normal',
     },
-    {
-      path: './fonts/Proxima Nova ScOsf Condensed Extrabold.otf',
-      weight: '800',
-      style: 'normal',
-    },
-    {
-      path: './fonts/Proxima Nova Alt Condensed Black.otf',
-      weight: '900',
-      style: 'normal',
-    },
   ],
-  variable: '--font-proxima-nova',
+  variable: '--font-custom',
 });
 
 export default function RootLayout({
@@ -58,7 +43,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`${proximaNova.variable} ${spaceGrotesk.variable} font-proxima-nova`}
+        className={`${customFont.variable} ${spaceGrotesk.variable} font-custom`}
       >
         <Header />
         <main>{children}</main>
