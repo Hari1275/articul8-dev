@@ -293,7 +293,7 @@ const UnlockSection = () => {
   };
 
   return (
-    <section className='bg-white relative pt-12'>
+    <section className='bg-white relative pt-12 pb-12'>
       {' '}
       {/* Added padding-top */}
       <UnlockSectionHeader />

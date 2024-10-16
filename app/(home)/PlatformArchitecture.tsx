@@ -6,12 +6,13 @@ import { Disclosure } from '@headlessui/react';
 import React from 'react';
 
 const ToggleIcon = ({ isOpen }: { isOpen: boolean }) => (
-  <div>
-    {isOpen ? (
-      <Image src='/images/icons/plus.svg' alt='plus' width={20} height={20} />
-    ) : (
-      <Image src='/images/icons/minus.svg' alt='minus' width={20} height={20} />
-    )}
+  <div className="flex items-center justify-center w-6 h-6">
+    <Image 
+      src={isOpen ? '/images/icons/plus.svg' : '/images/icons/minus.svg'} 
+      alt={isOpen ? 'plus' : 'minus'} 
+      width={16} 
+      height={16} 
+    />
   </div>
 );
 
@@ -21,55 +22,52 @@ const PlatformArchitecture = () => {
   const items = [
     {
       icon: './images/icons/data.svg',
-      title: 'Autonomous multi-agent decisions and actions',
+      title: 'Autonomous Decisions & Actions',
       description:
-        'Autonomously manage a system of models (LLMs, non-LLMs, and customer models), optimizing resources to deliver tangible outcomes with accuracy and precision.',
+        'Autonomously manage a system of models (LLMs, non-LLMs, and customer models), optimizing resources to deliver tangible outcomes with accuracy and precision',
     },
     {
       icon: './images/icons/embedding.svg',
-      title: 'Autonomous data ingestion and understanding',
-      description: 'Automatically process and comprehend various data sources.',
+      title: 'Automated Data Intelligence',
+      description: '',
     },
     {
       icon: './images/icons/model.svg',
-      title: 'Growing library of Domain Specific Models (DSMs)',
-      description:
-        'Expand your capabilities with our ever-growing collection of specialized models.',
+      title: 'Growing Library Of Specialized Models',
+      description: '',
     },
     {
       icon: './images/icons/agent.svg',
-      title: 'Transparency and traceability at every step',
-      description:
-        'Maintain clear visibility and accountability throughout the entire process.',
+      title: 'Observability, Traceability & Auditability At Every Step',
+      description: '',
     },
     {
       icon: './images/icons/data.svg',
-      title: 'Deploy anywhere securely',
-      description:
-        'Flexible and secure deployment options for your specific needs.',
+      title: 'Deploy Anywhere Securely',
+      description: '',
     },
   ];
 
   return (
-    <section className='py-8 sm:py-12 md:py-16 px-4 sm:px-8 md:px-16 bg-white'>
+    <section className='pt-32 pb-16 px-4 sm:px-8 md:px-16 bg-white'>
       <div className='container mx-auto'>
-        <h2 className='text-2xl sm:text-3xl md:text-4xl font-bold mb-8' style={{ lineHeight: '1.4' }}>
+        <h2 className='text-6xl font-bold mb-16 leading-tight'>
           Articul8 platform makes the
           <br />
-          <span className='text-pink-500'>impossible possible.</span>
+          <span className='text-[#FF00C7] font-bold'>impossible possible.</span>
         </h2>
-        <div className='flex flex-col lg:flex-row items-start gap-8 lg:gap-10 lg:h-[600px]'>
-          <div className='w-full lg:w-1/2 mb-8 lg:mb-0 lg:overflow-y-auto'>
-            <div className='space-y-3 sm:space-y-4'>
+        <div className='flex flex-col lg:flex-row items-start justify-between gap-12'>
+          <div className='w-full lg:w-1/2'>
+            <div className='space-y-4'>
               {items.map((item, index) => (
                 <Disclosure key={index} defaultOpen={index === 0}>
                   {({ open }) => (
-                    <div className='bg-[#F6F6FF] rounded-lg overflow-hidden'>
+                    <div className={`bg-[#F6F6FF] rounded-lg overflow-hidden ${open ? 'shadow-[0_1px_3px_rgba(0,0,0,0.1)]' : ''}`}>
                       <Disclosure.Button
-                        className='flex items-center w-full text-left py-3 sm:py-4 px-3 sm:px-4 focus:outline-none'
+                        className='flex items-center w-full text-left py-4 px-4 focus:outline-none'
                         onClick={() => setOpenItem(open ? -1 : index)}
                       >
-                        <div className='mr-3 sm:mr-4 w-6 h-6 sm:w-8 sm:h-8'>
+                        <div className='mr-4 w-8 h-8'>
                           <Image
                             src={item.icon}
                             alt={item.title}
@@ -77,16 +75,16 @@ const PlatformArchitecture = () => {
                             height={32}
                           />
                         </div>
-                        <p className='flex-grow font-medium text-base sm:text-lg'>
+                        <p className='flex-grow font-medium text-lg'>
                           {item.title}
                         </p>
-                        <ToggleIcon
-                          isOpen={open || (index === openItem && !open)}
-                        />
+                        <ToggleIcon isOpen={open} />
                       </Disclosure.Button>
-                      <Disclosure.Panel className='px-3 sm:px-4 pt-2 pb-3 sm:pb-4 text-xs sm:text-sm text-gray-600'>
-                        {item.description}
-                      </Disclosure.Panel>
+                      {item.description && (
+                        <Disclosure.Panel className='px-4 pt-2 pb-4 text-sm text-gray-600 ml-12'>
+                          {item.description}
+                        </Disclosure.Panel>
+                      )}
                     </div>
                   )}
                 </Disclosure>
@@ -94,9 +92,9 @@ const PlatformArchitecture = () => {
             </div>
             <a
               href='#'
-              className='inline-flex items-center mt-6 sm:mt-8 text-[#112FFF] hover:underline font-semibold'
+              className='inline-flex items-center mt-8 text-[#112FFF] hover:underline font-semibold'
             >
-              <span className="text-lg sm:text-lg">Learn More</span>
+              <span className="text-lg">Learn More</span>
               <Image
                 src='/images/icons/arrow.svg'
                 alt='Arrow right'
@@ -106,17 +104,15 @@ const PlatformArchitecture = () => {
               />
             </a>
           </div>
-          <div className='w-full lg:w-1/2 flex justify-center items-center lg:sticky lg:top-0'>
-            <div className='relative w-full max-w-md lg:max-w-full'>
-              <Image
-                src='/images/Condensed-Version.svg'
-                alt='Articul8 Platform Architecture'
-                width={0}
-                height={0}
-                sizes='(max-width: 1023px) 100vw, 50vw'
-                style={{ width: '100%', height: 'auto' }}
-              />
-            </div>
+          <div className='w-full lg:w-1/2'>
+            <Image
+              src='/images/Condensed-Version.png'
+              alt='Articul8 Platform Architecture'
+              width={500}
+              height={500}
+              style={{ width: '100%', height: 'auto', maxWidth: '500px' }}
+              priority
+            />
           </div>
         </div>
       </div>
