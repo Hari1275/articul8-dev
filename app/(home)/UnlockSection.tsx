@@ -161,7 +161,7 @@ const UnlockSection = () => {
         trigger: cardsContainer,
         start: 'top center',
         end: 'center center',
-        once: true, // This ensures the animation only runs once
+        once: true,
         onEnter: () => {
           tl.play();
           setIsAnimationComplete(true);
@@ -182,11 +182,11 @@ const UnlockSection = () => {
       opacity: 1,
       zIndex: 1,
       stagger: {
-        each: 0.03,
+        each: 0.02, // Reduced from 0.03 to make the stagger effect faster
         from: 'start',
       },
-      ease: 'power2.inOut',
-      duration: 1,
+      ease: 'power2.out', // Changed from 'power2.inOut' for a snappier animation
+      duration: 0.8, // Reduced from 1 to make the overall animation faster
     });
 
     // Pause the timeline initially
