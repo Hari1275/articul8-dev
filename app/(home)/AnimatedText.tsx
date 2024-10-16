@@ -17,24 +17,25 @@ const AnimatedText = () => {
       // Initial state: large text
       gsap.set(text, {
         scale: 10,
-        opacity: 1,
+        opacity: 0,
       });
 
       // Create a timeline for the animation
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
-          start: 'top top',
-          end: '+=80%', // Reduced from 100% to 80%
-          scrub: true,
-          pin: true,
+          start: 'top bottom', // Changed to start when the top of the section hits the bottom of the viewport
+          end: 'bottom top', // Changed to end when the bottom of the section leaves the top of the viewport
+          scrub: true, // Removed scrub to allow the animation to play through
+          pin: false, // Removed pin as we want the section to scroll normally
+          once: true, // Added to ensure the animation only plays once
         },
       });
 
-      // Animate text shrinking and fading, then increase size slightly
+      // Animate text shrinking and fading in, then increase size slightly
       tl.to(text, {
         scale: 1, // Shrink to normal size
-        opacity: 0.9,
+        opacity: 1,
         ease: 'power2.out',
         duration: 0.8,
       }).to(text, {
@@ -51,7 +52,7 @@ const AnimatedText = () => {
   return (
     <div
       ref={sectionRef}
-      className='h-[60vh] flex flex-col items-center justify-center overflow-hidden bg-white' // Reduced height from 80vh to 60vh
+      className='h-[100vh] flex flex-col items-center justify-center overflow-hidden bg-white'
     >
       <div ref={textRef} className='flex flex-col items-center'>
         <p className='text-[18vw] sm:text-[16vw] md:text-[14vw] font-bold text-[#112FFF] leading-none mb-2'>

@@ -26,7 +26,7 @@ const useResponsiveValues = () => {
         setValues({ cardWidth: 250, gap: 10, visibleCards: 3 });
       } else {
         // Desktop
-        setValues({ cardWidth: 300, gap: 70, visibleCards: 5 });
+        setValues({ cardWidth: 300, gap: 70, visibleCards: 6 });
       }
     };
 
@@ -87,25 +87,25 @@ const Card = React.memo<{
         height: '100%',
         zIndex: totalCards - index,
         transformStyle: 'preserve-3d',
-        background:
-          'linear-gradient(to bottom right, #E8F1FF, #C1F0F4, #C2D3FD)',
+        background: 'linear-gradient(to bottom right, #E8F1FF, #C1F0F4, #C2D3FD)',
         boxShadow: '0 10px 20px rgba(0,0,0,0.1)',
+        backfaceVisibility: 'hidden', // Prevent text from showing through when rotated
       }}
       aria-label={`Card ${index + 1}: ${card.title.join(' ')}`}
     >
-      <div className='card-content'>
-        <h3 className='sm:text-2xl md:text-3xl font-bold leading-tight mb-4'>
+      <div className='card-content flex-grow'>
+        <h3 className='sm:text-sm md:text-base lg:text-lg font-bold leading-tight mb-2'>
           {card.title[0]}
           <br />
           {card.title[1]}
         </h3>
       </div>
-      <div className='relative flex items-end justify-start h-24 sm:h-28 md:h-32'>
+      <div className='relative flex items-end justify-start h-16 sm:h-20 md:h-24'>
         <Image
           src={card.image}
           alt={card.title.join(' ')}
-          width={80}
-          height={80}
+          width={50}
+          height={50}
           className='card-image transition-all duration-300'
           priority
         />
@@ -145,14 +145,14 @@ const UnlockSection = () => {
     const cards = cardsContainer.querySelectorAll('.card');
     const totalWidth = visibleCards * cardWidth + (visibleCards - 1) * gap;
 
-    // Initial stacked position
+    // Modified initial stacked position for better visibility
     gsap.set(cards, {
-      x: (i) => i * stackOffset - ((cards.length - 1) * stackOffset) / 2,
-      y: (i) => -i * stackOffset,
-      rotationY: -5,
-      rotationX: 5,
-      scale: (i) => 1 - i * 0.03,
-      opacity: (i) => 1 - i * 0.07,
+      x: (i) => i * stackOffset * 3 - ((cards.length - 1) * stackOffset * 1.5),
+      y: (i) => -i * stackOffset * 3, // Increased vertical offset
+      rotationY: -1, // Reduced rotation for better readability
+      rotationX: 1, // Reduced rotation for better readability
+      scale: (i) => 1 - i * 0.005, // Minimal scale difference
+      opacity: 1, // Full opacity for all cards
       zIndex: (i) => cards.length - i,
     });
 
@@ -293,7 +293,7 @@ const UnlockSection = () => {
   };
 
   return (
-    <section className='bg-white relative pt-20'>
+    <section className='bg-white relative pt-12'>
       {' '}
       {/* Added padding-top */}
       <UnlockSectionHeader />
@@ -309,7 +309,7 @@ const UnlockSection = () => {
               onClick={scrollLeft}
               disabled={!canScrollLeft}
               aria-label='Scroll left'
-              className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
+              className={`w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300 ${
                 canScrollLeft
                   ? 'bg-gray-200 hover:bg-gray-300 text-gray-600'
                   : 'bg-gray-100 text-gray-400 cursor-not-allowed'
@@ -321,7 +321,7 @@ const UnlockSection = () => {
               onClick={scrollRight}
               disabled={!canScrollRight}
               aria-label='Scroll right'
-              className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
+              className={`w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300 ${
                 canScrollRight
                   ? 'bg-blue-600 hover:bg-blue-700 text-white'
                   : 'bg-gray-200 text-gray-400 cursor-not-allowed'

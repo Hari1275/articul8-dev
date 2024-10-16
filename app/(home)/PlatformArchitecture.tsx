@@ -8,9 +8,9 @@ import React from 'react';
 const ToggleIcon = ({ isOpen }: { isOpen: boolean }) => (
   <div>
     {isOpen ? (
-      <Image src='/images/icons/minus.svg' alt='Minus' width={20} height={20} />
+      <Image src='/images/icons/plus.svg' alt='plus' width={20} height={20} />
     ) : (
-      <Image src='/images/icons/plus.svg' alt='Plus' width={20} height={20} />
+      <Image src='/images/icons/minus.svg' alt='minus' width={20} height={20} />
     )}
   </div>
 );
