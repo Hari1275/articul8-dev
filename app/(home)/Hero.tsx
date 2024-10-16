@@ -28,7 +28,7 @@ export default function Hero() {
     <section className='relative min-h-screen flex items-center justify-center bg-[#112FFF] text-white overflow-hidden'>
       <div className='container mx-auto px-6 sm:px-8 md:px-12 lg:px-16 xl:px-24 flex flex-col lg:flex-row items-center lg:items-start h-full'>
         <div className='text-left w-full lg:w-[55%] lg:pt-[10%] z-10 mb-8 lg:mb-0'>
-          <h1 className='font-bold mb-4 text-4xl sm:text-5xl md:text-5xl lg:text-6xl text-center lg:text-left'>
+          <h1 className='font-space-grotesk font-bold mb-4 text-4xl sm:text-5xl md:text-5xl lg:text-6xl text-center lg:text-left'>
             <span className='block'>ARTICUL8 YOUR</span>
             <span className='text-[#00F4C5] mt-2 inline-flex items-center h-[1.2em] overflow-hidden'>
               <motion.div
@@ -80,7 +80,7 @@ export default function Hero() {
               </motion.div>
             </span>
           </h1>
-          <p className='text-lg sm:text-xl md:text-2xl mt-6 font-medium text-center lg:text-left'>
+          <p className='font-proxima-nova text-lg sm:text-xl md:text-2xl mt-6 font-medium text-center lg:text-left'>
             The GenAI platform that simply works.
             <br />
             Bring order to chaos.

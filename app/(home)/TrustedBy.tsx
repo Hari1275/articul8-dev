@@ -6,7 +6,7 @@ const TrustedBy = () => {
   return (
     <section className='bg-white py-8 sm:py-12'>
       <div className='container mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-24'>
-        <h2 className='text-xl sm:text-2xl font-semibold text-center mb-6 sm:mb-8'>
+        <h2 className='text-sm  text-[#737373]  sm:text-[#000000] sm:text-2xl font-semibold text-center mb-6 sm:mb-8'>
           Trusted by leading global enterprises
         </h2>
         <div className='overflow-x-auto scrollbar-hide -mx-4 sm:mx-0'>

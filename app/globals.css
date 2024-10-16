@@ -46,10 +46,17 @@ body {
   font-size: 14px;
   line-height: 20px;
 }
-h1, h2, h3, h4, h5, h6 {
+/* h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-space-grotesk), sans-serif;
-}
+} */
 /* h1{
   font-size: 58px;
   line-height: 56px;
 } */
+.font-proxima-nova {
+  font-family: var(--font-proxima-nova);
+}
+
+.font-space-grotesk {
+  font-family: var(--font-space-grotesk);
+}
