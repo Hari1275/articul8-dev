@@ -17,7 +17,7 @@ const InnovationItem = ({
 }) => (
   <div
     className={`flex items-center py-6 px-6 ${
-      isSelected ? 'bg-[#1130FF] rounded-sm' : 'border-b border-gray-200'
+      isSelected ? 'bg-[#1130FF] rounded-sm' : 'border-b border-[#00000033]'
     } cursor-pointer transition-all duration-300 `}
     onClick={onClick}
   >
@@ -48,7 +48,7 @@ const ProductCard = ({
   title: string;
   description: string;
 }) => (
-  <div className='border-b border-gray-200 pb-6 mb-6 last:border-b-0 last:pb-0 last:mb-0'>
+  <div className='border-b border-[#00000033] pb-6 mb-6 last:border-b-0 last:pb-0 last:mb-0'>
     <div className='flex items-center mb-4'>
       <Image
         src={icon}
@@ -245,14 +245,9 @@ const innovationData = [
 
 const InnovationsSection = () => {
   const [selectedInnovation, setSelectedInnovation] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
 
   const handleInnovationClick = (index: number) => {
-    setIsTransitioning(true);
-    setTimeout(() => {
-      setSelectedInnovation(index);
-      setIsTransitioning(false);
-    }, 300); 
+    setSelectedInnovation(index);
   };
 
   return (
@@ -261,7 +256,7 @@ const InnovationsSection = () => {
         <h2 className='text-4xl font-bold mb-16 text-center leading-tight'>
           <span className='block mb-2'>
             There are{' '}
-            <span className='text-pink-500'>groundbreaking innovations</span>
+            <span className='text-[#FF00C7]'>groundbreaking innovations</span>
           </span>
           <span className='block'>behind the magic.</span>
         </h2>
@@ -278,19 +273,17 @@ const InnovationsSection = () => {
               />
             ))}
           </div>
-          <div className='h-[500px] overflow-y-auto relative'>
-            <div className={`transition-opacity duration-300 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
-              {innovationData[selectedInnovation].products.map(
-                (product, index) => (
-                  <ProductCard
-                    key={index}
-                    icon={product.icon}
-                    title={product.title}
-                    description={product.description}
-                  />
-                )
-              )}
-            </div>
+          <div className='h-[500px] overflow-y-auto'>
+            {innovationData[selectedInnovation].products.map(
+              (product, index) => (
+                <ProductCard
+                  key={index}
+                  icon={product.icon}
+                  title={product.title}
+                  description={product.description}
+                />
+              )
+            )}
           </div>
         </div>
       </div>

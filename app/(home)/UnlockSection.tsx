@@ -104,8 +104,8 @@ const Card = React.memo<{
         <Image
           src={card.image}
           alt={card.title.join(' ')}
-          width={50}
-          height={50}
+          width={100}
+          height={100}
           className='card-image transition-all duration-300'
           priority
         />
@@ -186,7 +186,7 @@ const UnlockSection = () => {
         from: 'start',
       },
       ease: 'power2.out', // Changed from 'power2.inOut' for a snappier animation
-      duration: 0.8, // Reduced from 1 to make the overall animation faster
+      duration: 0.5, // Reduced from 1 to make the overall animation faster
     });
 
     // Pause the timeline initially
