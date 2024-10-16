@@ -26,7 +26,7 @@ const useResponsiveValues = () => {
         setValues({ cardWidth: 250, gap: 10, visibleCards: 3 });
       } else {
         // Desktop
-        setValues({ cardWidth: 300, gap: 70, visibleCards: 6 });
+        setValues({ cardWidth: 300, gap: 78, visibleCards: 5 });
       }
     };
 
@@ -307,7 +307,7 @@ const UnlockSection = () => {
         ref={sectionRef as React.RefObject<HTMLDivElement>}
         className='overflow-visible relative'
       >
-        <div className='container mx-auto px-4 relative'>
+        <div className='container mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-24 relative'>
           {/* Moved arrows inside this container and adjusted positioning */}
           <div className='absolute -top-8 right-4 flex space-x-3 z-50'>
             <button
