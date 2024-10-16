@@ -26,9 +26,9 @@ const AnimatedText = () => {
           trigger: section,
           start: 'top bottom', // Changed to start when the top of the section hits the bottom of the viewport
           end: 'bottom top', // Changed to end when the bottom of the section leaves the top of the viewport
-          scrub: true, // Removed scrub to allow the animation to play through
+          scrub: 0.5, // Removed scrub to allow the animation to play through
           pin: false, // Removed pin as we want the section to scroll normally
-          once: true, // Added to ensure the animation only plays once
+         // Added to ensure the animation only plays once
         },
       });
 

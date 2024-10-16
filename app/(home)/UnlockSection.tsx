@@ -145,14 +145,14 @@ const UnlockSection = () => {
     const cards = cardsContainer.querySelectorAll('.card');
     const totalWidth = visibleCards * cardWidth + (visibleCards - 1) * gap;
 
-    // Modified initial stacked position for better visibility
+    // Initial stacked position (unchanged)
     gsap.set(cards, {
       x: (i) => i * stackOffset * 3 - ((cards.length - 1) * stackOffset * 1.5),
-      y: (i) => -i * stackOffset * 3, // Increased vertical offset
-      rotationY: -1, // Reduced rotation for better readability
-      rotationX: 1, // Reduced rotation for better readability
-      scale: (i) => 1 - i * 0.005, // Minimal scale difference
-      opacity: 1, // Full opacity for all cards
+      y: (i) => -i * stackOffset * 3,
+      rotationY: -1,
+      rotationX: 1,
+      scale: (i) => 1 - i * 0.005,
+      opacity: 1,
       zIndex: (i) => cards.length - i,
     });
 
@@ -161,9 +161,10 @@ const UnlockSection = () => {
         trigger: cardsContainer,
         start: 'top center',
         end: 'center center',
-        scrub: 0.5,
-        onUpdate: (self) => {
-          setIsAnimationComplete(self.progress >= 0.5);
+        once: true, // This ensures the animation only runs once
+        onEnter: () => {
+          tl.play();
+          setIsAnimationComplete(true);
         },
       },
     });
@@ -187,6 +188,10 @@ const UnlockSection = () => {
       ease: 'power2.inOut',
       duration: 1,
     });
+
+    // Pause the timeline initially
+    tl.pause();
+
   }, [prefersReducedMotion, cardWidth, gap, visibleCards, stackOffset]);
 
   useEffect(() => {
