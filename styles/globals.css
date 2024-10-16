@@ -2,20 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
-/* You can add any global styles here */
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
 
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+  font-family: var(--font-proxima-nova), sans-serif;
 }
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.font-proxima-nova {
+  font-family: var(--font-proxima-nova), sans-serif;
+}
+
+.font-space-grotesk {
+  font-family: var(--font-space-grotesk), sans-serif;
+}
+
 /* Add this to your CSS file */
 .scrollbar-hide {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 .scrollbar-hide::-webkit-scrollbar {
-  display: none;  /* Chrome, Safari and Opera */
+  display: none; /* Chrome, Safari and Opera */
+}
+
+/* Additional styles from app/globals.css */
+.innovation-item {
+  padding: 16px 20px;
+}
+
+.innovation-item:not(:last-child) {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.product-card {
+  padding: 24px;
+}
+
+.product-card h3 {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.product-card p {
+  font-size: 14px;
+  line-height: 20px;
 }
