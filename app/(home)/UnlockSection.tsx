@@ -60,15 +60,15 @@ const Card = React.memo<{
     const content = cardElement.querySelector('.card-content') as HTMLElement;
 
     const hoverAnimation = gsap.timeline({ paused: true });
-    hoverAnimation
-      .to(cardElement, {
-        y: -10,
-        scale: 1.05,
-        boxShadow: '0 20px 30px rgba(0,0,0,0.2)',
-        duration: 0.3,
-      })
-      .to(image, { scale: 1.1, duration: 0.3 }, 0)
-      .to(content, { y: -5, duration: 0.3 }, 0);
+    // hoverAnimation removed
+    //   .to(cardElement, {
+    //     y: -10,
+    //     scale: 1.05,
+    //     // Removed boxShadow property
+    //     duration: 0.3,
+    //   })
+    //   .to(image, { scale: 1.1, duration: 0.3 }, 0)
+    //   .to(content, { y: -5, duration: 0.3 }, 0);
 
     const playAnimation = () => hoverAnimation.play();
     const reverseAnimation = () => hoverAnimation.reverse();
@@ -219,11 +219,11 @@ const UnlockSection = () => {
       opacity: 1,
       zIndex: 1,
       stagger: {
-        each: 0.02, // Reduced from 0.03 to make the stagger effect faster
+        each: 0.01, // Reduced from 0.02 to make the stagger effect even faster
         from: 'start',
       },
-      ease: 'power2.out', // Changed from 'power2.inOut' for a snappier animation
-      duration: 0.5, // Reduced from 1 to make the overall animation faster
+      ease: 'power3.out', // Changed to power3.out for a more explosive, faster animation
+      duration: 0.3, // Reduced from 0.5 to make the overall animation faster
     });
 
     // Pause the timeline initially
