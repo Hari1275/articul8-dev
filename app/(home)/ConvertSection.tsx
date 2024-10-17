@@ -84,7 +84,7 @@ const ConvertSection = () => {
         'Retain flexibility by mitigating vendor lock-in for hardware and AI models.',
     },
   ];
-
+  //
   const renderFeatureCards = (): JSX.Element[] => {
     const rows: JSX.Element[] = [];
     for (let i = 0; i < features.length; i += 3) {
