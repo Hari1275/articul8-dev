@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -14,18 +14,18 @@ const UnlockSectionHeader = () => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % words.length);
         setTimeout(() => {
           setIsExpanded(true);
-        }, 100); // Small delay before expanding
-      }, 400); // Wait for brackets to close
+        }, 100);
+      }, 400);
     }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [words.length]);
 
   return (
     <section className='bg-white py-8 sm:py-12'>
       <div className='container mx-auto px-4'>
         <h2 className='font-space-grotesk text-[30px] sm:text-[56px] md:text-[56px] font-[700] mb-6 sm:mb-8 md:mb-12 text-center text-[#060606] leading-[38.28px] sm:leading-[84px]'>
-          <span className="block sm:inline">Unlock</span>{' '}
+          <span className='block sm:inline'>Unlock</span>{' '}
           <span className='inline-flex flex-col sm:flex-row items-center h-auto sm:h-[1.2em] overflow-hidden align-middle sm:py-4'>
             <motion.div
               animate={{ width: isExpanded ? 'auto' : 'auto' }}
@@ -38,7 +38,7 @@ const UnlockSectionHeader = () => {
                 width={22}
                 height={22}
                 className='mr-1 object-contain w-[15px] sm:w-[20px] md:w-[22px]'
-                sizes="(max-width: 640px) 15px, (max-width: 768px) 20px, 22px"
+                sizes='(max-width: 640px) 15px, (max-width: 768px) 20px, 22px'
                 priority
               />
               <motion.div
@@ -47,15 +47,15 @@ const UnlockSectionHeader = () => {
                 className='overflow-hidden h-full'
                 style={{ minWidth: '1px' }}
               >
-                <AnimatePresence mode="wait" initial={false}>
+                <AnimatePresence mode='wait' initial={false}>
                   <motion.span
                     key={currentIndex}
                     initial={{ y: '100%', opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: '-100%', opacity: 0 }}
-                    transition={{ 
+                    transition={{
                       y: { duration: 0.3, ease: [0.33, 1, 0.68, 1] },
-                      opacity: { duration: 0.2, ease: 'easeInOut' }
+                      opacity: { duration: 0.2, ease: 'easeInOut' },
                     }}
                     className='inline-block whitespace-nowrap text-[#FA05C3]'
                     style={{ display: 'block', position: 'relative' }}
@@ -70,16 +70,16 @@ const UnlockSectionHeader = () => {
                 width={22}
                 height={22}
                 className='ml-1 object-contain w-[15px] sm:w-[20px] md:w-[22px]'
-                sizes="(max-width: 640px) 15px, (max-width: 768px) 20px, 22px"
+                sizes='(max-width: 640px) 15px, (max-width: 768px) 20px, 22px'
                 priority
               />
             </motion.div>
           </span>{' '}
-          <span className="block sm:inline">with your data</span>
+          <span className='block sm:inline'>with your data</span>
         </h2>
       </div>
     </section>
   );
-}
+};
 
 export default UnlockSectionHeader;

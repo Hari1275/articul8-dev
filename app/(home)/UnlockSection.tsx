@@ -24,10 +24,20 @@ const useResponsiveValues = () => {
         setValues({ cardWidth: 250, gap: 10, visibleCards: 1, isMobile: true });
       } else if (window.innerWidth < 1024) {
         // Tablet
-        setValues({ cardWidth: 250, gap: 10, visibleCards: 3, isMobile: false });
+        setValues({
+          cardWidth: 250,
+          gap: 10,
+          visibleCards: 3,
+          isMobile: false,
+        });
       } else {
         // Desktop
-        setValues({ cardWidth: 300, gap: 78, visibleCards: 5, isMobile: false });
+        setValues({
+          cardWidth: 300,
+          gap: 78,
+          visibleCards: 5,
+          isMobile: false,
+        });
       }
     };
 
@@ -55,9 +65,6 @@ const Card = React.memo<{
 
     const cardElement = cardRef.current;
     if (!cardElement) return;
-
-    const image = cardElement.querySelector('.card-image') as HTMLElement;
-    const content = cardElement.querySelector('.card-content') as HTMLElement;
 
     const hoverAnimation = gsap.timeline({ paused: true });
     // hoverAnimation removed
@@ -124,7 +131,8 @@ const Card = React.memo<{
         height: '100%',
         zIndex: totalCards - index,
         transformStyle: 'preserve-3d',
-        background: 'linear-gradient(to bottom right, #E8F1FF, #C1F0F4, #C2D3FD)',
+        background:
+          'linear-gradient(to bottom right, #E8F1FF, #C1F0F4, #C2D3FD)',
         boxShadow: '0 10px 20px rgba(0,0,0,0.1)',
         backfaceVisibility: 'hidden',
       }}
@@ -159,7 +167,6 @@ const UnlockSection = () => {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
-  const [isAnimationComplete, setIsAnimationComplete] = useState(false);
 
   const { cardWidth, gap, visibleCards, isMobile } = useResponsiveValues();
   const stackOffset = 3;
@@ -184,7 +191,7 @@ const UnlockSection = () => {
 
     // Initial stacked position (unchanged)
     gsap.set(cards, {
-      x: (i) => i * stackOffset * 3 - ((cards.length - 1) * stackOffset * 1.5),
+      x: (i) => i * stackOffset * 3 - (cards.length - 1) * stackOffset * 1.5,
       y: (i) => -i * stackOffset * 3,
       rotationY: -1,
       rotationX: 1,
@@ -199,10 +206,6 @@ const UnlockSection = () => {
         start: 'top center',
         end: 'center center',
         once: true,
-        onEnter: () => {
-          tl.play();
-          setIsAnimationComplete(true);
-        },
       },
     });
 
@@ -228,7 +231,6 @@ const UnlockSection = () => {
 
     // Pause the timeline initially
     tl.pause();
-
   }, [prefersReducedMotion, cardWidth, gap, visibleCards, stackOffset]);
 
   useEffect(() => {
@@ -377,7 +379,9 @@ const UnlockSection = () => {
             className='relative overflow-x-auto pt-12'
             style={{
               width: '100%',
-              height: isMobile ? `${cardWidth * 1.0}px` : `${cardWidth * 1.2 + 60}px`, // Increased height for mobile
+              height: isMobile
+                ? `${cardWidth * 1.0}px`
+                : `${cardWidth * 1.2 + 60}px`, // Increased height for mobile
               scrollbarWidth: 'none',
               msOverflowStyle: 'none',
             }}
@@ -386,7 +390,9 @@ const UnlockSection = () => {
               className='absolute top-1/2 left-[20%] sm:left-1/2 transform -translate-x-1/2 -translate-y-1/2'
               style={{
                 width: `${cardData.length * (cardWidth + gap) - gap}px`,
-                height: isMobile ? `${cardWidth * 0.9}px` : `${cardWidth * 1.2 + 60}px`, // Increased height for mobile
+                height: isMobile
+                  ? `${cardWidth * 0.9}px`
+                  : `${cardWidth * 1.2 + 60}px`, // Increased height for mobile
               }}
             >
               {cardData.map((card, index) => (
@@ -395,7 +401,9 @@ const UnlockSection = () => {
                   className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'
                   style={{
                     width: `${cardWidth}px`,
-                    height: isMobile ? `${cardWidth * 0.9}px` : `${cardWidth * 1.2}px`, // Increased height for mobile
+                    height: isMobile
+                      ? `${cardWidth * 0.9}px`
+                      : `${cardWidth * 1.2}px`, // Increased height for mobile
                     transition: 'all 0.5s ease',
                   }}
                 >

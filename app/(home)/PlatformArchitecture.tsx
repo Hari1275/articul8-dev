@@ -71,10 +71,7 @@ const PlatformArchitecture = () => {
                         open ? 'shadow-[0_1px_3px_rgba(0,0,0,0.1)]' : ''
                       }`}
                     >
-                      <Disclosure.Button
-                        className='flex items-start w-full text-left py-4 px-4 focus:outline-none'
-                        onClick={() => setOpenItem(open ? -1 : index)}
-                      >
+                      <Disclosure.Button className='flex items-start w-full text-left py-4 px-4 focus:outline-none'>
                         <div className='mr-4 w-8 h-8 flex-shrink-0 mt-[2px]'>
                           <Image
                             src={item.icon}
