@@ -96,7 +96,7 @@ const Card = React.memo<{
         aria-label={`Card ${index + 1}: ${card.title.join(' ')}`}
       >
         <div className='card-content flex-grow'>
-          <h3 className='font-proxima-nova sm:text-[32px] sm:leading-[38px]  font-[600] sm:font-[700] text-[23px] leading-tight text-left mb-2'>
+          <h3 className='font-proxima-nova sm:text-[32px] sm:leading-[38px] font-[600] sm:font-[700] text-[23px] leading-tight text-left mb-2'>
             {card.title[0]} <br /> {card.title[1]}
           </h3>
         </div>
