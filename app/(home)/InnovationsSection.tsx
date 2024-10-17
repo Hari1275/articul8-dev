@@ -42,25 +42,30 @@ const InnovationItem = ({
 const ProductCard = ({
   icon,
   title,
+  subTitle,
   description,
 }: {
   icon: string;
   title: string;
+  subTitle: string;
   description: string;
 }) => (
   <div className='border-b border-[#00000033] pb-6 mb-6 last:border-b-0 last:pb-0 last:mb-0'>
-    <div className='flex items-center mb-4'>
+    <div className='flex items-start mb-4'>
       <Image
         src={icon}
         alt={title}
         width={26}
         height={26}
-        className='mr-3'
+        className='mr-3 mt-1'
         priority
       />
-      <p className='text-[23px] font-proxima-nova font-[600] leading-[23px] sm:text-xl font-semibold text-black'>{title}</p>
+      <div>
+        <p className='text-[23px] font-proxima-nova font-[600] leading-[28px] sm:text-xl font-semibold text-black'>{title}</p>
+      </div>
     </div>
-    <p className='text-[16px] font-proxima-nova font-[400] leading-[19.49px]    sm:text-sm text-black leading-relaxed'>{description}</p>
+        <p className='text-[16px] sm:text[20px] sm:leading-[24.36px] font-proxima-nova font-[400] leading-[19.49px] text-[#1130FF] mt-1'>{subTitle}</p>
+    <p className='text-[16px] pt-2 font-proxima-nova font-[400] leading-[19.49px] sm:text-sm text-black leading-relaxed'>{description}</p>
   </div>
 );
 
@@ -223,13 +228,14 @@ const InnovationsSection = () => {
               />
             ))}
           </div>
-          <div className='h-[500px] overflow-y-auto'>
+          <div>
             {innovationData[selectedInnovation].products.map(
               (product, index) => (
                 <ProductCard
                   key={index}
                   icon={product.icon}
                   title={product.title}
+                  subTitle={product.subTitle}
                   description={product.description}
                 />
               )

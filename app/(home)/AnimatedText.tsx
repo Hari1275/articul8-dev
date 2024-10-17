@@ -52,7 +52,7 @@ const AnimatedText = () => {
   return (
     <div
       ref={sectionRef}
-      className='h-[55vh]  sm:h-[60vh] flex flex-col items-center justify-center overflow-hidden bg-white'
+      className='h-[55vh]  sm:h-[100vh] flex flex-col items-center justify-center overflow-hidden bg-white'
     >
       <div ref={textRef} className='flex flex-col items-center'>
         <p className='font-proxima-nova font-[700] text-[20vw] sm:text-[715.66px] md:text-[715.66px] sm:leading-[715.66px]  text-[#112FFF]  sm:mb-2'>

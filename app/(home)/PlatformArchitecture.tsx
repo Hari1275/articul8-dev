@@ -82,7 +82,7 @@ const PlatformArchitecture = () => {
                         <ToggleIcon isOpen={open} />
                       </Disclosure.Button>
                       {item.description && (
-                        <Disclosure.Panel className='sm:font-proxima-nova  font-space-grotesk  px-4 pt-2 pb-4 text-[16px] sm:text-[20px] font-[400] leading-[20.42px] sm:leading-[21px] sm:text-sm text-[#000] ml-12'>
+                        <Disclosure.Panel className='sm:font-proxima-nova  font-space-grotesk  px-4 pt-2 sm:pt-0 pb-4 text-[16px] sm:text-[18px] font-[400] leading-[20.42px] sm:leading-[21px] sm:text-sm text-[#000] ml-12'>
                           {item.description}
                         </Disclosure.Panel>
                       )}
