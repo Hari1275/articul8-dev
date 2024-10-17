@@ -28,7 +28,7 @@ const AnimatedText = () => {
           end: 'bottom top', // Changed to end when the bottom of the section leaves the top of the viewport
           scrub: 0.5, // Removed scrub to allow the animation to play through
           pin: false, // Removed pin as we want the section to scroll normally
-         // Added to ensure the animation only plays once
+          // Added to ensure the animation only plays once
         },
       });
 
@@ -55,7 +55,7 @@ const AnimatedText = () => {
       className='h-[55vh]  sm:h-[100vh] flex flex-col items-center justify-center overflow-hidden bg-white'
     >
       <div ref={textRef} className='flex flex-col items-center'>
-        <p className='font-proxima-nova font-[700] text-[20vw] sm:text-[715.66px] md:text-[715.66px] sm:leading-[715.66px]  text-[#112FFF]  sm:mb-2'>
+        <p className='font-proxima-nova font-[700] text-[20vw] sm:text-[315.66px] md:text-[315.66px] sm:leading-[315.66px]  text-[#112FFF]  sm:mb-2'>
           4x
         </p>
         <p className='font-space-grotesk font-[700] text-[40px]  leading-[51.04px] sm:text-[93.95px] md:text-[93.95px] lg:text-[93.95px] sm:leading[119.88px] text-center'>
