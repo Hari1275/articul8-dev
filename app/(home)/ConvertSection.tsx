@@ -22,8 +22,12 @@ const FeatureCard = ({
         priority
       />
     </div>
-    <h3 className='font-space-grotesk text-[23px] sm:text-[34px] font-[700] leading-[30px] sm:text-2xl text-black  mb-3'>{title}</h3>
-    <p className='font-proxima-nova font-[400] text-[20px] text-black leading-[24px]'>{description}</p>
+    <h3 className='font-space-grotesk text-[23px] sm:text-[34px] font-[700] leading-[30px] sm:text-2xl text-black  mb-3'>
+      {title}
+    </h3>
+    <p className='font-proxima-nova font-[400] text-[20px] text-black leading-[24px]'>
+      {description}
+    </p>
   </div>
 );
 
@@ -56,7 +60,7 @@ const ConvertSection = () => {
         'Enterprise-scale readiness to handle large data volumes, with high concurrency and low latency.',
     },
     {
-      icon: '/images/icons/resilient.svg',
+      icon: '/images/icons/whisper, api.svg',
       title: 'Stay Resilient',
       description:
         'Effortlessly adapt to continually changing datasets, including adapting to new context and use-cases.',
@@ -68,13 +72,13 @@ const ConvertSection = () => {
         'Continuously evolve your applications with the latest models',
     },
     {
-      icon: '/images/icons/transparency.svg',
+      icon: '/images/icons/grows.svg',
       title: 'Get Transparency',
       description:
         'Native support for interactivity, explainability, traceability, auditability and reproducibility.',
     },
     {
-      icon: '/images/icons/lock.svg',
+      icon: '/images/icons/edge.svg',
       title: 'Avoid lock-ins',
       description:
         'Retain flexibility by mitigating vendor lock-in for hardware and AI models.',
@@ -127,10 +131,14 @@ const ConvertSection = () => {
                 width={28}
                 height={28}
                 className='mr-1 w-4 h-4 sm:w-12 sm:h-12'
-                sizes="(max-width: 640px) 15px, (max-width: 768px) 20px, 25px"
+                sizes='(max-width: 640px) 15px, (max-width: 768px) 20px, 25px'
                 priority
               />
-              <span className={`transition-all duration-300 ${isExpanded ? 'opacity-100 max-w-[300px]' : 'opacity-0 max-w-0'}`}>
+              <span
+                className={`transition-all duration-300 ${
+                  isExpanded ? 'opacity-100 max-w-[300px]' : 'opacity-0 max-w-0'
+                }`}
+              >
                 {currentWord}
               </span>
               <Image
@@ -139,7 +147,7 @@ const ConvertSection = () => {
                 width={28}
                 height={28}
                 className='ml-1 w-4 h-4 sm:w-12 sm:h-12'
-                sizes="(max-width: 640px) 15px, (max-width: 768px) 20px, 25px"
+                sizes='(max-width: 640px) 15px, (max-width: 768px) 20px, 25px'
                 priority
               />
             </span>{' '}

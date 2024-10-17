@@ -32,19 +32,19 @@ const Header = () => {
           <nav className='flex space-x-6'>
             <Link
               href='/about'
-              className='text-black text-sm font-medium hover:text-blue-600 transition duration-300'
+              className='text-black font-proxima-nova leading-[21.92px] text-[16px] font-[400] hover:text-black transition duration-300'
             >
               About us
             </Link>
             <Link
               href='/product'
-              className='text-black text-sm font-medium hover:text-blue-600 transition duration-300'
+              className='text-black font-proxima-nova text-[16px] leading-[21.92px] font-[400] hover:text-black transition duration-300'
             >
               Product
             </Link>
           </nav>
         </div>
-        <button className='bg-[#1130FF] text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition duration-300'>
+        <button className='font-space-grotesk bg-[#1130FF] text-white px-6 py-4 rounded-[4px] text-[16px] leading-[22.97px] font-[700] hover:bg-blue-700 transition duration-300'>
           Start Articul8&apos;ing
         </button>
       </div>
@@ -61,8 +61,19 @@ const Header = () => {
           />
         </Link>
         <button onClick={toggleMenu} className='text-black focus:outline-none'>
-          <svg className='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
-            <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M4 6h16M4 12h16M4 18h16' />
+          <svg
+            className='w-6 h-6'
+            fill='none'
+            stroke='currentColor'
+            viewBox='0 0 24 24'
+            xmlns='http://www.w3.org/2000/svg'
+          >
+            <path
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              strokeWidth={2}
+              d='M4 6h16M4 12h16M4 18h16'
+            />
           </svg>
         </button>
       </div>
@@ -71,25 +82,51 @@ const Header = () => {
       {isMenuOpen && (
         <div className='fixed inset-0 bg-[#1130FF] z-50 flex flex-col md:hidden'>
           <div className='flex-grow flex flex-col items-center justify-center'>
-            <button onClick={toggleMenu} className='absolute top-4 right-4 text-white'>
-              <svg className='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
-                <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M6 18L18 6M6 6l12 12' />
+            <button
+              onClick={toggleMenu}
+              className='absolute top-4 right-4 text-white'
+            >
+              <svg
+                className='w-7 h-5'
+                fill='none'
+                stroke='currentColor'
+                viewBox='0 0 24 24'
+                xmlns='http://www.w3.org/2000/svg'
+              >
+                <path
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth={2}
+                  d='M6 18L18 6M6 6l12 12'
+                />
               </svg>
             </button>
             <nav className='flex flex-col items-center space-y-6'>
-              <Link href='/' className='text-white text-2xl font-medium' onClick={toggleMenu}>
+              <Link
+                href='/'
+                className='text-white font-proxima-nova text-[34px] font-[400] leading-[40px] px-8 py-2 border-2 border-[#4D6EFF] rounded-md'
+                onClick={toggleMenu}
+              >
                 Home
               </Link>
-              <Link href='/about' className='text-white text-2xl font-medium' onClick={toggleMenu}>
+              <Link
+                href='/about'
+                className='text-white font-proxima-nova text-[34px] font-[400] leading-[40px] px-8 py-2 hover:border-2 hover:border-[#4D6EFF] hover:rounded-md transition-all duration-300'
+                onClick={toggleMenu}
+              >
                 About us
               </Link>
-              <Link href='/product' className='text-white text-2xl font-medium' onClick={toggleMenu}>
+              <Link
+                href='/product'
+                className='text-white font-proxima-nova text-[34px] font-[400] leading-[40px] px-8 py-2 hover:border-2 hover:border-[#4D6EFF] hover:rounded-md transition-all duration-300'
+                onClick={toggleMenu}
+              >
                 Product
               </Link>
             </nav>
           </div>
           <div className='p-4'>
-            <button className='w-full bg-white font-bold text-[#1130FF] px-6 py-3 rounded-md text-[1.5rem] hover:bg-gray-100 transition duration-300'>
+            <button className='font-space-grotesk text-[16px] w-full bg-white font-bold text-[#1130FF] px-6 py-3 rounded-md leading-[22.97px] hover:bg-gray-100 transition duration-300'>
               Start Articul8&apos;ing
             </button>
           </div>
