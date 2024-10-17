@@ -14,19 +14,20 @@ const useResponsiveValues = () => {
     cardWidth: 280,
     gap: 10,
     visibleCards: 3,
+    isMobile: false,
   });
 
   useEffect(() => {
     const updateValues = () => {
       if (window.innerWidth < 640) {
         // Mobile
-        setValues({ cardWidth: 240, gap: 10, visibleCards: 1 });
+        setValues({ cardWidth: 250, gap: 10, visibleCards: 1, isMobile: true });
       } else if (window.innerWidth < 1024) {
         // Tablet
-        setValues({ cardWidth: 250, gap: 10, visibleCards: 3 });
+        setValues({ cardWidth: 250, gap: 10, visibleCards: 3, isMobile: false });
       } else {
         // Desktop
-        setValues({ cardWidth: 300, gap: 78, visibleCards: 5 });
+        setValues({ cardWidth: 300, gap: 78, visibleCards: 5, isMobile: false });
       }
     };
 
@@ -45,10 +46,13 @@ const Card = React.memo<{
   };
   index: number;
   totalCards: number;
-}>(({ card, index, totalCards }) => {
+  isMobile: boolean;
+}>(({ card, index, totalCards, isMobile }) => {
   const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (isMobile) return; // Skip hover animation for mobile
+
     const cardElement = cardRef.current;
     if (!cardElement) return;
 
@@ -76,8 +80,41 @@ const Card = React.memo<{
       cardElement.removeEventListener('mouseenter', playAnimation);
       cardElement.removeEventListener('mouseleave', reverseAnimation);
     };
-  }, []);
+  }, [isMobile]);
 
+  if (isMobile) {
+    return (
+      <div
+        ref={cardRef}
+        className='card rounded-xl p-4 flex flex-col justify-between cursor-pointer transition-all duration-500 overflow-hidden'
+        style={{
+          width: '100%',
+          height: '100%',
+          background: 'linear-gradient(to right, #E8F1FF, #C1F0F4)',
+          boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+        }}
+        aria-label={`Card ${index + 1}: ${card.title.join(' ')}`}
+      >
+        <div className='card-content flex-grow'>
+          <h3 className='font-proxima-nova sm:text-[32px] sm:leading-[38px]  font-[600] sm:font-[700] text-[23px] leading-tight text-left mb-2'>
+            {card.title[0]} <br /> {card.title[1]}
+          </h3>
+        </div>
+        <div className='flex justify-start mt-auto'>
+          <Image
+            src={card.image}
+            alt={card.title.join(' ')}
+            width={50}
+            height={50}
+            className='card-image -mb-2' // Added negative margin to create cut-off effect
+            priority
+          />
+        </div>
+      </div>
+    );
+  }
+
+  // Existing card design for tablet and desktop
   return (
     <div
       ref={cardRef}
@@ -89,7 +126,7 @@ const Card = React.memo<{
         transformStyle: 'preserve-3d',
         background: 'linear-gradient(to bottom right, #E8F1FF, #C1F0F4, #C2D3FD)',
         boxShadow: '0 10px 20px rgba(0,0,0,0.1)',
-        backfaceVisibility: 'hidden', // Prevent text from showing through when rotated
+        backfaceVisibility: 'hidden',
       }}
       aria-label={`Card ${index + 1}: ${card.title.join(' ')}`}
     >
@@ -124,7 +161,7 @@ const UnlockSection = () => {
   const [canScrollRight, setCanScrollRight] = useState(true);
   const [isAnimationComplete, setIsAnimationComplete] = useState(false);
 
-  const { cardWidth, gap, visibleCards } = useResponsiveValues();
+  const { cardWidth, gap, visibleCards, isMobile } = useResponsiveValues();
   const stackOffset = 3;
 
   useEffect(() => {
@@ -298,7 +335,7 @@ const UnlockSection = () => {
   };
 
   return (
-    <section className='bg-white relative pt-12 pb-12'>
+    <section className='bg-white relative sm:pt-12 sm:pb-12'>
       {' '}
       {/* Added padding-top */}
       <UnlockSectionHeader />
@@ -340,16 +377,16 @@ const UnlockSection = () => {
             className='relative overflow-x-auto pt-12'
             style={{
               width: '100%',
-              height: `${cardWidth * 1.2 + 60}px`,
+              height: isMobile ? `${cardWidth * 1.0}px` : `${cardWidth * 1.2 + 60}px`, // Increased height for mobile
               scrollbarWidth: 'none',
               msOverflowStyle: 'none',
             }}
           >
             <div
-              className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'
+              className='absolute top-1/2 left-[20%] sm:left-1/2 transform -translate-x-1/2 -translate-y-1/2'
               style={{
                 width: `${cardData.length * (cardWidth + gap) - gap}px`,
-                height: `${cardWidth * 1.2 + 60}px`,
+                height: isMobile ? `${cardWidth * 0.9}px` : `${cardWidth * 1.2 + 60}px`, // Increased height for mobile
               }}
             >
               {cardData.map((card, index) => (
@@ -358,7 +395,7 @@ const UnlockSection = () => {
                   className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'
                   style={{
                     width: `${cardWidth}px`,
-                    height: `${cardWidth * 1.2}px`,
+                    height: isMobile ? `${cardWidth * 0.9}px` : `${cardWidth * 1.2}px`, // Increased height for mobile
                     transition: 'all 0.5s ease',
                   }}
                 >
@@ -366,6 +403,7 @@ const UnlockSection = () => {
                     card={card}
                     index={index}
                     totalCards={cardData.length}
+                    isMobile={isMobile}
                   />
                 </div>
               ))}

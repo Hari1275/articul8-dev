@@ -12,6 +12,11 @@ const spaceGrotesk = Space_Grotesk({
 const proximaNova = localFont({
   src: [
     {
+      path: './fonts/Proxima Nova Thin.otf',
+      weight: '300',
+      style: 'normal',
+    },
+    {
       path: './fonts/ProximaNova-Regular.otf',
       weight: '400',
       style: 'normal',

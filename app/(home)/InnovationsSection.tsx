@@ -24,14 +24,14 @@ const InnovationItem = ({
     <Image
       src={isSelected ? selectedIcon : icon}
       alt={title}
-      width={24}
-      height={24}
+      width={26}
+      height={26}
       priority
       className={`mr-4 ${isSelected ? '' : ''}`}
     />
     <p
-      className={`text-lg font-medium ${
-        isSelected ? 'text-white font-bold' : 'text-gray-800'
+      className={` text-[19px] font-proxima-nova font-[700] leading-[23.14px] sm:text-lg font-medium ${
+        isSelected ? 'text-white font-[700]' : 'text-black'
       }`}
     >
       {title}
@@ -53,14 +53,14 @@ const ProductCard = ({
       <Image
         src={icon}
         alt={title}
-        width={24}
-        height={24}
+        width={26}
+        height={26}
         className='mr-3'
         priority
       />
-      <p className='text-xl font-semibold text-gray-800'>{title}</p>
+      <p className='text-[23px] font-proxima-nova font-[600] leading-[23px] sm:text-xl font-semibold text-black'>{title}</p>
     </div>
-    <p className='text-sm text-gray-600 leading-relaxed'>{description}</p>
+    <p className='text-[16px] font-proxima-nova font-[400] leading-[19.49px]    sm:text-sm text-black leading-relaxed'>{description}</p>
   </div>
 );
 
@@ -251,16 +251,23 @@ const InnovationsSection = () => {
   };
 
   return (
-    <section className='py-20 px-4 bg-[#F2F7FF]'>
+    <section className='sm:pt-20 pt-6 sm:py-20 px-4 bg-[#F2F7FF]'>
       <div className='container mx-auto px-4'>
-        <h2 className='text-4xl font-bold mb-16 text-center leading-tight'>
+        <h2 className='hidden sm:block font-space-grotesk text-[26px] sm:text-[56px] font-bold mb-16  sm:leading-[84px] text-center leading-tight'>
           <span className='block mb-2'>
             There are{' '}
             <span className='text-[#FF00C7]'>groundbreaking innovations</span>
           </span>
           <span className='block'>behind the magic.</span>
         </h2>
-        <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 px-10'>
+
+        <h2 className='sm:hidden font-space-grotesk text-[26px] font-[700] mb-16 text-center leading-[38px]'>
+          There are{' '}
+          <span className='text-[#FF00C7] inline'>groundbreaking innovations</span>{' '}
+          behind the magic.
+        </h2>
+
+        <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 sm:px-10'>
           <div className='space-y-2'>
             {innovationData.map((item, index) => (
               <InnovationItem

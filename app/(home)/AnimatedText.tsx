@@ -52,13 +52,13 @@ const AnimatedText = () => {
   return (
     <div
       ref={sectionRef}
-      className='h-[100vh] flex flex-col items-center justify-center overflow-hidden bg-white'
+      className='h-[55vh]  sm:h-[60vh] flex flex-col items-center justify-center overflow-hidden bg-white'
     >
       <div ref={textRef} className='flex flex-col items-center'>
-        <p className='text-[18vw] sm:text-[16vw] md:text-[14vw] font-bold text-[#112FFF] leading-none mb-2'>
+        <p className='font-proxima-nova font-[700] text-[20vw] sm:text-[715.66px] md:text-[715.66px] sm:leading-[715.66px]  text-[#112FFF]  sm:mb-2'>
           4x
         </p>
-        <p className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center font-bold'>
+        <p className='font-space-grotesk font-[700] text-[40px]  leading-[51.04px] sm:text-[93.95px] md:text-[93.95px] lg:text-[93.95px] sm:leading[119.88px] text-center'>
           Faster Time to ROI
         </p>
       </div>

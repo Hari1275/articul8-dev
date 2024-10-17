@@ -11,7 +11,7 @@ const FeatureCard = ({
   title: string;
   description: string;
 }) => (
-  <div className='bg-gray-100 rounded-lg p-6 shadow-sm border border-[#EAECF0]'>
+  <div className='bg-[#F9FAFB] rounded-lg p-6 shadow-sm border border-[#EAECF0]'>
     <div className='mb-4'>
       <Image
         src={icon}
@@ -22,8 +22,8 @@ const FeatureCard = ({
         priority
       />
     </div>
-    <h3 className='text-2xl font-bold mb-3'>{title}</h3>
-    <p className='text-gray-600 leading-relaxed'>{description}</p>
+    <h3 className='font-space-grotesk text-[23px] sm:text-[34px] font-[700] leading-[30px] sm:text-2xl text-black  mb-3'>{title}</h3>
+    <p className='font-proxima-nova font-[400] text-[20px] text-black leading-[24px]'>{description}</p>
   </div>
 );
 
@@ -113,9 +113,9 @@ const ConvertSection = () => {
   };
 
   return (
-    <section className='pt-20 bg-gray-50 overflow-hidden'>
+    <section className='sm:pt-20 pt-6 bg-gray-50 overflow-hidden'>
       <div className='container mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-24 max-w-7xl'>
-        <h2 className='text-4xl md:text-5xl font-bold mb-16 text-center'>
+        <h2 className='font-space-grotesk text-[26px] font-[700] leading-[45px] sm:text-4xl md:text-5xl text-[#060606] mb-16 text-center'>
           <span className='block leading-tight mb-2'>
             Convert your GenAI chaos to
           </span>
@@ -126,7 +126,7 @@ const ConvertSection = () => {
                 alt='Open bracket'
                 width={28}
                 height={28}
-                className='mr-1'
+                className='mr-1 w-4 h-4 sm:w-12 sm:h-12'
                 sizes="(max-width: 640px) 15px, (max-width: 768px) 20px, 25px"
                 priority
               />
@@ -138,7 +138,7 @@ const ConvertSection = () => {
                 alt='Close bracket'
                 width={28}
                 height={28}
-                className='ml-1'
+                className='ml-1 w-4 h-4 sm:w-12 sm:h-12'
                 sizes="(max-width: 640px) 15px, (max-width: 768px) 20px, 25px"
                 priority
               />
@@ -147,21 +147,21 @@ const ConvertSection = () => {
           </span>
           <span className='block leading-tight'>the Articul8 platform.</span>
         </h2>
-        <div className='mb-20'>{renderFeatureCards()}</div>
+        <div className='sm:mb-20 mb-12'>{renderFeatureCards()}</div>
         <div className='flex flex-col md:flex-row items-stretch bg-[#DCE0F3] rounded-t-lg overflow-hidden'>
-          <div className='w-full md:w-2/5 p-8 md:p-12 flex flex-col justify-center'>
-            <h3 className='font-spaceGrotesk text-5xl md:text-[68px] font-bold mb-6 leading-[108px]'>
+          <div className='w-full md:w-2/5 p-8 md:p-12 flex flex-col justify-end md:justify-center items-center md:items-start'>
+            <h3 className='font-space-grotesk font-[700] text-[40px] sm:text-5xl md:text-[68px] text-center md:text-left leading-[51.04px] sm:mb-6 sm:leading-[108px]'>
               Stop
-              <br />
+              <br className='hidden md:block' />
               Falling
               <br />
               Behind
             </h3>
-            <button className='bg-[#1130FF] text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors text-lg self-start mt-4'>
+            <button className='bg-[#1130FF] font-spaceGrotesk font-[700] text-[20px] leading-[25.52px] text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors text-lg mt-4'>
               Start Articul8&apos;ing
             </button>
           </div>
-          <div className='w-full md:w-3/5 relative min-h-[400px] md:min-h-[500px]'>
+          <div className='w-full md:w-3/5 relative min-h-[400px] md:min-h-[500px] order-first order-last'>
             <Image
               src='/images/abstract-shapes.png'
               alt='Abstract shapes with hand interaction'

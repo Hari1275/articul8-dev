@@ -24,13 +24,13 @@ const UnlockSectionHeader = () => {
   return (
     <section className='bg-white py-8 sm:py-12'>
       <div className='container mx-auto px-4'>
-        <h2 className='text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8 md:mb-12 text-center leading-tight'>
-          Unlock{' '}
-          <span className='inline-flex items-center h-[1.2em] overflow-hidden align-middle'>
+        <h2 className='font-space-grotesk text-[30px] sm:text-[56px] md:text-[56px] font-[700] mb-6 sm:mb-8 md:mb-12 text-center text-[#060606] leading-[38.28px] sm:leading-[84px]'>
+          <span className="block sm:inline">Unlock</span>{' '}
+          <span className='inline-flex flex-col sm:flex-row items-center h-auto sm:h-[1.2em] overflow-hidden align-middle sm:py-4'>
             <motion.div
               animate={{ width: isExpanded ? 'auto' : 'auto' }}
               transition={{ duration: 0.5, ease: [0.6, -0.05, 0.01, 0.99] }}
-              className='flex items-center'
+              className='flex items-center justify-center'
             >
               <Image
                 src='/images/icons/section-open.svg'
@@ -75,7 +75,7 @@ const UnlockSectionHeader = () => {
               />
             </motion.div>
           </span>{' '}
-          with your data
+          <span className="block sm:inline">with your data</span>
         </h2>
       </div>
     </section>

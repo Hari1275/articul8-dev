@@ -6,12 +6,13 @@ import { Disclosure } from '@headlessui/react';
 import React from 'react';
 
 const ToggleIcon = ({ isOpen }: { isOpen: boolean }) => (
-  <div className="flex items-center justify-center w-6 h-6">
+  <div className="flex items-center justify-center">
     <Image 
       src={isOpen ? '/images/icons/plus.svg' : '/images/icons/minus.svg'} 
       alt={isOpen ? 'plus' : 'minus'} 
       width={16} 
       height={16} 
+      className='w-4 h-4 sm:w-6 sm:h-6'
     />
   </div>
 );
@@ -49,16 +50,16 @@ const PlatformArchitecture = () => {
   ];
 
   return (
-    <section className='pt-32 pb-16 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-24 bg-white'>
+    <section className='sm:pt-32 pt-8 pb-16 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-24 bg-white'>
       <div className='container mx-auto'>
-        <h2 className='text-6xl font-bold mb-16 leading-tight'>
+        <h2 className='font-space-grotesk text-[26px] sm:text-6xl font-bold sm:mb-16 mb-8 leading-tight text-center sm:text-left'>
           Articul8 platform makes the
-          <br />
+          <br className="sm:hidden" />
           <span className='text-[#FF00C7] font-bold'>impossible possible.</span>
         </h2>
         <div className='flex flex-col lg:flex-row items-start justify-between gap-12'>
           <div className='w-full lg:w-1/2'>
-            <div className='space-y-4'>
+            <div className='space-y-2 '>
               {items.map((item, index) => (
                 <Disclosure key={index} defaultOpen={index === 0}>
                   {({ open }) => (
@@ -75,13 +76,13 @@ const PlatformArchitecture = () => {
                             height={32}
                           />
                         </div>
-                        <p className='flex-grow font-medium text-lg'>
+                        <p className='font-space-grotesk sm:font-proxima-nova flex-grow font-[600] sm:text-[24px] sm:leading-[28px] text-[19px] sm:text-lg'>
                           {item.title}
                         </p>
                         <ToggleIcon isOpen={open} />
                       </Disclosure.Button>
                       {item.description && (
-                        <Disclosure.Panel className='px-4 pt-2 pb-4 text-sm text-gray-600 ml-12'>
+                        <Disclosure.Panel className='sm:font-proxima-nova  font-space-grotesk  px-4 pt-2 pb-4 text-[16px] sm:text-[20px] font-[400] leading-[20.42px] sm:leading-[21px] sm:text-sm text-[#000] ml-12'>
                           {item.description}
                         </Disclosure.Panel>
                       )}
@@ -94,7 +95,7 @@ const PlatformArchitecture = () => {
               href='#'
               className='inline-flex items-center mt-8 text-[#112FFF] hover:underline font-semibold'
             >
-              <span className="text-lg">Learn More</span>
+              <span className="font-space-grotesk text-[24px] font-[700] leading-[30px] text-[#1130FF]">Learn More</span>
               <Image
                 src='/images/icons/arrow.svg'
                 alt='Arrow right'
