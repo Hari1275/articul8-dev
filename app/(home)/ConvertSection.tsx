@@ -50,7 +50,7 @@ const ConvertSection = () => {
     }, 3000);
 
     return () => clearInterval(interval);
-  }, [currentIndex]);
+  }, [currentIndex, words]);
 
   const features = [
     {

@@ -1,7 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
 import { Disclosure } from '@headlessui/react';
 import React from 'react';
 
@@ -18,8 +17,6 @@ const ToggleIcon = ({ isOpen }: { isOpen: boolean }) => (
 );
 
 const PlatformArchitecture = () => {
-  const [openItem, setOpenItem] = useState(0);
-
   const items = [
     {
       icon: '/images/icons/data.svg',
