@@ -22,29 +22,30 @@ const PlatformArchitecture = () => {
       icon: '/images/icons/data.svg',
       title: 'Autonomous Decisions & Actions',
       description:
-        'Autonomously Manage A System Of Models (LLMs, Non-LLMs, And Customer Models), Optimizing Resources To Deliver Tangible Outcomes With Accuracy And Precision',
+        'Autonomously manage a system of models (LLMs, non-LLMs, and customer models), optimizing resources to deliver tangible outcomes with accuracy and precision',
     },
     {
       icon: '/images/icons/embedding.svg',
       title: 'Automated Data Intelligence',
-      description: '',
+      description: 'Get richer semantic understanding and uncover hidden relationships in your data within minutes',
     },
     {
       icon: '/images/icons/whisper, api.svg',
       title: 'Growing Library Of Specialized Models',
-      description: '',
+      description: 'Obtain improved precision and relevance with industry knowledge encoded into Articul8\'s library of Domain-specific models and Task-specific models',
     },
     {
       icon: '/images/icons/sticker.svg',
       title: 'Observability, Traceability & Auditability At Every Step',
-      description: '',
+      description: 'Get full visibility into decisions and actions, revealing the underlying logic and metrics in every step, delivering assurance in generated outcomes.',
     },
     {
       icon: '/images/icons/write, brief.svg',
       title: 'Deploy Anywhere Securely',
-      description: '',
+      description: 'Deploy Articul8 platform with your data in your security perimeter. Articul8 is agnostic to hosting infrastructure and accelerators, offering flexibility across cloud, on-prem, and air-gapped environments.',
     },
   ];
+
 
   return (
     <section className='sm:pt-32 pt-8 pb-16 px-4 bg-white'>
