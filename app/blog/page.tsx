@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default async function BlogPage() {
   const { data } = await fetchArticles();
-
+// 
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'Blog',

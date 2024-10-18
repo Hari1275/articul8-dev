@@ -412,7 +412,7 @@ const HeavyItems = () => {
 
   return (
     <>
-      <div className="pt-8 md:mt-0 w-full bg-white  pb-10 flex flex-col  justify-center items-center">
+      <div className="pt-8 md:mt-0 w-full bg-white  pb-10 flex flex-col  justify-center items-center ">
         {/* top */}
 
         <div className="w-[90%] md:w-[82%] flex flex-row justify-center items-center ">
