@@ -24,24 +24,35 @@ const AnimatedText = () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
-          start: 'top bottom', // Changed to start when the top of the section hits the bottom of the viewport
-          end: 'bottom top', // Changed to end when the bottom of the section leaves the top of the viewport
-          scrub: 0.5, // Removed scrub to allow the animation to play through
-          pin: false, // Removed pin as we want the section to scroll normally
-          // Added to ensure the animation only plays once
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 0.5,
         },
       });
 
       // Animate text shrinking and fading in, then increase size slightly
       tl.to(text, {
-        scale: 1, // Shrink to normal size
+        scale: 1,
         opacity: 1,
         ease: 'power2.out',
         duration: 0.8,
       }).to(text, {
-        scale: 1.2, // Increase size slightly
+        scale: 1.2,
         duration: 0.2,
       });
+
+      // Additional animation for mobile devices
+      if (window.innerWidth <= 768) {
+        tl.to(text, {
+          scale: 1.2,
+          duration: 0.2,
+          ease: 'power1.inOut',
+        }).to(text, {
+          scale: 8,
+          duration: 0.2,
+          ease: 'power1.inOut',
+        });
+      }
     }
 
     return () => {
@@ -52,13 +63,13 @@ const AnimatedText = () => {
   return (
     <div
       ref={sectionRef}
-      className='h-[55vh]  sm:h-[70vh] flex flex-col items-center justify-center overflow-hidden bg-white'
+      className='h-[55vh] sm:h-[70vh] flex flex-col items-center justify-center overflow-hidden bg-white'
     >
       <div ref={textRef} className='flex flex-col items-center'>
-        <p className='font-proxima-nova font-[700] text-[20vw] sm:text-[315.66px] md:text-[315.66px] sm:leading-[315.66px]  text-[#112FFF]  sm:mb-2'>
+        <p className='font-proxima-nova font-bold text-[20vw] sm:text-[315.66px] text-[#112FFF] leading-none mb-2'>
           4x
         </p>
-        <p className='font-space-grotesk font-[700] text-[40px]  leading-[51.04px] sm:text-[93.95px] md:text-[93.95px] lg:text-[93.95px] sm:leading[119.88px] text-center'>
+        <p className='font-space-grotesk font-bold text-[5vw] sm:text-[93.95px] text-black leading-tight text-center whitespace-nowrap'>
           Faster Time to ROI
         </p>
       </div>

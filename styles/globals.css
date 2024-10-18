@@ -65,3 +65,20 @@ body {
   font-size: 14px;
   line-height: 20px;
 }
+
+@media (min-width: 750px) {
+  .productLiftCard:hover {
+    background-color: white;
+    /* padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 24px;
+    padding-right: 40px; */
+    transition: 0.3s all linear;
+    /* box-shadow: #f2f7ff 0px 5px 15px; */
+    box-shadow: #ccd9ff 0px 13px 27px -5px, #ccd9ff 0px 8px 16px -8px;
+    cursor: pointer;
+  }
+}
+.text-transform {
+  transform: rotate(270deg);
+}

@@ -62,7 +62,7 @@ const useResponsiveValues = () => {
 
 const Card = React.memo<{
   card: {
-    title: string[];
+    title: string;
     image: string;
   };
   index: number;
@@ -78,15 +78,7 @@ const Card = React.memo<{
     if (!cardElement) return;
 
     const hoverAnimation = gsap.timeline({ paused: true });
-    // hoverAnimation removed
-    //   .to(cardElement, {
-    //     y: -10,
-    //     scale: 1.05,
-    //     // Removed boxShadow property
-    //     duration: 0.3,
-    //   })
-    //   .to(image, { scale: 1.1, duration: 0.3 }, 0)
-    //   .to(content, { y: -5, duration: 0.3 }, 0);
+    // hoverAnimation removed (as in your original code)
 
     const playAnimation = () => hoverAnimation.play();
     const reverseAnimation = () => hoverAnimation.reverse();
@@ -111,20 +103,20 @@ const Card = React.memo<{
           background: 'linear-gradient(to right, #E8F1FF, #C1F0F4)',
           boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
         }}
-        aria-label={`Card ${index + 1}: ${card.title.join(' ')}`}
+        aria-label={`Card ${index + 1}: ${card.title}`}
       >
         <div className='card-content flex-grow'>
-          <h3 className='font-proxima-nova sm:text-[32px] sm:leading-[38px] font-[600] sm:font-[700] text-[23px] leading-tight text-left mb-2'>
-            {card.title[0]} <br /> {card.title[1]}
+          <h3 className='font-proxima-nova sm:text-[32px] sm:leading-[38px] font-[600] sm:font-[700] text-[16px] leading-tight text-left mb-2'>
+            {card.title}
           </h3>
         </div>
         <div className='flex justify-start mt-auto'>
           <Image
             src={card.image}
-            alt={card.title.join(' ')}
+            alt={card.title}
             width={50}
             height={50}
-            className='card-image -mb-2' // Added negative margin to create cut-off effect
+            className='card-image -mb-2'
             priority
           />
         </div>
@@ -147,19 +139,17 @@ const Card = React.memo<{
         boxShadow: '0 10px 20px rgba(0,0,0,0.1)',
         backfaceVisibility: 'hidden',
       }}
-      aria-label={`Card ${index + 1}: ${card.title.join(' ')}`}
+      aria-label={`Card ${index + 1}: ${card.title}`}
     >
       <div className='card-content flex-grow'>
         <h3 className='sm:text-sm md:text-base lg:text-lg font-bold leading-tight mb-2'>
-          {card.title[0]}
-          <br />
-          {card.title[1]}
+          {card.title}
         </h3>
       </div>
       <div className='relative flex items-end justify-start h-16 sm:h-20 md:h-24'>
         <Image
           src={card.image}
-          alt={card.title.join(' ')}
+          alt={card.title}
           width={100}
           height={100}
           className='card-image transition-all duration-300'
@@ -248,68 +238,36 @@ const UnlockSection = () => {
     animateCards();
   }, [animateCards]);
 
-  const cardData = [
-    {
-      title: ['Improved', 'Accuracy'],
-      image: '/images/card-image-1.svg',
+  // ... existing code ...
 
-      footerText: 'General Purpose GenAI Model',
-      logo: '/images/logos/Isolation_Mode.svg',
-    },
-    {
-      title: ['Improved', 'Precision'],
-      description:
-        'Total Cost of Ownership (TCO) for Expert GenAI Application at Production scale',
-      image: '/images/card-image-2.svg',
+const cardData = [
+  {
+    title: 'Improved Accuracy',
+    image: '/images/card-image-1.svg',
+  },
+  {
+    title: 'Improved Precision',
+    image: '/images/card-image-2.svg',
+  },
+  {
+    title: '100% Traceability',
+    image: '/images/card-image-3.svg',
+  },
+  {
+    title: 'Reduction in Complex Human-in-the-Loop Decisions',
+    image: '/images/card-image-4.svg',
+  },
+  {
+    title: 'Reduction in Components to Build Application',
+    image: '/images/card-image-5.svg',
+  },
+  {
+    title: 'Richer Semantic Understanding of Your Data',
+    image: '/images/card-image-6.svg',
+  },
+];
 
-      footerText: 'Built with PCS + General Purpose GenAI models',
-      logo: '/images/logos/Isolation_Mode.svg',
-    },
-    {
-      title: ['100%', 'Traceability'],
-      description: '% of decisions that you can trace',
-      image: '/images/card-image-3.svg',
-
-      footerText: 'Built with PCS + General Purpose GenAI models',
-      logo: '/images/logos/Isolation_Mode.svg',
-    },
-    {
-      title: ['Reduction', 'in number of complex human in the loop decisions'],
-      description: 'in number of complex human in the loop decisions',
-      image: '/images/card-image-4.svg',
-
-      footerText: 'Built with PCS + General Purpose GenAI models',
-      logo: '/images/logos/Isolation_Mode.svg',
-    },
-    {
-      title: ['2x richer', 'semantic understanding your enterprise data'],
-      description: 'semantic understanding your enterprise data',
-      image: '/images/card-image-5.svg',
-
-      footerText: 'Built with PCS + General Purpose GenAI models',
-      logo: '/images/logos/Isolation_Mode.svg',
-    },
-    {
-      title: ['Time to ROI', 'semantic understanding your enterprise data'],
-      description: 'semantic understanding your enterprise data',
-      image: '/images/card-image-6.svg',
-
-      footerText: 'Built with PCS + General Purpose GenAI models',
-      logo: '/images/logos/Isolation_Mode.svg',
-    },
-    {
-      title: [
-        'Reduction',
-        'in number of components needed to build an enterprise GenAI Application',
-      ],
-      description:
-        'in number of components needed to build an enterprise GenAI Application',
-      image: '/images/card-image-7.svg',
-
-      footerText: 'Built with PCS + General Purpose GenAI models',
-      logo: '/images/logos/Isolation_Mode.svg',
-    },
-  ];
+// ... rest of the code ...
 
   const updateScrollButtons = useCallback(() => {
     if (cardsContainerRef.current) {

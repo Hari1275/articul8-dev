@@ -37,7 +37,7 @@ const Header = () => {
               About us
             </Link>
             <Link
-              href='/product'
+              href='/products'
               className='text-black font-proxima-nova text-[16px] leading-[21.92px] font-[400] hover:text-black transition duration-300'
             >
               Product
