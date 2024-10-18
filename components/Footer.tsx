@@ -6,7 +6,7 @@ const Footer = () => {
 
   return (
     <footer className='bg-white py-4 sm:py-8 border-t border-gray-200'>
-      <div className='container mx-auto px-6 sm:px-8 md:px-12 lg:px-16 xl:px-24 '>
+      <div className='container mx-auto px-6'>
         {/* Mobile view */}
         <div className='sm:hidden flex flex-col items-center space-y-6'>
           <div className='flex-shrink-0'>

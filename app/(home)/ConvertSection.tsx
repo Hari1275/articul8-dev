@@ -118,7 +118,7 @@ const ConvertSection = () => {
 
   return (
     <section className='sm:pt-20 pt-6 bg-gray-50 overflow-hidden'>
-      <div className='container mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-24 max-w-7xl'>
+      <div className='container mx-auto px-4 sm:px-6'>
         <h2 className='font-space-grotesk text-[26px] font-[700] leading-[45px] sm:text-4xl md:text-5xl text-[#060606] mb-16 text-center'>
           <span className='block leading-tight mb-2'>
             Convert your GenAI chaos to

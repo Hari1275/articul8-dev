@@ -259,7 +259,7 @@ const InnovationsSection = () => {
 
   return (
     <section className='sm:pt-20 pt-6 sm:py-20 px-4 bg-[#F2F7FF]'>
-      <div className='container mx-auto px-4'>
+      <div className='container mx-auto px-4 sm:px-6'>
         <h2 className='hidden sm:block font-space-grotesk text-[26px] sm:text-[56px] font-bold mb-16  sm:leading-[84px] text-center leading-tight'>
           <span className='block mb-2'>
             There are{' '}
@@ -276,7 +276,7 @@ const InnovationsSection = () => {
           behind the magic.
         </h2>
 
-        <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 sm:px-10'>
+        <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 sm:px-0'>
           <div className='space-y-2'>
             {innovationData.map((item, index) => (
               <InnovationItem

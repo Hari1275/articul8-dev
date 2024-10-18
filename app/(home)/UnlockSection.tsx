@@ -30,12 +30,23 @@ const useResponsiveValues = () => {
           visibleCards: 3,
           isMobile: false,
         });
-      } else {
+      } 
+      else if (window.innerWidth < 1440) {
         // Desktop
         setValues({
-          cardWidth: 300,
-          gap: 78,
-          visibleCards: 5,
+          cardWidth: 280,
+          gap: 70,
+          visibleCards: 6,
+          isMobile: false,
+        });
+      } 
+      
+      else {
+        // Desktop
+        setValues({
+          cardWidth: 360,
+          gap: 84,
+          visibleCards: 6,
           isMobile: false,
         });
       }
@@ -346,7 +357,7 @@ const UnlockSection = () => {
         ref={sectionRef as React.RefObject<HTMLDivElement>}
         className='overflow-visible relative'
       >
-        <div className='container mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-24 relative'>
+        <div className='container mx-auto px-4 sm:px-6 relative'>
           {/* Moved arrows inside this container and adjusted positioning */}
           <div className='absolute -top-8 right-4 flex space-x-3 z-50'>
             <button
@@ -387,7 +398,7 @@ const UnlockSection = () => {
             }}
           >
             <div
-              className='absolute top-1/2 left-[20%] sm:left-1/2 transform -translate-x-1/2 -translate-y-1/2'
+              className='absolute top-1/2 left-[20%] sm:left-1/2 lg:left-1/2 transform -translate-x-1/2 -translate-y-1/2'
               style={{
                 width: `${cardData.length * (cardWidth + gap) - gap}px`,
                 height: isMobile

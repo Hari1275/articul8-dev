@@ -16,7 +16,7 @@ const Header = () => {
       <div className='absolute top-0 left-0 right-0 h-px bg-gray-200'></div>
 
       {/* Desktop Header */}
-      <div className='container mx-auto px-6 sm:px-8 md:px-12 lg:px-16 xl:px-24  flex items-center justify-between hidden md:flex'>
+      <div className='container mx-auto px-6  flex items-center justify-between hidden md:flex'>
         {/* Desktop content (unchanged) */}
         <div className='flex items-center'>
           <Link href='/' className='flex items-center py-4'>

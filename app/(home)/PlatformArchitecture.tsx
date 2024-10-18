@@ -47,11 +47,11 @@ const PlatformArchitecture = () => {
   ];
 
   return (
-    <section className='sm:pt-32 pt-8 pb-16 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-24 bg-white'>
-      <div className='container mx-auto'>
-        <h2 className='font-space-grotesk text-[26px] sm:text-6xl font-bold sm:mb-16 mb-8 leading-tight text-center sm:text-left'>
+    <section className='sm:pt-32 pt-8 pb-16 px-4 bg-white'>
+      <div className='container mx-auto px-4 sm:px-6'>
+        <h2 className='font-space-grotesk text-[26px] sm:text-[54px] sm:leading-[84px] font-bold sm:mb-16 mb-8 leading-tight text-center sm:text-left'>
           Articul8 platform makes the
-          <br className='sm:hidden' />
+          <br/>
           <span className='text-[#FF00C7] font-bold'>
             {' '}
             impossible possible.
@@ -116,7 +116,7 @@ const PlatformArchitecture = () => {
               alt='Articul8 Platform Architecture'
               width={500}
               height={500}
-              style={{ width: '100%', height: 'auto', maxWidth: '500px' }}
+              style={{ width: '100%', height: 'auto',}}
               priority
             />
           </div>
