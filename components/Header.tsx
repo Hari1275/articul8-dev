@@ -11,12 +11,12 @@ const Header = () => {
   };
 
   return (
-    <header className='relative bg-white'>
+    <header className='fixed top-0 left-0 right-0 bg-white z-50'>
       {/* Top horizontal line */}
       <div className='absolute top-0 left-0 right-0 h-px bg-gray-200'></div>
 
       {/* Desktop Header */}
-      <div className='container mx-auto px-6  flex items-center justify-between hidden md:flex'>
+      <div className='container mx-auto px-6 flex items-center justify-between hidden md:flex'>
         {/* Desktop content (unchanged) */}
         <div className='flex items-center'>
           <Link href='/' className='flex items-center py-4'>
@@ -34,7 +34,7 @@ const Header = () => {
               href='/about'
               className='text-black font-proxima-nova leading-[21.92px] text-[16px] font-[400] hover:text-black transition duration-300'
             >
-              About us
+              About Us
             </Link>
             <Link
               href='/products'
@@ -114,7 +114,7 @@ const Header = () => {
                 className='text-white font-proxima-nova text-[34px] font-[400] leading-[40px] px-8 py-2 hover:border-2 hover:border-[#4D6EFF] hover:rounded-md transition-all duration-300'
                 onClick={toggleMenu}
               >
-                About us
+                About Us
               </Link>
               <Link
                 href='/product'

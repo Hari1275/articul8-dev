@@ -25,10 +25,10 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className='relative sm:min-h-screen flex items-center justify-center bg-[#112FFF] text-white overflow-hidden'>
+    <section className='relative sm:min-h-[85vh] flex items-center justify-center bg-[#112FFF] text-white overflow-hidden'>
       <div className='container mx-auto px-6 flex flex-col lg:flex-row items-center lg:items-start h-full'>
         <div className='text-left w-full  z-10 mb-8 lg:mb-0'>
-          <h1 className='font-space-grotesk text-[32px]  font-[700]  sm:py-8 pt-12 sm:text-[64px] md:text-[64px] lg:text-[64px] sm:leading-[76.8px] md:leading-[76.8px] lg:leading-[76.8px] text-center lg:text-left'>
+          <h1 className='font-space-grotesk text-[32px]  font-[700]  sm:py-8 pt-12 sm:text-[50px] md:text-[54px] lg:text-[64px] sm:leading-[76.8px] md:leading-[76.8px] lg:leading-[76.8px] text-center lg:text-left'>
             <span className='block'>ARTICUL8 YOUR</span>
             <span className='text-[#00F4C5] mt-2 inline-flex items-center h-[1.2em] overflow-hidden'>
               <motion.div
@@ -84,8 +84,8 @@ export default function Hero() {
             Bring order to chaos.
           </p>
         </div>
-        <div className='w-full lg:w-[45%] lg:absolute lg:right-0 lg:top-0 lg:bottom-0'>
-          <div className='relative w-full h-[378px] sm:h-[300px] md:h-[350px] lg:h-full'>
+        <div className='w-full lg:w-[58%]  lg:absolute lg:right-0 lg:top-0 lg:bottom-0'>
+          <div className='relative w-full h-[378px] sm:h-[640px]  lg:h-full'>
             <Image
               src='/images/hero-cubes.svg'
               alt='Articul8 Cubes'
@@ -93,7 +93,7 @@ export default function Hero() {
               objectFit='contain'
               objectPosition='center'
               priority
-              className='scale-100 lg:scale-100 lg:translate-x-[10%] lg:translate-y-[5%]'
+              className='scale-100 lg:scale-100 lg:translate-x-[2%] lg:translate-y-[8%]'
             />
           </div>
         </div>
