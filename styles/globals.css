@@ -82,3 +82,17 @@ body {
 .text-transform {
   transform: rotate(270deg);
 }
+
+/* Add this to your existing globals.css */
+
+.slick-slide {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  height: 60px; /* Adjust as needed */
+}
+
+.slick-track {
+  display: flex !important;
+  align-items: center;
+}
