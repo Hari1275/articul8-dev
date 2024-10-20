@@ -26,7 +26,7 @@ export default function Hero() {
 
   return (
     <section className='relative sm:min-h-[80vh] flex items-center justify-center bg-[#112FFF] text-white overflow-hidden'>
-      <div className='container mx-auto px-6 flex flex-col lg:flex-row items-center lg:items-start h-full'>
+      <div className='container mx-auto px-6 flex flex-col lg:flex-row items-center lg:items-start h-full md:pt-[50px]'>
         <div className='text-left w-full  z-10 mb-8 lg:mb-0'>
           <h1 className='font-space-grotesk text-[32px]  font-[700]  sm:py-8 pt-12 sm:text-[50px] md:text-[54px] lg:text-[64px] sm:leading-[76.8px] md:leading-[76.8px] lg:leading-[76.8px] text-center lg:text-left'>
             <span className='block'>ARTICUL8 YOUR</span>
