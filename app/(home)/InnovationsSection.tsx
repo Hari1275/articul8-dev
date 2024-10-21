@@ -256,10 +256,10 @@ const innovationData = [
     ],
   },
   {
-    icon: '/images/icons/Autonomous decisions & actions.svg',
+    icon: '/images/icons/Autonomous-decisions-actions.svg',
     title: 'Autonomous Decisions and Actions',
-    selectedIcon: '/images/icons/Autonomous decisions & actions-selected.svg',
-    hoverIcon: '/images/icons/Autonomous decisions & actions-hover.svg',
+    selectedIcon: '/images/icons/Autonomous-decisions-actions-selected.svg',
+    hoverIcon: '/images/icons/Autonomous-decisions-actions-hover.svg',
     products: [
       {
         icon: '/images/icons/modelmesh-1.svg',
