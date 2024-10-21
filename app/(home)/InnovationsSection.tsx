@@ -366,9 +366,9 @@ const innovationData = [
           'AcuTask is a family of multimodal LLMs that have been highly optimized for specific tasks. AcuTask powers many nodes within ModelMesh™ and delivers exceptional accuracy, efficiency, and reliability while balancing performance and cost. These models are rigorously tested and validated using Evalu8r, our proprietary evaluation framework.',
       },
       {
-        icon: '/images/icons/bayesiq.svg',
-        hoverIcon: '/images/icons/bayesiq-hover.svg',
-        selectedIcon: '/images/icons/bayesiq-selected.svg',
+        icon: '/images/icons/bayesiQ.svg',
+        hoverIcon: '/images/icons/bayesiQ-hover.svg',
+        selectedIcon: '/images/icons/bayesiQ-selected.svg',
         title: 'BayesiQ',
         subTitle:
           'Bayesian and Probabilistic graph models for autonomous systems',
