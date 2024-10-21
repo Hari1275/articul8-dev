@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const words = ['EXPERTISE', 'VALUE', 'GREATNESS'];
+const words = ['EXPERTISE', 'DATA', 'STRENGTH','VALUES','KNOWLEDGE'];
 
 export default function Hero() {
   const [currentIndex, setCurrentIndex] = useState(0);

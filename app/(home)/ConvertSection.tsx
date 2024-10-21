@@ -45,9 +45,9 @@ const ConvertSection = () => {
         setCurrentWord(words[(currentIndex + 1) % words.length]);
         setTimeout(() => {
           setIsExpanded(true);
-        }, 100);
+        }, 600);
       }, 400);
-    }, 3000);
+    }, 2000);
 
     return () => clearInterval(interval);
   }, [currentIndex, words]);
@@ -79,7 +79,7 @@ const ConvertSection = () => {
     },
     {
       icon: '/images/icons/edge.svg',
-      title: 'Avoid lock-ins',
+      title: 'Avoid lock-Ins',
       description:
         'Retain flexibility by mitigating vendor lock-in for hardware and AI models.',
     },
@@ -135,7 +135,7 @@ const ConvertSection = () => {
                 priority
               />
               <span
-                className={`transition-all duration-300 ${
+                className={`transition-all duration-300 px-1 ${
                   isExpanded ? 'opacity-100 max-w-[300px]' : 'opacity-0 max-w-0'
                 }`}
               >

@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { Disclosure } from '@headlessui/react';
-import React from 'react';
+import React, { useState } from 'react';
 
 const ToggleIcon = ({ isOpen }: { isOpen: boolean }) => (
   <div className='flex items-center justify-center w-4 h-6 sm:w-6 sm:h-6'>
@@ -17,6 +17,8 @@ const ToggleIcon = ({ isOpen }: { isOpen: boolean }) => (
 );
 
 const PlatformArchitecture = () => {
+  const [openIndex, setOpenIndex] = useState(0);
+
   const items = [
     {
       icon: '/images/icons/data.svg',
@@ -46,7 +48,6 @@ const PlatformArchitecture = () => {
     },
   ];
 
-
   return (
     <section className='sm:pt-32 pt-8 pb-16 px-4 bg-white'>
       <div className='container mx-auto px-4 sm:px-6'>
@@ -59,17 +60,20 @@ const PlatformArchitecture = () => {
           </span>
         </h2>
         <div className='flex flex-col lg:flex-row items-start justify-between gap-12'>
-          <div className='w-full lg:w-1/2'>
+          <div className='w-full lg:w-2/5'>
             <div className='space-y-2'>
               {items.map((item, index) => (
-                <Disclosure key={index} defaultOpen={index === 0}>
+                <Disclosure key={index} as="div" className="mt-2">
                   {({ open }) => (
                     <div
                       className={`bg-[#F6F6FF] rounded-lg overflow-hidden ${
                         open ? 'shadow-[0_1px_3px_rgba(0,0,0,0.1)]' : ''
                       }`}
                     >
-                      <Disclosure.Button className='flex items-start w-full text-left py-4 px-4 focus:outline-none'>
+                      <Disclosure.Button 
+                        className='flex items-start w-full text-left py-4 px-4 focus:outline-none'
+                        onClick={() => setOpenIndex(index)}
+                      >
                         <div className='mr-4 w-8 h-8 flex-shrink-0 mt-[2px]'>
                           <Image
                             src={item.icon}
@@ -82,12 +86,16 @@ const PlatformArchitecture = () => {
                           {item.title}
                         </p>
                         <div className='mt-[2px]'>
-                          <ToggleIcon isOpen={open} />
+                          <ToggleIcon isOpen={openIndex === index} />
                         </div>
                       </Disclosure.Button>
                       {item.description && (
-                        <Disclosure.Panel className='font-space-grotesk sm:font-proxima-nova px-4 pt-2 sm:pt-0 pb-4 text-[12px] sm:text-[18px] font-[400] leading-[15px] sm:leading-[21px] text-[#000] ml-12'>
-                          {item.description}
+                        <Disclosure.Panel static>
+                          {openIndex === index && (
+                            <p className='font-space-grotesk sm:font-proxima-nova px-4 pt-2 sm:pt-0 pb-4 text-[12px] sm:text-[18px] font-[400] leading-[15px] sm:leading-[21px] text-[#000] ml-12'>
+                              {item.description}
+                            </p>
+                          )}
                         </Disclosure.Panel>
                       )}
                     </div>
@@ -111,13 +119,13 @@ const PlatformArchitecture = () => {
               />
             </a>
           </div>
-          <div className='w-full lg:w-1/2'>
+          <div className='w-full lg:w-3/5'>
             <Image
               src='/images/Condensed-Version.png'
               alt='Articul8 Platform Architecture'
-              width={500}
-              height={500}
-              style={{ width: '100%', height: 'auto',}}
+              width={800}
+              height={800}
+              style={{ width: '100%', height: 'auto' }}
               priority
             />
           </div>

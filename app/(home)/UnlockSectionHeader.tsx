@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const UnlockSectionHeader = () => {
-  const words = ['New revenue', 'Innovation', 'Efficiency', 'Differentiation'];
+  const words = ['New Revenue', 'Innovation', 'Efficiency', 'Differentiation'];
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isExpanded, setIsExpanded] = useState(true);
 
@@ -14,9 +14,9 @@ const UnlockSectionHeader = () => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % words.length);
         setTimeout(() => {
           setIsExpanded(true);
-        }, 100);
-      }, 400);
-    }, 3000);
+        }, 800);
+      }, 200);
+    }, 2000);
 
     return () => clearInterval(interval);
   }, [words.length]);
@@ -57,7 +57,7 @@ const UnlockSectionHeader = () => {
                       y: { duration: 0.3, ease: [0.33, 1, 0.68, 1] },
                       opacity: { duration: 0.2, ease: 'easeInOut' },
                     }}
-                    className='inline-block whitespace-nowrap text-[#FA05C3]'
+                    className='inline-block whitespace-nowrap text-[#FA05C3] px-1'
                     style={{ display: 'block', position: 'relative' }}
                   >
                     {words[currentIndex]}

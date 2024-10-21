@@ -154,6 +154,7 @@ const Card = React.memo<{
           height={100}
           className='card-image transition-all duration-300'
           priority
+          style={{  height: '100%' }}
         />
       </div>
     </div>
@@ -190,15 +191,15 @@ const UnlockSection = () => {
     const cards = cardsContainer.querySelectorAll('.card');
     const totalWidth = visibleCards * cardWidth + (visibleCards - 1) * gap;
 
-    // Initial stacked position (unchanged)
+    // Reverse the order of cards for initial stacked position
     gsap.set(cards, {
-      x: (i) => i * stackOffset * 3 - (cards.length - 1) * stackOffset * 1.5,
-      y: (i) => -i * stackOffset * 3,
+      x: (i) => (cards.length - 1 - i) * stackOffset * 3 - (cards.length - 1) * stackOffset * 1.5,
+      y: (i) => -(cards.length - 1 - i) * stackOffset * 3,
       rotationY: -1,
       rotationX: 1,
-      scale: (i) => 1 - i * 0.005,
+      scale: (i) => 1 - (cards.length - 1 - i) * 0.005,
       opacity: 1,
-      zIndex: (i) => cards.length - i,
+      zIndex: (i) => i + 1, // Reverse the z-index
     });
 
     const tl = gsap.timeline({
@@ -223,14 +224,13 @@ const UnlockSection = () => {
       opacity: 1,
       zIndex: 1,
       stagger: {
-        each: 0.01, // Reduced from 0.02 to make the stagger effect even faster
-        from: 'start',
+        each: 0.01,
+        from: 'end',
       },
-      ease: 'power3.out', // Changed to power3.out for a more explosive, faster animation
-      duration: 0.3, // Reduced from 0.5 to make the overall animation faster
+      ease: 'power3.out',
+      duration: 0.3,
     });
 
-    // Pause the timeline initially
     tl.pause();
   }, [prefersReducedMotion, cardWidth, gap, visibleCards, stackOffset]);
 
@@ -238,32 +238,32 @@ const UnlockSection = () => {
     animateCards();
   }, [animateCards]);
 
-  // ... existing code ...
+
 
 const cardData = [
   {
     title: 'Improved Accuracy',
-    image: '/images/card-image-1.svg',
+    image: '/images/icons/Accuracy.svg',
   },
   {
     title: 'Improved Precision',
-    image: '/images/card-image-2.svg',
+    image: '/images/icons/Precision.svg',
   },
   {
     title: '100% Traceability',
-    image: '/images/card-image-3.svg',
+    image: '/images/icons/Traceability.svg',
   },
   {
     title: 'Reduction in Complex Human-in-the-Loop Decisions',
-    image: '/images/card-image-4.svg',
+    image: '/images/icons/Reduction in Complex Human-in-the-Loop Decisions.svg',
   },
   {
     title: 'Reduction in Components to Build Application',
-    image: '/images/card-image-5.svg',
+    image: '/images/icons/Reduction in Components to Build Application.svg',
   },
   {
     title: 'Richer Semantic Understanding of Your Data',
-    image: '/images/card-image-6.svg',
+    image: '/images/icons/Richer Semantic Understanding of Your Data.svg',
   },
 ];
 
@@ -361,7 +361,7 @@ const cardData = [
                 width: `${cardData.length * (cardWidth + gap) - gap}px`,
                 height: isMobile
                   ? `${cardWidth * 0.9}px`
-                  : `${cardWidth * 1.2 + 60}px`, // Increased height for mobile
+                  : `${cardWidth * 1.2 + 60}px`,
               }}
             >
               {cardData.map((card, index) => (
@@ -372,8 +372,9 @@ const cardData = [
                     width: `${cardWidth}px`,
                     height: isMobile
                       ? `${cardWidth * 0.9}px`
-                      : `${cardWidth * 1.2}px`, // Increased height for mobile
+                      : `${cardWidth * 1.2}px`,
                     transition: 'all 0.5s ease',
+                    zIndex: cardData.length - index, // Reverse the z-index
                   }}
                 >
                   <Card
