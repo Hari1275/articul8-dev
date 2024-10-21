@@ -2,12 +2,23 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const getLinkClassName = (href: string) => {
+    const isActive = pathname === href;
+    return `text-black font-proxima-nova text-[16px] leading-[21.92px] font-[${
+      isActive ? '700' : '400'
+    }] hover:text-black transition duration-300 ${
+      isActive ? 'text-gray-900' : ''
+    }`;
   };
 
   return (
@@ -30,17 +41,11 @@ const Header = () => {
           </Link>
           <div className='h-16 w-px bg-gray-300 mx-6'></div>
           <nav className='flex space-x-6'>
-            <Link
-              href='/about'
-              className='text-black font-proxima-nova leading-[21.92px] text-[16px] font-[400] hover:text-black transition duration-300'
-            >
-              About Us
-            </Link>
-            <Link
-              href='/products'
-              className='text-black font-proxima-nova text-[16px] leading-[21.92px] font-[400] hover:text-black transition duration-300'
-            >
+            <Link href='/products' className={getLinkClassName('/products')}>
               Product
+            </Link>
+            <Link href='/about' className={getLinkClassName('/about')}>
+              About Us
             </Link>
           </nav>
         </div>
@@ -109,13 +114,7 @@ const Header = () => {
               >
                 Home
               </Link>
-              <Link
-                href='/about'
-                className='text-white font-proxima-nova text-[34px] font-[400] leading-[40px] px-8 py-2 hover:border-2 hover:border-[#4D6EFF] hover:rounded-md transition-all duration-300'
-                onClick={toggleMenu}
-              >
-                About Us
-              </Link>
+
               <Link
                 href='/product'
                 className='text-white font-proxima-nova text-[34px] font-[400] leading-[40px] px-8 py-2 hover:border-2 hover:border-[#4D6EFF] hover:rounded-md transition-all duration-300'
@@ -123,6 +122,14 @@ const Header = () => {
               >
                 Product
               </Link>
+              <Link
+                href='/about'
+                className='text-white font-proxima-nova text-[34px] font-[400] leading-[40px] px-8 py-2 hover:border-2 hover:border-[#4D6EFF] hover:rounded-md transition-all duration-300'
+                onClick={toggleMenu}
+              >
+                About Us
+              </Link>
+             
             </nav>
           </div>
           <div className='p-4'>
