@@ -256,10 +256,10 @@ const innovationData = [
     ],
   },
   {
-    icon: '/images/icons/Autonomous-decisions-actions.svg',
+    icon: '/images/icons/autonomous-decisions-actions.svg',
     title: 'Autonomous Decisions and Actions',
-    selectedIcon: '/images/icons/Autonomous-decisions-actions-selected.svg',
-    hoverIcon: '/images/icons/Autonomous-decisions-actions-hover.svg',
+    selectedIcon: '/images/icons/autonomous-decisions-actions-selected.svg',
+    hoverIcon: '/images/icons/autonomous-decisions-actions-hover.svg',
     products: [
       {
         icon: '/images/icons/modelmesh-1.svg',
@@ -329,7 +329,7 @@ const innovationData = [
     ],
   },
   {
-    icon: '/images/icons/Library.svg',
+    icon: '/images/icons/library.svg',
     title: 'Articul8 Library of Specialized Models',
     selectedIcon: '/images/icons/Library-selected.svg',
     hoverIcon: '/images/icons/Library-hover.svg',
