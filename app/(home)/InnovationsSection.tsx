@@ -29,16 +29,20 @@ const InnovationItem = ({
       onMouseLeave={() => setIsHovered(false)}
     >
       <Image
-        src={isSelected ? selectedIcon : (isHovered ? hoverIcon : icon)}
+        src={isSelected ? selectedIcon : isHovered ? hoverIcon : icon}
         alt={title}
         width={26}
         height={26}
         priority
-        className="mr-4"
+        className='mr-4'
       />
       <p
         className={`text-[19px] font-proxima-nova font-[700] leading-[23.14px] sm:text-lg ${
-          isSelected ? 'text-white font-[700]' : (isHovered ? 'text-[#1130FF]' : 'text-black')
+          isSelected
+            ? 'text-white font-[700]'
+            : isHovered
+            ? 'text-[#1130FF]'
+            : 'text-black'
         }`}
       >
         {title}
@@ -65,8 +69,10 @@ const ProductCard = ({
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div 
-      className={`pb-6 mb-6 cursor-pointer ${!isLast ? 'border-b border-[#00000033]' : ''}`}
+    <div
+      className={`pb-6 mb-6 cursor-pointer ${
+        !isLast ? 'border-b border-[#00000033]' : ''
+      }`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onTouchStart={() => setIsHovered(true)}
@@ -82,7 +88,11 @@ const ProductCard = ({
           priority
         />
         <div>
-          <p className={`text-[23px] font-proxima-nova font-[600] leading-[28px] sm:text-xl  text-black ${isHovered ? 'text-[#1130FF]' : 'text-black'}`}>
+          <p
+            className={`text-[23px] font-proxima-nova font-[600] leading-[28px] sm:text-xl  text-black ${
+              isHovered ? 'text-[#1130FF]' : 'text-black'
+            }`}
+          >
             {title}
           </p>
         </div>
@@ -117,37 +127,39 @@ const AccordionItem = ({
   return (
     <div className={`${isOpen ? 'bg-[#1130FF]' : ''}`}>
       <div
-        className={`flex items-center justify-between py-4 px-4 cursor-pointer ${isOpen ? 'text-white' : ''}`}
+        className={`flex items-center justify-between py-4 px-4 cursor-pointer ${
+          isOpen ? 'text-white' : ''
+        }`}
         onClick={onClick}
         onTouchStart={() => setIsHovered(true)}
         onTouchEnd={() => setIsHovered(false)}
       >
-        <div className="flex items-center">
+        <div className='flex items-center'>
           <Image
-            src={isOpen ? hoverIcon : (isHovered ? hoverIcon : icon)}
+            src={isOpen ? hoverIcon : isHovered ? hoverIcon : icon}
             alt={title}
             width={24}
             height={24}
             priority
-            className="mr-3"
+            className='mr-3'
           />
-          <p className="text-[18px] font-proxima-nova font-[700] leading-[22px]">
+          <p className='text-[18px] font-proxima-nova font-[700] leading-[22px]'>
             {title}
           </p>
         </div>
         <Image
-          src={isOpen ? '/images/icons/arrowups.svg' : '/images/icons/arrowdown.svg'}
+          src={
+            isOpen
+              ? '/images/icons/arrowups.svg'
+              : '/images/icons/arrowdown.svg'
+          }
           alt={isOpen ? 'Close' : 'Open'}
           width={14}
           height={14}
-          className="transition-transform duration-300"
+          className='transition-transform duration-300'
         />
       </div>
-      {isOpen && (
-        <div className="bg-white p-4">
-          {children}
-        </div>
-      )}
+      {isOpen && <div className='bg-white p-4'>{children}</div>}
     </div>
   );
 };
@@ -256,7 +268,7 @@ const innovationData = [
     ],
   },
   {
-    icon: '/images/icons/autonomous-decisions-actions.svg',
+    icon: '/images/icons/Autonomous-decisions-actions.svg',
     title: 'Autonomous Decisions and Actions',
     selectedIcon: '/images/icons/autonomous-decisions-actions-selected.svg',
     hoverIcon: '/images/icons/autonomous-decisions-actions-hover.svg',
@@ -317,9 +329,9 @@ const innovationData = [
     hoverIcon: '/images/icons/scoring-hover.svg',
     products: [
       {
-        icon: '/images/icons/evalu8r.svg',
-        hoverIcon: '/images/icons/evalu8r-hover.svg',
-        selectedIcon: '/images/icons/evalu8r-selected.svg',
+        icon: '/images/icons/Evalu8r.svg',
+        hoverIcon: '/images/icons/Evalu8r-hover.svg',
+        selectedIcon: '/images/icons/Evalu8r-selected.svg',
         title: 'Evalu8r',
         subTitle:
           'Framework for evaluating performance, reliability and trustworthiness of complex GenAI systems.',
@@ -329,7 +341,7 @@ const innovationData = [
     ],
   },
   {
-    icon: '/images/icons/library.svg',
+    icon: '/images/icons/Library.svg',
     title: 'Articul8 Library of Specialized Models',
     selectedIcon: '/images/icons/Library-selected.svg',
     hoverIcon: '/images/icons/Library-hover.svg',
