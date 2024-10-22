@@ -289,11 +289,11 @@ const ProductLift = () => {
         {/* bottom */}
         <div className="w-full flex justify-center items-center align-middle">
           {/* big screen */}
-          <div className="hidden md:flex  w-[81%]  flex-row flex-wrap justify-between  rounded-md md:mt-3">
+          <div className="hidden md:flex  w-[81%] md:gap-y-3  flex-row flex-wrap justify-between  rounded-md md:mt-3">
             {cardsArray.map((item, i) => (
               <div
                 key={item?.id || i}
-                className="lg:w-[33.33333%] md:w-[50%] w-full  flex"
+                className="lg:w-[32.8%] md:w-[49.2%] w-full  flex"
               >
                 <Card item={item} />
               </div>
@@ -302,7 +302,7 @@ const ProductLift = () => {
           {/* small screen */}
           <div className="md:hidden w-[80%] flex flex-row flex-wrap justify-between  rounded-md">
             {/* {cardsArray.map((item, i) => ( */}
-            <div className="lg:w-[33.33333%] md:w-[50%] w-full  flex">
+            <div className="lg:w-[32.8%] md:w-[49.2%] w-full  flex">
               <Card item={cardItem} />
             </div>
             {/* ))} */}
