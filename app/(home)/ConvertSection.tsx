@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import Image from 'next/image';
 
 const FeatureCard = ({
@@ -32,7 +32,7 @@ const FeatureCard = ({
 );
 
 const ConvertSection = () => {
-  const words = ['Success'];
+  const words = useMemo(() => ['Success'], []);
   const [currentWord, setCurrentWord] = useState(words[0]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isExpanded, setIsExpanded] = useState(true);

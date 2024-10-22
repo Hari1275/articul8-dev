@@ -1,5 +1,4 @@
 import Image from "next/image";
-import icon from "../../public/images/productBanner.gif";
 import icon2 from "../../public/images/productbanner2.gif";
 
 const ProductPage = () => {
