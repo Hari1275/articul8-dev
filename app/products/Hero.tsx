@@ -1,11 +1,14 @@
 import Image from "next/image";
+import icon from "../../public/images/productBanner.gif";
 import icon2 from "../../public/images/productbanner2.gif";
 
 const ProductPage = () => {
   return (
     <>
-      <div className="w-full md:pt-[130px] lg:pt-12 pb-0 md:pb-6   flex justify-center items-center  bg-[#ECEFF2]">
-        <div className="w-[95%] md:w-[97%]  flex flex-col md:flex-row  gap-6">
+      {/* <section className="relative sm:min-h-[80vh] flex items-center justify-center bg-[#ECEFF2]  overflow-hidden">
+        <div className="container mx-auto px-6 flex flex-col lg:flex-row items-center lg:items-start h-full md:pt-[50px]"> */}
+      <div className=" md:pt-[130px]  pt-8  lg:pt-24 pb-0 md:pb-6   flex justify-center items-center  bg-[#ECEFF2]">
+        <div className="container  mx-auto px-4 sm:px-6  w-[95%] md:w-[97%]  flex flex-col md:flex-row  gap-6">
           <div className="w-full md:w-1/2 lg:w-[50%]  flex flex-col justify-center md:mt-[-90px]">
             <h1 className="font-[700] text-center md:text-start font-space-grotesk">
               <div className="leading-tight hidden md:block  text-[45px] md:text-4xl lg:text-[55px] pr-[12px]">
@@ -55,6 +58,8 @@ const ProductPage = () => {
           </div>
         </div>
       </div>
+      {/* </div>
+      </section> */}
     </>
   );
 };
