@@ -281,27 +281,36 @@ const HeavyItems = () => {
       title: "Flexible Infrastructure Orchestration",
       items: [
         {
-          title: "Infrastructure Selection & Optimization",
-          essential: false,
+          title: "",
+          essential: true,
           enterprise: true,
           expert: true,
-          subItems: [],
-        },
-        {
-          title: "Auto-scaling",
-          essential: false,
-          enterprise: true,
-          expert: true,
-          subItems: [],
-        },
-        {
-          title: "Multi-accelerator support",
-          essential: false,
-          enterprise: true,
-          expert: true,
-          subItems: [],
+          subItems: [
+            {
+              title: "Infrastructure Selection & Optimization",
+              essential: false,
+              enterprise: true,
+              expert: true,
+              subItems: [],
+            },
+            {
+              title: "Auto-scaling",
+              essential: false,
+              enterprise: true,
+              expert: true,
+              subItems: [],
+            },
+            {
+              title: "Multi-accelerator support",
+              essential: false,
+              enterprise: true,
+              expert: true,
+              subItems: [],
+            },
+          ],
         },
       ],
+
       darkColor: "#FFE9F8",
       lightColor: "#FFF2FB",
       borderColor: "",
@@ -312,69 +321,77 @@ const HeavyItems = () => {
       title: "Deployment and User Access",
       items: [
         {
-          title: "A8 Hosted",
+          title: "",
           essential: true,
           enterprise: false,
           expert: false,
-          subItems: [],
-        },
-        {
-          title: "Deployed on your cloud infrastructure",
-          essential: false,
-          enterprise: true,
-          expert: true,
-          subItems: [],
-        },
-        {
-          title: "Deployed on your on-premises infrastructure",
-          essential: false,
-          enterprise: true,
-          expert: true,
-          subItems: [],
-        },
+          subItems: [
+            {
+              title: "A8 Hosted",
+              essential: true,
+              enterprise: false,
+              expert: false,
+              subItems: [],
+            },
+            {
+              title: "Deployed on your cloud infrastructure",
+              essential: false,
+              enterprise: true,
+              expert: true,
+              subItems: [],
+            },
+            {
+              title: "Deployed on your on-premises infrastructure",
+              essential: false,
+              enterprise: true,
+              expert: true,
+              subItems: [],
+            },
 
-        {
-          title: "Hybrid Deployment (Part cloud, part on-premises)",
-          essential: false,
-          enterprise: false,
-          expert: true,
-          subItems: [],
-        },
-        {
-          title: "High concurrency & low latency",
-          essential: false,
-          enterprise: true,
-          expert: true,
-          subItems: [],
-        },
-        {
-          title: "Team Collaboration",
-          essential: false,
-          enterprise: true,
-          expert: true,
-          subItems: [],
-        },
+            {
+              title: "Hybrid Deployment (Part cloud, part on-premises)",
+              essential: false,
+              enterprise: false,
+              expert: true,
+              subItems: [],
+            },
+            {
+              title: "High concurrency & low latency",
+              essential: false,
+              enterprise: true,
+              expert: true,
+              subItems: [],
+            },
+            {
+              title: "Team Collaboration",
+              essential: false,
+              enterprise: true,
+              expert: true,
+              subItems: [],
+            },
 
-        {
-          title: "Admin Dashboard",
-          essential: false,
-          enterprise: true,
-          expert: true,
-          subItems: [],
-        },
-        {
-          title: "Enterprise defined rate-limiting",
-          essential: false,
-          enterprise: true,
-          expert: true,
-          subItems: [],
-        },
-        {
-          title: "Customer defined Role Based Access Control (RBAC)",
-          essential: false,
-          enterprise: true,
-          expert: true,
-          subItems: [],
+            {
+              title: "Admin Dashboard",
+              essential: false,
+              enterprise: true,
+              expert: true,
+              subItems: [],
+            },
+            {
+              title: "Enterprise defined rate-limiting",
+              essential: false,
+              enterprise: true,
+              expert: true,
+              subItems: [],
+            },
+            {
+              title: "Customer defined Role Based Access Control (RBAC)",
+              essential: false,
+              enterprise: true,
+              expert: true,
+              subItems: [],
+            },
+          ],
         },
       ],
       darkColor: "#EBEAEA",
@@ -412,10 +429,10 @@ const HeavyItems = () => {
 
   return (
     <>
-      <div className="pt-8 md:mt-0 w-full bg-white  pb-10 flex flex-col  justify-center items-center ">
+      <div className="pt-8 md:mt-0 w-full bg-white  pb-10 flex flex-col  justify-center items-center relative">
         {/* top */}
 
-        <div className="w-[90%] md:w-[82%] flex flex-row justify-center items-center ">
+        <div className="w-[90%] md:w-[82%] flex flex-row justify-center items-center sticky top-[0px] z-[100] bg-white">
           <div className="w-[60%] md:w-[40%] lg:w-[42%]    flex items-center"></div>
 
           <div className="w-[40%] border-r-[1px] border-l-[1px] border-t-[1px] md:w-[60%] lg:w-[58%] flex flex-row justify-between">
@@ -511,7 +528,7 @@ const HeavyItems = () => {
 
         {/* card */}
         {/* <div className="w-[90%] md:w-[82%]"> */}
-        <div className="w-[90%] md:w-[82%] ">
+        <div className="w-[90%] md:w-[82%] z-0">
           {productItems.map((item, index) => (
             <Disclosure key={index} defaultOpen={index === 0}>
               {({ open }) => (
@@ -548,59 +565,75 @@ const HeavyItems = () => {
                             <div className="">
                               <div className="flex flex-row justify-center ">
                                 {/* right */}
-                                <div
+
+                                {main.title !== "" && (
+                                  <div
+                                    className="w-[60%] md:w-[40%] lg:w-[42%] border-b-[1px] flex items-center border-r-[1px]"
+                                    style={{ borderColor: item.borderColor }}
+                                  >
+                                    <div className="font-proxima-nova font-[700] w-full text-[14px] md:text-[15px] py-3 pl-2 md:pl-5 items-center text-start">
+                                      {main.title}
+                                    </div>
+                                  </div>
+                                )}
+
+                                {main.title !== "" && (
+                                  <div className="w-[40%] md:w-[60%] lg:w-[58%] flex flex-row justify-between">
+                                    <div
+                                      className="w-1/3  border-r-[1px] border-b-[1px]"
+                                      style={{ borderColor: item.borderColor }}
+                                    >
+                                      <div className="w-full flex justify-center  items-center align-middle py-3">
+                                        {main.essential && (
+                                          <BsFillCheckCircleFill
+                                            color="blue"
+                                            size={18}
+                                          />
+                                        )}
+                                      </div>
+                                    </div>
+
+                                    <div
+                                      className="w-1/3  border-r-[1px] border-b-[1px]"
+                                      style={{ borderColor: item.borderColor }}
+                                    >
+                                      <div className="w-full flex justify-center  items-center align-middle py-3">
+                                        {main.enterprise && (
+                                          <BsFillCheckCircleFill
+                                            color="blue"
+                                            size={18}
+                                          />
+                                        )}
+                                      </div>
+                                    </div>
+
+                                    <div
+                                      className="w-1/3 border-b-[1px]"
+                                      style={{ borderColor: item.borderColor }}
+                                    >
+                                      <div className="w-full flex justify-center  items-center align-middle py-3">
+                                        {main.expert && (
+                                          <BsFillCheckCircleFill
+                                            color="blue"
+                                            size={18}
+                                          />
+                                        )}
+                                      </div>
+                                    </div>
+                                  </div>
+                                )}
+
+                                {/* <div
                                   className="w-[60%] md:w-[40%] lg:w-[42%] border-b-[1px]   flex items-center border-r-[1px]"
                                   style={{ borderColor: item.borderColor }}
+
                                 >
                                   <div className="font-proxima-nova font-[700]   w-full  text-[14px]  md:text-[15px]   py-3 pl-2 md:pl-5  items-center text-start">
                                     {main.title}
                                   </div>
-                                </div>
+                                </div> */}
 
                                 {/* left */}
-                                <div className="w-[40%] md:w-[60%] lg:w-[58%] flex flex-row justify-between">
-                                  <div
-                                    className="w-1/3  border-r-[1px] border-b-[1px]"
-                                    style={{ borderColor: item.borderColor }}
-                                  >
-                                    <div className="w-full flex justify-center  items-center align-middle py-3">
-                                      {main.essential && (
-                                        <BsFillCheckCircleFill
-                                          color="blue"
-                                          size={18}
-                                        />
-                                      )}
-                                    </div>
-                                  </div>
-
-                                  <div
-                                    className="w-1/3  border-r-[1px] border-b-[1px]"
-                                    style={{ borderColor: item.borderColor }}
-                                  >
-                                    <div className="w-full flex justify-center  items-center align-middle py-3">
-                                      {main.enterprise && (
-                                        <BsFillCheckCircleFill
-                                          color="blue"
-                                          size={18}
-                                        />
-                                      )}
-                                    </div>
-                                  </div>
-
-                                  <div
-                                    className="w-1/3 border-b-[1px]"
-                                    style={{ borderColor: item.borderColor }}
-                                  >
-                                    <div className="w-full flex justify-center  items-center align-middle py-3">
-                                      {main.expert && (
-                                        <BsFillCheckCircleFill
-                                          color="blue"
-                                          size={18}
-                                        />
-                                      )}
-                                    </div>
-                                  </div>
-                                </div>
                               </div>
                             </div>
 
