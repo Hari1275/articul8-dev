@@ -53,34 +53,26 @@ const InnovationItem = ({
 
 const ProductCard = ({
   icon,
-  hoverIcon,
   title,
   subTitle,
   description,
   isLast = false,
 }: {
   icon: string;
-  hoverIcon: string;
   title: string;
   subTitle: string;
   description: string;
   isLast?: boolean;
 }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
   return (
     <div
-      className={`pb-6 mb-6 cursor-pointer ${
+      className={`pb-6 mb-6 ${
         !isLast ? 'border-b border-[#00000033]' : ''
       }`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      onTouchStart={() => setIsHovered(true)}
-      onTouchEnd={() => setIsHovered(false)}
     >
       <div className='flex items-start mb-2'>
         <Image
-          src={isHovered ? hoverIcon : icon}
+          src={icon}
           alt={title}
           width={26}
           height={26}
@@ -89,9 +81,7 @@ const ProductCard = ({
         />
         <div>
           <p
-            className={`text-[23px] font-proxima-nova font-[600] leading-[28px] sm:text-xl  text-black ${
-              isHovered ? 'text-[#1130FF]' : 'text-black'
-            }`}
+            className='text-[23px] font-proxima-nova font-[600] leading-[28px] sm:text-xl text-black'
           >
             {title}
           </p>
@@ -431,7 +421,6 @@ const InnovationsSection = () => {
                 <ProductCard
                   key={index}
                   icon={product.icon}
-                  hoverIcon={product.hoverIcon}
                   title={product.title}
                   subTitle={product.subTitle}
                   description={product.description}
@@ -456,7 +445,6 @@ const InnovationsSection = () => {
                 <ProductCard
                   key={productIndex}
                   icon={product.icon}
-                  hoverIcon={product.hoverIcon}
                   title={product.title}
                   subTitle={product.subTitle}
                   description={product.description}

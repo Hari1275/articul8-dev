@@ -124,32 +124,28 @@ const ConvertSection = () => {
             Convert your GenAI chaos to
           </span>
           <span className='block leading-tight mb-2'>
-            <span className='text-[#FA05C3] inline-flex items-center'>
-              <Image
+            <span className='text-[#FA05C3] inline-flex items-center justify-center'>
+              {/* <Image
                 src='/images/icons/section-open.svg'
                 alt='Open bracket'
                 width={28}
                 height={28}
-                className='mr-1 w-4 h-4 sm:w-12 sm:h-12'
-                sizes='(max-width: 640px) 15px, (max-width: 768px) 20px, 25px'
+                className='mr-1 w-4 h-4 sm:w-7 sm:h-7'
+                sizes='(max-width: 640px) 15px, 28px'
                 priority
-              />
-              <span
-                className={`transition-all duration-300 px-1 ${
-                  isExpanded ? 'opacity-100 max-w-[300px]' : 'opacity-0 max-w-0'
-                }`}
-              >
-                {currentWord}
+              /> */}
+              <span className='inline-block transition-all duration-300 ease-in-out'>
+                Success
               </span>
-              <Image
+              {/* <Image
                 src='/images/icons/section-closed.svg'
                 alt='Close bracket'
                 width={28}
                 height={28}
-                className='ml-1 w-4 h-4 sm:w-12 sm:h-12'
-                sizes='(max-width: 640px) 15px, (max-width: 768px) 20px, 25px'
+                className='ml-1 w-4 h-4 sm:w-7 sm:h-7'
+                sizes='(max-width: 640px) 15px, 28px'
                 priority
-              />
+              /> */}
             </span>{' '}
             with
           </span>
