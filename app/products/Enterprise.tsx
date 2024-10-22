@@ -77,13 +77,12 @@ const Enterprise = () => {
           {/* top */}
           <div className="w-full md:w-[82%] flex flex-col justify-center align-middle">
             <h2 className=" font-space-grotesk  text-[28px] lg:text-[50px] md:text-3xl font-bold  text-center leading-[36px] md:leading-10 lg:leading-[4rem]">
-              Articul8 AI - the enterprise Generative AI (GenAI) platform that
-              works.
+            Articul8 AI – the enterprise Generative AI (GenAI) platform that just works.
             </h2>
             {/* <h2 className="lg:md:text-[50px] md:text-3xl sm:text-2xl font-bold text-center">
             AI (GenAI) platform that works.
             </h2> */}
-          </div>
+          </div>    
           {/* middle */}
           <div className="w-full flex justify-center">
             <Image
