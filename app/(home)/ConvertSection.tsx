@@ -32,25 +32,25 @@ const FeatureCard = ({
 );
 
 const ConvertSection = () => {
-  const words = useMemo(() => ['Success'], []);
-  const [currentWord, setCurrentWord] = useState(words[0]);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isExpanded, setIsExpanded] = useState(true);
+  // const words = useMemo(() => ['Success'], []);
+  // const [currentWord, setCurrentWord] = useState(words[0]);
+  // const [currentIndex, setCurrentIndex] = useState(0);
+  // const [isExpanded, setIsExpanded] = useState(true);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIsExpanded(false);
-      setTimeout(() => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % words.length);
-        setCurrentWord(words[(currentIndex + 1) % words.length]);
-        setTimeout(() => {
-          setIsExpanded(true);
-        }, 600);
-      }, 400);
-    }, 2000);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setIsExpanded(false);
+  //     setTimeout(() => {
+  //       setCurrentIndex((prevIndex) => (prevIndex + 1) % words.length);
+  //       setCurrentWord(words[(currentIndex + 1) % words.length]);
+  //       setTimeout(() => {
+  //         setIsExpanded(true);
+  //       }, 600);
+  //     }, 400);
+  //   }, 2000);
 
-    return () => clearInterval(interval);
-  }, [currentIndex, words]);
+  //   return () => clearInterval(interval);
+  // }, [currentIndex, words]);
 
   const features = [
     {
