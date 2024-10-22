@@ -432,7 +432,7 @@ const HeavyItems = () => {
       <div className="pt-8 md:mt-0 w-full bg-white  pb-10 flex flex-col  justify-center items-center relative">
         {/* top */}
 
-        <div className="w-[90%] md:w-[82%] flex flex-row justify-center items-center sticky top-[0px] z-[100] bg-white">
+        <div className="container  mx-auto px-4 sm:px-6 flex flex-row justify-center items-center sticky top-[40px] md:top-[64px] z-[100] bg-white">
           <div className="w-[60%] md:w-[40%] lg:w-[42%]    flex items-center"></div>
 
           <div className="w-[40%] border-r-[1px] border-l-[1px] border-t-[1px] md:w-[60%] lg:w-[58%] flex flex-row justify-between">
@@ -528,9 +528,18 @@ const HeavyItems = () => {
 
         {/* card */}
         {/* <div className="w-[90%] md:w-[82%]"> */}
-        <div className="w-[90%] md:w-[82%] z-0">
+        <div className="container  mx-auto px-4 sm:px-6 z-0">
           {productItems.map((item, index) => (
-            <Disclosure key={index} defaultOpen={index === 0}>
+            <Disclosure
+              key={index}
+              defaultOpen={
+                index === 0 ||
+                index === 1 ||
+                index === 2 ||
+                index === 3 ||
+                index === 4
+              }
+            >
               {({ open }) => (
                 <div
                   className="rounded-sm overflow-hidden"

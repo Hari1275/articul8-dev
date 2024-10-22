@@ -223,7 +223,7 @@ const ProductLift = () => {
     <>
       <div className="w-full bg-[#F2F7FF]  md:bg-white pt-0 md:pt-10 pb-0 md:pb-0 flex flex-col md:gap-16 gap-8 justify-center items-center bg-[background: #ECEFF2]">
         {/* top patti */}
-        <div className="w-full flex flex-row justify-end md:gap-28 mb-5 md:mb-0">
+        <div className=" w-full flex flex-row justify-end md:gap-28 mb-5 md:mb-0">
           <div>
             <Image
               src={lineFrame1}
@@ -243,7 +243,7 @@ const ProductLift = () => {
           </div>
         </div>
         {/* top */}
-        <div className="">
+        <div className="container mx-auto px-4 sm:px-6">
           <h3 className="font-space-grotesk lg:text-[40px] md:text-3xl text-3xl font-bold text-center">
             Our products do the heavy lifting for you.
           </h3>
@@ -251,7 +251,7 @@ const ProductLift = () => {
 
         {/* tabs */}
 
-        <div className="border-b-2 w-[88%] block md:hidden">
+        <div className="border-b-2 w-[90%] block md:hidden container mx-auto px-4 sm:px-6">
           <div className="flex flex-row justify-between">
             <span
               className="p-2  cursor-pointer font-proxima-nova font-[700] text-[16px]"
