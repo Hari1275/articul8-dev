@@ -116,7 +116,7 @@ const Header = () => {
               </Link>
 
               <Link
-                href='/product'
+                href='/products'
                 className='text-white font-proxima-nova text-[34px] font-[400] leading-[40px] px-8 py-2 hover:border-2 hover:border-[#4D6EFF] hover:rounded-md transition-all duration-300'
                 onClick={toggleMenu}
               >
