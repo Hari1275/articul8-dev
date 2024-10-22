@@ -38,7 +38,7 @@ const PlatformArchitecture = () => {
     },
     {
       icon: '/images/icons/sticker.svg',
-      title: 'Observability, Traceability & Auditability At Every Step',
+      title: 'Observability, Traceability & Auditability at Every Step',
       description: 'Get full visibility into decisions and actions, revealing the underlying logic and metrics in every step, delivering assurance in generated outcomes.',
     },
     {
