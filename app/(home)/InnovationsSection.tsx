@@ -1,6 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const InnovationItem = ({
   icon,
@@ -137,19 +138,34 @@ const AccordionItem = ({
             {title}
           </p>
         </div>
-        <Image
-          src={
-            isOpen
-              ? '/images/icons/arrowups.svg'
-              : '/images/icons/arrowdown.svg'
-          }
-          alt={isOpen ? 'Close' : 'Open'}
-          width={14}
-          height={14}
-          className='transition-transform duration-300'
-        />
+        <motion.div
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          <Image
+            src={'/images/icons/arrowdown.svg'}
+            alt={isOpen ? 'Close' : 'Open'}
+            width={14}
+            height={14}
+          />
+        </motion.div>
       </div>
-      {isOpen && <div className='bg-white p-4'>{children}</div>}
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            initial="collapsed"
+            animate="open"
+            exit="collapsed"
+            variants={{
+              open: { opacity: 1, height: 'auto' },
+              collapsed: { opacity: 0, height: 0 }
+            }}
+            transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
+          >
+            <div className='bg-white p-4'>{children}</div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
@@ -416,17 +432,27 @@ const InnovationsSection = () => {
             ))}
           </div>
           <div className='lg:col-span-6'>
-            {innovationData[selectedInnovation].products.map(
-              (product, index) => (
-                <ProductCard
-                  key={index}
-                  icon={product.icon}
-                  title={product.title}
-                  subTitle={product.subTitle}
-                  description={product.description}
-                />
-              )
-            )}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={selectedInnovation}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+              >
+                {innovationData[selectedInnovation].products.map(
+                  (product, index) => (
+                    <ProductCard
+                      key={index}
+                      icon={product.icon}
+                      title={product.title}
+                      subTitle={product.subTitle}
+                      description={product.description}
+                    />
+                  )
+                )}
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
 
