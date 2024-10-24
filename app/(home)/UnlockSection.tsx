@@ -31,7 +31,7 @@ const useResponsiveValues = () => {
           isMobile: false,
         });
       } 
-      else if (window.innerWidth < 1440) {
+      else if (window.innerWidth < 1600) {
         // Desktop
         setValues({
           cardWidth: 280,
@@ -349,7 +349,7 @@ const cardData = [
             style={{
               width: '100%',
               height: isMobile
-                ? `${cardWidth * 1.0}px`
+                ? `${cardWidth * 1.2}px`
                 : `${cardWidth * 1.2 + 60}px`, // Increased height for mobile
               scrollbarWidth: 'none',
               msOverflowStyle: 'none',

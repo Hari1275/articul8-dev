@@ -25,12 +25,12 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className='relative sm:min-h-[80vh] flex items-center justify-center bg-[#112FFF] text-white overflow-hidden'>
+    <section className='relative sm:min-h-[80vh] flex items-center justify-center bg-[#FFFFFF] text-white overflow-hidden'>
       <div className='container mx-auto px-6 flex flex-col lg:flex-row items-center lg:items-start h-full md:pt-[50px]'>
         <div className='text-left w-full  z-10 mb-8 lg:mb-0'>
-          <h1 className='font-space-grotesk text-[32px]  font-[700]  sm:py-8 pt-12 sm:text-[50px] md:text-[54px] lg:text-[64px] sm:leading-[76.8px] md:leading-[76.8px] lg:leading-[76.8px] text-center lg:text-left'>
+          <h1 className='font-space-grotesk text-[#000000] text-[32px]  font-[700]  sm:py-8 pt-12 sm:text-[50px] md:text-[54px] lg:text-[64px] sm:leading-[76.8px] md:leading-[76.8px] lg:leading-[76.8px] text-center lg:text-left'>
             <span className='block'>ARTICUL8 YOUR</span>
-            <span className='text-[#00F4C5] mt-2 inline-flex items-center h-[1.2em] overflow-hidden'>
+            <span className='text-[#112FFF] mt-2 inline-flex items-center h-[1.2em] overflow-hidden'>
               <motion.div
                 animate={{ width: isExpanded ? 'auto' : 'auto' }}
                 transition={{ duration: 0.5, ease: [0.6, -0.05, 0.01, 0.99] }}
@@ -78,7 +78,7 @@ export default function Hero() {
               </motion.div>
             </span>
           </h1>
-          <p className='font-proxima-nova sm:text-[24px] md:text-[24px] text-[16px] pb-2 sm:mt-0 font-[400] leading-[23.8px] sm:leading-[28.8px]  sm:font-[400] text-center lg:text-left'>
+          <p className='font-proxima-nova text-[#000000] sm:text-[24px] md:text-[24px] text-[16px] pb-2 sm:mt-0 font-[400] leading-[23.8px] sm:leading-[28.8px]  sm:font-[400] text-center lg:text-left'>
             The GenAI platform that simply works.
             <br />
             Bring order to chaos.
