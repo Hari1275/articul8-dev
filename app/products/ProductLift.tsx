@@ -122,21 +122,20 @@ const ProductLift = () => {
         "The essential GenAI Experience with your data, delivering outcomes from  Day 1.",
       button: "Experience it Today",
       buttonLink: "",
-      accessContent: "Free 30 day access.",
+      accessContent: "Free 30-day access.",
       featuresTitle: "",
       features: [
         {
           title: "ModelMesh™",
           points: [
-            "Automated Data Intelligence",
-            "Autonomous Model Selection",
-            "Autonomous Model",
-            "Orchestration",
+            "Automated data intelligence",
+            "Autonomous model selection",
+            "Autonomous model orchestration",
             "Context, response, model & system-wide scoring",
           ],
         },
         {
-          title: "Multi-Modal",
+          title: "Multimodal",
         },
         {
           title: "Ready to use Web-UI",
@@ -162,7 +161,7 @@ const ProductLift = () => {
             "Deployed on the infrastructure of your choice, with auto-scaling",
         },
         {
-          title: "Team Collaboration",
+          title: "Team collaboration",
         },
         {
           title: "Bring your own models",
@@ -171,13 +170,13 @@ const ProductLift = () => {
           title: "Customizable decisions, actions scoring & content output",
         },
         {
-          title: "KPI driven ModelMesh Optimization",
+          title: "KPI driven ModelMesh™ optimization",
         },
         {
-          title: "Application APIs & Data Connectors",
+          title: "Application APIs & data connectors",
         },
         {
-          title: "Batch Processing",
+          title: "Batch processing",
         },
       ],
     },
