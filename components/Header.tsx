@@ -14,7 +14,7 @@ const Header = () => {
 
   const getLinkClassName = (href: string) => {
     const isActive = pathname === href;
-    return `text-black font-proxima-nova text-[16px] leading-[21.92px] font-[${
+    return `text-black font-proxima-nova text-[22px] leading-[24.92px] font-[${
       isActive ? '700' : '400'
     }] hover:text-black transition duration-300 ${
       isActive ? 'text-gray-900' : ''
@@ -28,7 +28,7 @@ const Header = () => {
 
       {/* Desktop Header */}
       <div className='container mx-auto px-6 flex items-center justify-between hidden md:flex'>
-        {/* Desktop content (unchanged) */}
+        {/* Desktop content (left side unchanged) */}
         <div className='flex items-center'>
           <Link href='/' className='flex items-center py-4'>
             <Image
@@ -40,8 +40,8 @@ const Header = () => {
             />
           </Link>
           <div className='h-16 w-px bg-gray-300 mx-6'></div>
-          <nav className='flex space-x-6'>
-            <Link href='/products' className={getLinkClassName('/products')}>
+          <nav className='flex space-x-6 ' >
+            <Link    href='/products' className={getLinkClassName('/products')}>
               Product
             </Link>
             <Link href='/about' className={getLinkClassName('/about')}>
@@ -49,9 +49,23 @@ const Header = () => {
             </Link>
           </nav>
         </div>
-        <button className='font-space-grotesk bg-[#1130FF] text-white px-6 py-4 rounded-[4px] text-[16px] leading-[22.97px] font-[700] hover:bg-blue-700 transition duration-300'>
-          Start Articul8&apos;ing
-        </button>
+        
+        {/* Updated "Start Articul8'ing" link */}
+        <Link
+          href='/'
+          className='text-[#1130FF] hover:underline font-semibold flex items-center'
+        >
+          <span className='font-space-grotesk text-[18px] sm:text-[22px] font-[700] leading-[23px] sm:leading-[28.07px] text-[#1130FF]'>
+            Start Articul8&apos;ing
+          </span>
+          <Image
+            src='/images/icons/header-arrow.svg'
+            alt='Arrow right'
+            width={13}
+            height={13}
+            className='ml-2'
+          />
+        </Link>
       </div>
 
       {/* Mobile Header */}
@@ -133,7 +147,7 @@ const Header = () => {
             </nav>
           </div>
           <div className='p-4'>
-            <button className='font-space-grotesk text-[16px] w-full bg-white font-bold text-[#1130FF] px-6 py-3 rounded-md leading-[22.97px] hover:bg-gray-100 transition duration-300'>
+          <button className='font-space-grotesk text-[16px] w-full bg-white font-bold text-[#1130FF] px-6 py-3 rounded-md leading-[22.97px] hover:bg-gray-100 transition duration-300'>
               Start Articul8&apos;ing
             </button>
           </div>
