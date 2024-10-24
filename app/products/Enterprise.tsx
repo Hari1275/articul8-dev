@@ -51,7 +51,7 @@ const Enterprise = () => {
       id: 3,
       title: "Growing Library of Specialized Models",
       content:
-        "Obtain improved precision and relevance with industry knowledge encoded into Articul8's library of Domain-specific models and Task-specific models.",
+        "Obtain improved precision and relevance with industry knowledge encoded into Articul8's library of domain-specific models and Task-specific models.",
       image: proEnterpriseicon3,
     },
     {
@@ -63,7 +63,7 @@ const Enterprise = () => {
     },
     {
       id: 5,
-      title: "Deploy anywhere securely",
+      title: "Deploy Anywhere Securely",
       content:
         "Deploy Articul8 platform with your data in your security perimeter. Articul8 is agnostic to hosting infrastructure and accelerators, offering flexibility across cloud, on-prem, and air-gapped environments.",
       image: proEnterpriseicon5,
@@ -109,4 +109,4 @@ const Enterprise = () => {
   );
 };
 
-export default Enterprise;
+export default Enterprise

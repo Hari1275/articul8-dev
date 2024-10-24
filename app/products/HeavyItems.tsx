@@ -66,13 +66,13 @@ const HeavyItems = () => {
           expert: true,
           subItems: [
             {
-              title: "Library of models (LLMs & Non-LLMs)",
+              title: "Library of models (LLMs & non-LLMs)",
               essential: true,
               enterprise: true,
               expert: true,
             },
             {
-              title: "BYOM - Bring your own model (LLMs & Non-LLMs)",
+              title: "BYOM - Bring your own model (LLMs & non-LLMs)",
               essential: false,
               enterprise: true,
               expert: true,
@@ -89,7 +89,7 @@ const HeavyItems = () => {
               title: "Customizable decisioning & actioning",
               essential: false,
               enterprise: true,
-              expert: false,
+              expert: true,
             },
             {
               title: "Bring your own decision & action logic",
@@ -100,7 +100,7 @@ const HeavyItems = () => {
           ],
         },
         {
-          title: "Context, response, model & system-wide scoring",
+          title: "Context, Response, Model & System-wide Scoring",
           essential: true,
           enterprise: true,
           expert: true,
@@ -115,7 +115,7 @@ const HeavyItems = () => {
         },
 
         {
-          title: "KPI driven ModelMesh Optimization",
+          title: "KPI driven ModelMesh™ Optimization",
           essential: false,
           enterprise: true,
           expert: true,
@@ -123,19 +123,19 @@ const HeavyItems = () => {
         },
 
         {
-          title: "Library of A8 Specialized Models (Domain & Task Specific)",
+          title: "Library of Specialized Models",
           essential: false,
           enterprise: true,
           expert: true,
           subItems: [
             {
-              title: "Extend A8 Specialized Models for your Enterprise ",
+              title: "Extend A8 specialized models for your enterprise ",
               essential: false,
               enterprise: false,
               expert: true,
             },
             {
-              title: "Automated training incorporating expert / human feedback",
+              title: "Automated training incorporating expert/human feedback",
               essential: false,
               enterprise: false,
               expert: true,
@@ -162,31 +162,31 @@ const HeavyItems = () => {
             },
 
             {
-              title: "BYOT – Bring your own export Template",
+              title: "BYOT - Bring your own export template",
               essential: false,
               enterprise: false,
               expert: true,
             },
             {
-              title: "Batch Processing & Scheduling",
+              title: "Batch processing & scheduling",
               essential: false,
               enterprise: true,
               expert: true,
             },
             {
-              title: "Output-Modalities (Text, Tables, Charts)",
+              title: "Output modalities (text, tables, charts)",
               essential: true,
               enterprise: true,
               expert: true,
             },
             {
-              title: "Audit Reports",
-              essential: true,
-              enterprise: false,
+              title: "Audit reports",
+              essential: false,
+              enterprise: true,
               expert: true,
             },
             {
-              title: "Customizable Audit Reports",
+              title: "Customizable audit reports",
               essential: false,
               enterprise: false,
               expert: true,
@@ -209,7 +209,7 @@ const HeavyItems = () => {
           expert: true,
           subItems: [
             {
-              title: "Bring your own Data",
+              title: "Bring your own data",
               essential: true,
               enterprise: true,
               expert: true,
@@ -222,14 +222,14 @@ const HeavyItems = () => {
             },
 
             {
-              title: "Input-Modalities (Text, Images, Tables, Charts)",
+              title: "Input modalities (text, images, tables, charts)",
               essential: true,
               enterprise: true,
               expert: true,
             },
             {
               title:
-                "Input Data Format ( TXT, PPTx, DOCx, PDFs, JSON, CSV, HTML, XML, OCR [FV1])",
+                "Input data format ( TXT, PPTx, DOCx, PDFs, JSON, CSV, HTML, XML, OCR )",
               essential: true,
               enterprise: true,
               expert: true,
@@ -287,7 +287,7 @@ const HeavyItems = () => {
           expert: true,
           subItems: [
             {
-              title: "Infrastructure Selection & Optimization",
+              title: "Infrastructure selection & optimization",
               essential: false,
               enterprise: true,
               expert: true,
@@ -327,7 +327,7 @@ const HeavyItems = () => {
           expert: false,
           subItems: [
             {
-              title: "A8 Hosted",
+              title: "A8 hosted",
               essential: true,
               enterprise: false,
               expert: false,
@@ -349,7 +349,7 @@ const HeavyItems = () => {
             },
 
             {
-              title: "Hybrid Deployment (Part cloud, part on-premises)",
+              title: "Hybrid deployment (part cloud, part on-premises)",
               essential: false,
               enterprise: false,
               expert: true,
@@ -363,7 +363,7 @@ const HeavyItems = () => {
               subItems: [],
             },
             {
-              title: "Team Collaboration",
+              title: "Team collaboration",
               essential: false,
               enterprise: true,
               expert: true,
@@ -371,7 +371,7 @@ const HeavyItems = () => {
             },
 
             {
-              title: "Admin Dashboard",
+              title: "Admin dashboard",
               essential: false,
               enterprise: true,
               expert: true,
@@ -406,7 +406,7 @@ const HeavyItems = () => {
       "The essential GenAI Experience with your data, delivering outcomes from  Day 1.",
     button: "Experience it Today",
     buttonLink: "",
-    accessContent: "Free 30 day access.",
+    accessContent: "Free 30-day access.",
   };
   const item2 = {
     id: 2,
