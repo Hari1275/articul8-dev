@@ -274,7 +274,7 @@ const cardData = [
       const { scrollLeft, scrollWidth, clientWidth } =
         cardsContainerRef.current;
       setCanScrollLeft(scrollLeft > 0);
-      setCanScrollRight(scrollLeft < scrollWidth - clientWidth);
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 1); // Added a small threshold
     }
   }, []);
 
@@ -317,15 +317,15 @@ const cardData = [
       >
         <div className='container mx-auto px-4 sm:px-6 relative'>
           {/* Moved arrows inside this container and adjusted positioning */}
-          <div className='absolute -top-8 right-4 flex space-x-3 z-50'>
+          <div className='absolute -top-8 right-4 flex space-x-3 z-999'>
             <button
               onClick={scrollLeft}
               disabled={!canScrollLeft}
               aria-label='Scroll left'
               className={`w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300 ${
                 canScrollLeft
-                  ? 'bg-gray-200 hover:bg-gray-300 text-gray-600'
-                  : 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                  ? 'bg-blue-600 hover:bg-blue-700 text-white'
+                  : 'bg-gray-200 text-gray-400 cursor-not-allowed'
               }`}
             >
               <ChevronLeft size={20} />

@@ -122,21 +122,20 @@ const ProductLift = () => {
         "The essential GenAI Experience with your data, delivering outcomes from  Day 1.",
       button: "Experience it Today",
       buttonLink: "",
-      accessContent: "Free 30 day access.",
+      accessContent: "Free 30-day access.",
       featuresTitle: "",
       features: [
         {
           title: "ModelMesh™",
           points: [
-            "Automated Data Intelligence",
-            "Autonomous Model Selection",
-            "Autonomous Model",
-            "Orchestration",
+            "Automated data intelligence",
+            "Autonomous model selection",
+            "Autonomous model orchestration",
             "Context, response, model & system-wide scoring",
           ],
         },
         {
-          title: "Multi-Modal",
+          title: "Multimodal",
         },
         {
           title: "Ready to use Web-UI",
@@ -162,7 +161,7 @@ const ProductLift = () => {
             "Deployed on the infrastructure of your choice, with auto-scaling",
         },
         {
-          title: "Team Collaboration",
+          title: "Team collaboration",
         },
         {
           title: "Bring your own models",
@@ -171,13 +170,13 @@ const ProductLift = () => {
           title: "Customizable decisions, actions scoring & content output",
         },
         {
-          title: "KPI driven ModelMesh Optimization",
+          title: "KPI driven ModelMesh™ optimization",
         },
         {
-          title: "Application APIs & Data Connectors",
+          title: "Application APIs & data connectors",
         },
         {
-          title: "Batch Processing",
+          title: "Batch processing",
         },
       ],
     },
@@ -223,7 +222,7 @@ const ProductLift = () => {
     <>
       <div className="w-full bg-[#F2F7FF]  md:bg-white pt-0 md:pt-10 pb-0 md:pb-0 flex flex-col md:gap-16 gap-8 justify-center items-center bg-[background: #ECEFF2]">
         {/* top patti */}
-        <div className="w-full flex flex-row justify-end md:gap-28 mb-5 md:mb-0">
+        <div className=" w-full flex flex-row justify-end md:gap-28 mb-5 md:mb-0">
           <div>
             <Image
               src={lineFrame1}
@@ -243,7 +242,7 @@ const ProductLift = () => {
           </div>
         </div>
         {/* top */}
-        <div className="">
+        <div className="container mx-auto px-4 sm:px-6">
           <h3 className="font-space-grotesk lg:text-[40px] md:text-3xl text-3xl font-bold text-center">
             Our products do the heavy lifting for you.
           </h3>
@@ -251,7 +250,7 @@ const ProductLift = () => {
 
         {/* tabs */}
 
-        <div className="border-b-2 w-[88%] block md:hidden">
+        <div className="border-b-2 w-[90%] block md:hidden container mx-auto px-4 sm:px-6">
           <div className="flex flex-row justify-between">
             <span
               className="p-2  cursor-pointer font-proxima-nova font-[700] text-[16px]"
@@ -289,11 +288,11 @@ const ProductLift = () => {
         {/* bottom */}
         <div className="w-full flex justify-center items-center align-middle">
           {/* big screen */}
-          <div className="hidden md:flex  w-[81%]  flex-row flex-wrap justify-between  rounded-md md:mt-3">
+          <div className="hidden md:flex  w-[81%] md:gap-y-3  flex-row flex-wrap justify-between  rounded-md md:mt-3">
             {cardsArray.map((item, i) => (
               <div
                 key={item?.id || i}
-                className="lg:w-[33.33333%] md:w-[50%] w-full  flex"
+                className="lg:w-[32.9%] md:w-[49.4%] w-full  flex"
               >
                 <Card item={item} />
               </div>
@@ -302,7 +301,7 @@ const ProductLift = () => {
           {/* small screen */}
           <div className="md:hidden w-[80%] flex flex-row flex-wrap justify-between  rounded-md">
             {/* {cardsArray.map((item, i) => ( */}
-            <div className="lg:w-[33.33333%] md:w-[50%] w-full  flex">
+            <div className="lg:w-[32.9%] md:w-[49.4%] w-full  flex">
               <Card item={cardItem} />
             </div>
             {/* ))} */}

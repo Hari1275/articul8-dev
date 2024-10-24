@@ -51,7 +51,7 @@ const Enterprise = () => {
       id: 3,
       title: "Growing Library of Specialized Models",
       content:
-        "Obtain improved precision and relevance with industry knowledge encoded into Articul8's library of Domain-specific models and Task-specific models.",
+        "Obtain improved precision and relevance with industry knowledge encoded into Articul8's library of domain-specific models and Task-specific models.",
       image: proEnterpriseicon3,
     },
     {
@@ -63,7 +63,7 @@ const Enterprise = () => {
     },
     {
       id: 5,
-      title: "Deploy anywhere securely",
+      title: "Deploy Anywhere Securely",
       content:
         "Deploy Articul8 platform with your data in your security perimeter. Articul8 is agnostic to hosting infrastructure and accelerators, offering flexibility across cloud, on-prem, and air-gapped environments.",
       image: proEnterpriseicon5,
@@ -73,12 +73,12 @@ const Enterprise = () => {
   return (
     <>
       <div className="w-full bg-white pt-10 pb-10   flex justify-center items-center bg-[background: #ECEFF2]">
-        <div className="w-[92%]  flex flex-col justify-center items-center gap-4 md:gap-10">
+        <div className="container mx-auto px-4 sm:px-6 w-[92%]  flex flex-col justify-center items-center gap-4 md:gap-10">
           {/* top */}
-          <div className="w-full md:w-[82%] flex flex-col justify-center align-middle">
+          <div className="w-full md:w-[85%] flex flex-col justify-center align-middle">
             <h2 className=" font-space-grotesk  text-[28px] lg:text-[50px] md:text-3xl font-bold  text-center leading-[36px] md:leading-10 lg:leading-[4rem]">
-              Articul8 AI - the enterprise Generative AI (GenAI) platform that
-              works.
+              Articul8 AI – the enterprise Generative AI (GenAI) platform that
+              just works.
             </h2>
             {/* <h2 className="lg:md:text-[50px] md:text-3xl sm:text-2xl font-bold text-center">
             AI (GenAI) platform that works.
@@ -109,4 +109,4 @@ const Enterprise = () => {
   );
 };
 
-export default Enterprise;
+export default Enterprise
