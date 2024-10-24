@@ -1,6 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const InnovationItem = ({
   icon,
@@ -53,34 +54,26 @@ const InnovationItem = ({
 
 const ProductCard = ({
   icon,
-  hoverIcon,
   title,
   subTitle,
   description,
   isLast = false,
 }: {
   icon: string;
-  hoverIcon: string;
   title: string;
   subTitle: string;
   description: string;
   isLast?: boolean;
 }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
   return (
     <div
-      className={`pb-6 mb-6 cursor-pointer ${
+      className={`pb-6 mb-6 ${
         !isLast ? 'border-b border-[#00000033]' : ''
       }`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      onTouchStart={() => setIsHovered(true)}
-      onTouchEnd={() => setIsHovered(false)}
     >
       <div className='flex items-start mb-2'>
         <Image
-          src={isHovered ? hoverIcon : icon}
+          src={icon}
           alt={title}
           width={26}
           height={26}
@@ -89,9 +82,7 @@ const ProductCard = ({
         />
         <div>
           <p
-            className={`text-[23px] font-proxima-nova font-[600] leading-[28px] sm:text-xl  text-black ${
-              isHovered ? 'text-[#1130FF]' : 'text-black'
-            }`}
+            className='text-[23px] font-proxima-nova font-[600] leading-[28px] sm:text-xl text-black'
           >
             {title}
           </p>
@@ -147,19 +138,34 @@ const AccordionItem = ({
             {title}
           </p>
         </div>
-        <Image
-          src={
-            isOpen
-              ? '/images/icons/arrowups.svg'
-              : '/images/icons/arrowdown.svg'
-          }
-          alt={isOpen ? 'Close' : 'Open'}
-          width={14}
-          height={14}
-          className='transition-transform duration-300'
-        />
+        <motion.div
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          <Image
+            src={'/images/icons/arrowdown.svg'}
+            alt={isOpen ? 'Close' : 'Open'}
+            width={14}
+            height={14}
+          />
+        </motion.div>
       </div>
-      {isOpen && <div className='bg-white p-4'>{children}</div>}
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            initial="collapsed"
+            animate="open"
+            exit="collapsed"
+            variants={{
+              open: { opacity: 1, height: 'auto' },
+              collapsed: { opacity: 0, height: 0 }
+            }}
+            transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
+          >
+            <div className='bg-white p-4'>{children}</div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
@@ -197,7 +203,7 @@ const innovationData = [
         selectedIcon: '/images/icons/data-weavr-selected.svg',
         title: 'DataWeavr',
         subTitle:
-          'Identify shape, hidden patterns and relationships in very large, multi-modal datasets',
+          'Identify shape, hidden patterns and relationships in very large, multi-modal datasets.',
         description:
           'DataWeavr is a cutting-edge tool suite for analyzing and representing relationships in complex, multimodal, large-scale datasets. It uncovers hidden patterns and non-linear relationships by utilizing advanced topological analysis, clustering, graph modeling, data visualization, and dimensionality reduction techniques.',
       },
@@ -279,7 +285,7 @@ const innovationData = [
         selectedIcon: '/images/icons/modelmesh-selected-1.svg',
         title: 'ModelMesh™',
         subTitle:
-          'An intelligent, highly scalable engine for autonomous decisions & actions',
+          'An intelligent, highly scalable engine for autonomous decisions & actions.',
         description:
           "ModelMesh™ is Articul8's proprietary & game-changing technology with the intelligence to autonomously select and orchestrate the right set of data and models through a highly scalable network of decision and action nodes, without predefined orchestration or rules. ModelMesh enables high precision and accuracy for complex tasks through a highly parallelizable series of decision and actions by incorporating autonomous data validation, context evaluation model selection, orchestration, our scoring and guardrails. It also enables simultaneous optimization of multiple KPIs, while significantly reducing the number of human-in-the-loop decisions.",
       },
@@ -371,7 +377,7 @@ const innovationData = [
         selectedIcon: '/images/icons/bayesiQ-selected.svg',
         title: 'BayesiQ',
         subTitle:
-          'Bayesian and Probabilistic graph models for autonomous systems',
+          'Bayesian and Probabilistic graph models for autonomous systems.',
         description:
           'BayesiQ is a suite of Bayesian and probabilistic graph models optimized for complex multi-model systems, enabling autonomous decisions and actions. Utilizing advanced sampling methods, temporal models, variational inference, and Markov chains, BayesiQ achieves exceptional computational efficiency and scalability through distributed computing and optimized computational workflows.',
       },
@@ -426,18 +432,27 @@ const InnovationsSection = () => {
             ))}
           </div>
           <div className='lg:col-span-6'>
-            {innovationData[selectedInnovation].products.map(
-              (product, index) => (
-                <ProductCard
-                  key={index}
-                  icon={product.icon}
-                  hoverIcon={product.hoverIcon}
-                  title={product.title}
-                  subTitle={product.subTitle}
-                  description={product.description}
-                />
-              )
-            )}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={selectedInnovation}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+              >
+                {innovationData[selectedInnovation].products.map(
+                  (product, index) => (
+                    <ProductCard
+                      key={index}
+                      icon={product.icon}
+                      title={product.title}
+                      subTitle={product.subTitle}
+                      description={product.description}
+                    />
+                  )
+                )}
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
 
@@ -456,7 +471,6 @@ const InnovationsSection = () => {
                 <ProductCard
                   key={productIndex}
                   icon={product.icon}
-                  hoverIcon={product.hoverIcon}
                   title={product.title}
                   subTitle={product.subTitle}
                   description={product.description}

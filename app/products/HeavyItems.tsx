@@ -66,13 +66,13 @@ const HeavyItems = () => {
           expert: true,
           subItems: [
             {
-              title: "Library of models (LLMs & Non-LLMs)",
+              title: "Library of models (LLMs & non-LLMs)",
               essential: true,
               enterprise: true,
               expert: true,
             },
             {
-              title: "BYOM - Bring your own model (LLMs & Non-LLMs)",
+              title: "BYOM - Bring your own model (LLMs & non-LLMs)",
               essential: false,
               enterprise: true,
               expert: true,
@@ -89,7 +89,7 @@ const HeavyItems = () => {
               title: "Customizable decisioning & actioning",
               essential: false,
               enterprise: true,
-              expert: false,
+              expert: true,
             },
             {
               title: "Bring your own decision & action logic",
@@ -100,7 +100,7 @@ const HeavyItems = () => {
           ],
         },
         {
-          title: "Context, response, model & system-wide scoring",
+          title: "Context, Response, Model & System-wide Scoring",
           essential: true,
           enterprise: true,
           expert: true,
@@ -115,7 +115,7 @@ const HeavyItems = () => {
         },
 
         {
-          title: "KPI driven ModelMesh Optimization",
+          title: "KPI driven ModelMesh™ Optimization",
           essential: false,
           enterprise: true,
           expert: true,
@@ -123,19 +123,19 @@ const HeavyItems = () => {
         },
 
         {
-          title: "Library of A8 Specialized Models (Domain & Task Specific)",
+          title: "Library of Specialized Models",
           essential: false,
           enterprise: true,
           expert: true,
           subItems: [
             {
-              title: "Extend A8 Specialized Models for your Enterprise ",
+              title: "Extend A8 specialized models for your enterprise ",
               essential: false,
               enterprise: false,
               expert: true,
             },
             {
-              title: "Automated training incorporating expert / human feedback",
+              title: "Automated training incorporating expert/human feedback",
               essential: false,
               enterprise: false,
               expert: true,
@@ -162,31 +162,31 @@ const HeavyItems = () => {
             },
 
             {
-              title: "BYOT – Bring your own export Template",
+              title: "BYOT - Bring your own export template",
               essential: false,
               enterprise: false,
               expert: true,
             },
             {
-              title: "Batch Processing & Scheduling",
+              title: "Batch processing & scheduling",
               essential: false,
               enterprise: true,
               expert: true,
             },
             {
-              title: "Output-Modalities (Text, Tables, Charts)",
+              title: "Output modalities (text, tables, charts)",
               essential: true,
               enterprise: true,
               expert: true,
             },
             {
-              title: "Audit Reports",
-              essential: true,
-              enterprise: false,
+              title: "Audit reports",
+              essential: false,
+              enterprise: true,
               expert: true,
             },
             {
-              title: "Customizable Audit Reports",
+              title: "Customizable audit reports",
               essential: false,
               enterprise: false,
               expert: true,
@@ -209,7 +209,7 @@ const HeavyItems = () => {
           expert: true,
           subItems: [
             {
-              title: "Bring your own Data",
+              title: "Bring your own data",
               essential: true,
               enterprise: true,
               expert: true,
@@ -222,14 +222,14 @@ const HeavyItems = () => {
             },
 
             {
-              title: "Input-Modalities (Text, Images, Tables, Charts)",
+              title: "Input modalities (text, images, tables, charts)",
               essential: true,
               enterprise: true,
               expert: true,
             },
             {
               title:
-                "Input Data Format ( TXT, PPTx, DOCx, PDFs, JSON, CSV, HTML, XML, OCR [FV1])",
+                "Input data format ( TXT, PPTx, DOCx, PDFs, JSON, CSV, HTML, XML, OCR )",
               essential: true,
               enterprise: true,
               expert: true,
@@ -281,27 +281,36 @@ const HeavyItems = () => {
       title: "Flexible Infrastructure Orchestration",
       items: [
         {
-          title: "Infrastructure Selection & Optimization",
-          essential: false,
+          title: "",
+          essential: true,
           enterprise: true,
           expert: true,
-          subItems: [],
-        },
-        {
-          title: "Auto-scaling",
-          essential: false,
-          enterprise: true,
-          expert: true,
-          subItems: [],
-        },
-        {
-          title: "Multi-accelerator support",
-          essential: false,
-          enterprise: true,
-          expert: true,
-          subItems: [],
+          subItems: [
+            {
+              title: "Infrastructure selection & optimization",
+              essential: false,
+              enterprise: true,
+              expert: true,
+              subItems: [],
+            },
+            {
+              title: "Auto-scaling",
+              essential: false,
+              enterprise: true,
+              expert: true,
+              subItems: [],
+            },
+            {
+              title: "Multi-accelerator support",
+              essential: false,
+              enterprise: true,
+              expert: true,
+              subItems: [],
+            },
+          ],
         },
       ],
+
       darkColor: "#FFE9F8",
       lightColor: "#FFF2FB",
       borderColor: "",
@@ -312,69 +321,77 @@ const HeavyItems = () => {
       title: "Deployment and User Access",
       items: [
         {
-          title: "A8 Hosted",
+          title: "",
           essential: true,
           enterprise: false,
           expert: false,
-          subItems: [],
-        },
-        {
-          title: "Deployed on your cloud infrastructure",
-          essential: false,
-          enterprise: true,
-          expert: true,
-          subItems: [],
-        },
-        {
-          title: "Deployed on your on-premises infrastructure",
-          essential: false,
-          enterprise: true,
-          expert: true,
-          subItems: [],
-        },
+          subItems: [
+            {
+              title: "A8 hosted",
+              essential: true,
+              enterprise: false,
+              expert: false,
+              subItems: [],
+            },
+            {
+              title: "Deployed on your cloud infrastructure",
+              essential: false,
+              enterprise: true,
+              expert: true,
+              subItems: [],
+            },
+            {
+              title: "Deployed on your on-premises infrastructure",
+              essential: false,
+              enterprise: true,
+              expert: true,
+              subItems: [],
+            },
 
-        {
-          title: "Hybrid Deployment (Part cloud, part on-premises)",
-          essential: false,
-          enterprise: false,
-          expert: true,
-          subItems: [],
-        },
-        {
-          title: "High concurrency & low latency",
-          essential: false,
-          enterprise: true,
-          expert: true,
-          subItems: [],
-        },
-        {
-          title: "Team Collaboration",
-          essential: false,
-          enterprise: true,
-          expert: true,
-          subItems: [],
-        },
+            {
+              title: "Hybrid deployment (part cloud, part on-premises)",
+              essential: false,
+              enterprise: false,
+              expert: true,
+              subItems: [],
+            },
+            {
+              title: "High concurrency & low latency",
+              essential: false,
+              enterprise: true,
+              expert: true,
+              subItems: [],
+            },
+            {
+              title: "Team collaboration",
+              essential: false,
+              enterprise: true,
+              expert: true,
+              subItems: [],
+            },
 
-        {
-          title: "Admin Dashboard",
-          essential: false,
-          enterprise: true,
-          expert: true,
-          subItems: [],
-        },
-        {
-          title: "Enterprise defined rate-limiting",
-          essential: false,
-          enterprise: true,
-          expert: true,
-          subItems: [],
-        },
-        {
-          title: "Customer defined Role Based Access Control (RBAC)",
-          essential: false,
-          enterprise: true,
-          expert: true,
-          subItems: [],
+            {
+              title: "Admin dashboard",
+              essential: false,
+              enterprise: true,
+              expert: true,
+              subItems: [],
+            },
+            {
+              title: "Enterprise defined rate-limiting",
+              essential: false,
+              enterprise: true,
+              expert: true,
+              subItems: [],
+            },
+            {
+              title: "Customer defined Role Based Access Control (RBAC)",
+              essential: false,
+              enterprise: true,
+              expert: true,
+              subItems: [],
+            },
+          ],
         },
       ],
       darkColor: "#EBEAEA",
@@ -389,7 +406,7 @@ const HeavyItems = () => {
       "The essential GenAI Experience with your data, delivering outcomes from  Day 1.",
     button: "Experience it Today",
     buttonLink: "",
-    accessContent: "Free 30 day access.",
+    accessContent: "Free 30-day access.",
   };
   const item2 = {
     id: 2,
@@ -412,10 +429,10 @@ const HeavyItems = () => {
 
   return (
     <>
-      <div className="pt-8 md:mt-0 w-full bg-white  pb-10 flex flex-col  justify-center items-center ">
+      <div className="pt-8 md:mt-0 w-full bg-white  pb-10 flex flex-col  justify-center items-center relative">
         {/* top */}
 
-        <div className="w-[90%] md:w-[82%] flex flex-row justify-center items-center ">
+        <div className="container  mx-auto px-4 sm:px-6 flex flex-row justify-center items-center sticky top-[40px] md:top-[64px] z-[100] bg-white">
           <div className="w-[60%] md:w-[40%] lg:w-[42%]    flex items-center"></div>
 
           <div className="w-[40%] border-r-[1px] border-l-[1px] border-t-[1px] md:w-[60%] lg:w-[58%] flex flex-row justify-between">
@@ -511,9 +528,18 @@ const HeavyItems = () => {
 
         {/* card */}
         {/* <div className="w-[90%] md:w-[82%]"> */}
-        <div className="w-[90%] md:w-[82%] ">
+        <div className="container  mx-auto px-4 sm:px-6 z-0">
           {productItems.map((item, index) => (
-            <Disclosure key={index} defaultOpen={index === 0}>
+            <Disclosure
+              key={index}
+              defaultOpen={
+                index === 0 ||
+                index === 1 ||
+                index === 2 ||
+                index === 3 ||
+                index === 4
+              }
+            >
               {({ open }) => (
                 <div
                   className="rounded-sm overflow-hidden"
@@ -548,59 +574,75 @@ const HeavyItems = () => {
                             <div className="">
                               <div className="flex flex-row justify-center ">
                                 {/* right */}
-                                <div
+
+                                {main.title !== "" && (
+                                  <div
+                                    className="w-[60%] md:w-[40%] lg:w-[42%] border-b-[1px] flex items-center border-r-[1px]"
+                                    style={{ borderColor: item.borderColor }}
+                                  >
+                                    <div className="font-proxima-nova font-[700] w-full text-[14px] md:text-[15px] py-3 pl-2 md:pl-5 items-center text-start">
+                                      {main.title}
+                                    </div>
+                                  </div>
+                                )}
+
+                                {main.title !== "" && (
+                                  <div className="w-[40%] md:w-[60%] lg:w-[58%] flex flex-row justify-between">
+                                    <div
+                                      className="w-1/3  border-r-[1px] border-b-[1px]"
+                                      style={{ borderColor: item.borderColor }}
+                                    >
+                                      <div className="w-full flex justify-center  items-center align-middle py-3">
+                                        {main.essential && (
+                                          <BsFillCheckCircleFill
+                                            color="blue"
+                                            size={18}
+                                          />
+                                        )}
+                                      </div>
+                                    </div>
+
+                                    <div
+                                      className="w-1/3  border-r-[1px] border-b-[1px]"
+                                      style={{ borderColor: item.borderColor }}
+                                    >
+                                      <div className="w-full flex justify-center  items-center align-middle py-3">
+                                        {main.enterprise && (
+                                          <BsFillCheckCircleFill
+                                            color="blue"
+                                            size={18}
+                                          />
+                                        )}
+                                      </div>
+                                    </div>
+
+                                    <div
+                                      className="w-1/3 border-b-[1px]"
+                                      style={{ borderColor: item.borderColor }}
+                                    >
+                                      <div className="w-full flex justify-center  items-center align-middle py-3">
+                                        {main.expert && (
+                                          <BsFillCheckCircleFill
+                                            color="blue"
+                                            size={18}
+                                          />
+                                        )}
+                                      </div>
+                                    </div>
+                                  </div>
+                                )}
+
+                                {/* <div
                                   className="w-[60%] md:w-[40%] lg:w-[42%] border-b-[1px]   flex items-center border-r-[1px]"
                                   style={{ borderColor: item.borderColor }}
+
                                 >
                                   <div className="font-proxima-nova font-[700]   w-full  text-[14px]  md:text-[15px]   py-3 pl-2 md:pl-5  items-center text-start">
                                     {main.title}
                                   </div>
-                                </div>
+                                </div> */}
 
                                 {/* left */}
-                                <div className="w-[40%] md:w-[60%] lg:w-[58%] flex flex-row justify-between">
-                                  <div
-                                    className="w-1/3  border-r-[1px] border-b-[1px]"
-                                    style={{ borderColor: item.borderColor }}
-                                  >
-                                    <div className="w-full flex justify-center  items-center align-middle py-3">
-                                      {main.essential && (
-                                        <BsFillCheckCircleFill
-                                          color="blue"
-                                          size={18}
-                                        />
-                                      )}
-                                    </div>
-                                  </div>
-
-                                  <div
-                                    className="w-1/3  border-r-[1px] border-b-[1px]"
-                                    style={{ borderColor: item.borderColor }}
-                                  >
-                                    <div className="w-full flex justify-center  items-center align-middle py-3">
-                                      {main.enterprise && (
-                                        <BsFillCheckCircleFill
-                                          color="blue"
-                                          size={18}
-                                        />
-                                      )}
-                                    </div>
-                                  </div>
-
-                                  <div
-                                    className="w-1/3 border-b-[1px]"
-                                    style={{ borderColor: item.borderColor }}
-                                  >
-                                    <div className="w-full flex justify-center  items-center align-middle py-3">
-                                      {main.expert && (
-                                        <BsFillCheckCircleFill
-                                          color="blue"
-                                          size={18}
-                                        />
-                                      )}
-                                    </div>
-                                  </div>
-                                </div>
                               </div>
                             </div>
 

@@ -3,6 +3,8 @@
 import Image from 'next/image';
 import { Disclosure } from '@headlessui/react';
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
 
 const ToggleIcon = ({ isOpen }: { isOpen: boolean }) => (
   <div className='flex items-center justify-center w-4 h-6 sm:w-6 sm:h-6'>
@@ -24,21 +26,21 @@ const PlatformArchitecture = () => {
       icon: '/images/icons/data.svg',
       title: 'Autonomous Decisions & Actions',
       description:
-        'Autonomously manage a system of models (LLMs, non-LLMs, and customer models), optimizing resources to deliver tangible outcomes with accuracy and precision',
+        'Autonomously manage a system of models (LLMs, non-LLMs, and customer models), optimizing resources to deliver tangible outcomes with accuracy and precision.',
     },
     {
       icon: '/images/icons/embedding.svg',
       title: 'Automated Data Intelligence',
-      description: 'Get richer semantic understanding and uncover hidden relationships in your data within minutes',
+      description: 'Get richer semantic understanding and uncover hidden relationships in your data within minutes.',
     },
     {
       icon: '/images/icons/whisper, api.svg',
-      title: 'Growing Library Of Specialized Models',
-      description: 'Obtain improved precision and relevance with industry knowledge encoded into Articul8\'s library of Domain-specific models and Task-specific models',
+      title: 'Growing Library of Specialized Models',
+      description: 'Obtain improved precision and relevance with industry knowledge encoded into Articul8\'s library of Domain-specific models and Task-specific models.',
     },
     {
       icon: '/images/icons/sticker.svg',
-      title: 'Observability, Traceability & Auditability At Every Step',
+      title: 'Observability, Traceability & Auditability at Every Step',
       description: 'Get full visibility into decisions and actions, revealing the underlying logic and metrics in every step, delivering assurance in generated outcomes.',
     },
     {
@@ -89,22 +91,39 @@ const PlatformArchitecture = () => {
                           <ToggleIcon isOpen={openIndex === index} />
                         </div>
                       </Disclosure.Button>
-                      {item.description && (
-                        <Disclosure.Panel static>
-                          {openIndex === index && (
-                            <p className='font-space-grotesk sm:font-proxima-nova px-4 pt-2 sm:pt-0 pb-4 text-[12px] sm:text-[18px] font-[400] leading-[15px] sm:leading-[21px] text-[#000] ml-12'>
-                              {item.description}
-                            </p>
-                          )}
-                        </Disclosure.Panel>
-                      )}
+                      <AnimatePresence initial={false}>
+                        {item.description && openIndex === index && (
+                          <motion.div
+                            initial="collapsed"
+                            animate="open"
+                            exit="collapsed"
+                            variants={{
+                              open: { opacity: 1, height: 'auto' },
+                              collapsed: { opacity: 0, height: 0 }
+                            }}
+                            transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
+                          >
+                            <Disclosure.Panel static>
+                              <motion.p
+                                initial={{ opacity: 0, y: -10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -10 }}
+                                transition={{ duration: 0.2, delay: 0.1 }}
+                                className='font-space-grotesk sm:font-proxima-nova px-4 pt-2 sm:pt-0 pb-4 text-[12px] sm:text-[18px] font-[400] leading-[15px] sm:leading-[21px] text-[#000] ml-12'
+                              >
+                                {item.description}
+                              </motion.p>
+                            </Disclosure.Panel>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </div>
                   )}
                 </Disclosure>
               ))}
             </div>
-            <a
-              href='#'
+            <Link
+              href='/products'
               className='inline-flex items-center mt-8 text-[#112FFF] hover:underline font-semibold'
             >
               <span className='font-space-grotesk text-[18px] sm:text-[24px] font-[700] leading-[23px] sm:leading-[30px] text-[#1130FF]'>
@@ -117,7 +136,7 @@ const PlatformArchitecture = () => {
                 height={13}
                 className='ml-2'
               />
-            </a>
+            </Link>
           </div>
           <div className='w-full lg:w-3/5'>
             <Image
