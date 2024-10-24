@@ -203,7 +203,7 @@ const innovationData = [
         selectedIcon: '/images/icons/data-weavr-selected.svg',
         title: 'DataWeavr',
         subTitle:
-          'Identify shape, hidden patterns and relationships in very large, multi-modal datasets',
+          'Identify shape, hidden patterns and relationships in very large, multi-modal datasets.',
         description:
           'DataWeavr is a cutting-edge tool suite for analyzing and representing relationships in complex, multimodal, large-scale datasets. It uncovers hidden patterns and non-linear relationships by utilizing advanced topological analysis, clustering, graph modeling, data visualization, and dimensionality reduction techniques.',
       },
@@ -285,7 +285,7 @@ const innovationData = [
         selectedIcon: '/images/icons/modelmesh-selected-1.svg',
         title: 'ModelMesh™',
         subTitle:
-          'An intelligent, highly scalable engine for autonomous decisions & actions',
+          'An intelligent, highly scalable engine for autonomous decisions & actions.',
         description:
           "ModelMesh™ is Articul8's proprietary & game-changing technology with the intelligence to autonomously select and orchestrate the right set of data and models through a highly scalable network of decision and action nodes, without predefined orchestration or rules. ModelMesh enables high precision and accuracy for complex tasks through a highly parallelizable series of decision and actions by incorporating autonomous data validation, context evaluation model selection, orchestration, our scoring and guardrails. It also enables simultaneous optimization of multiple KPIs, while significantly reducing the number of human-in-the-loop decisions.",
       },
@@ -377,7 +377,7 @@ const innovationData = [
         selectedIcon: '/images/icons/bayesiQ-selected.svg',
         title: 'BayesiQ',
         subTitle:
-          'Bayesian and Probabilistic graph models for autonomous systems',
+          'Bayesian and Probabilistic graph models for autonomous systems.',
         description:
           'BayesiQ is a suite of Bayesian and probabilistic graph models optimized for complex multi-model systems, enabling autonomous decisions and actions. Utilizing advanced sampling methods, temporal models, variational inference, and Markov chains, BayesiQ achieves exceptional computational efficiency and scalability through distributed computing and optimized computational workflows.',
       },
