@@ -79,7 +79,7 @@ const ConvertSection = () => {
     },
     {
       icon: '/images/icons/edge.svg',
-      title: 'Avoid lock-Ins',
+      title: 'Avoid Lock-ins',
       description:
         'Retain flexibility by mitigating vendor lock-in for hardware and AI models.',
     },
@@ -124,7 +124,7 @@ const ConvertSection = () => {
             Convert your GenAI chaos to
           </span>
           <span className='block leading-tight mb-2'>
-            <span className='text-[#FA05C3] inline-flex items-center justify-center'>
+            <span className='inline-flex items-center justify-center'>
               {/* <Image
                 src='/images/icons/section-open.svg'
                 alt='Open bracket'
