@@ -10,6 +10,8 @@ const InnovationItem = ({
   title,
   isSelected = false,
   onClick,
+  onMouseEnter,
+  onMouseLeave,
 }: {
   icon: string;
   selectedIcon: string;
@@ -17,6 +19,8 @@ const InnovationItem = ({
   title: string;
   isSelected?: boolean;
   onClick: () => void;
+  onMouseEnter: () => void;
+  onMouseLeave: () => void;
 }) => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -26,19 +30,25 @@ const InnovationItem = ({
         isSelected ? 'bg-[#1130FF] rounded-sm' : 'border-b border-[#00000033]'
       } cursor-pointer transition-all duration-300`}
       onClick={onClick}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={() => {
+        setIsHovered(true);
+        onMouseEnter();
+      }}
+      onMouseLeave={() => {
+        setIsHovered(false);
+        onMouseLeave();
+      }}
     >
       <Image
         src={isSelected ? selectedIcon : isHovered ? hoverIcon : icon}
         alt={title}
-        width={26}
-        height={26}
+        width={30}
+        height={30}
         priority
         className='mr-4'
       />
       <p
-        className={`text-[19px] font-proxima-nova font-[700] leading-[23.14px] sm:text-lg ${
+        className={`text-[30px] font-proxima-nova font-[700] leading-[46.14px] sm:text-lg ${
           isSelected
             ? 'text-white font-[700]'
             : isHovered
@@ -67,9 +77,7 @@ const ProductCard = ({
 }) => {
   return (
     <div
-      className={`pb-6 mb-6 ${
-        !isLast ? 'border-b border-[#00000033]' : ''
-      }`}
+      className={`pb-6 mb-6 ${!isLast ? 'border-b border-[#00000033]' : ''}`}
     >
       <div className='flex items-start mb-2'>
         <Image
@@ -81,17 +89,15 @@ const ProductCard = ({
           priority
         />
         <div>
-          <p
-            className='text-[23px] font-proxima-nova font-[600] leading-[28px] sm:text-xl text-black'
-          >
+          <p className='text-[26px] font-proxima-nova font-[600] leading-[28px]  text-black'>
             {title}
           </p>
         </div>
       </div>
-      <p className='text-[16px] sm:text[20px] sm:leading-[24.36px] font-proxima-nova font-[400] leading-[19.49px] text-[#1130FF] mt-1'>
+      <p className='text[20px] sm:leading-[24.36px] font-proxima-nova font-[600]  text-[#1130FF] mt-1'>
         {subTitle}
       </p>
-      <p className='text-[16px] pt-2 font-proxima-nova font-[400] leading-[19.49px] sm:text-sm text-black'>
+      <p className='text-[18px] pt-2 font-proxima-nova font-[400] leading-[22.36px] text-black'>
         {description}
       </p>
     </div>
@@ -153,12 +159,12 @@ const AccordionItem = ({
       <AnimatePresence initial={false}>
         {isOpen && (
           <motion.div
-            initial="collapsed"
-            animate="open"
-            exit="collapsed"
+            initial='collapsed'
+            animate='open'
+            exit='collapsed'
             variants={{
               open: { opacity: 1, height: 'auto' },
-              collapsed: { opacity: 0, height: 0 }
+              collapsed: { opacity: 0, height: 0 },
             }}
             transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
           >
@@ -387,15 +393,29 @@ const innovationData = [
 
 const InnovationsSection = () => {
   const [selectedInnovation, setSelectedInnovation] = useState(0);
+  const [hoveredInnovation, setHoveredInnovation] = useState<number | null>(
+    null
+  );
   const [openAccordion, setOpenAccordion] = useState<number>(0);
 
   const handleInnovationClick = (index: number) => {
     setSelectedInnovation(index);
   };
 
+  const handleInnovationHover = (index: number) => {
+    setHoveredInnovation(index);
+  };
+
+  const handleInnovationLeave = () => {
+    setHoveredInnovation(null);
+  };
+
   const handleAccordionClick = (index: number) => {
     setOpenAccordion(openAccordion === index ? -1 : index);
   };
+
+  const displayedInnovation =
+    hoveredInnovation !== null ? hoveredInnovation : selectedInnovation;
 
   return (
     <section className='sm:pt-20 pt-6 sm:py-20 bg-[#F2F7FF]'>
@@ -418,7 +438,7 @@ const InnovationsSection = () => {
 
         {/* Desktop view */}
         <div className='hidden sm:grid grid-cols-1 lg:grid-cols-10 gap-12 sm:px-0'>
-          <div className='lg:col-span-4 space-y-2'>
+          <div className='lg:col-span-4'>
             {innovationData.map((item, index) => (
               <InnovationItem
                 key={index}
@@ -428,19 +448,21 @@ const InnovationsSection = () => {
                 title={item.title}
                 isSelected={index === selectedInnovation}
                 onClick={() => handleInnovationClick(index)}
+                onMouseEnter={() => handleInnovationHover(index)}
+                onMouseLeave={handleInnovationLeave}
               />
             ))}
           </div>
           <div className='lg:col-span-6'>
-            <AnimatePresence mode="wait">
+            <AnimatePresence mode='wait'>
               <motion.div
-                key={selectedInnovation}
+                key={displayedInnovation}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.3 }}
               >
-                {innovationData[selectedInnovation].products.map(
+                {innovationData[displayedInnovation].products.map(
                   (product, index) => (
                     <ProductCard
                       key={index}

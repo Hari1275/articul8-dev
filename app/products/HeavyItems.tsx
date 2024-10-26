@@ -412,7 +412,7 @@ const HeavyItems = () => {
     id: 2,
     title: "A8 Enterprise",
     subTitle:
-      "Build resilient enterprise GenAI applications and derive ROI within 6 weeks. ",
+      "Build resilient enterprise GenAI applications and derive ROI within 6 weeks.",
     button: "Contact Sales",
     buttonLink: "",
     accessContent: "",
@@ -429,15 +429,16 @@ const HeavyItems = () => {
 
   return (
     <>
-      <div className="pt-8 md:mt-0 w-full bg-white  pb-10 flex flex-col  justify-center items-center relative">
+      <div className="pt-8 md:mt-0 w-full bg-white  pb-[90px] flex flex-col  justify-center items-center relative">
         {/* top */}
 
         <div className="container  mx-auto px-4 sm:px-6 flex flex-row justify-center items-center sticky top-[40px] md:top-[64px] z-[100] bg-white">
           <div className="w-[60%] md:w-[40%] lg:w-[42%]    flex items-center"></div>
 
-          <div className="w-[40%] border-r-[1px] border-l-[1px] border-t-[1px] md:w-[60%] lg:w-[58%] flex flex-row justify-between">
-            <div className="w-1/3 md:items-start  flex items-end md:border-r-[1px]">
-              <div className="flex justify-center items-center align-middle h-[185px] w-full     md:hidden text-center border-r-[1px] border-l-[1px] border-t-[1px] pb-1 pt-3">
+          <div className="w-[40%]  md:w-[60%] lg:w-[58%] flex flex-row justify-between">
+            {/* md:border-r-[1px] */}
+            <div className="w-1/3  md:w-[33.20%] md:items-start  flex items-end md:bg-[#F2F7FF] md:rounded-t-[12px] ">
+              <div className="flex justify-center items-center align-middle h-[185px] w-full     md:hidden text-center  border-l-[1px] border-t-[1px] pb-1 pt-3">
                 <div
                   className="h-full flex flex-col items-center    whitespace-nowrap  text-transform  font-proxima-nova font-[700] text-[20px]"
                   style={{ height: "max-content" }}
@@ -446,27 +447,27 @@ const HeavyItems = () => {
                 </div>
               </div>
 
-              <div className="hidden md:flex flex-col justify-center items-center md:px-1 lg:px-2 py-3 gap-2">
+              <div className="hidden md:flex flex-col justify-center items-center md:px-1 lg:px-3 py-3 gap-2">
                 <h3 className="font-proxima-nova font-[700] text-[20px] md:text-center">
                   {item1?.title}
                 </h3>
-                <span className="font-proxima-nova font-[400] text-[13px] text-center mb-6">
+                <span className="font-proxima-nova font-[400] text-[14px] text-center mb-6 lg:leading-[18px]">
                   {item1?.subTitle}
                 </span>
 
-                <button className="bg-[#0231FF] text-white py-3 w-[90%] lg:[80%] rounded-sm font-proxima-nova font-[700] text-[14px]">
+                <button className="bg-[#0231FF] text-white py-[10px] px-4 rounded-[4px] font-proxima-nova font-[700] text-[12px]">
                   <Link href={item1?.buttonLink || "/"}>{item1?.button}</Link>
                 </button>
 
                 {item1?.accessContent !== "" && (
-                  <div className=" text-center font-proxima-nova font-[600] text-[14px]">
+                  <div className=" text-center font-proxima-nova font-[700] text-[12px]">
                     {item1.accessContent}
                   </div>
                 )}
               </div>
             </div>
-            <div className="w-1/3  flex items-end md:items-start md:border-r-[1px]">
-              <div className="flex justify-center items-center align-middle h-[185px] w-full     md:hidden text-center border-r-[1px] border-l-[1px] border-t-[1px] pb-3 pt-3">
+            <div className="w-1/3 md:w-[33%]  flex items-end md:items-start md:bg-[#F2F7FF] md:rounded-t-[12px]">
+              <div className="flex justify-center items-center align-middle h-[185px] w-full     md:hidden text-center  border-l-[1px] border-t-[1px] pb-3 pt-3">
                 <div
                   className="h-full flex flex-col items-center    whitespace-nowrap  text-transform  font-proxima-nova font-[700] text-[20px] pt-2"
                   style={{ height: "max-content" }}
@@ -475,26 +476,26 @@ const HeavyItems = () => {
                 </div>
               </div>
 
-              <div className="hidden md:flex flex-col justify-center items-center md:px-1 lg:px-2 py-3 gap-2">
+              <div className="hidden md:flex flex-col justify-center items-center md:px-1 lg:px-3 py-3 gap-2">
                 <h3 className="font-proxima-nova font-[700] text-[20px] md:text-center">
                   {item2?.title}
                 </h3>
-                <span className="font-proxima-nova font-[400] text-[13px] text-center mb-6">
+                <span className="font-proxima-nova font-[400] text-[14px] lg:leading-[18px] text-center mb-6">
                   {item2?.subTitle}
                 </span>
 
-                <button className="bg-[#0231FF] text-white py-3 w-[90%] lg:[80%] rounded-sm font-proxima-nova font-[700] text-[14px]">
+                <button className="bg-[#0231FF] text-white py-[10px] px-4 rounded-[4px] font-proxima-nova font-[700] text-[12px]">
                   <Link href={item2?.buttonLink || "/"}>{item2?.button}</Link>
                 </button>
 
                 {item2?.accessContent !== "" && (
-                  <div className=" text-center font-proxima-nova font-[600] text-[14px]">
+                  <div className=" text-center font-proxima-nova font-[700] text-[12px]">
                     {item2.accessContent}
                   </div>
                 )}
               </div>
             </div>
-            <div className="w-1/3  flex items-end md:items-start ">
+            <div className="w-1/3 md:w-[33%]  flex items-end md:items-start md:bg-[#F2F7FF] md:rounded-t-[12px] ">
               <div className="flex justify-center items-center align-middle h-[185px] w-full     md:hidden text-center border-r-[1px] border-l-[1px] border-t-[1px] pt-9 pb-0">
                 <div
                   className="h-full flex flex-col items-center    whitespace-nowrap  text-transform  font-proxima-nova font-[700] text-[20px]"
@@ -504,20 +505,20 @@ const HeavyItems = () => {
                 </div>
               </div>
 
-              <div className="hidden md:flex flex-col justify-center items-center md:px-1 lg:px-2 py-3 gap-2">
+              <div className="hidden md:flex flex-col justify-center items-center md:px-1 lg:px-3 py-3 gap-2">
                 <h3 className="font-proxima-nova font-[700] text-[20px] md:text-center">
                   {item3?.title}
                 </h3>
-                <span className="font-proxima-nova font-[400] text-[13px] text-center mb-6">
+                <span className="font-proxima-nova font-[400] text-[14px] lg:leading-[18px] text-center mb-6">
                   {item3?.subTitle}
                 </span>
 
-                <button className="bg-[#0231FF] text-white py-3 w-[90%] lg:[80%] rounded-sm font-proxima-nova font-[700] text-[14px]">
+                <button className="bg-[#0231FF] text-white py-[10px] px-4 rounded-[4px] font-proxima-nova font-[700] text-[12px]">
                   <Link href={item3?.buttonLink || "/"}>{item3?.button}</Link>
                 </button>
 
                 {item3?.accessContent !== "" && (
-                  <div className=" text-center font-proxima-nova font-[600] text-[14px]">
+                  <div className=" text-center font-proxima-nova font-[700] text-[12px]">
                     {item3.accessContent}
                   </div>
                 )}
@@ -549,7 +550,7 @@ const HeavyItems = () => {
                     className="flex items-center w-full text-left py-3 sm:py-4 px-3 sm:px-4 focus:outline-none"
                     onClick={() => setOpenItem(open ? -1 : index)}
                   >
-                    <p className="font-proxima-nova font-[700] md:text-[17px] flex-grow  text-base sm:text-lg">
+                    <p className="font-proxima-nova font-[700] md:text-[20px] flex-grow   text-[18px]">
                       {item.title}
                     </p>
                     <ToggleIcon
@@ -577,10 +578,11 @@ const HeavyItems = () => {
 
                                 {main.title !== "" && (
                                   <div
-                                    className="w-[60%] md:w-[40%] lg:w-[42%] border-b-[1px] flex items-center border-r-[1px]"
+                                    className="w-[60%] md:w-[40%] lg:w-[42%] border-b-[1px] flex items-center "
                                     style={{ borderColor: item.borderColor }}
                                   >
-                                    <div className="font-proxima-nova font-[700] w-full text-[14px] md:text-[15px] py-3 pl-2 md:pl-5 items-center text-start">
+                                    {/* border-r-[1px] */}
+                                    <div className="font-proxima-nova font-[700] w-full text-[14px] md:text-[18px] md:leading-5 py-3 pl-2 md:pl-5 items-center text-start">
                                       {main.title}
                                     </div>
                                   </div>
@@ -589,14 +591,14 @@ const HeavyItems = () => {
                                 {main.title !== "" && (
                                   <div className="w-[40%] md:w-[60%] lg:w-[58%] flex flex-row justify-between">
                                     <div
-                                      className="w-1/3  border-r-[1px] border-b-[1px]"
+                                      className="w-1/3  border-l-[1px] border-r-[1px] border-b-[1px]"
                                       style={{ borderColor: item.borderColor }}
                                     >
                                       <div className="w-full flex justify-center  items-center align-middle py-3">
                                         {main.essential && (
                                           <BsFillCheckCircleFill
                                             color="blue"
-                                            size={18}
+                                            className="w-[20px] h-[20px]"
                                           />
                                         )}
                                       </div>
@@ -610,7 +612,7 @@ const HeavyItems = () => {
                                         {main.enterprise && (
                                           <BsFillCheckCircleFill
                                             color="blue"
-                                            size={18}
+                                            className="w-[20px] h-[20px]"
                                           />
                                         )}
                                       </div>
@@ -624,7 +626,7 @@ const HeavyItems = () => {
                                         {main.expert && (
                                           <BsFillCheckCircleFill
                                             color="blue"
-                                            size={18}
+                                            className="w-[20px] h-[20px]"
                                           />
                                         )}
                                       </div>
@@ -660,23 +662,24 @@ const HeavyItems = () => {
                                     <div className="flex flex-row justify-center ">
                                       {/* right */}
                                       <div
-                                        className="w-[60%] md:w-[40%] lg:w-[42%] border-b-[1px]   flex items-center border-r-[1px]"
+                                        className="w-[60%] md:w-[40%] lg:w-[42%] border-b-[1px]   flex items-center "
                                         style={{
                                           borderColor: item.borderColor,
                                         }}
                                       >
+                                        {/* border-r-[1px] */}
                                         <div className="w-full text-[16px]  py-3  pl-2 md:pl-7 items-center">
-                                          <div className="flex flex-row gap-1 align-top items-center justify-start">
+                                          <div className="flex flex-row gap-1 justify-start align-middle items-center md:align-top md:items-top md:justify-start">
                                             <div
-                                              className="rounded-full  flex justify-center align-middle p-1"
+                                              className="flex justify-center align-middle md:justify-start md:align-top p-1"
                                               style={{ height: "max-content" }}
                                             >
                                               <BsFillSquareFill
                                                 color="blue"
-                                                className="w-[5px] h-[5px]"
+                                                className="w-[6px] h-[6px]"
                                               />
                                             </div>
-                                            <span className="font-proxima-nova font-[400] md:text-[15px]  text-[12px] ">
+                                            <span className="font-proxima-nova font-[400] md:text-[18px]  text-[14px] leading-4 md:leading-5">
                                               {subItem.title}
                                             </span>
                                           </div>
@@ -686,7 +689,7 @@ const HeavyItems = () => {
                                       {/* left */}
                                       <div className="w-[40%] md:w-[60%] lg:w-[58%] flex flex-row justify-between">
                                         <div
-                                          className="w-1/3  border-r-[1px] border-b-[1px]"
+                                          className="w-1/3 border-r-[1px]  border-l-[1px] border-b-[1px]"
                                           style={{
                                             borderColor: item.borderColor,
                                           }}
@@ -695,7 +698,7 @@ const HeavyItems = () => {
                                             {subItem.essential && (
                                               <BsFillCheckCircleFill
                                                 color="blue"
-                                                size={18}
+                                                className="w-[20px] h-[20px]"
                                               />
                                             )}
                                           </div>
@@ -711,7 +714,7 @@ const HeavyItems = () => {
                                             {subItem.enterprise && (
                                               <BsFillCheckCircleFill
                                                 color="blue"
-                                                size={18}
+                                                className="w-[20px] h-[20px]"
                                               />
                                             )}
                                           </div>
@@ -727,7 +730,7 @@ const HeavyItems = () => {
                                             {subItem.expert && (
                                               <BsFillCheckCircleFill
                                                 color="blue"
-                                                size={18}
+                                                className="w-[20px] h-[20px]"
                                               />
                                             )}
                                           </div>
