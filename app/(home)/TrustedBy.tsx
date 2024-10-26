@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -18,18 +18,18 @@ const companies = [
 ];
 
 const TrustedBy = () => {
-  const [isMobile, setIsMobile] = useState(false);
+  // const [isMobile, setIsMobile] = useState(false);
 
-  useEffect(() => {
-    const checkIfMobile = () => {
-      setIsMobile(window.innerWidth <= 767);
-    };
+  // useEffect(() => {
+  //   const checkIfMobile = () => {
+  //     setIsMobile(window.innerWidth <= 767);
+  //   };
 
-    checkIfMobile();
-    window.addEventListener('resize', checkIfMobile);
+  //   checkIfMobile();
+  //   window.addEventListener('resize', checkIfMobile);
 
-    return () => window.removeEventListener('resize', checkIfMobile);
-  }, []);
+  //   return () => window.removeEventListener('resize', checkIfMobile);
+  // }, []);
 
   const settings = {
     dots: false,
