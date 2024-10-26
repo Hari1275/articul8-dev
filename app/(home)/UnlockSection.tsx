@@ -4,8 +4,9 @@ import Image from 'next/image';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import AnimatedText from './AnimatedText';
-import UnlockSectionHeader from './UnlockSectionHeader';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import UnlockSectionHeader from './UnlockSectionHeader';
+// import UnlockSectionHeader from './UnlockSectionHeader';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,9 +20,16 @@ const useResponsiveValues = () => {
 
   useEffect(() => {
     const updateValues = () => {
-      if (window.innerWidth < 640) {
+      // if (window.innerWidth < 427) {
+      //   // Mobile
+      //   setValues({ cardWidth: 250, gap: 10, visibleCards: 1, isMobile: true });
+      // }
+      console.log('window.innerWidth', window.innerWidth);
+      if (window.innerWidth < 400) {
+        setValues({ cardWidth: 280, gap: 10, visibleCards: 1, isMobile: true });
+      } else if (window.innerWidth < 640) {
         // Mobile
-        setValues({ cardWidth: 250, gap: 10, visibleCards: 1, isMobile: true });
+        setValues({ cardWidth: 310, gap: 10, visibleCards: 1, isMobile: true });
       } else if (window.innerWidth < 1024) {
         // Tablet
         setValues({
@@ -30,22 +38,19 @@ const useResponsiveValues = () => {
           visibleCards: 3,
           isMobile: false,
         });
-      } 
-      else if (window.innerWidth < 1600) {
+      } else if (window.innerWidth < 1600) {
         // Desktop
         setValues({
-          cardWidth: 280,
-          gap: 70,
+          cardWidth: 313,
+          gap: 50,
           visibleCards: 6,
           isMobile: false,
         });
-      } 
-      
-      else {
+      } else {
         // Desktop
         setValues({
-          cardWidth: 360,
-          gap: 84,
+          cardWidth: 330,
+          gap: 60,
           visibleCards: 6,
           isMobile: false,
         });
@@ -62,7 +67,7 @@ const useResponsiveValues = () => {
 
 const Card = React.memo<{
   card: {
-    title: string;
+    title: string[];
     image: string;
   };
   index: number;
@@ -96,26 +101,30 @@ const Card = React.memo<{
     return (
       <div
         ref={cardRef}
-        className='card rounded-xl p-4 flex flex-col justify-between cursor-pointer transition-all duration-500 overflow-hidden'
+        className='card rounded-2xl p-[30px] flex flex-col justify-between cursor-pointer transition-all duration-500 overflow-hidden'
         style={{
           width: '100%',
           height: '100%',
           background: 'linear-gradient(to right, #E8F1FF, #C1F0F4)',
           boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
         }}
-        aria-label={`Card ${index + 1}: ${card.title}`}
+        aria-label={`Card ${index + 1}: ${card.title.join(' ')}`}
       >
         <div className='card-content flex-grow'>
-          <h3 className='font-proxima-nova sm:text-[32px] sm:leading-[38px] font-[600] sm:font-[700] text-[16px] leading-tight text-left mb-2'>
-            {card.title}
+          <h3 className='font-proxima-nova text-[23px] leading-[27.6px] font-[600] text-left'>
+            {card.title.map((line, i) => (
+              <span key={i} className='block'>
+                {line}
+              </span>
+            ))}
           </h3>
         </div>
         <div className='flex justify-start mt-auto'>
           <Image
             src={card.image}
-            alt={card.title}
-            width={50}
-            height={50}
+            alt={`${card.title.join(' ')}`}
+            width={80}
+            height={80}
             className='card-image -mb-2'
             priority
           />
@@ -128,7 +137,7 @@ const Card = React.memo<{
   return (
     <div
       ref={cardRef}
-      className='card rounded-3xl p-6 flex flex-col justify-between cursor-pointer transition-all duration-500'
+      className='card rounded-2xl p-6 flex flex-col justify-between cursor-pointer transition-all duration-500'
       style={{
         width: '100%',
         height: '100%',
@@ -139,22 +148,26 @@ const Card = React.memo<{
         boxShadow: '0 10px 20px rgba(0,0,0,0.1)',
         backfaceVisibility: 'hidden',
       }}
-      aria-label={`Card ${index + 1}: ${card.title}`}
+      aria-label={`Card ${index + 1}: ${card.title.join(' ')}`}
     >
       <div className='card-content flex-grow'>
-        <h3 className='sm:text-sm md:text-base lg:text-lg font-bold leading-tight mb-2'>
-          {card.title}
+        <h3 className='font-proxima-nova sm:text-[32px] sm:leading-[38.4px] font-[600] sm:font-[700] text-[16px] text-left mb-2'>
+          {card.title.map((line, i) => (
+            <span key={i} className='block'>
+              {line}
+            </span>
+          ))}
         </h3>
       </div>
       <div className='relative flex items-end justify-start h-16 sm:h-20 md:h-24'>
         <Image
           src={card.image}
-          alt={card.title}
+          alt={`${card.title.join(' ')}`}
           width={100}
           height={100}
           className='card-image transition-all duration-300'
           priority
-          style={{  height: '100%' }}
+          style={{ height: '100%' }}
         />
       </div>
     </div>
@@ -191,15 +204,15 @@ const UnlockSection = () => {
     const cards = cardsContainer.querySelectorAll('.card');
     const totalWidth = visibleCards * cardWidth + (visibleCards - 1) * gap;
 
-    // Reverse the order of cards for initial stacked position
+    // Change the initial position to stack cards on the left side
     gsap.set(cards, {
-      x: (i) => (cards.length - 1 - i) * stackOffset * 3 - (cards.length - 1) * stackOffset * 1.5,
-      y: (i) => -(cards.length - 1 - i) * stackOffset * 3,
-      rotationY: -1,
-      rotationX: 1,
-      scale: (i) => 1 - (cards.length - 1 - i) * 0.005,
+      x: (i) => i * stackOffset * 3 - (cards.length - 1) * stackOffset * 1.5,
+      y: (i) => -i * stackOffset * 3,
+      rotationY: 1, // Change to positive value for left-side stacking
+      rotationX: -1, // Change to negative value for left-side stacking
+      scale: (i) => 1 - i * 0.005,
       opacity: 1,
-      zIndex: (i) => i + 1, // Reverse the z-index
+      zIndex: (i) => cards.length - i, // Adjust z-index for proper stacking
     });
 
     const tl = gsap.timeline({
@@ -214,7 +227,54 @@ const UnlockSection = () => {
     tl.to(cards, {
       x: (i) => {
         const cardPosition = i * (cardWidth + gap);
-        const offset = (cardsContainer.offsetWidth - totalWidth) / 2;
+        const containerWidth = cardsContainer.offsetWidth;
+        console.log('cardsContainer.offsetWidth', containerWidth);
+        console.log('totalWidth', totalWidth);
+
+        let divisor;
+
+        // if (containerWidth <= 427) {
+        //   // Mobile screens
+        //   divisor = 0;
+        // }
+
+        if (containerWidth >= 430) {
+          // Mobile screens
+          divisor = 0.2;
+        }
+        if (containerWidth <= 440) {
+          // Mobile screens
+          divisor = 0.9;
+        } else if (containerWidth <= 640) {
+          // Mobile screens
+          divisor = 0.5;
+        } else if (containerWidth <= 768) {
+          // Small tablets
+          divisor = 0.25;
+        } else if (containerWidth <= 1024) {
+          // Large tablets
+          divisor = 4;
+        } else if (containerWidth <= 1280) {
+          // Small laptops
+          divisor = 2;
+        } else if (containerWidth <= 1440) {
+          // Large laptops
+          divisor = 2;
+        } else if (containerWidth <= 1441) {
+          // For screens up to 1441px, use the original centering logic
+          divisor = 2;
+        } else {
+          // For larger screens, use a fixed left margin
+          divisor = 1.4;
+        }
+
+        const offset = (containerWidth - totalWidth) / divisor;
+
+        console.log('divisor', divisor);
+        console.log('offset', offset);
+        console.log('cardPosition', cardPosition);
+        console.log('cardPosition + offset', cardPosition + offset);
+
         return cardPosition + offset;
       },
       y: 0,
@@ -225,7 +285,7 @@ const UnlockSection = () => {
       zIndex: 1,
       stagger: {
         each: 0.01,
-        from: 'end',
+        from: 'start', // Change to 'start' for left-to-right animation
       },
       ease: 'power3.out',
       duration: 0.3,
@@ -238,36 +298,33 @@ const UnlockSection = () => {
     animateCards();
   }, [animateCards]);
 
-
-
-const cardData = [
-  {
-    title: 'Improved Accuracy',
-    image: '/images/icons/Accuracy.svg',
-  },
-  {
-    title: 'Improved Precision',
-    image: '/images/icons/Precision.svg',
-  },
-  {
-    title: '100% Traceability',
-    image: '/images/icons/Traceability.svg',
-  },
-  {
-    title: 'Reduction in Complex Human-in-the-Loop Decisions',
-    image: '/images/icons/Reduction in Complex Human-in-the-Loop Decisions.svg',
-  },
-  {
-    title: 'Reduction in Components to Build Application',
-    image: '/images/icons/Reduction in Components to Build Application.svg',
-  },
-  {
-    title: 'Richer Semantic Understanding of Your Data',
-    image: '/images/icons/Richer Semantic Understanding of Your Data.svg',
-  },
-];
-
-// ... rest of the code ...
+  const cardData = [
+    {
+      title: ['Improved', 'Accuracy'],
+      image: '/images/icons/Accuracy.svg',
+    },
+    {
+      title: ['Improved', 'Precision'],
+      image: '/images/icons/Precision.svg',
+    },
+    {
+      title: ['100%', 'Traceability'],
+      image: '/images/icons/Traceability.svg',
+    },
+    {
+      title: ['Reduction in', 'Complex Human-', 'in-the-Loop Decisions'],
+      image:
+        '/images/icons/Reduction in Complex Human-in-the-Loop Decisions.svg',
+    },
+    {
+      title: ['Reduction in', 'Components to Build', 'Application'],
+      image: '/images/icons/Reduction in Components to Build Application.svg',
+    },
+    {
+      title: ['Richer Semantic', 'Understanding', 'of Your Data'],
+      image: '/images/icons/Richer Semantic Understanding of Your Data.svg',
+    },
+  ];
 
   const updateScrollButtons = useCallback(() => {
     if (cardsContainerRef.current) {
@@ -307,9 +364,7 @@ const cardData = [
 
   return (
     <section className='bg-white relative sm:pt-12 sm:pb-12'>
-      {' '}
-      {/* Added padding-top */}
-      <UnlockSectionHeader />
+      {/* <UnlockSectionHeader /> */}
       <AnimatedText />
       <div
         ref={sectionRef as React.RefObject<HTMLDivElement>}
@@ -345,11 +400,11 @@ const cardData = [
           </div>
           <div
             ref={cardsContainerRef}
-            className='relative overflow-x-auto pt-12'
+            className='relative overflow-x-auto pt-12 '
             style={{
               width: '100%',
               height: isMobile
-                ? `${cardWidth * 1.2}px`
+                ? `${cardWidth * 1.0}px`
                 : `${cardWidth * 1.2 + 60}px`, // Increased height for mobile
               scrollbarWidth: 'none',
               msOverflowStyle: 'none',
@@ -360,7 +415,7 @@ const cardData = [
               style={{
                 width: `${cardData.length * (cardWidth + gap) - gap}px`,
                 height: isMobile
-                  ? `${cardWidth * 0.9}px`
+                  ? `${cardWidth * 0.8}px`
                   : `${cardWidth * 1.2 + 60}px`,
               }}
             >
@@ -371,7 +426,7 @@ const cardData = [
                   style={{
                     width: `${cardWidth}px`,
                     height: isMobile
-                      ? `${cardWidth * 0.9}px`
+                      ? `${cardWidth * 0.8}px`
                       : `${cardWidth * 1.2}px`,
                     transition: 'all 0.5s ease',
                     zIndex: cardData.length - index, // Reverse the z-index
@@ -389,6 +444,7 @@ const cardData = [
           </div>
         </div>
       </div>
+      <UnlockSectionHeader />
       <style jsx>{`
         section {
           min-height: 100vh;

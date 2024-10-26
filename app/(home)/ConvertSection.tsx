@@ -1,6 +1,7 @@
 'use client';
 // import React, { useEffect, useState, useMemo } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const FeatureCard = ({
   icon,
@@ -22,7 +23,7 @@ const FeatureCard = ({
         priority
       />
     </div>
-    <h3 className='font-space-grotesk text-[23px] sm:text-[34px] font-[700] leading-[30px] sm:text-2xl text-black  mb-3'>
+    <h3 className='font-proxima-nova text-[23px] sm:text-[40px] font-[700] leading-[30px] sm:text-2xl text-black  mb-3'>
       {title}
     </h3>
     <p className='font-proxima-nova font-[400] text-[20px] text-black leading-[24px]'>
@@ -124,7 +125,7 @@ const ConvertSection = () => {
             Convert your GenAI chaos to
           </span>
           <span className='block leading-tight mb-2'>
-            <span className='inline-flex items-center justify-center'>
+            <span className='text-[#FA05C3]  inline-flex items-center justify-center'>
               {/* <Image
                 src='/images/icons/section-open.svg'
                 alt='Open bracket'
@@ -135,7 +136,7 @@ const ConvertSection = () => {
                 priority
               /> */}
               <span className='inline-block transition-all duration-300 ease-in-out'>
-                Success
+                success
               </span>
               {/* <Image
                 src='/images/icons/section-closed.svg'
@@ -161,11 +162,27 @@ const ConvertSection = () => {
               <br />
               Behind
             </h3>
-            <button className='bg-[#1130FF] font-spaceGrotesk font-[700] text-[20px] leading-[25.52px] text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors text-lg mt-4'>
+            {/* <button className='bg-[#1130FF] font-spaceGrotesk font-[700] text-[20px] leading-[25.52px] text-white py-4 px-[24px] rounded-[4px] hover:bg-blue-700 transition-colors  mt-4'>
               Start Articul8&apos;ing
-            </button>
+            </button> */}
+            <Link
+              href='https://redbaron.co.in/2024/articule-8-demo/a8-sign-up-for-a8-essential.html'
+              target='_blank'
+              className='text-[#1130FF] hover:underline font-semibold flex items-center'
+            >
+              <span className='font-space-grotesk text-[20px] font-[700] leading-[26.07px] text-[#1130FF]'>
+                Start Articul8&apos;ing
+              </span>
+              <Image
+                src='/images/icons/header-arrow.svg'
+                alt='Arrow right'
+                width={13}
+                height={13}
+                className='ml-2'
+              />
+            </Link>
           </div>
-          <div className='w-full md:w-3/5 relative min-h-[400px] md:min-h-[500px] order-first order-last'>
+          <div className='w-full md:w-3/5 relative min-h-[400px] md:min-h-[500px]  order-last'>
             <Image
               src='/images/abstract-shapes.png'
               alt='Abstract shapes with hand interaction'
