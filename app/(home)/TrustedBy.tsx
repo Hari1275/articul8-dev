@@ -42,6 +42,14 @@ const TrustedBy = () => {
     arrows: false,
     cssEase: 'linear', // Use linear easing for smooth scrolling
     pauseOnHover: false, // Prevent pausing on hover
+    responsive: [
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+    ],
   };
 
   return (
