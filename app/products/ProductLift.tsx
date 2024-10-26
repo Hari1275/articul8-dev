@@ -15,7 +15,7 @@ import smallLineFrame2 from "../../public/images/lineFrameSmall2.svg";
 const Card = ({ item }) => {
   return (
     <>
-      <div className="w-full bg-[#F2F7FF] py-6 md:py-6 pl-3 pr-3 md:pl-6 md:pr-6 flex flex-col gap-6  bg-[background: #ECEFF2] productLiftCard rounded-[16px] border-2  md:border-none  transition-all ease-linear duration-400 md:hover:scale-y-[1.05] md:hover:-translate-y-1">
+      <div className="w-full bg-[#F2F7FF] py-6 md:py-6 pl-3 pr-3 md:pl-6 md:pr-6 flex flex-col gap-6   productLiftCard rounded-[16px] border-2  md:border-none  transition-all ease-linear duration-400 md:hover:scale-y-[1.05] md:hover:-translate-y-1">
         {/* top */}
         <div className="flex flex-col justify-center items-center md:items-start md:justify-start gap-y-4">
           <h3 className="font-proxima-nova text-[28px] font-bold text-center md:text-start leading-none">
@@ -25,7 +25,7 @@ const Card = ({ item }) => {
             {item?.subTitle}
           </span>
           <div className="flex flex-col justify-center items-center md:items-start md:justify-start  gap-2 w-full">
-            <button className="bg-[#0231FF] text-[#E6E9F5] py-4 w-[66%] md:w-[85%] rounded-[3px] font-proxima-nova text-[18px] font-[700] ">
+            <button className="bg-[#0231FF] text-[#E6E9F5] py-[14px] px-6 rounded-[3px] font-proxima-nova text-[18px] font-[700] ">
               <Link href={item?.buttonLink || "/"}>{item?.button}</Link>
             </button>
             {item?.accessContent !== "" && (
@@ -40,7 +40,7 @@ const Card = ({ item }) => {
 
         {/* bottom */}
         <div className="flex flex-col gap-3">
-          <h3 className="font-proxima-nova text-[18px] font-[600]">
+          <h3 className="font-proxima-nova text-[18px] font-[600] text-[blue]">
             Key Features
           </h3>
           <div className="flex flex-col gap-2">
@@ -50,12 +50,12 @@ const Card = ({ item }) => {
               </h3>
             )}
 
-            <div className="flex flex-col gap-1 pl-0">
+            <div className="flex flex-col gap-y-[10px] pl-0">
               {item.features?.length > 0 &&
                 item.features.map((feature, i) => (
                   <div
                     key={feature.title || i}
-                    className="flex flex-row gap-2 font-proxima-nova text-[16px] font-[600]"
+                    className="flex flex-row gap-3 font-proxima-nova text-[16px] font-[600]"
                   >
                     <div
                       className="rounded-full bg-[#E8EDFB] flex justify-center align-middle p-1"
@@ -85,7 +85,7 @@ const Card = ({ item }) => {
                             >
                               <div className="flex flex-row text-start gap-2 ">
                                 <div
-                                  className="rounded-full bg-[#E8EDFB] flex justify-center align-middle p-1"
+                                  className=" flex justify-center align-middle p-1"
                                   style={{ height: "max-content" }}
                                 >
                                   <BsFillSquareFill
@@ -93,7 +93,7 @@ const Card = ({ item }) => {
                                     className="w-2 h-2"
                                   />
                                 </div>
-                                <span className="font-proxima-nova text-[14px] font-[400]  text-start">
+                                <span className="font-proxima-nova text-[14px] font-[400] leading-[18px]  text-start">
                                   {point}
                                 </span>
                               </div>
@@ -222,8 +222,9 @@ const ProductLift = () => {
     <>
       <div className="w-full bg-[#F2F7FF]  md:bg-white pt-0 md:pt-10 pb-0 md:pb-0 flex flex-col md:gap-16 gap-8 justify-center items-center bg-[background: #ECEFF2]">
         {/* top patti */}
-        <div className=" w-full flex flex-row justify-end md:gap-28 mb-5 md:mb-0">
-          <div>
+
+        <div className="w-full flex flex-row justify-end gap-20 md:gap-28 mb-5 md:mb-0">
+          <div className="flex flex-row justify-end gap-0">
             <Image
               src={lineFrame1}
               alt="pink"
@@ -231,16 +232,20 @@ const ProductLift = () => {
               height={60}
               className="rounded-sm object-cover w-full hidden md:flex"
             />
-
             <Image
               src={smallLineFrame1}
               alt="pink"
               priority
-              height={60}
+              height={20}
               className="rounded-sm object-cover w-full md:hidden flex"
             />
           </div>
         </div>
+
+        {/* 
+        <div className="w-full flex    mb-5 md:mb-0">
+      
+        </div> */}
         {/* top */}
         <div className="container mx-auto px-4 sm:px-6">
           <h3 className="font-space-grotesk lg:text-[40px] md:text-3xl text-3xl font-bold text-center">

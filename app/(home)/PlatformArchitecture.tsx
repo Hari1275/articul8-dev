@@ -31,31 +31,35 @@ const PlatformArchitecture = () => {
     {
       icon: '/images/icons/embedding.svg',
       title: 'Automated Data Intelligence',
-      description: 'Get richer semantic understanding and uncover hidden relationships in your data within minutes.',
+      description:
+        'Get richer semantic understanding and uncover hidden relationships in your data within minutes.',
     },
     {
       icon: '/images/icons/whisper, api.svg',
       title: 'Growing Library of Specialized Models',
-      description: 'Obtain improved precision and relevance with industry knowledge encoded into Articul8\'s library of Domain-specific models and Task-specific models.',
+      description:
+        "Obtain improved precision and relevance with industry knowledge encoded into Articul8's library of Domain-specific models and Task-specific models.",
     },
     {
       icon: '/images/icons/sticker.svg',
       title: 'Observability, Traceability & Auditability at Every Step',
-      description: 'Get full visibility into decisions and actions, revealing the underlying logic and metrics in every step, delivering assurance in generated outcomes.',
+      description:
+        'Get full visibility into decisions and actions, revealing the underlying logic and metrics in every step, delivering assurance in generated outcomes.',
     },
     {
       icon: '/images/icons/write, brief.svg',
       title: 'Deploy Anywhere Securely',
-      description: 'Deploy Articul8 platform with your data in your security perimeter. Articul8 is agnostic to hosting infrastructure and accelerators, offering flexibility across cloud, on-prem, and air-gapped environments.',
+      description:
+        'Deploy Articul8 platform with your data in your security perimeter. Articul8 is agnostic to hosting infrastructure and accelerators, offering flexibility across cloud, on-prem, and air-gapped environments.',
     },
   ];
 
   return (
     <section className='sm:pt-32 pt-8 pb-16 px-4 bg-white'>
       <div className='container mx-auto px-4 sm:px-6'>
-        <h2 className='font-space-grotesk text-[26px] sm:text-[54px] sm:leading-[84px] font-bold sm:mb-16 mb-8 leading-tight text-center sm:text-left'>
+        <h2 className='font-space-grotesk text-[24px]  sm:text-[36px] md:text-[50px]  lg:text-[54px]  lg:leading-[84px] font-bold sm:mb-16 mb-8 leading-tight text-center lg:text-left'>
           Articul8 platform makes the
-          <br/>
+          <br />
           <span className='text-[#FF00C7] font-bold'>
             {' '}
             impossible possible.
@@ -65,14 +69,14 @@ const PlatformArchitecture = () => {
           <div className='w-full lg:w-2/5'>
             <div className='space-y-2'>
               {items.map((item, index) => (
-                <Disclosure key={index} as="div" className="mt-2">
+                <Disclosure key={index} as='div' className='mt-2'>
                   {({ open }) => (
                     <div
                       className={`bg-[#F6F6FF] rounded-lg overflow-hidden ${
                         open ? 'shadow-[0_1px_3px_rgba(0,0,0,0.1)]' : ''
                       }`}
                     >
-                      <Disclosure.Button 
+                      <Disclosure.Button
                         className='flex items-start w-full text-left py-4 px-4 focus:outline-none'
                         onClick={() => setOpenIndex(index)}
                       >
@@ -84,7 +88,7 @@ const PlatformArchitecture = () => {
                             height={32}
                           />
                         </div>
-                        <p className='font-space-grotesk sm:font-proxima-nova flex-grow font-[600] text-[14px] sm:text-[24px] leading-[18px] sm:leading-[28px] pr-2'>
+                        <p className='font-proxima-nova flex-grow font-[600] text-[14px] sm:text-[24px] leading-[18px] sm:leading-[28px] pr-2'>
                           {item.title}
                         </p>
                         <div className='mt-[2px]'>
@@ -94,14 +98,17 @@ const PlatformArchitecture = () => {
                       <AnimatePresence initial={false}>
                         {item.description && openIndex === index && (
                           <motion.div
-                            initial="collapsed"
-                            animate="open"
-                            exit="collapsed"
+                            initial='collapsed'
+                            animate='open'
+                            exit='collapsed'
                             variants={{
                               open: { opacity: 1, height: 'auto' },
-                              collapsed: { opacity: 0, height: 0 }
+                              collapsed: { opacity: 0, height: 0 },
                             }}
-                            transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
+                            transition={{
+                              duration: 0.3,
+                              ease: [0.04, 0.62, 0.23, 0.98],
+                            }}
                           >
                             <Disclosure.Panel static>
                               <motion.p
@@ -109,7 +116,7 @@ const PlatformArchitecture = () => {
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -10 }}
                                 transition={{ duration: 0.2, delay: 0.1 }}
-                                className='font-space-grotesk sm:font-proxima-nova px-4 pt-2 sm:pt-0 pb-4 text-[12px] sm:text-[18px] font-[400] leading-[15px] sm:leading-[21px] text-[#000] ml-12'
+                                className='font-proxima-nova px-4 pt-0 sm:pt-0 pb-4 text-[12px] sm:text-[18px] font-[400] leading-[15px] sm:leading-[21px] text-[#000] ml-12'
                               >
                                 {item.description}
                               </motion.p>

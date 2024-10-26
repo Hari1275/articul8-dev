@@ -6,23 +6,23 @@ const ProductPage = () => {
     <>
       {/* <section className="relative sm:min-h-[80vh] flex items-center justify-center bg-[#ECEFF2]  overflow-hidden">
         <div className="container mx-auto px-6 flex flex-col lg:flex-row items-center lg:items-start h-full md:pt-[50px]"> */}
-      <div className=" md:pt-[130px]  pt-8  lg:pt-24 pb-0 md:pb-6   flex justify-center items-center  bg-[#ECEFF2]">
-        <div className="container  mx-auto px-4 sm:px-6  w-[95%] md:w-[97%]  flex flex-col md:flex-row  gap-6">
-          <div className="w-full md:w-1/2 lg:w-[50%]  flex flex-col justify-center md:mt-[-90px]">
+      <div className=" md:pt-[120px]  pt-8  lg:pt-20 pb-0 md:pb-6   flex justify-center items-center  bg-[#ECEFF2]">
+        <div className="container  mx-auto px-4 sm:px-6    flex flex-col md:flex-row  gap-6">
+          <div className="w-full md:w-1/2 lg:w-[54%]  flex flex-col justify-center md:mt-[-20px] lg:mt-[-90px]">
             <h1 className="font-[700] text-center md:text-start font-space-grotesk">
-              <div className="leading-tight hidden md:block  text-[45px] md:text-4xl lg:text-[55px] pr-[12px]">
+              <div className="leading-tight hidden md:block  text-[45px] md:text-[44px] lg:text-[60px] pr-[12px]">
                 YOUR PATH TO EXPERT-LEVEL
-                <span className="text-[#FA05C3] pl-2">GENAI</span> APPLICATIONS
+                <span className="text-[#FA05C3] pl-2">GenAI</span> APPLICATIONS
               </div>
 
               <span className="leading-[50px] md:hidden block text-[42px] md:text-4xl lg:text-[58px] pt-8 ">
                 YOUR PATH TO EXPERT-LEVEL
-                <span className="text-[#FA05C3]"> GENAI</span> APPLICATIONS
+                <span className="text-[#FA05C3]"> GenAI</span> APPLICATIONS
               </span>
             </h1>
 
-            <div className="text-[19px]  md:text-[20px] flex flex-col gap-1 mt-4 text-center font-proxima-nova font-[500] md:text-start  lg:pr-10">
-              <span className="leading-none hidden md:flex">
+            <div className="text-[19px]  md:text-[21px] lg:text-[24px] flex flex-col gap-1 mt-4 text-center font-proxima-nova font-[400] md:text-start  lg:pr-0">
+              <span className="md:leading-7  lg:leading-8 hidden md:flex">
                 Articul8’s products make it incredibly straightforward for your
                 dev teams to build sophisticated, enterprise-scale, expert-level
                 GenAI applications that encode your domain expertise.
@@ -38,7 +38,7 @@ const ProductPage = () => {
               </span>
             </div>
           </div>
-          <div className="w-full md:w-1/2 lg:w-[50%] flex justify-center align-middle md:pl-8 md:pt-10">
+          <div className="w-full md:w-1/2 lg:w-[46%] flex justify-center align-middle md:pl-8 md:pt-10">
             <Image
               src={icon2}
               alt="product hero"
