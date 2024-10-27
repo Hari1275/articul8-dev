@@ -9,7 +9,7 @@ const gangsters = [
     name: 'Zachary Jordan',
     role: 'Project Manager',
     description:
-      'Passionate about delivering projects on time and within budget.',
+      'I am a software engineer at Articul8. I am responsible for building out our product through maintaining, improving, and building out new services and infrastructure.',
   },
   {
     image: '/images/icons/about/gangster1.png',
@@ -51,17 +51,21 @@ export default function HumbleGangsters() {
             {[...gangsters, ...gangsters].map((gangster, index) => (
               <div key={index} className={styles.slide}>
                 <div className={styles.card}>
-                  <Image
-                    src={gangster.image}
-                    alt={gangster.name}
-                    layout='fill'
-                    objectFit='cover'
-                    className={styles.image}
-                  />
+                  <div className={styles.imageWrapper}>
+                    <Image
+                      src={gangster.image}
+                      alt={gangster.name}
+                      layout='fill'
+                      objectFit='cover'
+                      className={styles.image}
+                    />
+                  </div>
                   <div className={styles.overlay}>
-                    <h3 className={styles.name}>{gangster.name}</h3>
-                    <p className={styles.role}>{gangster.role}</p>
                     <p className={styles.description}>{gangster.description}</p>
+                    <div className={styles.personInfo}>
+                      <h3 className={styles.name}>{gangster.name}</h3>
+                      <p className={styles.role}>{gangster.role}</p>
+                    </div>
                   </div>
                 </div>
               </div>

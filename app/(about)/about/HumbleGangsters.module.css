@@ -36,55 +36,74 @@
   position: relative;
   width: 100%;
   height: 400px;
-  overflow: hidden;
-  border-radius: 0.5rem;
+  border-radius: 21px;
   cursor: pointer;
+  overflow: hidden;
+}
+
+.imageWrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .image {
-  transition: transform 0.3s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: opacity 0.4s ease;
 }
 
 .overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background: #f2f7ff;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 1.5rem;
+  justify-content: space-between;
+  padding: 3rem;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  visibility: hidden;
+  transition: all 0.4s ease;
+}
+
+/* Remove all scaling effects */
+.card:hover .image {
+  opacity: 0;
 }
 
 .card:hover .overlay {
   opacity: 1;
-}
-
-.card:hover .image {
-  transform: scale(1.05);
-}
-
-.name {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 0.25rem;
-  color: #000;
-}
-
-.role {
-  font-size: 0.875rem;
-  color: #666;
-  margin-bottom: 0.5rem;
+  visibility: visible;
 }
 
 .description {
-  font-size: 0.875rem;
-  line-height: 1.4;
-  color: #333;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  color: #111827;
+  font-weight: 400;
+  max-width: 90%;
+  margin-bottom: auto;
+}
+
+.personInfo {
+  margin-top: 2rem;
+}
+
+.name {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #000;
+  line-height: 1.2;
+}
+
+.role {
+  font-size: 1.125rem;
+  color: #4b5563;
+  font-weight: 400;
 }
 
 @media (min-width: 640px) {
@@ -96,5 +115,8 @@
 @media (min-width: 1024px) {
   .slide {
     flex: 0 0 400px;
+  }
+  .overlay {
+    padding: 3.5rem;
   }
 }
