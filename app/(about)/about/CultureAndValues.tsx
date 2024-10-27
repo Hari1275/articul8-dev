@@ -34,7 +34,7 @@ export default function CultureAndValues() {
         <h2 className='font-space-grotesk text-[30px] sm:text-[56px] font-bold leading-[45px] sm:leading-[84px] text-black text-center md:text-left mb-2 sm:mb-8'>
           Our culture and values
         </h2>
-        <p className='font-proxima-nova text-[16px] md:text-left sm:text-[24px] font-normal leading-[19.2px] sm:leading-[28.8px] text-black text-center sm:text-left mb-4 sm:mb-16 max-w-4xl mx-auto'>
+        <p className='font-proxima-nova text-[16px] sm:text-[24px] font-normal leading-[19.2px] sm:leading-[28.8px] text-black text-center md:text-left mb-4 sm:mb-16 max-w-4xl mx-auto md:mx-0'>
           At Articul8 AI, we're fostering a culture of excellence, ownership,
           and continuous improvement. We believe in empowering every team member
           to take charge and deliver their best work. We encourage a 'see
@@ -42,14 +42,14 @@ export default function CultureAndValues() {
           environment where challenges are met head-on with transparency and
           trust. Everyone contributes to solutions, not problems.
         </p>
-        <h3 className='font-space-grotesk text-[30px]  sm:text-[40px] font-bold leading-[45px] sm:leading-[60px] text-black text-center md:text-left mb-8 sm:mb-12 pt-[30px]'>
+        <h3 className='font-space-grotesk text-[30px] sm:text-[40px] font-bold leading-[45px] sm:leading-[60px] text-black text-center md:text-left mb-8 sm:mb-12 pt-[30px]'>
           What we <span className='text-[#FF00C7]'>believe</span> in...
         </h3>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
           {values.map((value, index) => (
             <div
               key={index}
-              className='bg-white p-6 rounded-lg shadow-md md:shadow-none md:bg-transparent 
+              className='bg-white p-6 rounded-lg  md:shadow-none md:bg-white
                          border border-[#E5E7EB] md:border-[#EAECF0] 
                          md:w-[600px] md:h-[284px]'
             >

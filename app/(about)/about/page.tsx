@@ -1,9 +1,12 @@
+import React from 'react';
 import type { Metadata } from 'next';
 import Hero from './Hero';
 import MissionSection from './MissionSection';
 import ImpactSection from './ImpactSection';
-import CEOQuoteSection from './CEOQuoteSection';
 import CultureAndValues from './CultureAndValues';
+import CEOQuoteSection from './CEOQuoteSection';
+import HumbleGangsters from './HumbleGangsters';
+import '../../../styles/globals.css';
 
 export const metadata: Metadata = {
   title: 'About Us | Building for a Better Tomorrow',
@@ -11,15 +14,17 @@ export const metadata: Metadata = {
     'We are researchers at heart, dedicated to developing exceptional products that delight our customers.',
 };
 
-export default function AboutPage() {
+const AboutPage: React.FC = () => {
   return (
-    <main>
+    <div>
       <Hero />
       <MissionSection />
       <ImpactSection />
       <CEOQuoteSection />
       <CultureAndValues />
-      {/* Other sections of the About page */}
-    </main>
+      <HumbleGangsters />
+    </div>
   );
-}
+};
+
+export default AboutPage;
