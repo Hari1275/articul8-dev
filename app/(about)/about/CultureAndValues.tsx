@@ -51,7 +51,7 @@ export default function CultureAndValues() {
               key={index}
               className='bg-white p-6 rounded-lg  md:shadow-none md:bg-white
                          border border-[#E5E7EB] md:border-[#EAECF0] 
-                         md:w-[600px] md:h-[284px]'
+                         '
             >
               <Image
                 src={value.icon}
