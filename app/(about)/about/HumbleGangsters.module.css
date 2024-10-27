@@ -27,9 +27,13 @@
 
 .slider {
   display: flex;
-  animation: slide 15s linear infinite;
+  animation: slide 25s linear infinite; /* Faster speed for first slider */
   backface-visibility: hidden;
   transform: translateZ(0);
+}
+
+.sliderSlow {
+  animation: slide 35s linear infinite; /* Slower speed for second slider */
 }
 
 /* Add this new style */
@@ -328,4 +332,36 @@
     opacity: 1;
     visibility: visible;
   }
+}
+
+/* Add this new class for different speed and direction */
+.sliderReverse {
+  animation: slideReverse 30s linear infinite;
+}
+
+/* Add this new keyframe animation */
+@keyframes slideReverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Update responsive spacing */
+@media (min-width: 640px) {
+  .secondSlider {
+    margin-top: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .secondSlider {
+    margin-top: 3rem;
+  }
+}
+
+.secondSlider {
+  margin-top: 2rem;
 }

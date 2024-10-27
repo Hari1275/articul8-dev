@@ -39,47 +39,14 @@ const gangsters = [
   // Add more gangsters as needed
 ];
 
-export default function HumbleGangsters() {
+export default function HumbleGangsters2() {
   return (
     <section className={styles.humbleGangsters}>
       <div className={`${styles.container} container mx-auto px-4 sm:px-6`}>
-        <h2 className='text-3xl font-bold mb-8'>
-          Some of our <span className='text-[#FF00C7]'>humble</span> gangsters
-        </h2>
-
-        {/* First Slider - Faster speed */}
         <div className={styles.sliderContainer}>
-          <div className={styles.slider}>
+          <div className={`${styles.slider} ${styles.sliderReverse}`}>
             {[...gangsters, ...gangsters].map((gangster, index) => (
-              <div key={`first-${index}`} className={styles.slide}>
-                <div className={styles.card}>
-                  <div className={styles.imageWrapper}>
-                    <Image
-                      src={gangster.image}
-                      alt={gangster.name}
-                      layout='fill'
-                      objectFit='cover'
-                      className={styles.image}
-                    />
-                  </div>
-                  <div className={styles.overlay}>
-                    <p className={styles.description}>{gangster.description}</p>
-                    <div className={styles.personInfo}>
-                      <h3 className={styles.name}>{gangster.name}</h3>
-                      <p className={styles.role}>{gangster.role}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Second Slider - Slower speed */}
-        <div className={`${styles.sliderContainer} ${styles.secondSlider}`}>
-          <div className={`${styles.slider} ${styles.sliderSlow}`}>
-            {[...gangsters, ...gangsters].map((gangster, index) => (
-              <div key={`second-${index}`} className={styles.slide}>
+              <div key={index} className={styles.slide}>
                 <div className={styles.card}>
                   <div className={styles.imageWrapper}>
                     <Image
