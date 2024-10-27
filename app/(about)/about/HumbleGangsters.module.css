@@ -208,7 +208,7 @@
   .card {
     display: flex;
     flex-direction: column;
-    height: auto;
+    height: 500px; /* Fixed height for consistency */
     background: #f2f7ff;
   }
 
@@ -216,64 +216,49 @@
     position: relative;
     opacity: 1;
     visibility: visible;
-    order: 1; /* Places content at the top */
+    order: 1;
     padding: 2rem;
-    min-height: 200px;
+    flex: 1; /* Takes up remaining space */
+    min-height: 220px; /* Minimum height for content */
+    display: flex;
+    flex-direction: column;
   }
 
   .imageWrapper {
     position: relative;
-    order: 2; /* Places image at the bottom */
-    height: 280px;
+    order: 2;
+    height: 280px; /* Fixed height for image */
+    flex-shrink: 0; /* Prevents image from shrinking */
   }
 
   .image {
     opacity: 1;
   }
 
-  .card:hover .image {
-    opacity: 1; /* Disable hover effect */
-  }
-
   .description {
     font-size: 1rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: auto; /* Pushes personInfo to bottom */
+    flex: 1;
   }
 
   .personInfo {
-    margin-top: 0;
-  }
-
-  .name {
-    font-size: 1.25rem;
-  }
-
-  .role {
-    font-size: 1rem;
+    margin-top: 1.5rem;
   }
 }
 
 /* Tablet specific adjustments */
 @media (min-width: 640px) and (max-width: 1023px) {
+  .card {
+    height: 560px; /* Slightly taller for tablet */
+  }
+
   .overlay {
     padding: 2.5rem;
-    min-height: 220px;
+    min-height: 240px;
   }
 
   .imageWrapper {
     height: 320px;
-  }
-
-  .description {
-    font-size: 1.075rem;
-  }
-
-  .name {
-    font-size: 1.5rem;
-  }
-
-  .role {
-    font-size: 1.075rem;
   }
 }
 
