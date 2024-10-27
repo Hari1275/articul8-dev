@@ -11,7 +11,7 @@
 
 .slider {
   display: flex;
-  animation: slide 60s linear infinite;
+  animation: slide 15s linear infinite; /* Changed from 60s to 30s */
 }
 
 .slider:hover {
