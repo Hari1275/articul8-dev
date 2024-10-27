@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Hero from './Hero';
 import MissionSection from './MissionSection';
+import ImpactSection from './ImpactSection';
 
 export const metadata: Metadata = {
   title: 'About Us | Building for a Better Tomorrow',
@@ -13,6 +14,7 @@ export default function AboutPage() {
     <main>
       <Hero />
       <MissionSection />
+      <ImpactSection />
       {/* Other sections of the About page */}
     </main>
   );
