@@ -51,16 +51,14 @@ export default function HumbleGangsters() {
             {[...gangsters, ...gangsters].map((gangster, index) => (
               <div key={index} className={styles.slide}>
                 <div className={styles.card}>
-                  <div className={styles.cardFront}>
-                    <Image
-                      src={gangster.image}
-                      alt={gangster.name}
-                      layout='fill'
-                      objectFit='cover'
-                      className={styles.image}
-                    />
-                  </div>
-                  <div className={styles.cardBack}>
+                  <Image
+                    src={gangster.image}
+                    alt={gangster.name}
+                    layout='fill'
+                    objectFit='cover'
+                    className={styles.image}
+                  />
+                  <div className={styles.overlay}>
                     <h3 className={styles.name}>{gangster.name}</h3>
                     <p className={styles.role}>{gangster.role}</p>
                     <p className={styles.description}>{gangster.description}</p>
