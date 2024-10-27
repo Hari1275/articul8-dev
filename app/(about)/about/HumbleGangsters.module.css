@@ -1,3 +1,14 @@
+/* Hide scrollbar for Chrome, Safari and Opera */
+.sliderContainer::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.sliderContainer {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
 .humbleGangsters {
   background-color: #fff;
   padding: 2rem 0;
