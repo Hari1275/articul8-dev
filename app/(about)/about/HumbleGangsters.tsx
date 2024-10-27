@@ -42,7 +42,7 @@ const gangsters = [
 export default function HumbleGangsters() {
   return (
     <section className={styles.humbleGangsters}>
-      <div className='container mx-auto px-4 sm:px-6'>
+      <div className={`${styles.container} container mx-auto px-4 sm:px-6`}>
         <h2 className='text-3xl font-bold mb-8'>
           Some of our <span className='text-[#FF00C7]'>humble</span> gangsters
         </h2>

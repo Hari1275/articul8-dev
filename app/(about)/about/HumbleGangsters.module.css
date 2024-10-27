@@ -12,26 +12,30 @@
 .humbleGangsters {
   background-color: #fff;
   padding: 2rem 0;
-  overflow: hidden;
+  overflow: hidden; /* This is important */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 100%;
 }
 
 .sliderContainer {
   width: 100%;
   overflow: hidden;
-  will-change: transform; /* Optimize performance */
+  position: relative; /* Add this */
+  will-change: transform;
 }
 
 .slider {
   display: flex;
   animation: slide 15s linear infinite;
-  backface-visibility: hidden; /* Prevent blur during animation */
-  transform: translateZ(0); /* Force GPU acceleration */
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
-.slider:hover {
-  animation-play-state: paused;
+/* Add this new style */
+.container {
+  max-width: 100%;
+  overflow: hidden;
 }
 
 @keyframes slide {
@@ -229,6 +233,14 @@
 
 /* Mobile and Tablet Layout (up to 1023px) */
 @media (max-width: 1023px) {
+  .humbleGangsters {
+    overflow-x: hidden; /* Explicitly hide horizontal overflow */
+  }
+
+  .sliderContainer {
+    margin: 0 -0.5rem; /* Compensate for slide margins */
+  }
+
   .card {
     display: flex;
     flex-direction: column;
