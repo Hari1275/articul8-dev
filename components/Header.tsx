@@ -3,9 +3,11 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import Modal from './Modal';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const pathname = usePathname();
 
   const toggleMenu = () => {
@@ -47,22 +49,23 @@ const Header = () => {
         </div>
 
         {/* "Start Articul8'ing" link */}
-        <Link
-          href='https://redbaron.co.in/2024/articule-8-demo/a8-sign-up-for-a8-essential.html'
-          target='_blank'
-          className='text-[#1130FF] hover:underline font-semibold flex items-center'
-        >
-          <span className='font-space-grotesk text-[20px] font-[700] leading-[26.07px] text-[#1130FF]'>
-            Start Articul8&apos;ing
-          </span>
-          <Image
-            src='/images/icons/header-arrow.svg'
-            alt='Arrow right'
-            width={13}
-            height={13}
-            className='ml-2'
-          />
-        </Link>
+        <div className="flex items-center">
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="text-[#1130FF] hover:underline font-semibold flex items-center"
+          >
+            <span className="font-space-grotesk text-[20px] font-[700] leading-[26.07px] text-[#1130FF]">
+              Start Articul8&apos;ing
+            </span>
+            <Image
+              src='/images/icons/header-arrow.svg'
+              alt='Arrow right'
+              width={13}
+              height={13}
+              className='ml-2'
+            />
+          </button>
+        </div>
       </div>
 
       {/* Mobile Header */}
@@ -147,17 +150,17 @@ const Header = () => {
               Start Articul8&apos;ing
             </button>
           </div> */}
-          <div className='p-4'>
-            <Link
-              href='https://redbaron.co.in/2024/articule-8-demo/a8-sign-up-for-a8-essential.html'
-              target='_blank'
-              className='font-space-grotesk text-[16px] w-full bg-white font-bold text-[#1130FF] px-6 py-3 rounded-md leading-[22.97px] hover:bg-gray-100 transition duration-300 inline-block text-center'
+          <div className="p-4">
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="font-space-grotesk text-[16px] w-full bg-white font-bold text-[#1130FF] px-6 py-3 rounded-md leading-[22.97px] hover:bg-gray-100 transition duration-300 inline-block text-center"
             >
               Start Articul8&apos;ing
-            </Link>
+            </button>
           </div>
         </div>
       )}
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </header>
   );
 };
