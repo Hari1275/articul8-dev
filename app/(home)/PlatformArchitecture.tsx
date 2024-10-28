@@ -50,7 +50,7 @@ const PlatformArchitecture = () => {
       icon: '/images/icons/write, brief.svg',
       title: 'Deploy Anywhere Securely',
       description:
-        'Deploy Articul8 platform with your data in your security perimeter. Articul8 is agnostic to hosting infrastructure and accelerators, offering flexibility across cloud, on-prem, and air-gapped environments.',
+        'Our products are built ground-up to meet the highest standards of compliance, data security, privacy and performance for regulated industries such as Finance, Healthcare and Government.',
     },
   ];
 
