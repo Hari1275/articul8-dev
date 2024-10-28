@@ -6,7 +6,10 @@ import ImpactSection from './ImpactSection';
 import CultureAndValues from './CultureAndValues';
 import CEOQuoteSection from './CEOQuoteSection';
 import HumbleGangsters from './HumbleGangsters';
+import TeamPhotoSection from './TeamPhotoSection';
+
 import '../../../styles/globals.css';
+import JoinTeamSection from './JoinTeamSection';
 
 export const metadata: Metadata = {
   title: 'About Us | Building for a Better Tomorrow',
@@ -23,6 +26,8 @@ const AboutPage: React.FC = () => {
       <CEOQuoteSection />
       <CultureAndValues />
       <HumbleGangsters />
+      <TeamPhotoSection />
+      <JoinTeamSection />
     </div>
   );
 };
