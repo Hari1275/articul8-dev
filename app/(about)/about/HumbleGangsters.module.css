@@ -188,7 +188,7 @@
   }
 
   .overlay {
-    padding: 3.5rem;
+    padding: 2.5rem;
   }
 
   .description {
@@ -260,7 +260,8 @@
     order: 1;
     padding: 2rem;
     flex: 1; /* Takes up remaining space */
-    min-height: 220px; /* Minimum height for content */
+    /* min-height: 220px;  */
+    min-height: 300px; /* Minimum height for content */
     display: flex;
     flex-direction: column;
     transform: none;
