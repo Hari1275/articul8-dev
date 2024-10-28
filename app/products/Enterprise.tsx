@@ -1,5 +1,5 @@
 import React from "react";
-import icon from "../../public/images/product2.svg";
+import icon from "../../public/images/product10.png";
 import proEnterpriseicon1 from "../../public/images/proEnterpriseicon1.svg";
 import proEnterpriseicon2 from "../../public/images/proEnterpriseicon2.svg";
 import proEnterpriseicon3 from "../../public/images/proEnterpriseicon3.svg";
