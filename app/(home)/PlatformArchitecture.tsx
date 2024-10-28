@@ -50,12 +50,18 @@ const PlatformArchitecture = () => {
       icon: '/images/icons/write, brief.svg',
       title: 'Deploy Anywhere Securely',
       description:
+        'Deploy Articul8 platform with your data in your security perimeter. Articul8 is agnostic to hosting infrastructure and accelerators, offering flexibility across cloud, on-prem, and air-gapped environments.',
+    },
+    {
+      icon: '/images/icons/industries.svg',
+      title: 'Engineered for Regulated Industries',
+      description:
         'Our products are built ground-up to meet the highest standards of compliance, data security, privacy and performance for regulated industries such as Finance, Healthcare and Government.',
     },
   ];
 
   return (
-    <section className='sm:pt-32 pt-8 pb-16 px-4 bg-white'>
+    <section className='sm:pt-0 pt-2 pb-16 px-4 bg-white'>
       <div className='container mx-auto px-4 sm:px-6'>
         <h2 className='font-space-grotesk text-[24px]  sm:text-[36px] md:text-[50px]  lg:text-[54px]  lg:leading-[84px] font-bold sm:mb-16 mb-8 leading-tight text-center lg:text-left'>
           Articul8 platform makes the
