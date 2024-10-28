@@ -37,7 +37,7 @@
   .slider {
     animation: none; /* Disable animation on mobile */
     display: flex;
-    gap: 20px;
+    gap: 4px;
     /* padding: 20px 0; */
     
   }
@@ -51,13 +51,22 @@
 @media (min-width: 768px) {
   .slider {
     display: flex;
-    gap: 20px;
-    padding: 20px 0;
+    gap: 8px;
+    padding: 20px 0 0 0;
     animation: scroll 40s linear infinite;
   }
 
   .sliderSlow {
     animation: scroll 60s linear infinite;
+  }
+
+  /* Add pause on hover */
+  .sliderContainer:hover .slider {
+    animation-play-state: paused;
+  }
+
+  .sliderContainer:hover .sliderSlow {
+    animation-play-state: paused;
   }
 }
 
@@ -180,12 +189,12 @@
   }
 
   .card {
-    height: 360px;
+    height: 280px;
     border-radius: 18px;
   }
 
   .overlay {
-    padding: 2rem;
+    padding: 1.5rem;
   }
 
   .description {
@@ -209,16 +218,16 @@
 
   .slide {
     flex: 0 0 400px;
-    margin: 0 1rem;
+    margin: 0 0.2rem; /* Reduced from 1rem */
   }
 
   .card {
-    height: 400px;
+    height: 310px;
     border-radius: 21px;
   }
 
   .overlay {
-    padding: 2.5rem;
+    padding: 1.5rem;
   }
 
   .description {
@@ -239,7 +248,7 @@
 @media (min-width: 1280px) {
   .slide {
     flex: 0 0 450px;
-    margin: 0 1.25rem;
+    margin: 0 0.5rem; /* Reduced from 1.25rem */
   }
 
   .card {
@@ -326,7 +335,7 @@
 /* Tablet specific adjustments */
 @media (min-width: 640px) and (max-width: 1023px) {
   .card {
-    height: 560px; /* Slightly taller for tablet */
+    height: 700px; /* Slightly taller for tablet */
   }
 
   .overlay {
@@ -342,7 +351,7 @@
 /* Desktop styles - keep original hover effect */
 @media (min-width: 1024px) {
   .card {
-    height: 400px;
+    height: 310px;
   }
 
   .imageWrapper {
@@ -353,6 +362,7 @@
     position: absolute;
     opacity: 0;
     visibility: hidden;
+    height: 310px;
   }
 
   .card:hover .image {
@@ -383,16 +393,19 @@
 /* Update responsive spacing */
 @media (min-width: 640px) {
   .secondSlider {
-    margin-top: 2.5rem;
+    margin-top: 1.5rem;
   }
 }
 
 @media (min-width: 1024px) {
   .secondSlider {
-    margin-top: 3rem;
+    margin-top: 0;
   }
 }
 
+@media (max-width: 640px) { 
 .secondSlider {
-  margin-top: 2rem;
+  margin-top: 1.5rem
 }
+}
+

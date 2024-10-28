@@ -12,6 +12,7 @@ const JoinTeamSection: React.FC = () => {
         </h2>
         <Link 
           href="https://jobs.ashbyhq.com/articul8" 
+          target="_blank"
           className="inline-block font-space-grotesk hover:underline text-[20px] leading-[25.52px] font-[700] px-[24px] py-[16px] bg-[#1130FF] text-white font-proxima-nova rounded-[4px] hover:bg-opacity-90 transition-colors"
         >
           View Current Openings
