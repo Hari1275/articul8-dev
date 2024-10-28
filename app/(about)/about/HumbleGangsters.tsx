@@ -16,25 +16,25 @@ const gangsters = [
     name: 'Emily Chen',
     role: 'UX Designer',
     description:
-      'Creating intuitive and beautiful user experiences is my forte.',
+      'I am a software engineer at Articul8. I am responsible for building out our product through maintaining, improving, and building out new services and infrastructure.​',
   },
   {
     image: '/images/icons/about/gangster1.png',
     name: 'Michael Rodriguez',
     role: 'Full Stack Developer',
-    description: 'Turning complex problems into elegant code solutions.',
+    description: 'I am a software engineer at Articul8. I am responsible for building out our product through maintaining, improving, and building out new services and infrastructure.​',
   },
   {
     image: '/images/icons/about/gangster1.png',
     name: 'Sarah Kim',
     role: 'Marketing Specialist',
-    description: 'Crafting compelling stories that resonate with our audience.',
+    description: 'I am a software engineer at Articul8. I am responsible for building out our product through maintaining, improving, and building out new services and infrastructure.​',
   },
   {
     image: '/images/icons/about/gangster1.png',
     name: 'David Nguyen',
     role: 'Data Scientist',
-    description: 'Uncovering insights from data to drive business decisions.',
+    description: 'I am a software engineer at Articul8. I am responsible for building out our product through maintaining, improving, and building out new services and infrastructure.​',
   },
   // Add more gangsters as needed
 ];
@@ -43,10 +43,10 @@ export default function HumbleGangsters() {
   return (
     <section className={styles.humbleGangsters}>
       <div className={`${styles.container} container mx-auto px-4 sm:px-6`}>
-        <h2 className='text-3xl font-bold mb-8'>
-          Some of our <span className='text-[#FF00C7]'>humble</span> gangsters
+   
+        <h2 className='font-space-grotesk text-[30px] leading-[45px] text-center font-[700] md:text-[56px] md:leading-[84px] mb-8 md:mb-16'>
+          Some of our <br className="md:hidden"/> <span className='text-[#FF00C7]'>humble</span> gangsters
         </h2>
-
         {/* First Slider - Faster speed */}
         <div className={styles.sliderContainer}>
           <div className={styles.slider}>
@@ -63,10 +63,22 @@ export default function HumbleGangsters() {
                     />
                   </div>
                   <div className={styles.overlay}>
-                    <p className={styles.description}>{gangster.description}</p>
+                 
+           <p className={`${styles.description} font-proxima-nova text-left font-semibold text-[16px] leading-[24px] md:text-[24px] md:leading-[36px]`}>
+       {gangster.description}
+       </p>
+
                     <div className={styles.personInfo}>
-                      <h3 className={styles.name}>{gangster.name}</h3>
-                      <p className={styles.role}>{gangster.role}</p>
+                   
+<h3 className={`${styles.name} font-proxima-nova text-left font-[700] text-[14.9px] leading-[18.9px] md:text-[20px] md:leading-[24.36px]`}>
+  {gangster.name}
+</h3>
+
+
+<p className={`${styles.role} font-proxima-nova text-left font-[400] text-[12.53px] leading-[17.9px] md:text-[14px] md:leading-[20px]`}>
+  {gangster.role}
+</p>
+
                     </div>
                   </div>
                 </div>
@@ -91,10 +103,22 @@ export default function HumbleGangsters() {
                     />
                   </div>
                   <div className={styles.overlay}>
-                    <p className={styles.description}>{gangster.description}</p>
+                 
+           <p className={`${styles.description} font-proxima-nova text-left font-semibold text-[16px] leading-[24px] md:text-[24px] md:leading-[36px]`}>
+       {gangster.description}
+       </p>
+
                     <div className={styles.personInfo}>
-                      <h3 className={styles.name}>{gangster.name}</h3>
-                      <p className={styles.role}>{gangster.role}</p>
+                   
+<h3 className={`${styles.name} font-proxima-nova text-left font-[700] text-[14.9px] leading-[18.9px] md:text-[20px] md:leading-[24.36px]`}>
+  {gangster.name}
+</h3>
+
+
+<p className={`${styles.role} font-proxima-nova text-left font-[400] text-[12.53px] leading-[17.9px] md:text-[14px] md:leading-[20px]`}>
+  {gangster.role}
+</p>
+
                     </div>
                   </div>
                 </div>
