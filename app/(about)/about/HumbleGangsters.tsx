@@ -19,13 +19,6 @@ const gangsters = [
       'I am a software engineer at Articul8. I am responsible for building out our product through maintaining, improving, and building out new services and infrastructure.',
   },
   {
-    image: '/images/icons/about/slider/Felipe Viana.png',
-    name: 'Felipe Viana',
-    role: 'Head of Applied Research',
-    description:
-      'I lead the design, development, and deployment of innovative generative AI technologies, including domain-specific models, new model architectures, GenAI system performance evaluation, and multi-agent autonomous systems.',
-  },
-  {
     image: '/images/icons/about/slider/Parvathi Letha.png',
     name: 'Parvathi Nair Letha',
     role: 'Technical Product Manager',
