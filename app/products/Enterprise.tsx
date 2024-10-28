@@ -24,6 +24,7 @@ const Card = ({ item }) => {
           priority
           width={38}
           height={27}
+          className="object-cover"
         />
 
         <h3 className="text-[19px]  md:text-[22px] font-semibold text-center md:text-start leading-tight font-proxima-nova">
@@ -33,7 +34,7 @@ const Card = ({ item }) => {
           {item.content}
         </span>
         {item?.environments && item.environments?.length > 0 && (
-          <div className="text-[16px] md:text-[18px] font-[400]  flex-row gap-1 hidden md:flex">
+          <div className="text-[16px] md:text-[18px] font-[400]  flex-row gap-1 flex">
             <span>Environments:</span>
 
             <div className="flex flex-row flex-wrap gap-x-1">
@@ -59,7 +60,7 @@ const Card = ({ item }) => {
 
         {item?.supportedAccelerators &&
           item.supportedAccelerators?.length > 0 && (
-            <div className="text-[16px] md:text-[18px] font-[400]  flex-row gap-1 hidden md:flex">
+            <div className="text-[16px] md:text-[18px] font-[400]  flex-row gap-1 flex">
               <span>Supported GPU accelerators:</span>
 
               <div className="flex flex-row flex-wrap gap-x-2">
@@ -165,6 +166,7 @@ const Enterprise = () => {
       image: proEnterpriseicon6,
       environments: [],
       supportedAccelerators: [],
+      order: 6,
     },
   ];
 
@@ -204,6 +206,7 @@ const Enterprise = () => {
                     <Card item={item} />
                   </div>
                 )
+                // style={{ order: item.order }}
                 // ) : null
               )}
             </div>

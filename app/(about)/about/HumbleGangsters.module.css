@@ -409,3 +409,28 @@
 }
 }
 
+/* Override hover effects for second slider */
+.secondSlider .card:hover .image {
+  opacity: 1; /* Keep image visible on hover */
+}
+
+.secondSlider .overlay {
+  display: none; /* Remove overlay completely for second slider */
+}
+
+.secondSlider .card {
+  cursor: default; /* Remove pointer cursor since there's no interaction */
+}
+
+/* Ensure image is always visible in second slider */
+.secondSlider .image {
+  opacity: 1 !important;
+  transition: none;
+}
+
+/* Handle touch devices - override for second slider */
+@media (hover: none) {
+  .secondSlider .image {
+    opacity: 1 !important;
+  }
+}

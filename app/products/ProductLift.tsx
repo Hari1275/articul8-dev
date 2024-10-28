@@ -50,7 +50,7 @@ const Card = ({ item }) => {
               </h3>
             )}
 
-            <div className="flex flex-col gap-y-[10px] pl-0">
+            <div className="flex flex-col gap-y-[14px] pl-0">
               {item.features?.length > 0 &&
                 item.features.map((feature, i) => (
                   <div
@@ -75,7 +75,7 @@ const Card = ({ item }) => {
                         {feature?.title}
                       </span>
 
-                      <div className="mt-1">
+                      <div className="mt-1 flex flex-col gap-y-3">
                         {feature?.points &&
                           feature?.points?.length > 0 &&
                           feature?.points.map((point, i) => (
