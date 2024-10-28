@@ -120,37 +120,19 @@ const ConvertSection = () => {
   return (
     <section className='sm:pt-20 pt-6 bg-gray-50 overflow-hidden'>
       <div className='container mx-auto px-4 sm:px-6'>
-        <h2 className='font-space-grotesk text-[26px] font-[700] leading-[45px] sm:text-4xl md:text-5xl text-[#060606] mb-16 text-center'>
-          <span className='block leading-tight mb-2'>
-            Convert your GenAI chaos to
-          </span>
-          <span className='block leading-tight mb-2'>
-            <span className='text-[#FA05C3]  inline-flex items-center justify-center'>
-              {/* <Image
-                src='/images/icons/section-open.svg'
-                alt='Open bracket'
-                width={28}
-                height={28}
-                className='mr-1 w-4 h-4 sm:w-7 sm:h-7'
-                sizes='(max-width: 640px) 15px, 28px'
-                priority
-              /> */}
+        <h2 className='font-space-grotesk text-[26px] font-[700] leading-[45px] sm:text-[34px] sm:leading-[50px] md:text-[50px]  md:leading-[60px] text-[#060606] mb-12 sm:mb-16 text-center'>
+          <span className='block leading-tight'>
+            Convert your GenAI chaos to{' '}
+            <span className='text-[#FA05C3] inline-flex items-center justify-center'>
               <span className='inline-block transition-all duration-300 ease-in-out'>
                 success
               </span>
-              {/* <Image
-                src='/images/icons/section-closed.svg'
-                alt='Close bracket'
-                width={28}
-                height={28}
-                className='ml-1 w-4 h-4 sm:w-7 sm:h-7'
-                sizes='(max-width: 640px) 15px, 28px'
-                priority
-              /> */}
             </span>{' '}
-            with
+            <span className='hidden sm:inline'>
+              <br />
+            </span>
+            with the Articul8 platform.
           </span>
-          <span className='block leading-tight'>the Articul8 platform.</span>
         </h2>
         <div className='sm:mb-20 mb-12'>{renderFeatureCards()}</div>
         <div className='flex flex-col md:flex-row items-stretch bg-[#DCE0F3] rounded-t-lg overflow-hidden'>
