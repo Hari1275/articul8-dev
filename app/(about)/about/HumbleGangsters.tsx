@@ -40,6 +40,37 @@ const gangsters = [
 ];
 
 export default function HumbleGangsters() {
+  const [isDragging, setIsDragging] = React.useState(false);
+  const [startX, setStartX] = React.useState(0);
+  const [scrollLeft, setScrollLeft] = React.useState(0);
+  const sliderRef = React.useRef<HTMLDivElement>(null);
+  const secondSliderRef = React.useRef<HTMLDivElement>(null);
+
+  // Only apply touch handling for mobile devices
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+
+  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!isMobile) return;
+    setIsDragging(true);
+    setStartX(e.pageX - (sliderRef.current?.offsetLeft || 0));
+    setScrollLeft(sliderRef.current?.scrollLeft || 0);
+  };
+
+  const handleMouseUp = () => {
+    if (!isMobile) return;
+    setIsDragging(false);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!isMobile || !isDragging) return;
+    e.preventDefault();
+    const x = e.pageX - (sliderRef.current?.offsetLeft || 0);
+    const walk = (x - startX) * 2;
+    if (sliderRef.current) {
+      sliderRef.current.scrollLeft = scrollLeft - walk;
+    }
+  };
+
   return (
     <section className={styles.humbleGangsters}>
       <div className={`${styles.container} container mx-auto px-4 sm:px-6`}>
@@ -47,8 +78,16 @@ export default function HumbleGangsters() {
         <h2 className='font-space-grotesk text-[30px] leading-[45px] text-center font-[700] md:text-[56px] md:leading-[84px] mb-8 md:mb-16'>
           Some of our <br className="md:hidden"/> <span className='text-[#FF00C7]'>humble</span> gangsters
         </h2>
-        {/* First Slider - Faster speed */}
-        <div className={styles.sliderContainer}>
+        
+        {/* First Slider */}
+        <div 
+          className={styles.sliderContainer}
+          ref={sliderRef}
+          onMouseDown={handleMouseDown}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseUp}
+          onMouseMove={handleMouseMove}
+        >
           <div className={styles.slider}>
             {[...gangsters, ...gangsters].map((gangster, index) => (
               <div key={`first-${index}`} className={styles.slide}>
@@ -87,8 +126,15 @@ export default function HumbleGangsters() {
           </div>
         </div>
 
-        {/* Second Slider - Slower speed */}
-        <div className={`${styles.sliderContainer} ${styles.secondSlider}`}>
+        {/* Second Slider */}
+        <div 
+          className={`${styles.sliderContainer} ${styles.secondSlider}`}
+          ref={secondSliderRef}
+          onMouseDown={handleMouseDown}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseUp}
+          onMouseMove={handleMouseMove}
+        >
           <div className={`${styles.slider} ${styles.sliderSlow}`}>
             {[...gangsters, ...gangsters].map((gangster, index) => (
               <div key={`second-${index}`} className={styles.slide}>
