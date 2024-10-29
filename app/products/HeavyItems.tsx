@@ -8,9 +8,8 @@ import {
   BsChevronDown,
   BsChevronUp,
 } from "react-icons/bs";
-
-import Modal from "../../components/Modal";
 import ProductModal from "../../components/ProductPageModal";
+import Modal from "../../components/Modal";
 
 const ToggleIcon = ({ isOpen }: { isOpen: boolean }) => (
   <div>{isOpen ? <BsChevronUp size={24} /> : <BsChevronDown size={24} />}</div>
@@ -434,7 +433,7 @@ const HeavyItems = () => {
 
   return (
     <>
-      <div className="pt-8 md:mt-0 w-full bg-white  pb-[90px] flex flex-col  justify-center items-center relative">
+      <div className="pt-8 md:mt-0 w-full bg-white  pb-[60px] flex flex-col  justify-center items-center relative">
         {/* top */}
 
         <div className="container  mx-auto px-4 sm:px-6 flex flex-row justify-center items-center sticky top-[36px] md:top-[60px] z-[100] bg-white">
@@ -452,11 +451,11 @@ const HeavyItems = () => {
                 </div>
               </div>
 
-              <div className="hidden md:flex flex-col justify-center items-center md:px-1 lg:px-3 py-3 gap-2">
+              <div className="hidden md:flex flex-col justify-center items-center md:px-1 lg:px-4 lg:py-5   py-4 gap-2">
                 <h3 className="font-proxima-nova font-[700] text-[20px] md:text-center">
                   {item1?.title}
                 </h3>
-                <span className="font-proxima-nova font-[400] text-[14px] text-center mb-6 lg:leading-[18px]">
+                <span className="font-proxima-nova font-[400] text-[14px] text-center mb-6 lg:leading-[18px] 2xl:text-[16px]">
                   {item1?.subTitle}
                 </span>
 
@@ -485,11 +484,11 @@ const HeavyItems = () => {
                 </div>
               </div>
 
-              <div className="hidden md:flex flex-col justify-center items-center md:px-1 lg:px-3 py-3 gap-2">
+              <div className="hidden md:flex flex-col justify-center items-center md:px-1 lg:px-4 lg:py-5 py-4 gap-2">
                 <h3 className="font-proxima-nova font-[700] text-[20px] md:text-center">
                   {item2?.title}
                 </h3>
-                <span className="font-proxima-nova font-[400] text-[14px] lg:leading-[18px] text-center mb-6">
+                <span className="font-proxima-nova font-[400] text-[14px] lg:leading-[18px] text-center mb-6 2xl:text-[16px]">
                   {item2?.subTitle}
                 </span>
 
@@ -518,11 +517,11 @@ const HeavyItems = () => {
                 </div>
               </div>
 
-              <div className="hidden md:flex flex-col justify-center items-center md:px-1 lg:px-3 py-3 gap-2">
+              <div className="hidden md:flex flex-col justify-center items-center md:px-1 lg:px-4 lg:py-5   py-4 gap-2">
                 <h3 className="font-proxima-nova font-[700] text-[20px] md:text-center">
                   {item3?.title}
                 </h3>
-                <span className="font-proxima-nova font-[400] text-[14px] lg:leading-[18px] text-center mb-6">
+                <span className="font-proxima-nova font-[400] text-[14px] lg:leading-[18px] text-center mb-6 2xl:text-[16px]">
                   {item3?.subTitle}
                 </span>
 
@@ -697,7 +696,7 @@ const HeavyItems = () => {
                                                 className="w-[6px] h-[6px]"
                                               />
                                             </div>
-                                            <span className="font-proxima-nova font-[400] md:text-[18px]  text-[14px] leading-4 md:leading-5">
+                                            <span className="font-proxima-nova font-[400] md:text-[18px] 2xl:text-[17px]  text-[14px] leading-4 md:leading-5">
                                               {subItem.title}
                                             </span>
                                           </div>
