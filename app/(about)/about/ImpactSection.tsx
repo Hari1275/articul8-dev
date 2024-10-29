@@ -19,7 +19,7 @@ export default function ImpactSection() {
             />
           </div>
           <div className='w-full sm:w-1/2 order-2 sm:order-2'>
-            <p className='font-proxima-nova text-[16px] sm:text-[24px] font-normal leading-[19.2px] sm:leading-[28.8px] text-black text-center sm:text-left mb-4 sm:mb-6'>
+            <p className='font-proxima-nova text-[16px] sm:text-[24px] font-normal leading-[19.2px] sm:leading-[28.8px]  2xl:text-[28px] 2xl:leading-[36.6px] text-black text-center sm:text-left mb-4 sm:mb-6'>
               We are a team of passionate innovators, relentlessly pursuing
               excellence in AI. Born from a shared vision to push the boundaries
               of what's possible, we thrive on solving complex challenges and
@@ -28,7 +28,7 @@ export default function ImpactSection() {
               other to take ownership, foster a culture of growth and support,
               and make a lasting, positive impact on the world.
             </p>
-            <p className='font-proxima-nova text-[16px] sm:text-[24px] font-normal leading-[19.2px] sm:leading-[28.8px] text-black text-center sm:text-left'>
+            <p className='font-proxima-nova text-[16px] sm:text-[24px] font-normal leading-[19.2px] sm:leading-[28.8px]  2xl:text-[28px] 2xl:leading-[36.6px] text-black text-center sm:text-left'>
               A look back, and our journey has been one of unwavering dedication
               and perseverance, instilling in us an "irrational confidence" to
               achieve the seemingly impossible. Rooted in research and fueled by

@@ -2,6 +2,8 @@
 // import React, { useEffect, useState, useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import Modal from '../../components/Modal';
+import { useState } from 'react';
 
 const FeatureCard = ({
   icon,
@@ -33,6 +35,7 @@ const FeatureCard = ({
 );
 
 const ConvertSection = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   // const words = useMemo(() => ['Success'], []);
   // const [currentWord, setCurrentWord] = useState(words[0]);
   // const [currentIndex, setCurrentIndex] = useState(0);
@@ -147,7 +150,7 @@ const ConvertSection = () => {
             {/* <button className='bg-[#1130FF] font-spaceGrotesk font-[700] text-[20px] leading-[25.52px] text-white py-4 px-[24px] rounded-[4px] hover:bg-blue-700 transition-colors  mt-4'>
               Start Articul8&apos;ing
             </button> */}
-            <Link
+            {/* <Link
               href='https://redbaron.co.in/2024/articule-8-demo/a8-sign-up-for-a8-essential.html'
               target='_blank'
               className='text-[#1130FF] hover:underline font-semibold flex items-center'
@@ -162,7 +165,24 @@ const ConvertSection = () => {
                 height={13}
                 className='ml-2'
               />
-            </Link>
+            </Link> */}
+             <button
+        onClick={() => setIsModalOpen(true)}
+        className='text-[#1130FF] hover:underline font-semibold flex items-center'
+      >
+        <span className='font-space-grotesk text-[20px] font-[700] leading-[26.07px] text-[#1130FF]'>
+          Start Articul8&apos;ing
+        </span>
+        <Image
+          src='/images/icons/header-arrow.svg'
+          alt='Arrow right'
+          width={13}
+          height={13}
+          className='ml-2'
+        />
+      </button>
+
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
           </div>
           <div className='w-full md:w-3/5 relative min-h-[400px] md:min-h-[500px]  order-last'>
             <Image
