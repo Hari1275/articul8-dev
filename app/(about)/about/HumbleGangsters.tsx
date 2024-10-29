@@ -40,7 +40,7 @@ const gangsters = [
       'I\'m a Software Engineer intern at Articul8. I\'ve been working on deploying the API documentation, Wiki on AWS and building CI/CD pipelines using Github Actions for the same.',
   },
   {
-    image: '/images/icons/about/slider/Felipe Henrique Wohnrath Pavan.png',
+    image: '/images/icons/about/slider/Felipe Pavan.png',
     name: 'Felipe Henrique Wohnrath Pavan',
     role: 'Infrastructure Engineer',
     description:
@@ -54,7 +54,7 @@ const gangsters = [
       'I am a Product Manager at Articul8 AI and work with our teams to drive a differentiated AI platform which helps enterprises leverage a combination of AI models and their proprietary data to solve their most challenging problems. Enterprises have a large volume of valuable data and we help them turn that data into a key differentiator in their market.',
   },
   {
-    image: '/images/icons/about/slider/Renato Giorgiani do Nascimento.png',
+    image: '/images/icons/about/slider/Renato Giorgiani.png',
     name: 'Renato Giorgiani do Nascimento',
     role: 'Head of Product Technology',
     description:
