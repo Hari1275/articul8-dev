@@ -1,15 +1,18 @@
 
 export default function Hero() {
   return (
-    <section className='relative h-[60vh] sm:h-[100vh]'>
+    <section className='static h-auto md:mt-[60px] mt-[40px]'>
       <video
-        src='/images/icons/about/about-hero.mp4'  
+        src='/images/icons/about/about-hero.mp4'
         autoPlay
         muted
         loop
         playsInline
-        className='absolute inset-0 w-full h-full object-cover z-0'
+        className='static  w-full h-auto object-contain'
       />
     </section>
   );
 }
+
+
+
