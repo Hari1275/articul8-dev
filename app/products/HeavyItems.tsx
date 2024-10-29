@@ -8,7 +8,9 @@ import {
   BsChevronDown,
   BsChevronUp,
 } from "react-icons/bs";
-import Link from "next/link";
+
+import Modal from "../../components/Modal";
+import ProductModal from "../../components/ProductPageModal";
 
 const ToggleIcon = ({ isOpen }: { isOpen: boolean }) => (
   <div>{isOpen ? <BsChevronUp size={24} /> : <BsChevronDown size={24} />}</div>
@@ -16,6 +18,9 @@ const ToggleIcon = ({ isOpen }: { isOpen: boolean }) => (
 
 const HeavyItems = () => {
   const [openItem, setOpenItem] = useState(0);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isProductModalOpen, setIsProductModalOpen] = useState(false);
 
   const productItems = [
     {
@@ -455,8 +460,12 @@ const HeavyItems = () => {
                   {item1?.subTitle}
                 </span>
 
-                <button className="bg-[#0231FF] text-white py-[10px] px-4 rounded-[4px] font-proxima-nova font-[700] text-[12px]">
-                  <Link href={item1?.buttonLink || "/"}>{item1?.button}</Link>
+                <button
+                  className="bg-[#0231FF] text-white py-[10px] px-4 rounded-[4px] font-proxima-nova font-[700] text-[12px]"
+                  onClick={() => setIsProductModalOpen(true)}
+                >
+                  {/* <Link href={item1?.buttonLink || "/"}>{item1?.button}</Link> */}
+                  {item1?.button}
                 </button>
 
                 {item1?.accessContent !== "" && (
@@ -484,8 +493,12 @@ const HeavyItems = () => {
                   {item2?.subTitle}
                 </span>
 
-                <button className="bg-[#0231FF] text-white py-[10px] px-4 rounded-[4px] font-proxima-nova font-[700] text-[12px]">
-                  <Link href={item2?.buttonLink || "/"}>{item2?.button}</Link>
+                <button
+                  className="bg-[#0231FF] text-white py-[10px] px-4 rounded-[4px] font-proxima-nova font-[700] text-[12px]"
+                  onClick={() => setIsModalOpen(true)}
+                >
+                  {/* <Link href={item2?.buttonLink || "/"}>{item2?.button}</Link> */}
+                  {item2?.button}
                 </button>
 
                 {item2?.accessContent !== "" && (
@@ -513,8 +526,13 @@ const HeavyItems = () => {
                   {item3?.subTitle}
                 </span>
 
-                <button className="bg-[#0231FF] text-white py-[10px] px-4 rounded-[4px] font-proxima-nova font-[700] text-[12px]">
-                  <Link href={item3?.buttonLink || "/"}>{item3?.button}</Link>
+                <button
+                  className="bg-[#0231FF] text-white py-[10px] px-4 rounded-[4px] font-proxima-nova font-[700] text-[12px]"
+                  onClick={() => setIsModalOpen(true)}
+                >
+                  {/* <Link href={item3?.buttonLink || "/"}>{item3?.button}</Link> */}
+
+                  {item3?.button}
                 </button>
 
                 {item3?.accessContent !== "" && (
@@ -750,6 +768,13 @@ const HeavyItems = () => {
           ))}
         </div>
         {/* </div> */}
+
+        <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+
+        <ProductModal
+          isOpen={isProductModalOpen}
+          onClose={() => setIsProductModalOpen(false)}
+        />
       </div>
     </>
   );
