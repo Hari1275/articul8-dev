@@ -35,16 +35,21 @@
     cursor: grab;
   }
 
-  .slider {
-    animation: none; /* Disable animation on mobile */
+  .slider,
+  .sliderSlow {
+    animation: none;
     display: flex;
     gap: 4px;
-    /* padding: 20px 0; */
-    
   }
 
-  .sliderSlow {
-    animation: none; /* Disable animation on mobile */
+  .secondSlider {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .secondSlider .slider {
+    animation: none;
+    scroll-behavior: smooth;
   }
 }
 
@@ -333,6 +338,26 @@
   .personInfo {
     margin-top: 1.5rem;
   }
+
+  /* Override styles for second slider on mobile */
+  .secondSlider .card {
+    height: 280px; /* Reduced height since we don't have content */
+    background: transparent; /* Remove background since no content */
+  }
+
+  .secondSlider .overlay {
+    display: none; /* Hide overlay completely */
+  }
+
+  .secondSlider .imageWrapper {
+    position: absolute; /* Reset position */
+    order: unset; /* Reset order */
+    height: 100%; /* Full height */
+  }
+
+  .secondSlider .image {
+    opacity: 1;
+  }
 }
 
 /* Tablet specific adjustments */
@@ -348,6 +373,11 @@
 
   .imageWrapper {
     height: 320px;
+  }
+
+  /* Override for second slider */
+  .secondSlider .card {
+    height: 320px; /* Adjust height for tablet */
   }
 }
 
@@ -440,8 +470,8 @@
 }
 
 .secondSlider .slide {
-  flex: 0 0 300px; /* Smaller width for second slider */
-  min-width: 300px;
+  flex: 0 0 400px; /* Match the first slider's width */
+  min-width: 400px; /* Match the first slider's min-width */
   margin: 0 8px;
 }
 
@@ -461,5 +491,61 @@
   }
   100% {
     transform: translateX(-50%);
+  }
+}
+
+/* Update for large screens */
+@media (min-width: 1280px) {
+  .secondSlider .slide {
+    flex: 0 0 450px; /* Match the first slider's large screen width */
+    margin: 0 0.5rem;
+  }
+}
+
+/* Update for tablet */
+@media (min-width: 640px) {
+  .secondSlider .slide {
+    flex: 0 0 320px; /* Match the first slider's tablet width */
+    margin: 0 0.75rem;
+  }
+}
+
+/* Update the second slider styles to match first slider exactly */
+.secondSlider .slide {
+  flex: 0 0 400px;
+  min-width: 400px;
+  margin: 0 0.2rem; /* Match the first slider's margin */
+}
+
+/* Update responsive styles for second slider to match first slider exactly */
+@media (min-width: 640px) {
+  .secondSlider .slide {
+    flex: 0 0 320px;
+    margin: 0 0.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .secondSlider .slide {
+    flex: 0 0 400px;
+    margin: 0 0.2rem; /* Match the first slider's margin */
+  }
+}
+
+@media (min-width: 1280px) {
+  .secondSlider .slide {
+    flex: 0 0 450px;
+    margin: 0 0.5rem; /* Match the first slider's margin */
+  }
+}
+
+/* Ensure gap is consistent between both sliders */
+.secondSlider .slider {
+  gap: 8px; /* Match the first slider's gap */
+}
+
+@media (max-width: 767px) {
+  .secondSlider .slider {
+    gap: 4px; /* Match the first slider's mobile gap */
   }
 }
