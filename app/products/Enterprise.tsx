@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import icon from "../../public/images/product10.png";
 import proEnterpriseicon1 from "../../public/images/proEnterpriseicon1.svg";
 import proEnterpriseicon2 from "../../public/images/proEnterpriseicon2.svg";
@@ -169,10 +170,30 @@ const Enterprise = () => {
       order: 6,
     },
   ];
+  const [sortedArr, setSortedArr] = useState(arr);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 700) {
+        setSortedArr([...arr].sort((a, b) => a.order - b.order));
+      } else {
+        setSortedArr(arr);
+      }
+    };
+
+    // Initial check
+    handleResize();
+
+    // Add event listener
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup event listener on component unmount
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <>
-      <div className="w-full bg-white pt-16 pb-10   flex justify-center items-center bg-[background: #ECEFF2]">
+      <div className="w-full bg-white pt-8 md:pt-16  pb-10   flex justify-center items-center bg-[background: #ECEFF2]">
         <div className="container mx-auto px-4 sm:px-6  flex flex-col justify-center items-center gap-4 md:gap-10">
           {/* top */}
           <div className="w-full md:w-[85%] flex flex-col justify-center align-middle">
@@ -196,19 +217,11 @@ const Enterprise = () => {
           {/* bottom */}
           <div className="w-full flex justify-center">
             <div className="w-[80%] flex flex-row flex-wrap justify-between gap-y-6 ">
-              {arr.map(
-                (item, i) => (
-                  // i !== arr.length - 1 ? (
-                  <div
-                    key={item?.id || i}
-                    className={`md:w-[48%] md:order-none order-${item.order}`}
-                  >
-                    <Card item={item} />
-                  </div>
-                )
-                // style={{ order: item.order }}
-                // ) : null
-              )}
+              {sortedArr.map((item, i) => (
+                <div key={item.id || i} className="md:w-[48%] w-full">
+                  <Card item={item} />
+                </div>
+              ))}
             </div>
           </div>
         </div>

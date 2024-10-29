@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { BsFillSquareFill, BsCheckLg } from "react-icons/bs";
 import "../../styles/globals.css";
+import Link from "next/link";
 
 import lineFrame1 from "../../public/images/lineFrame1.svg";
 import lineFrame2 from "../../public/images/lineFrame2.svg";
@@ -17,16 +18,16 @@ import Modal from "../../components/Modal";
 const Card = ({ item, onModalOpen }) => {
   return (
     <>
-      <div className="w-full bg-[#F2F7FF] py-6 md:py-6 pl-3 pr-3 md:pl-6 md:pr-6 flex flex-col gap-6   productLiftCard rounded-[16px] border-2  md:border-none  transition-all ease-linear duration-400 md:hover:scale-y-[1.05] md:hover:-translate-y-1">
+      <div className="w-full bg-[#F2F7FF] py-6 md:py-6 pl-3 pr-3 md:pl-6 md:pr-6 flex flex-col gap-10   productLiftCard rounded-[16px] border-2  md:border-none  transition-all ease-linear duration-400 md:hover:scale-y-[1.05] md:hover:-translate-y-1">
         {/* top */}
-        <div className="flex flex-col justify-center items-center md:items-start md:justify-start gap-y-4">
+        <div className="flex flex-col justify-center items-center md:items-start md:justify-start gap-y-5">
           <h3 className="font-proxima-nova text-[28px] font-bold text-center md:text-start leading-none">
             {item?.title}
           </h3>
           <span className="font-proxima-nova text-[16px] font-[400] leading-none text-center md:text-start">
             {item?.subTitle}
           </span>
-          <div className="flex flex-col justify-center items-center md:items-start md:justify-start  gap-2 w-full">
+          <div className="flex flex-col justify-center items-center md:items-start md:justify-start  gap-3 w-full">
             <button
               className="bg-[#0231FF] text-[#E6E9F5] py-[14px] px-6 rounded-[3px] font-proxima-nova text-[18px] font-[700] "
               onClick={() => onModalOpen(item.modalName)}
@@ -42,10 +43,10 @@ const Card = ({ item, onModalOpen }) => {
           </div>
         </div>
         {/* middle */}
-        <div className="border-[1px] mt-2"></div>
+        {/* <div className="border-[1px] mt-2"></div> */}
 
         {/* bottom */}
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-5 border-t-[1px] border-[#E6E6E6] pt-6">
           <h3 className="font-proxima-nova text-[18px] font-[600] text-[blue]">
             Key Features
           </h3>
@@ -56,7 +57,7 @@ const Card = ({ item, onModalOpen }) => {
               </h3>
             )}
 
-            <div className="flex flex-col gap-y-[14px] pl-0">
+            <div className="flex flex-col gap-y-[12px] pl-0">
               {item.features?.length > 0 &&
                 item.features.map((feature, i) => (
                   <div
