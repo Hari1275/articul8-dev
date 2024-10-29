@@ -29,9 +29,9 @@ const values = [
 
 export default function CultureAndValues() {
   return (
-    <section className='bg-white md:bg-[#F2F7FF] py-2 sm:py-16'>
+    <section className=' bg-[#F2F7FF] py-8 sm:pt-16 sm:pb-20'>
       <div className='container mx-auto px-4 sm:px-6'>
-        <h2 className='font-space-grotesk text-[30px] sm:text-[56px] font-bold leading-[45px] sm:leading-[84px] text-black text-center md:text-left mb-2 sm:mb-4'>
+        <h2 className='font-space-grotesk text-[30px] sm:text-[56px] font-bold leading-[45px] sm:leading-[84px] text-black text-center md:text-left mb-4 sm:mb-4'>
           Our culture and values
         </h2>
         <p className='font-proxima-nova text-[16px] sm:text-[24px] font-normal leading-[19.2px] sm:leading-[28.8px] text-black text-center md:text-left mb-4 sm:mb-12 mx-auto md:mx-0'>
@@ -42,7 +42,7 @@ export default function CultureAndValues() {
           environment where challenges are met head-on with transparency and
           trust. Everyone contributes to solutions, not problems.
         </p>
-        <h3 className='font-space-grotesk text-[30px] sm:text-[40px] font-bold leading-[45px] sm:leading-[60px] text-black text-center md:text-left mb-8 sm:mb-12 pt-[30px] sm:pt-0'>
+        <h3 className='font-space-grotesk text-[30px] sm:text-[40px] font-bold leading-[45px] sm:leading-[60px] text-black text-center md:text-left mb-8 sm:mb-12 pt-[10px] sm:pt-0'>
           What we <span className='text-[#FF00C7]'>believe</span> in...
         </h3>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>

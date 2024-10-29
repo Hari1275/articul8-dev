@@ -120,7 +120,7 @@ const ConvertSection = () => {
   };
 
   return (
-    <section className='sm:pt-20 pt-6 bg-gray-50 overflow-hidden'>
+    <section className='sm:pt-16 pt-8 bg-gray-50 overflow-hidden'>
       <div className='container mx-auto px-4 sm:px-6'>
         <h2 className='font-space-grotesk text-[26px] font-[700] leading-[45px] sm:text-[34px] sm:leading-[50px] md:text-[50px]  md:leading-[60px] text-[#060606] mb-12 sm:mb-16 text-center'>
           <span className='block leading-tight'>
@@ -141,7 +141,7 @@ const ConvertSection = () => {
           <div className='w-full md:w-2/5 p-8 md:p-12 flex flex-col justify-end md:justify-center items-center md:items-start'>
             <h3 className='font-space-grotesk font-[700] text-[40px] sm:text-5xl md:text-[68px] text-center md:text-left leading-[51.04px] sm:mb-6 sm:leading-[108px]'>
               Stop
-              <br className='hidden md:block' />
+              <br className='' />
               Falling
               <br />
               Behind
@@ -167,7 +167,7 @@ const ConvertSection = () => {
             </Link> */}
              <button
         onClick={() => setIsModalOpen(true)}
-        className='text-[#1130FF] hover:underline font-semibold flex items-center'
+        className='text-[#1130FF] hover:underline font-semibold flex items-center pt-2'
       >
         <span className='font-space-grotesk text-[20px] font-[700] leading-[26.07px] text-[#1130FF]'>
           Start Articul8&apos;ing
