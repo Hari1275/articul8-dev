@@ -363,7 +363,7 @@ const UnlockSection = () => {
   };
 
   return (
-    <section className='bg-white relative sm:pt-12 sm:pb-10'>
+    <section className='bg-white relative sm:pt-12 sm:pb-1'>
       {/* <UnlockSectionHeader /> */}
       <AnimatedText />
       <div
