@@ -79,25 +79,25 @@ const ProductCard = ({
     <div
       className={`pb-6 mb-6 ${!isLast ? 'border-b border-[#00000033]' : ''}`}
     >
-      <div className='flex items-start mb-2'>
+      <div className='flex items-center mb-2'>
         <Image
           src={icon}
           alt={title}
-          width={26}
-          height={26}
+          width={18}
+          height={18}
           className='mr-3 mt-1'
           priority
         />
         <div>
-          <p className='text-[26px] font-proxima-nova font-[600] leading-[28px]  text-black'>
+          <p className='text-[18px] font-proxima-nova font-[600] leading-[20px]  text-black'>
             {title}
           </p>
         </div>
       </div>
-      <p className='text[20px] sm:leading-[24.36px] font-proxima-nova font-[600]  text-[#1130FF] mt-1'>
+      <p className='text[16px] sm:leading-[18px] font-proxima-nova font-[600]  text-[#1130FF] mt-1'>
         {subTitle}
       </p>
-      <p className='text-[18px] pt-2 font-proxima-nova font-[400] leading-[22.36px] text-black'>
+      <p className='text-[14px] pt-2 font-proxima-nova font-[400] leading-[18px] text-black'>
         {description}
       </p>
     </div>
@@ -418,7 +418,7 @@ const InnovationsSection = () => {
     hoveredInnovation !== null ? hoveredInnovation : selectedInnovation;
 
   return (
-    <section className='sm:pt-20 pt-6 sm:py-20 bg-[#F2F7FF]'>
+    <section className='sm:py-16 pt-8  bg-[#F2F7FF]'>
       <div className='container mx-auto px-4 sm:px-6'>
         <h2 className='hidden sm:block font-space-grotesk text-[26px] sm:text-[56px] font-bold mb-16 sm:leading-[84px] text-center leading-tight'>
           <span className='block mb-2'>

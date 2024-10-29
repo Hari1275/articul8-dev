@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function MissionSection() {
   return (
-    <section className='bg-white sm:py-4 py-8 relative'>
+    <section className='bg-white pt-8 pb-6 sm:py-12 md:py-16 relative'>
       <div className='container mx-auto px-4 sm:px-6'>
         <h1 className='font-space-grotesk text-[40px] sm:text-[64px] font-bold leading-[51.04px] sm:leading-[81.66px] text-black sm:mb-8 mb-4 mx-auto text-center sm:text-left'>
           BUILDING FOR A BETTER TOMORROW

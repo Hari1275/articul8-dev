@@ -22,7 +22,7 @@ const UnlockSectionHeader = () => {
   }, [words.length]);
 
   return (
-    <section className='bg-white py-8 sm:py-0 sm:pt-12'>
+    <section className='bg-white py-2 sm:py-0 sm:pt-12'>
       <div className='container mx-auto px-4'>
         <h2 className='font-space-grotesk text-[30px] sm:text-[30px] md:text-[36px] lg:text-[50px] xl:text-[56px] font-[700] mb-6 sm:mb-8 md:mb-12 text-center text-[#060606] leading-[38.28px] sm:leading-[84px] lg:leading-[100px] xl:leading-[120px]'>
           <span className='block sm:inline'>Unlock</span>{' '}

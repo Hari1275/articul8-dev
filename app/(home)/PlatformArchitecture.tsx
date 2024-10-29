@@ -83,10 +83,10 @@ const PlatformArchitecture = () => {
                       }`}
                     >
                       <Disclosure.Button
-                        className='flex items-start w-full text-left py-4 px-4 focus:outline-none'
+                        className='flex items-center w-full text-left py-4 px-4 focus:outline-none'
                         onClick={() => setOpenIndex(index)}
                       >
-                        <div className='mr-4 w-8 h-8 flex-shrink-0 mt-[2px]'>
+                        <div className='mr-4 w-8 h-8 flex-shrink-0 '>
                           <Image
                             src={item.icon}
                             alt={item.title}
