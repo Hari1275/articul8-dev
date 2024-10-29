@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import Modal from './Modal';
+import { useRouter } from 'next/router';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,19 +17,38 @@ const Header = () => {
 
   const getLinkClassName = (href: string) => {
     const isActive = pathname === href;
-    return `text-black font-proxima-nova text-[22px] leading-[27.07px] font-[${
-      isActive ? '700' : '400'
-    }] hover:text-black transition duration-300 ${
-      isActive ? 'text-gray-900' : ''
-    }`;
+    return `text-black font-proxima-nova text-[22px] leading-[27.07px] font-[${isActive ? '700' : '400'
+      }] hover:text-black transition duration-300 ${isActive ? 'text-gray-900' : ''
+      }`;
   };
+
+
+  const getLinkClassNameMobile = (href: string) => {
+    const isActive = pathname === href;
+
+    return `text-white font-proxima-nova text-[34px] font-[400] leading-[40px] px-8 py-2 hover:border-2 hover:border-[#4D6EFF] hover:rounded-md transition-all duration-300 ${isActive ? 'border-2 border-[#4D6EFF] rounded-md' : 'border-none  rounded-none'
+      }`
+
+
+
+
+
+
+
+
+
+
+  };
+
+
+
 
   return (
     <header className='fixed top-0 left-0 right-0 bg-white z-50'>
       {/* Desktop Header */}
       <div className='container mx-auto px-6 items-center justify-between hidden md:flex'>
         {/* Desktop content (left side) */}
-        <div className='flex items-center'>
+        <div className='flex gap-4 items-center'>
           <Link href='/' className='flex items-center py-4'>
             <Image
               src='/images/logo.svg'
@@ -38,7 +58,7 @@ const Header = () => {
               priority
             />
           </Link>
-          <nav className='flex space-x-6 ml-8'>
+          <nav className='flex gap-6  ml-4'>
             <Link href='/products' className={getLinkClassName('/products')}>
               Product
             </Link>
@@ -123,22 +143,24 @@ const Header = () => {
             <nav className='flex flex-col items-center space-y-6'>
               <Link
                 href='/'
-                className='text-white font-proxima-nova text-[34px] font-[400] leading-[40px] px-8 py-2 border-2 border-[#4D6EFF] rounded-md'
+                className={getLinkClassNameMobile('/')}
                 onClick={toggleMenu}
+
               >
                 Home
               </Link>
 
               <Link
                 href='/products'
-                className='text-white font-proxima-nova text-[34px] font-[400] leading-[40px] px-8 py-2 hover:border-2 hover:border-[#4D6EFF] hover:rounded-md transition-all duration-300'
+
                 onClick={toggleMenu}
+                className={getLinkClassNameMobile('/products')}
               >
                 Product
               </Link>
               <Link
                 href='/about'
-                className='text-white font-proxima-nova text-[34px] font-[400] leading-[40px] px-8 py-2 hover:border-2 hover:border-[#4D6EFF] hover:rounded-md transition-all duration-300'
+                className={getLinkClassNameMobile('/about')}
                 onClick={toggleMenu}
               >
                 About Us
