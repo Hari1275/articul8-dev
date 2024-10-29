@@ -70,7 +70,7 @@ const AnimatedText = () => {
           4x
         </p>
         <p className='font-space-grotesk font-bold text-[5vw] sm:text-[93.95px] text-black leading-tight text-center whitespace-nowrap'>
-          Faster Time to ROI
+        Faster time to ROI
         </p>
       </div>
     </div>

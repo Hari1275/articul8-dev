@@ -163,8 +163,8 @@ const Card = React.memo<{
         <Image
           src={card.image}
           alt={`${card.title.join(' ')}`}
-          width={100}
-          height={100}
+          width={120}
+          height={120}
           className='card-image transition-all duration-300'
           priority
           style={{ height: '100%' }}
