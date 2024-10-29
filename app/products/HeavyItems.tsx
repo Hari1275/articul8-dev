@@ -48,7 +48,7 @@ const HeavyItems = () => {
           subItems: [],
         },
         {
-          title: "Training/Finetuning APIs",
+          title: "Training/Fine-tuning APIs",
           essential: false,
           enterprise: false,
           expert: true,
@@ -254,13 +254,13 @@ const HeavyItems = () => {
           subItems: [
             {
               title:
-                "Automated data labeling & processing for training/finetuning",
+                "Automated data labeling & processing for training/fine-tuning",
               essential: false,
               enterprise: false,
               expert: true,
             },
             {
-              title: "Synthetic data generation for training/finetuning",
+              title: "Synthetic data generation for training/fine-tuning",
               essential: false,
               enterprise: false,
               expert: true,
