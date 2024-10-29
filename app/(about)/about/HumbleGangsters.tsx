@@ -151,8 +151,9 @@ export default function HumbleGangsters() {
           onMouseMove={handleMouseMove}
         >
           <div className={styles.slider}>
-            {gangsters.map((gangster, index) => (
-              <div key={`first-${index}`} className={styles.slide}>
+            {/* Both sets of cards with overlay */}
+            {[...gangsters, ...gangsters].map((gangster, index) => (
+              <div key={`gangster-${index}`} className={styles.slide}>
                 <div className={styles.card}>
                   <div className={styles.imageWrapper}>
                     <Image
@@ -164,40 +165,17 @@ export default function HumbleGangsters() {
                     />
                   </div>
                   <div className={styles.overlay}>
-                    <p
-                      className={`${styles.description} font-proxima-nova text-left font-semibold text-[16px] leading-[24px] md:text-[16px] md:leading-[24px]`}
-                    >
+                    <p className={`${styles.description} font-proxima-nova text-left font-semibold text-[16px] leading-[24px] md:text-[16px] md:leading-[24px]`}>
                       {gangster.description}
                     </p>
-
                     <div className={styles.personInfo}>
-                      <h3
-                        className={`${styles.name} font-proxima-nova text-left font-[700] text-[14.9px] leading-[18.9px] md:text-[14.9px] md:leading-[18.9px]`}
-                      >
+                      <h3 className={`${styles.name} font-proxima-nova text-left font-[700] text-[14.9px] leading-[18.9px] md:text-[14.9px] md:leading-[18.9px]`}>
                         {gangster.name}
                       </h3>
-
-                      <p
-                        className={`${styles.role} font-proxima-nova text-left font-[400] text-[12.53px] leading-[17.9px] md:text-[12.53px] md:leading-[17.9px]`}
-                      >
+                      <p className={`${styles.role} font-proxima-nova text-left font-[400] text-[12.53px] leading-[17.9px] md:text-[12.53px] md:leading-[17.9px]`}>
                         {gangster.role}
                       </p>
                     </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-            {gangsters.map((gangster, index) => (
-              <div key={`second-${index}`} className={styles.slide}>
-                <div className={styles.card}>
-                  <div className={styles.imageWrapper}>
-                    <Image
-                      src={gangster.image}
-                      alt={gangster.name}
-                      layout='fill'
-                      objectFit='cover'
-                      className={styles.image}
-                    />
                   </div>
                 </div>
               </div>

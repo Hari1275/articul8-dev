@@ -228,8 +228,8 @@ const UnlockSection = () => {
       x: (i) => {
         const cardPosition = i * (cardWidth + gap);
         const containerWidth = cardsContainer.offsetWidth;
-        console.log('cardsContainer.offsetWidth', containerWidth);
-        console.log('totalWidth', totalWidth);
+        // console.log('cardsContainer.offsetWidth', containerWidth);
+        // console.log('totalWidth', totalWidth);
 
         let divisor;
 
@@ -270,10 +270,10 @@ const UnlockSection = () => {
 
         const offset = (containerWidth - totalWidth) / divisor;
 
-        console.log('divisor', divisor);
-        console.log('offset', offset);
-        console.log('cardPosition', cardPosition);
-        console.log('cardPosition + offset', cardPosition + offset);
+        // console.log('divisor', divisor);
+        // console.log('offset', offset);
+        // console.log('cardPosition', cardPosition);
+        // console.log('cardPosition + offset', cardPosition + offset);
 
         return cardPosition + offset;
       },
@@ -363,7 +363,7 @@ const UnlockSection = () => {
   };
 
   return (
-    <section className='bg-white relative sm:pt-12 sm:pb-12'>
+    <section className='bg-white relative sm:pt-12 sm:pb-10'>
       {/* <UnlockSectionHeader /> */}
       <AnimatedText />
       <div
