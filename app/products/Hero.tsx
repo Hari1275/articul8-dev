@@ -11,8 +11,19 @@ const ProductPage = () => {
           <div className="w-full md:w-1/2 lg:w-[54%]  flex flex-col justify-center md:mt-[-20px] lg:mt-[-90px]">
             <h1 className="font-[700] text-center md:text-start font-space-grotesk">
               <div className="leading-tight hidden md:block  text-[45px] md:text-[44px] lg:text-[60px] pr-[12px]">
-                YOUR PATH TO EXPERT-LEVEL
-                <span className="text-[#FA05C3] pl-2">GenAI</span> APPLICATIONS
+                {/* YOUR PATH TO EXPERT-LEVEL
+                <span className="text-[#FA05C3] pl-2">GenAI</span> APPLICATIONS */}
+
+                <span className="leading-tight hidden md:block  text-[45px] md:text-[44px] lg:text-[60px] pr-[12px]">
+                  YOUR PATH TO
+                </span>
+                <span className="leading-tight hidden md:block  text-[45px] md:text-[44px] lg:text-[60px] pr-[12px]">
+                  EXPERT-LEVEL{" "}
+                  <span className="text-[#FA05C3] pl-2">GenAI</span>
+                </span>
+                <span className="leading-tight hidden md:block  text-[45px] md:text-[44px] lg:text-[60px] pr-[12px]">
+                  APPLICATIONS
+                </span>
               </div>
 
               <span className="leading-[50px] md:hidden block text-[42px] md:text-4xl lg:text-[58px] pt-8 ">
