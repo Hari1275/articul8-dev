@@ -432,13 +432,13 @@ const HeavyItems = () => {
       <div className="pt-8 md:mt-0 w-full bg-white  pb-[90px] flex flex-col  justify-center items-center relative">
         {/* top */}
 
-        <div className="container  mx-auto px-4 sm:px-6 flex flex-row justify-center items-center sticky top-[37px] md:top-[61px] z-[100] bg-white">
+        <div className="container  mx-auto px-4 sm:px-6 flex flex-row justify-center items-center sticky top-[36px] md:top-[60px] z-[100] bg-white">
           <div className="w-[60%] md:w-[40%] lg:w-[42%]    flex items-center"></div>
 
           <div className="w-[40%]  md:w-[60%] lg:w-[58%] flex flex-row justify-between">
             {/* md:border-r-[1px] */}
-            <div className="w-1/3  md:w-[33.20%] md:items-start  flex items-end md:bg-[#F2F7FF] md:rounded-t-[12px] ">
-              <div className="flex justify-center items-center align-middle h-[185px] w-full     md:hidden text-center  border-l-[1px] border-t-[1px] pb-1 pt-3">
+            <div className="w-1/3  md:w-[33%] md:items-start  flex items-end md:bg-[#F2F7FF] md:rounded-t-[12px] ">
+              <div className="flex justify-center items-center align-middle h-[185px] w-full     md:hidden text-center  border-l-[1px] border-r-[1px] md:border-r-[0px] border-t-[1px] pb-1 pt-3">
                 <div
                   className="h-full flex flex-col items-center    whitespace-nowrap  text-transform  font-proxima-nova font-[700] text-[20px]"
                   style={{ height: "max-content" }}
@@ -467,7 +467,7 @@ const HeavyItems = () => {
               </div>
             </div>
             <div className="w-1/3 md:w-[33%]  flex items-end md:items-start md:bg-[#F2F7FF] md:rounded-t-[12px]">
-              <div className="flex justify-center items-center align-middle h-[185px] w-full     md:hidden text-center  border-l-[1px] border-t-[1px] pb-3 pt-3">
+              <div className="flex justify-center items-center align-middle h-[185px] w-full     md:hidden text-center md:border-l-[1px] border-l-[0px]  md:border-r-[0px] border-r-[1px]    border-t-[1px] pb-3 pt-3">
                 <div
                   className="h-full flex flex-col items-center    whitespace-nowrap  text-transform  font-proxima-nova font-[700] text-[20px] pt-2"
                   style={{ height: "max-content" }}
@@ -496,7 +496,7 @@ const HeavyItems = () => {
               </div>
             </div>
             <div className="w-1/3 md:w-[33%]  flex items-end md:items-start md:bg-[#F2F7FF] md:rounded-t-[12px] ">
-              <div className="flex justify-center items-center align-middle h-[185px] w-full     md:hidden text-center border-r-[1px] border-l-[1px] border-t-[1px] pt-9 pb-0">
+              <div className="flex justify-center items-center align-middle h-[185px] w-full     md:hidden text-center border-r-[1px] md:border-l-[1px] border-l-[0px] border-t-[1px] pt-9 pb-0">
                 <div
                   className="h-full flex flex-col items-center    whitespace-nowrap  text-transform  font-proxima-nova font-[700] text-[20px]"
                   style={{ height: "max-content" }}
@@ -605,7 +605,7 @@ const HeavyItems = () => {
                                     </div>
 
                                     <div
-                                      className="w-1/3  border-r-[1px] border-b-[1px]"
+                                      className="w-1/3  border-r-[1px] md:border-r-[0px]   border-b-[1px]"
                                       style={{ borderColor: item.borderColor }}
                                     >
                                       <div className="w-full flex justify-center  items-center align-middle py-3">
@@ -619,7 +619,7 @@ const HeavyItems = () => {
                                     </div>
 
                                     <div
-                                      className="w-1/3 border-b-[1px]"
+                                      className="w-1/3 border-b-[1px] md:border-l-[1px] border-l-[0px] "
                                       style={{ borderColor: item.borderColor }}
                                     >
                                       <div className="w-full flex justify-center  items-center align-middle py-3">
@@ -705,7 +705,7 @@ const HeavyItems = () => {
                                         </div>
 
                                         <div
-                                          className="w-1/3  border-r-[1px] border-b-[1px]"
+                                          className="w-1/3  border-r-[1px] md:border-r-[0px] border-b-[1px]"
                                           style={{
                                             borderColor: item.borderColor,
                                           }}
@@ -721,7 +721,7 @@ const HeavyItems = () => {
                                         </div>
 
                                         <div
-                                          className="w-1/3 border-b-[1px]"
+                                          className="w-1/3 md:border-l-[1px] border-l-[0px] border-b-[1px]"
                                           style={{
                                             borderColor: item.borderColor,
                                           }}
