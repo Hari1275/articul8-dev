@@ -151,7 +151,7 @@ export default function HumbleGangsters() {
           onMouseMove={handleMouseMove}
         >
           <div className={styles.slider}>
-            {[...gangsters, ...gangsters].map((gangster, index) => (
+            {gangsters.map((gangster, index) => (
               <div key={`first-${index}`} className={styles.slide}>
                 <div className={styles.card}>
                   <div className={styles.imageWrapper}>
@@ -183,6 +183,21 @@ export default function HumbleGangsters() {
                         {gangster.role}
                       </p>
                     </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+            {gangsters.map((gangster, index) => (
+              <div key={`second-${index}`} className={styles.slide}>
+                <div className={styles.card}>
+                  <div className={styles.imageWrapper}>
+                    <Image
+                      src={gangster.image}
+                      alt={gangster.name}
+                      layout='fill'
+                      objectFit='cover'
+                      className={styles.image}
+                    />
                   </div>
                 </div>
               </div>
