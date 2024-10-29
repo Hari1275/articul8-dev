@@ -22,6 +22,7 @@
   width: 100%;
   overflow: hidden;
   position: relative;
+  padding: 0 16px;
 }
 
 /* Mobile-specific styles */
@@ -54,10 +55,11 @@
     gap: 8px;
     padding: 20px 0 0 0;
     animation: scroll 40s linear infinite;
+    width: max-content;
   }
 
   .sliderSlow {
-    animation: scroll 60s linear infinite;
+    animation: scrollReverse 60s linear infinite;
   }
 
   /* Add pause on hover */
@@ -76,7 +78,7 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-100% - 20px));
+    transform: translateX(-50%);
   }
 }
 
@@ -91,8 +93,9 @@
 } */
 
 .slide {
-  flex: 0 0 280px; /* Smaller base size for mobile */
-  margin: 0 0.5rem; /* Smaller margins for mobile */
+  flex: 0 0 400px;
+  margin: 0 8px;
+  min-width: 400px;
 }
 
 .card {
@@ -377,16 +380,17 @@
 
 /* Add this new class for different speed and direction */
 .sliderReverse {
-  animation: slideReverse 30s linear infinite;
+  animation: scrollReverse 30s linear infinite;
 }
 
 /* Add this new keyframe animation */
-@keyframes slideReverse {
+
+@keyframes scrollReverse {
   0% {
-    transform: translateX(-50%);
+    transform: translateX(0);
   }
   100% {
-    transform: translateX(0);
+    transform: translateX(-50%);
   }
 }
 
@@ -432,5 +436,30 @@
 @media (hover: none) {
   .secondSlider .image {
     opacity: 1 !important;
+  }
+}
+
+.secondSlider .slide {
+  flex: 0 0 300px; /* Smaller width for second slider */
+  min-width: 300px;
+  margin: 0 8px;
+}
+
+.sliderSlow {
+  animation: scrollReverse 60s linear infinite;
+}
+
+/* Update the animation for the second slider */
+.sliderSlow {
+  animation: scrollReverse 60s linear infinite;
+}
+
+/* Update the keyframes for right to left movement */
+@keyframes scrollReverse {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }
