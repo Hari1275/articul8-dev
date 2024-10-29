@@ -4,7 +4,6 @@ import React from "react";
 import Image from "next/image";
 import { BsFillSquareFill, BsCheckLg } from "react-icons/bs";
 import "../../styles/globals.css";
-import Link from "next/link";
 
 import lineFrame1 from "../../public/images/lineFrame1.svg";
 import lineFrame2 from "../../public/images/lineFrame2.svg";
@@ -12,7 +11,10 @@ import lineFrame2 from "../../public/images/lineFrame2.svg";
 import smallLineFrame1 from "../../public/images/lineFrameSmall1.svg";
 import smallLineFrame2 from "../../public/images/lineFrameSmall2.svg";
 
-const Card = ({ item }) => {
+import ProductModal from "../../components/ProductPageModal";
+import Modal from "../../components/Modal";
+
+const Card = ({ item, onModalOpen }) => {
   return (
     <>
       <div className="w-full bg-[#F2F7FF] py-6 md:py-6 pl-3 pr-3 md:pl-6 md:pr-6 flex flex-col gap-6   productLiftCard rounded-[16px] border-2  md:border-none  transition-all ease-linear duration-400 md:hover:scale-y-[1.05] md:hover:-translate-y-1">
@@ -25,8 +27,12 @@ const Card = ({ item }) => {
             {item?.subTitle}
           </span>
           <div className="flex flex-col justify-center items-center md:items-start md:justify-start  gap-2 w-full">
-            <button className="bg-[#0231FF] text-[#E6E9F5] py-[14px] px-6 rounded-[3px] font-proxima-nova text-[18px] font-[700] ">
-              <Link href={item?.buttonLink || "/"}>{item?.button}</Link>
+            <button
+              className="bg-[#0231FF] text-[#E6E9F5] py-[14px] px-6 rounded-[3px] font-proxima-nova text-[18px] font-[700] "
+              onClick={() => onModalOpen(item.modalName)}
+            >
+              {/* <Link href={item?.buttonLink || "/"}>{item?.button}</Link> */}
+              {item?.button}
             </button>
             {item?.accessContent !== "" && (
               <div className="font-proxima-nova text-[14px] font-[600]">
@@ -113,6 +119,9 @@ const Card = ({ item }) => {
 
 const ProductLift = () => {
   const [tab, setTab] = useState("A8 Essential");
+  const [activeModal, setActiveModal] = useState("");
+  const handleModalOpen = (modalName) => setActiveModal(modalName);
+  const closeModal = () => setActiveModal("");
 
   const cardsArray = [
     {
@@ -124,6 +133,7 @@ const ProductLift = () => {
       buttonLink: "",
       accessContent: "Free 30-day access.",
       featuresTitle: "",
+      modalName: "ProductModal",
       features: [
         {
           title: "ModelMesh™",
@@ -155,6 +165,7 @@ const ProductLift = () => {
       buttonLink: "",
       accessContent: "",
       featuresTitle: "Everything in A8 Essential at enterprise-scale and:",
+      modalName: "OtherModal",
       features: [
         {
           title:
@@ -189,6 +200,8 @@ const ProductLift = () => {
       buttonLink: "",
       accessContent: "",
       featuresTitle: "Everything in A8 Enterprise and:",
+      modalName: "OtherModal",
+
       features: [
         {
           title: "Training, fine-tuning APIs",
@@ -299,7 +312,7 @@ const ProductLift = () => {
                 key={item?.id || i}
                 className="lg:w-[32.9%] md:w-[49.4%] w-full  flex"
               >
-                <Card item={item} />
+                <Card item={item} onModalOpen={handleModalOpen} />
               </div>
             ))}
           </div>
@@ -307,7 +320,7 @@ const ProductLift = () => {
           <div className="md:hidden w-[80%] flex flex-row flex-wrap justify-between  rounded-md">
             {/* {cardsArray.map((item, i) => ( */}
             <div className="lg:w-[32.9%] md:w-[49.4%] w-full  flex">
-              <Card item={cardItem} />
+              <Card item={cardItem} onModalOpen={handleModalOpen} />
             </div>
             {/* ))} */}
           </div>
@@ -332,6 +345,10 @@ const ProductLift = () => {
             />
           </div>
         </div>
+        {activeModal === "ProductModal" && (
+          <ProductModal isOpen onClose={closeModal} />
+        )}
+        {activeModal === "OtherModal" && <Modal isOpen onClose={closeModal} />}
       </div>
     </>
   );
