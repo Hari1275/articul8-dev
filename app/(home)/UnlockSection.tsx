@@ -100,34 +100,39 @@ const Card = React.memo<{
   if (isMobile) {
     return (
       <div
-        ref={cardRef}
-        className='card rounded-2xl p-[30px] flex flex-col justify-between cursor-pointer transition-all duration-500 overflow-hidden'
+        className='flex-shrink-0 w-[280px] mr-2'
         style={{
-          width: '100%',
-          height: '100%',
-          background: 'linear-gradient(to right, #E8F1FF, #C1F0F4)',
-          boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+          scrollSnapAlign: 'start',
         }}
-        aria-label={`Card ${index + 1}: ${card.title.join(' ')}`}
       >
-        <div className='card-content flex-grow'>
-          <h3 className='font-proxima-nova text-[23px] leading-[27.6px] font-[600] text-left'>
-            {card.title.map((line, i) => (
-              <span key={i} className='block'>
-                {line}
-              </span>
-            ))}
-          </h3>
-        </div>
-        <div className='flex justify-start mt-auto'>
-          <Image
-            src={card.image}
-            alt={`${card.title.join(' ')}`}
-            width={80}
-            height={80}
-            className='card-image -mb-2'
-            priority
-          />
+        <div
+          ref={cardRef}
+          className='card rounded-2xl p-[30px] flex flex-col justify-between h-full'
+          style={{
+            background: 'linear-gradient(to right, #E8F1FF, #C1F0F4)',
+            boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+          }}
+          aria-label={`Card ${index + 1}: ${card.title.join(' ')}`}
+        >
+          <div className='card-content flex-grow'>
+            <h3 className='font-proxima-nova text-[23px] leading-[27.6px] font-[600] text-left'>
+              {card.title.map((line, i) => (
+                <span key={i} className='block'>
+                  {line}
+                </span>
+              ))}
+            </h3>
+          </div>
+          <div className='flex justify-start mt-auto'>
+            <Image
+              src={card.image}
+              alt={`${card.title.join(' ')}`}
+              width={80}
+              height={80}
+              className='card-image -mb-2'
+              priority
+            />
+          </div>
         </div>
       </div>
     );
@@ -179,6 +184,7 @@ Card.displayName = 'Card';
 const UnlockSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const cardsContainerRef = useRef<HTMLDivElement>(null);
+  const mobileCardsContainerRef = useRef<HTMLDivElement>(null);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -196,7 +202,7 @@ const UnlockSection = () => {
   }, []);
 
   const animateCards = useCallback(() => {
-    if (prefersReducedMotion) return;
+    if (prefersReducedMotion || isMobile) return; // Skip animation for mobile
 
     const cardsContainer = cardsContainerRef.current;
     if (!cardsContainer) return;
@@ -204,16 +210,29 @@ const UnlockSection = () => {
     const cards = cardsContainer.querySelectorAll('.card');
     const totalWidth = visibleCards * cardWidth + (visibleCards - 1) * gap;
 
-    // Change the initial position to stack cards on the left side
-    gsap.set(cards, {
-      x: (i) => i * stackOffset * 3 - (cards.length - 1) * stackOffset * 1.5,
-      y: (i) => -i * stackOffset * 3,
-      rotationY: 1, // Change to positive value for left-side stacking
-      rotationX: -1, // Change to negative value for left-side stacking
-      scale: (i) => 1 - i * 0.005,
-      opacity: 1,
-      zIndex: (i) => cards.length - i, // Adjust z-index for proper stacking
-    });
+    // Skip initial stacking animation for mobile
+    if (!isMobile) {
+      gsap.set(cards, {
+        x: (i) => i * stackOffset * 3 - (cards.length - 1) * stackOffset * 1.5,
+        y: (i) => -i * stackOffset * 3,
+        rotationY: 1,
+        rotationX: -1,
+        scale: (i) => 1 - i * 0.005,
+        opacity: 1,
+        zIndex: (i) => cards.length - i,
+      });
+    } else {
+      // For mobile, set initial position without stacking
+      gsap.set(cards, {
+        x: (i) => i * (cardWidth + gap),
+        y: 0,
+        rotationY: 0,
+        rotationX: 0,
+        scale: 1,
+        opacity: 1,
+        zIndex: 1,
+      });
+    }
 
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -223,6 +242,7 @@ const UnlockSection = () => {
         once: true,
       },
     });
+
 
     tl.to(cards, {
       x: (i) => {
@@ -244,7 +264,7 @@ const UnlockSection = () => {
         }
         if (containerWidth <= 440) {
           // Mobile screens
-          divisor = 0.9;
+          divisor = 0.5;
         } else if (containerWidth <= 640) {
           // Mobile screens
           divisor = 0.5;
@@ -292,7 +312,7 @@ const UnlockSection = () => {
     });
 
     tl.pause();
-  }, [prefersReducedMotion, cardWidth, gap, visibleCards, stackOffset]);
+  }, [prefersReducedMotion, cardWidth, gap, visibleCards, stackOffset, isMobile]);
 
   useEffect(() => {
     animateCards();
@@ -327,26 +347,30 @@ const UnlockSection = () => {
   ];
 
   const updateScrollButtons = useCallback(() => {
-    if (cardsContainerRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } =
-        cardsContainerRef.current;
+    const container = isMobile ? mobileCardsContainerRef.current : cardsContainerRef.current;
+    if (container) {
+      const { scrollLeft, scrollWidth, clientWidth } = container;
       setCanScrollLeft(scrollLeft > 0);
-      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 1); // Added a small threshold
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 1);
     }
-  }, []);
+  }, [isMobile]);
 
   useEffect(() => {
-    const container = cardsContainerRef.current;
+    const container = isMobile ? mobileCardsContainerRef.current : cardsContainerRef.current;
     if (container) {
+      const { scrollLeft, scrollWidth, clientWidth } = container;
+      setCanScrollLeft(scrollLeft > 0);
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 1);
+
       container.addEventListener('scroll', updateScrollButtons);
-      updateScrollButtons(); // Initial check
+      return () => container?.removeEventListener('scroll', updateScrollButtons);
     }
-    return () => container?.removeEventListener('scroll', updateScrollButtons);
-  }, [updateScrollButtons]);
+  }, [updateScrollButtons, isMobile]);
 
   const scrollLeft = () => {
-    if (cardsContainerRef.current) {
-      cardsContainerRef.current.scrollBy({
+    const container = isMobile ? mobileCardsContainerRef.current : cardsContainerRef.current;
+    if (container) {
+      container.scrollBy({
         left: -(cardWidth + gap),
         behavior: 'smooth',
       });
@@ -354,8 +378,9 @@ const UnlockSection = () => {
   };
 
   const scrollRight = () => {
-    if (cardsContainerRef.current) {
-      cardsContainerRef.current.scrollBy({
+    const container = isMobile ? mobileCardsContainerRef.current : cardsContainerRef.current;
+    if (container) {
+      container.scrollBy({
         left: cardWidth + gap,
         behavior: 'smooth',
       });
@@ -364,24 +389,19 @@ const UnlockSection = () => {
 
   return (
     <section className='bg-white relative sm:pt-12 sm:pb-1'>
-      {/* <UnlockSectionHeader /> */}
       <AnimatedText />
-      <div
-        ref={sectionRef as React.RefObject<HTMLDivElement>}
-        className='overflow-visible relative'
-      >
+      <div ref={sectionRef as React.RefObject<HTMLDivElement>} className='overflow-visible relative'>
         <div className='container mx-auto px-4 sm:px-6 relative'>
-          {/* Moved arrows inside this container and adjusted positioning */}
-          <div className='absolute -top-8 right-4 flex space-x-3 z-999'>
+          {/* Navigation Arrows - Show for both mobile and desktop */}
+          <div className='absolute -top-8 right-4 flex space-x-3 z-10'>
             <button
               onClick={scrollLeft}
               disabled={!canScrollLeft}
               aria-label='Scroll left'
-              className={`w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300 ${
-                canScrollLeft
-                  ? 'bg-blue-600 hover:bg-blue-700 text-white'
-                  : 'bg-gray-200 text-gray-400 cursor-not-allowed'
-              }`}
+              className={`w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300 ${canScrollLeft
+                ? 'bg-blue-600 hover:bg-blue-700 text-white'
+                : 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                }`}
             >
               <ChevronLeft size={20} />
             </button>
@@ -389,65 +409,91 @@ const UnlockSection = () => {
               onClick={scrollRight}
               disabled={!canScrollRight}
               aria-label='Scroll right'
-              className={`w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300 ${
-                canScrollRight
-                  ? 'bg-blue-600 hover:bg-blue-700 text-white'
-                  : 'bg-gray-200 text-gray-400 cursor-not-allowed'
-              }`}
+              className={`w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300 ${canScrollRight
+                ? 'bg-blue-600 hover:bg-blue-700 text-white'
+                : 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                }`}
             >
               <ChevronRight size={20} />
             </button>
           </div>
-          <div
-            ref={cardsContainerRef}
-            className='relative overflow-x-auto pt-12 '
-            style={{
-              width: '100%',
-              height: isMobile
-                ? `${cardWidth * 1.0}px`
-                : `${cardWidth * 1.2 + 60}px`, // Increased height for mobile
-              scrollbarWidth: 'none',
-              msOverflowStyle: 'none',
-            }}
-          >
+
+          {isMobile ? (
             <div
-              className='absolute top-1/2 left-[20%] sm:left-1/2 lg:left-1/2 transform -translate-x-1/2 -translate-y-1/2'
+              ref={mobileCardsContainerRef}
+              className='flex overflow-x-auto scrollbar-hide snap-x snap-mandatory'
               style={{
-                width: `${cardData.length * (cardWidth + gap) - gap}px`,
-                height: isMobile
-                  ? `${cardWidth * 0.8}px`
-                  : `${cardWidth * 1.2 + 60}px`,
+                scrollbarWidth: 'none',
+                msOverflowStyle: 'none',
+                WebkitOverflowScrolling: 'touch',
+                paddingTop: '1rem',
+                paddingBottom: '1rem',
               }}
             >
               {cardData.map((card, index) => (
-                <div
+                <Card
                   key={index}
-                  className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'
-                  style={{
-                    width: `${cardWidth}px`,
-                    height: isMobile
-                      ? `${cardWidth * 0.8}px`
-                      : `${cardWidth * 1.2}px`,
-                    transition: 'all 0.5s ease',
-                    zIndex: cardData.length - index, // Reverse the z-index
-                  }}
-                >
-                  <Card
-                    card={card}
-                    index={index}
-                    totalCards={cardData.length}
-                    isMobile={isMobile}
-                  />
-                </div>
+                  card={card}
+                  index={index}
+                  totalCards={cardData.length}
+                  isMobile={isMobile}
+                />
               ))}
             </div>
-          </div>
+          ) : (
+            // Desktop view remains the same
+            <div
+              ref={cardsContainerRef}
+              className='relative overflow-x-auto pt-12'
+              style={{
+                width: '100%',
+                height: `${cardWidth * 1.2 + 60}px`,
+                scrollbarWidth: 'none',
+                msOverflowStyle: 'none',
+              }}
+            >
+              <div
+                className='absolute top-1/2 left-[20%] sm:left-1/2 lg:left-1/2 transform -translate-x-1/2 -translate-y-1/2'
+                style={{
+                  width: `${cardData.length * (cardWidth + gap) - gap}px`,
+                  height: isMobile
+                    ? `${cardWidth * 0.8}px`
+                    : `${cardWidth * 1.2 + 60}px`,
+                }}
+              >
+                {cardData.map((card, index) => (
+                  <div
+                    key={index}
+                    className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'
+                    style={{
+                      width: `${cardWidth}px`,
+                      height: isMobile
+                        ? `${cardWidth * 0.8}px`
+                        : `${cardWidth * 1.2}px`,
+                      transition: 'all 0.5s ease',
+                      zIndex: cardData.length - index, // Reverse the z-index
+                    }}
+                  >
+                    <Card
+                      card={card}
+                      index={index}
+                      totalCards={cardData.length}
+                      isMobile={isMobile}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
       <UnlockSectionHeader />
       <style jsx>{`
         section {
           min-height: 100vh;
+        }
+        :global(.scrollbar-hide::-webkit-scrollbar) {
+          display: none;
         }
       `}</style>
     </section>
