@@ -51,7 +51,7 @@ const Footer = () => {
             </a>
           </div>
           <div className='text-sm text-gray-500'>
-            Copyright {currentYear}
+            &copy; Copyright {currentYear}
           </div>
         </div>
 
