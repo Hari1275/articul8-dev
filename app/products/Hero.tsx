@@ -19,7 +19,7 @@ const ProductPage = () => {
                 </span>
                 <span className="leading-tight hidden md:block  text-[45px] md:text-[44px] lg:text-[60px] pr-[12px]">
                   EXPERT-LEVEL{" "}
-                  <span className="text-[#FA05C3] pl-2">GenAI</span>
+                  <span className="text-[#FA05C3]">GenAI</span>
                 </span>
                 <span className="leading-tight hidden md:block  text-[45px] md:text-[44px] lg:text-[60px] pr-[12px]">
                   APPLICATIONS
