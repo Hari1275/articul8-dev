@@ -24,7 +24,7 @@ const useResponsiveValues = () => {
       //   // Mobile
       //   setValues({ cardWidth: 250, gap: 10, visibleCards: 1, isMobile: true });
       // }
-      console.log('window.innerWidth', window.innerWidth);
+      // console.log('window.innerWidth', window.innerWidth);
       if (window.innerWidth < 400) {
         setValues({ cardWidth: 280, gap: 10, visibleCards: 1, isMobile: true });
       } else if (window.innerWidth < 640) {
