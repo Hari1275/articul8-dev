@@ -9,6 +9,8 @@ const InnovationItem = ({
   hoverIcon,
   title,
   isSelected = false,
+  isHovered = false,
+  hasActiveHover,
   onClick,
   onMouseEnter,
   onMouseLeave,
@@ -18,43 +20,36 @@ const InnovationItem = ({
   hoverIcon: string;
   title: string;
   isSelected?: boolean;
+  isHovered?: boolean;
+  hasActiveHover?: boolean;
   onClick: () => void;
   onMouseEnter: () => void;
   onMouseLeave: () => void;
 }) => {
-  const [isHovered, setIsHovered] = useState(false);
+  const showBlueBackground = isHovered || (isSelected && !hasActiveHover);
 
   return (
     <div
-      className={`flex items-center py-6 px-6 ${
-        isSelected ? 'bg-[#1130FF] rounded-sm' : 'border-b border-[#00000033]'
-      } cursor-pointer transition-all duration-300`}
+      className={`flex items-center py-6 px-6 
+        ${showBlueBackground ? 'bg-[#1130FF]' : ''} 
+        ${!showBlueBackground ? 'border-b border-[#00000033]' : ''}
+        cursor-pointer transition-all duration-300 rounded-sm`}
       onClick={onClick}
-      onMouseEnter={() => {
-        setIsHovered(true);
-        onMouseEnter();
-      }}
-      onMouseLeave={() => {
-        setIsHovered(false);
-        onMouseLeave();
-      }}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
     >
       <Image
-        src={isSelected ? selectedIcon : isHovered ? hoverIcon : icon}
+        src={showBlueBackground ? selectedIcon : icon}
         alt={title}
         width={30}
         height={30}
         priority
-        className='mr-4'
+        className='mr-4 transition-all duration-300'
       />
       <p
-        className={`text-[30px] font-proxima-nova font-[700] leading-[46.14px] sm:text-lg ${
-          isSelected
-            ? 'text-white font-[700]'
-            : isHovered
-            ? 'text-[#1130FF]'
-            : 'text-black'
-        }`}
+        className={`text-[30px] font-proxima-nova font-[700] leading-[46.14px] sm:text-lg
+          ${showBlueBackground ? 'text-white' : 'text-black'}
+          transition-all duration-300`}
       >
         {title}
       </p>
@@ -124,9 +119,8 @@ const AccordionItem = ({
   return (
     <div className={`${isOpen ? 'bg-[#1130FF]' : ''}`}>
       <div
-        className={`flex items-center justify-between py-4 px-4 cursor-pointer ${
-          isOpen ? 'text-white' : ''
-        }`}
+        className={`flex items-center justify-between py-4 px-4 cursor-pointer ${isOpen ? 'text-white' : ''
+          }`}
         onClick={onClick}
         onTouchStart={() => setIsHovered(true)}
         onTouchEnd={() => setIsHovered(false)}
@@ -400,6 +394,7 @@ const InnovationsSection = () => {
 
   const handleInnovationClick = (index: number) => {
     setSelectedInnovation(index);
+    setHoveredInnovation(null);
   };
 
   const handleInnovationHover = (index: number) => {
@@ -418,7 +413,7 @@ const InnovationsSection = () => {
     hoveredInnovation !== null ? hoveredInnovation : selectedInnovation;
 
   return (
-    <section className='sm:py-16 pt-8  bg-[#F2F7FF]'>
+    <section className='sm:py-16 pt-8 bg-[#F2F7FF]'>
       <div className='container mx-auto px-4 sm:px-6'>
         <h2 className='hidden sm:block font-space-grotesk text-[26px] sm:text-[56px] font-bold mb-16 sm:leading-[84px] text-center leading-tight'>
           <span className='block mb-2'>
@@ -447,6 +442,8 @@ const InnovationsSection = () => {
                 hoverIcon={item.hoverIcon || ''}
                 title={item.title}
                 isSelected={index === selectedInnovation}
+                isHovered={index === hoveredInnovation}
+                hasActiveHover={hoveredInnovation !== null}
                 onClick={() => handleInnovationClick(index)}
                 onMouseEnter={() => handleInnovationHover(index)}
                 onMouseLeave={handleInnovationLeave}

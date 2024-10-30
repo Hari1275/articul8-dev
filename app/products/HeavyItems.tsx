@@ -436,7 +436,7 @@ const HeavyItems = () => {
       <div className="pt-8 md:mt-0 w-full bg-white  pb-[60px] flex flex-col  justify-center items-center relative">
         {/* top */}
 
-        <div className="container  mx-auto px-4 sm:px-6 flex flex-row justify-center items-center sticky top-[36px] md:top-[60px] z-[100] bg-white">
+        <div className="container  mx-auto px-4 sm:px-6 flex flex-row justify-center items-center sticky top-[36px] md:top-[60px] z-[10] bg-white">
           <div className="w-[60%] md:w-[40%] lg:w-[42%]    flex items-center"></div>
 
           <div className="w-[40%]  md:w-[60%] lg:w-[58%] flex flex-row justify-between">
