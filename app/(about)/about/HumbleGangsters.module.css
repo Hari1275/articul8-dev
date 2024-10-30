@@ -26,7 +26,7 @@
 }
 
 /* Mobile-specific styles */
-@media (max-width: 767px) {
+@media (max-width: 1020px) {
   .sliderContainer {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
@@ -50,6 +50,29 @@
   .secondSlider .slider {
     animation: none;
     scroll-behavior: smooth;
+  }
+
+  .card {
+    cursor: default; /* Remove pointer cursor */
+  }
+
+  .overlay {
+    display: none; /* Completely disable overlay */
+  }
+
+  .image {
+    opacity: 1 !important; /* Force image to always be visible */
+    transition: none; /* Remove transitions */
+  }
+
+  /* Remove any hover effects */
+  .card:hover .image {
+    opacity: 1;
+  }
+
+  .card:hover .overlay {
+    opacity: 0;
+    visibility: hidden;
   }
 }
 
