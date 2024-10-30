@@ -9,7 +9,7 @@ const gangsters = [
     name: 'Randall Avenell',
     role: 'Security Engineer',
     description:
-      'I continuously monitor systems and infrastructure for security vulnerabilities and weaknesses and implement remediation measures to address identified issues. Ensure that all changes to systems, applications, and infrastructure are properly documented, reviewed, and approved to maintain compliance with SOC 2 requirements. Maintain accurate and up-to-date documentation of security controls, processes, and procedures, and provide regular reporting to management and auditors on compliance status.',
+      'I continuously monitor systems and infrastructure for security risks, implement fixes, and ensure all system, application and infrastructure changes are documented and compliant with SOC 2. I maintain up-to-date security documentation and provide regular compliance reports to management and auditors.',
   },
   {
     image: '/images/icons/about/slider/Zachary Jordan.png',
