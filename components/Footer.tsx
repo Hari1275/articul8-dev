@@ -73,7 +73,7 @@ const Footer = () => {
               </a>
             </div>
             <div className='font-proxima-nova font-[400] text-[14px] leading-[17.05px] text-[#000000] text-center'>
-              &copy; Copyright {currentYear}
+              Copyright {currentYear}
             </div>
           </div>
         </div>
@@ -109,7 +109,7 @@ const Footer = () => {
           </div>
           <div className='flex items-center'>
             <span className='font-proxima-nova font-[400] text-[14px] leading-[17.05px] text-[#000000] mr-8  text-center'>
-              &copy; Copyright {currentYear}
+            Copyright {currentYear}
             </span>
             <div className='flex items-center gap-4'>
               <a
