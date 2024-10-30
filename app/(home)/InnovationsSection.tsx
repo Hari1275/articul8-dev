@@ -80,7 +80,7 @@ const ProductCard = ({
           alt={title}
           width={18}
           height={18}
-          className='mr-3 mt-1'
+          className='mr-3 md:mt-1'
           priority
         />
         <div>
