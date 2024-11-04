@@ -57,7 +57,7 @@ const UnlockSectionHeader = () => {
                       y: { duration: 0.3, ease: [0.33, 1, 0.68, 1] },
                       opacity: { duration: 0.2, ease: 'easeInOut' },
                     }}
-                    className='inline-block whitespace-nowrap text-[#FA05C3] px-1'
+                    className='inline-block whitespace-nowrap text-[#112FFF] px-1'
                     style={{ display: 'block', position: 'relative' }}
                   >
                     {words[currentIndex]}
