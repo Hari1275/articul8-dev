@@ -28,14 +28,14 @@ const Card = ({ item }) => {
           className="object-cover"
         />
 
-        <h3 className="text-[19px]  md:text-[22px] font-semibold text-center md:text-start leading-tight font-proxima-nova">
+        <h3 className="text-[19px]  md:text-[28px] font-semibold text-center md:text-start leading-tight font-proxima-nova">
           {item.title}
         </h3>
-        <span className="text-[16px] font-[400]  md:text-[18px]   text-center md:text-start font-proxima-nova leading-6">
+        <span className="text-[16px] font-[400]  md:text-[20px] leading-tight text-center md:text-start font-proxima-nova leading-6">
           {item.content}
         </span>
         {item?.environments && item.environments?.length > 0 && (
-          <div className="text-[16px] md:text-[18px] font-[400]  flex-row gap-1 flex">
+          <div className="text-[16px] md:text-[20px] font-[400]  flex-row gap-1 flex">
             <span>Environments:</span>
 
             <div className="flex flex-row flex-wrap gap-x-1">
@@ -61,7 +61,7 @@ const Card = ({ item }) => {
 
         {item?.supportedAccelerators &&
           item.supportedAccelerators?.length > 0 && (
-            <div className="text-[16px] md:text-[18px] font-[400]  flex-row gap-1 flex">
+            <div className="text-[16px] md:text-[20px] font-[400]  flex-row gap-1 flex">
               <span>Supported GPU accelerators:</span>
 
               <div className="flex flex-row flex-wrap gap-x-2">
@@ -193,20 +193,21 @@ const Enterprise = () => {
 
   return (
     <>
-      <div className="w-full bg-white pt-8 md:pt-16  pb-10   flex justify-center items-center bg-[background: #ECEFF2]">
+      <div className="w-full bg-white pt-8 md:pt-16  pb-10   flex justify-center items-center bg-[background: #ECEFF2] " >
         <div className="container mx-auto px-4 sm:px-6  flex flex-col justify-center items-center gap-4 md:gap-10">
           {/* top */}
-          <div className="w-full md:w-[85%] flex flex-col justify-center align-middle">
+          <div className="w-full md:w-[85%] flex flex-col justify-center align-middle" id="product-card">
             <h2 className=" font-space-grotesk  text-[28px] lg:text-[50px] md:text-3xl font-bold  text-center leading-[36px] md:leading-10 lg:leading-[4rem]">
-              Articul8 AI – the enterprise Generative AI (GenAI) platform that
-              just works.
+              Articul8 AI – the enterprise GenAI platform that
+              <span className=" text-[#FA05C3]"> just works.</span>
+             
             </h2>
             {/* <h2 className="lg:md:text-[50px] md:text-3xl sm:text-2xl font-bold text-center">
             AI (GenAI) platform that works.
             </h2> */}
           </div>
           {/* middle */}
-          <div className="w-full flex justify-center">
+          <div className="w-full flex justify-center" >
             <Image
               src={icon}
               alt="product hero"

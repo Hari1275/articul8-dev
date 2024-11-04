@@ -73,7 +73,7 @@ const Footer = () => {
               </a>
             </div>
             <div className='font-proxima-nova font-[400] text-[14px] leading-[17.05px] text-[#000000] text-center'>
-              Copyright {currentYear}
+              ©{currentYear} Articul8, Inc. - All Rights Reserved
             </div>
           </div>
         </div>
@@ -109,11 +109,11 @@ const Footer = () => {
           </div>
           <div className='flex items-center'>
             <span className='font-proxima-nova font-[400] text-[14px] leading-[17.05px] text-[#000000] mr-8  text-center'>
-            Copyright {currentYear}
+              ©{currentYear} Articul8, Inc. - All Rights Reserved
             </span>
             <div className='flex items-center gap-4'>
               <a
-                href='https://twitter.com/articul8ai'
+                href='https://twitter.com/Articul8_AI'
                 target='_blank'
                 rel='noopener noreferrer'
               >
@@ -126,7 +126,7 @@ const Footer = () => {
                 />
               </a>
               <a
-                href='https://www.linkedin.com/company/articul8'
+                href='https://www.linkedin.com/company/articul8-ai/'
                 target='_blank'
                 rel='noopener noreferrer'
               >

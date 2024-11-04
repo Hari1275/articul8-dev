@@ -40,10 +40,10 @@ export default function CultureAndValues() {
           to take charge and deliver their best work. We encourage a 'see
           something, do something' attitude, promoting a collaborative
           environment where challenges are met head-on with transparency and
-          trust. Everyone contributes to solutions, not problems.
+          trust.
         </p>
         <h3 className='font-space-grotesk text-[30px] sm:text-[40px] font-bold leading-[45px] sm:leading-[60px] text-black text-center md:text-left mb-8 sm:mb-12 pt-[10px] sm:pt-0'>
-          What we <span className='text-[#FF00C7]'>believe</span> in...
+        Humility, awareness, curiosity, excellence
         </h3>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
           {values.map((value, index) => (

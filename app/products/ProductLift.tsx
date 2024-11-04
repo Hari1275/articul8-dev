@@ -20,23 +20,23 @@ const Card = ({ item, onModalOpen }) => {
     <>
       <div className="w-full bg-[#F2F7FF] py-6 md:py-8 pl-3 pr-3 md:pl-6 md:pr-6 flex flex-col gap-10   productLiftCard rounded-[16px] border-2  md:border-none  transition-all ease-linear duration-400 md:hover:scale-y-[1.05] md:hover:-translate-y-1">
         {/* top */}
-        <div className="flex flex-col justify-center items-center md:items-start md:justify-start gap-y-5 md:min-h-[204px] xl:min-h-[204px]">
+        <div className="flex flex-col justify-center items-center md:items-start md:justify-start gap-y-5 md:min-h-[289px] xl:min-h-[289px]">
           <h3 className="font-proxima-nova text-[28px] font-bold text-center md:text-start leading-none">
             {item?.title}
           </h3>
-          <span className="font-proxima-nova text-[16px] font-[400] leading-none text-center md:text-start">
+          <span className="font-proxima-nova text-[16px] md:text-[20px] font-[400] leading-tight text-center md:text-start">
             {item?.subTitle}
           </span>
           <div className="flex flex-col justify-center items-center md:items-start md:justify-start  gap-3 w-full">
             <button
-              className="bg-[#0231FF] text-[#E6E9F5] py-[14px] px-6 rounded-[3px] font-proxima-nova text-[18px] font-[700] "
+              className="bg-[#0231FF] text-[#E6E9F5] py-[14px] px-6 rounded-[3px] font-proxima-nova text-[18px] md:text-[20px] font-[700] "
               onClick={() => onModalOpen(item.modalName)}
             >
               {/* <Link href={item?.buttonLink || "/"}>{item?.button}</Link> */}
               {item?.button}
             </button>
             {item?.accessContent !== "" && (
-              <div className="font-proxima-nova text-[14px] font-[600]">
+              <div className="font-proxima-nova text-[18px] font-[600]">
                 {item.accessContent}
               </div>
             )}
@@ -47,12 +47,12 @@ const Card = ({ item, onModalOpen }) => {
 
         {/* bottom */}
         <div className="flex flex-col gap-5 border-t-[1px] border-[#E6E6E6] pt-6">
-          <h3 className="font-proxima-nova text-[18px] font-[600] text-[blue]">
+          <h3 className="font-proxima-nova text-[18px] md:text-[22px] font-[600] text-[blue] leading-tight">
             Key Features
           </h3>
           <div className="flex flex-col gap-2">
             {item?.featuresTitle !== "" && (
-              <h3 className="font-proxima-nova text-[18px] font-[600] md:pr-4 leading-5">
+              <h3 className="font-proxima-nova text-[18px] md:text-[18px] leading-tight font-[600] md:pr-4 leading-5">
                 {item?.featuresTitle}
               </h3>
             )}
@@ -62,7 +62,7 @@ const Card = ({ item, onModalOpen }) => {
                 item.features.map((feature, i) => (
                   <div
                     key={feature.title || i}
-                    className="flex flex-row gap-3 font-proxima-nova text-[16px] font-[600]"
+                    className="flex flex-row gap-3 font-proxima-nova text-[16px] md:text-[18px] font-[600] leading-tight"
                   >
                     <div
                       className="rounded-full bg-[#E8EDFB] flex justify-center align-middle p-1"
@@ -78,7 +78,7 @@ const Card = ({ item, onModalOpen }) => {
                       <BsCheckLg color="blue" className="w-3 h-3" />
                     </div>
                     <div className="flex flex-col">
-                      <span className="text-[16px] font-semibold leading-[20px]">
+                      <span className="text-[16px] md:text-[18px] font-semibold leading-[20px]">
                         {feature?.title}
                       </span>
 
@@ -100,7 +100,7 @@ const Card = ({ item, onModalOpen }) => {
                                     className="w-2 h-2"
                                   />
                                 </div>
-                                <span className="font-proxima-nova text-[14px] font-[400] leading-[18px]  text-start">
+                                <span className="font-proxima-nova text-[14px] md:text-[18px] font-[400] leading-tight  text-start">
                                   {point}
                                 </span>
                               </div>
@@ -130,7 +130,7 @@ const ProductLift = () => {
       title: "A8 Essential",
       subTitle:
         "The essential GenAI Experience with your data, delivering outcomes from  Day 1.",
-      button: "Experience it Today",
+      button: "Start Articul8’ing",
       buttonLink: "",
       accessContent: "Free 30-day access.",
       featuresTitle: "",
@@ -262,8 +262,10 @@ const ProductLift = () => {
         </div> */}
         {/* top */}
         <div className="container mx-auto px-4 sm:px-6">
-          <h3 className="font-space-grotesk lg:text-[40px] md:text-3xl text-3xl font-bold text-center">
-            Our products do the heavy lifting for you.
+          <h3 className="font-space-grotesk lg:text-[50px] md:text-3xl text-3xl font-bold text-center">
+            Our products do the <span className="  text-[#FA05C3]">heavy lifting</span> for you.
+
+
           </h3>
         </div>
 

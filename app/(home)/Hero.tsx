@@ -17,9 +17,9 @@ export default function Hero() {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % words.length);
         setTimeout(() => {
           setIsExpanded(true);
-        }, 600);
-      }, 200);
-    }, 2000);
+        }, 800);
+      }, 300);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);

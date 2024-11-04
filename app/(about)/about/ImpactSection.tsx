@@ -5,13 +5,13 @@ export default function ImpactSection() {
     <section className='bg-white py-0 sm:py-0'>
       <div className='container mx-auto px-4 sm:px-6'>
         <h2 className='font-space-grotesk text-[30px] sm:text-[56px] font-bold leading-[38.28px] sm:leading-[71.46px] text-black text-center sm:text-left mb-4 sm:mb-10'>
-          <span className='block sm:inline'>Driven by impact,</span>{' '}
+          <span className='block sm:inline'>Driven by  <span className='text-[#FA05C3]'>impact,</span> </span>{' '}
           <span className='block sm:inline'>rooted in research</span>
         </h2>
         <div className='flex flex-col sm:flex-row  sm:items-center  gap-10 sm:gap-12'>
           <div className='hidden sm:block w-full sm:w-1/2 order-1 sm:order-1'>
             <Image
-              src='/images/about-team.png'
+              src='/images/icons/about/team-photo.png'
               alt='Our team'
               width={600}
               height={400}
