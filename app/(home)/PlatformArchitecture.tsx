@@ -61,7 +61,7 @@ const PlatformArchitecture = () => {
   ];
 
   return (
-    <section className='sm:pt-0 pt-2 pb-16 px-4 bg-white'>
+    <section className='sm:pt-12 pt-2 pb-16 px-4 bg-white'>
       <div className='container mx-auto px-4 sm:px-6'>
         <h2 className='font-space-grotesk text-[24px]  sm:text-[36px] md:text-[50px]  lg:text-[54px]  lg:leading-[84px] font-bold sm:mb-20 mb-8 leading-tight text-center lg:text-center'>
           Articul8 platform makes the
