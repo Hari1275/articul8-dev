@@ -455,7 +455,7 @@ const HeavyItems = () => {
                 <h3 className="font-proxima-nova font-[700] text-[20px]  md:text-[28px] md:text-center">
                   {item1?.title}
                 </h3>
-                <span className="font-proxima-nova font-[400] text-[14px] md:text-[20px] text-center mb-6  2xl:text-[20px] leading-tight">
+                <span className="font-proxima-nova font-[400] text-[14px] md:text-[18px] text-center mb-6  2xl:text-[18px] leading-tight">
                   {item1?.subTitle}
                 </span>
 
@@ -488,7 +488,7 @@ const HeavyItems = () => {
                 <h3 className="font-proxima-nova font-[700] text-[20px] md:text-center md:text-[28px]">
                   {item2?.title}
                 </h3>
-                <span className="font-proxima-nova font-[400] text-[14px]  text-center mb-6 md:text-[20px]  2xl:text-[20px]  leading-tight">
+                <span className="font-proxima-nova font-[400] text-[14px]  text-center mb-6 md:text-[18px]  2xl:text-[18px]  leading-tight">
                   {item2?.subTitle}
                 </span>
 
@@ -521,7 +521,7 @@ const HeavyItems = () => {
                 <h3 className="font-proxima-nova font-[700] text-[20px] md:text-center md:text-[28px]">
                   {item3?.title}
                 </h3>
-                <span className="font-proxima-nova font-[400] text-[14px]  text-center mb-6 md:text-[20px]   2xl:text-[20px]  leading-tight">
+                <span className="font-proxima-nova font-[400] text-[14px]  text-center mb-6 md:text-[18px]   2xl:text-[18px]  leading-tight">
                   {item3?.subTitle}
                 </span>
 
