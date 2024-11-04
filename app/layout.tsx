@@ -3,6 +3,7 @@ import localFont from 'next/font/local';
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import Head from 'next/head';
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -47,6 +48,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
+     <link rel="icon" href="/favicon.png"  type="image/png" sizes="32x32" />
       <body
         className={`${proximaNova.variable} ${spaceGrotesk.variable} font-proxima-nova`}
       >
