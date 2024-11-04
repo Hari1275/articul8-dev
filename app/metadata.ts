@@ -5,6 +5,7 @@ export const metadata: Metadata = {
     default: 'Articul8 - Your GenAI Platform',
     template: '%s | Articul8'
   },
+ 
   description: 'The GenAI platform that simply works. Bring order to chaos.',
   keywords: ['GenAI', 'Artificial Intelligence', 'Articul8', 'AI Platform'],
   authors: [{ name: 'Articul8 Team' }],
