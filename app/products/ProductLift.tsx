@@ -20,7 +20,7 @@ const Card = ({ item, onModalOpen }) => {
     <>
       <div className="w-full bg-[#F2F7FF] py-6 md:py-8 pl-3 pr-3 md:pl-6 md:pr-6 flex flex-col gap-10   productLiftCard rounded-[16px] border-2  md:border-none  transition-all ease-linear duration-400 md:hover:scale-y-[1.05] md:hover:-translate-y-1">
         {/* top */}
-        <div className="flex flex-col justify-center items-center md:items-start md:justify-start gap-y-5 md:min-h-[289px] xl:min-h-[289px]">
+        <div className="flex flex-col justify-center items-center md:items-start md:justify-start gap-y-5 md:min-h-[209px] xl:min-h-[239px] 2xl:min-h-[209px]">
           <h3 className="font-proxima-nova text-[28px] font-bold text-center md:text-start leading-none">
             {item?.title}
           </h3>
