@@ -19,7 +19,7 @@ const ProductPage = () => {
                 </span>
                 <span className="leading-tight hidden md:block  text-[45px] md:text-[44px] lg:text-[60px] pr-[12px]">
                   EXPERT-LEVEL{" "}
-                  <span className="text-[#FA05C3]">GenAI</span>
+                  <span className=" leading-tight text-[#FA05C3] text-[45px] md:text-[44px] lg:text-[60px]">GenAI</span>
                 </span>
                 <span className="leading-tight hidden md:block  text-[45px] md:text-[44px] lg:text-[60px] pr-[12px]">
                   APPLICATIONS
@@ -34,7 +34,7 @@ const ProductPage = () => {
 
             <div className="text-[19px]  md:text-[21px] lg:text-[24px] flex flex-col gap-1 mt-4 text-center font-proxima-nova font-[400] md:text-start  lg:pr-0">
               <span className="md:leading-7  lg:leading-8 hidden md:flex">
-                Articul8’s products make it incredibly straightforward for your
+                Articul8’s products make it straightforward for your
                 dev teams to build sophisticated, enterprise-scale, expert-level
                 GenAI applications that encode your domain expertise.
               </span>
@@ -43,7 +43,7 @@ const ProductPage = () => {
               </span> */}
 
               <span className="leading-6 md:hidden flex px-2">
-                Articul8’s products make it incredibly straightforward for your
+                Articul8’s products make it straightforward for your
                 dev teams to build sophisticated, enterprise-scale, expert-level
                 GenAI applications that encode your domain expertise.
               </span>

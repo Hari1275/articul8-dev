@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Modal from '../../components/Modal';
 import { useState } from 'react';
+import UnlockSectionHeader from './UnlockSectionHeader';
 
 const FeatureCard = ({
   icon,
@@ -136,7 +137,9 @@ const ConvertSection = () => {
             with the Articul8 platform.
           </span>
         </h2>
-        <div className='sm:mb-20 mb-12'>{renderFeatureCards()}</div>
+        <div className='sm:mb-12 mb-12'>{renderFeatureCards()}</div>
+      <UnlockSectionHeader />
+    
         <div className='flex flex-col md:flex-row items-stretch bg-[#DCE0F3] rounded-t-lg overflow-hidden'>
           <div className='w-full md:w-2/5 p-8 md:p-12 flex flex-col justify-end md:justify-center items-center md:items-start'>
             <h3 className='font-space-grotesk font-[700] text-[40px] sm:text-5xl md:text-[68px] text-center md:text-left leading-[51.04px] sm:mb-6 sm:leading-[108px]'>

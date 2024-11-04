@@ -487,7 +487,6 @@ const UnlockSection = () => {
           )}
         </div>
       </div>
-      <UnlockSectionHeader />
       <style jsx>{`
         section {
           min-height: 100vh;

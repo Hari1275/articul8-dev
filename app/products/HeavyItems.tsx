@@ -408,7 +408,7 @@ const HeavyItems = () => {
     title: "A8 Essential",
     subTitle:
       "The essential GenAI Experience with your data, delivering outcomes from  Day 1.",
-    button: "Experience it Today",
+    button: "Start Articul8’ing",
     buttonLink: "",
     accessContent: "Free 30-day access.",
   };
@@ -444,7 +444,7 @@ const HeavyItems = () => {
             <div className="w-1/3  md:w-[33%] md:items-start  flex items-end md:bg-[#F2F7FF] md:rounded-t-[12px] ">
               <div className="flex justify-center items-center align-middle h-[185px] w-full     md:hidden text-center  border-l-[1px] border-r-[1px] md:border-r-[0px] border-t-[1px] pb-1 pt-3">
                 <div
-                  className="h-full flex flex-col items-center    whitespace-nowrap  text-transform  font-proxima-nova font-[700] text-[20px]"
+                  className="h-full flex flex-col items-center    whitespace-nowrap  text-transform  font-proxima-nova font-[700] text-[20px] md:text-[28px]"
                   style={{ height: "max-content" }}
                 >
                   A8 Essential
@@ -452,15 +452,15 @@ const HeavyItems = () => {
               </div>
 
               <div className="hidden md:flex flex-col justify-center items-center md:px-1 lg:px-4 lg:py-5   py-4 gap-2">
-                <h3 className="font-proxima-nova font-[700] text-[20px] md:text-center">
+                <h3 className="font-proxima-nova font-[700] text-[20px]  md:text-[28px] md:text-center">
                   {item1?.title}
                 </h3>
-                <span className="font-proxima-nova font-[400] text-[14px] text-center mb-6 lg:leading-[18px] 2xl:text-[16px]">
+                <span className="font-proxima-nova font-[400] text-[14px] md:text-[20px] text-center mb-6  2xl:text-[20px] leading-tight">
                   {item1?.subTitle}
                 </span>
 
                 <button
-                  className="bg-[#0231FF] text-white py-[10px] px-4 rounded-[4px] font-proxima-nova font-[700] text-[12px]"
+                  className="bg-[#0231FF] text-white py-[10px] px-4 rounded-[4px] font-proxima-nova font-[700] text-[12px] md:text-[18px]"
                   onClick={() => setIsProductModalOpen(true)}
                 >
                   {/* <Link href={item1?.buttonLink || "/"}>{item1?.button}</Link> */}
@@ -468,7 +468,7 @@ const HeavyItems = () => {
                 </button>
 
                 {item1?.accessContent !== "" && (
-                  <div className=" text-center font-proxima-nova font-[700] text-[12px]">
+                  <div className=" text-center font-proxima-nova font-[700] text-[12px] md:text-[18px]">
                     {item1.accessContent}
                   </div>
                 )}
@@ -477,7 +477,7 @@ const HeavyItems = () => {
             <div className="w-1/3 md:w-[33%]  flex items-end md:items-start md:bg-[#F2F7FF] md:rounded-t-[12px]">
               <div className="flex justify-center items-center align-middle h-[185px] w-full     md:hidden text-center md:border-l-[1px] border-l-[0px]  md:border-r-[0px] border-r-[1px]    border-t-[1px] pb-3 pt-3">
                 <div
-                  className="h-full flex flex-col items-center    whitespace-nowrap  text-transform  font-proxima-nova font-[700] text-[20px] pt-2"
+                  className="h-full flex flex-col items-center    whitespace-nowrap  text-transform  font-proxima-nova font-[700] text-[20px]  md:text-[28px] pt-2"
                   style={{ height: "max-content" }}
                 >
                   A8 Enterprise
@@ -485,15 +485,15 @@ const HeavyItems = () => {
               </div>
 
               <div className="hidden md:flex flex-col justify-center items-center md:px-1 lg:px-4 lg:py-5 py-4 gap-2">
-                <h3 className="font-proxima-nova font-[700] text-[20px] md:text-center">
+                <h3 className="font-proxima-nova font-[700] text-[20px] md:text-center md:text-[28px]">
                   {item2?.title}
                 </h3>
-                <span className="font-proxima-nova font-[400] text-[14px] lg:leading-[18px] text-center mb-6 2xl:text-[16px]">
+                <span className="font-proxima-nova font-[400] text-[14px]  text-center mb-6 md:text-[20px]  2xl:text-[20px]  leading-tight">
                   {item2?.subTitle}
                 </span>
 
                 <button
-                  className="bg-[#0231FF] text-white py-[10px] px-4 rounded-[4px] font-proxima-nova font-[700] text-[12px]"
+                  className="bg-[#0231FF] text-white py-[10px] px-4 rounded-[4px] font-proxima-nova font-[700] text-[12px] md:text-[18px]"
                   onClick={() => setIsModalOpen(true)}
                 >
                   {/* <Link href={item2?.buttonLink || "/"}>{item2?.button}</Link> */}
@@ -501,7 +501,7 @@ const HeavyItems = () => {
                 </button>
 
                 {item2?.accessContent !== "" && (
-                  <div className=" text-center font-proxima-nova font-[700] text-[12px]">
+                  <div className=" text-center font-proxima-nova font-[700] text-[12px] md:text-[18px]">
                     {item2.accessContent}
                   </div>
                 )}
@@ -510,7 +510,7 @@ const HeavyItems = () => {
             <div className="w-1/3 md:w-[33%]  flex items-end md:items-start md:bg-[#F2F7FF] md:rounded-t-[12px] ">
               <div className="flex justify-center items-center align-middle h-[185px] w-full     md:hidden text-center border-r-[1px] md:border-l-[1px] border-l-[0px] border-t-[1px] pt-9 pb-0">
                 <div
-                  className="h-full flex flex-col items-center    whitespace-nowrap  text-transform  font-proxima-nova font-[700] text-[20px]"
+                  className="h-full flex flex-col items-center    whitespace-nowrap  text-transform  font-proxima-nova font-[700] text-[20px] md:text-[28px]"
                   style={{ height: "max-content" }}
                 >
                   A8 Expert
@@ -518,15 +518,15 @@ const HeavyItems = () => {
               </div>
 
               <div className="hidden md:flex flex-col justify-center items-center md:px-1 lg:px-4 lg:py-5   py-4 gap-2">
-                <h3 className="font-proxima-nova font-[700] text-[20px] md:text-center">
+                <h3 className="font-proxima-nova font-[700] text-[20px] md:text-center md:text-[28px]">
                   {item3?.title}
                 </h3>
-                <span className="font-proxima-nova font-[400] text-[14px] lg:leading-[18px] text-center mb-6 2xl:text-[16px]">
+                <span className="font-proxima-nova font-[400] text-[14px]  text-center mb-6 md:text-[20px]   2xl:text-[20px]  leading-tight">
                   {item3?.subTitle}
                 </span>
 
                 <button
-                  className="bg-[#0231FF] text-white py-[10px] px-4 rounded-[4px] font-proxima-nova font-[700] text-[12px]"
+                  className="bg-[#0231FF] text-white py-[10px] px-4 rounded-[4px] font-proxima-nova font-[700] text-[12px] md:text-[18px]"
                   onClick={() => setIsModalOpen(true)}
                 >
                   {/* <Link href={item3?.buttonLink || "/"}>{item3?.button}</Link> */}
@@ -535,7 +535,7 @@ const HeavyItems = () => {
                 </button>
 
                 {item3?.accessContent !== "" && (
-                  <div className=" text-center font-proxima-nova font-[700] text-[12px]">
+                  <div className=" text-center font-proxima-nova font-[700] text-[12px] md:text-[18px]">
                     {item3.accessContent}
                   </div>
                 )}

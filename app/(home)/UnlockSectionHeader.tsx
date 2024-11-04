@@ -15,14 +15,14 @@ const UnlockSectionHeader = () => {
         setTimeout(() => {
           setIsExpanded(true);
         }, 800);
-      }, 200);
-    }, 2000);
+      }, 300);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [words.length]);
 
   return (
-    <section className='bg-white py-2 sm:py-0 sm:pt-12'>
+    <section className='bg-[#F9FAFB] py-2 sm:py-0 sm:pt-0'>
       <div className='container mx-auto px-4'>
         <h2 className='font-space-grotesk text-[30px] sm:text-[30px] md:text-[36px] lg:text-[50px] xl:text-[56px] font-[700] mb-6 sm:mb-8 md:mb-12 text-center text-[#060606] leading-[38.28px] sm:leading-[84px] lg:leading-[100px] xl:leading-[120px]'>
           <span className='block sm:inline'>Unlock</span>{' '}
@@ -33,7 +33,7 @@ const UnlockSectionHeader = () => {
               className='flex items-center justify-center'
             >
               <Image
-                src='/images/icons/section-open.svg'
+                src='/images/open-bracket.svg'
                 alt='Open bracket'
                 width={22}
                 height={22}
@@ -65,7 +65,7 @@ const UnlockSectionHeader = () => {
                 </AnimatePresence>
               </motion.div>
               <Image
-                src='/images/icons/section-closed.svg'
+                src='/images/close-bracket.svg'
                 alt='Close bracket'
                 width={22}
                 height={22}

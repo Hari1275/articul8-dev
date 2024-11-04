@@ -63,7 +63,7 @@ const PlatformArchitecture = () => {
   return (
     <section className='sm:pt-0 pt-2 pb-16 px-4 bg-white'>
       <div className='container mx-auto px-4 sm:px-6'>
-        <h2 className='font-space-grotesk text-[24px]  sm:text-[36px] md:text-[50px]  lg:text-[54px]  lg:leading-[84px] font-bold sm:mb-16 mb-8 leading-tight text-center lg:text-left'>
+        <h2 className='font-space-grotesk text-[24px]  sm:text-[36px] md:text-[50px]  lg:text-[54px]  lg:leading-[84px] font-bold sm:mb-16 mb-8 leading-tight text-center lg:text-center'>
           Articul8 platform makes the
           <br />
           <span className='text-[#FF00C7] font-bold'>
@@ -151,7 +151,7 @@ const PlatformArchitecture = () => {
               />
             </Link>
           </div>
-          <div className='w-full lg:w-3/5'>
+          <Link href='/products/#product-card' className='w-full lg:w-3/5' style={{ cursor: 'pointer' }}>
             <Image
               src='/images/Condensed-Version.png'
               alt='Articul8 Platform Architecture'
@@ -160,7 +160,7 @@ const PlatformArchitecture = () => {
               style={{ width: '100%', height: 'auto' }}
               priority
             />
-          </div>
+          </Link>
         </div>
       </div>
     </section>
