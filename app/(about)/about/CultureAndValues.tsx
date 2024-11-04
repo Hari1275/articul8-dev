@@ -43,7 +43,7 @@ export default function CultureAndValues() {
           trust.
         </p>
         <h3 className='font-space-grotesk text-[30px] sm:text-[40px] font-bold leading-[45px] sm:leading-[60px] text-black text-center md:text-left mb-8 sm:mb-12 pt-[10px] sm:pt-0'>
-        Humility, awareness, curiosity, excellence
+        Humility, awareness, curiosity, excellence.
         </h3>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
           {values.map((value, index) => (

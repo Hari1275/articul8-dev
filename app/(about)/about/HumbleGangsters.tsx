@@ -138,7 +138,7 @@ export default function HumbleGangsters() {
       <div className={`${styles.container} container mx-auto px-4 sm:px-6`}>
    
         <h2 className='font-space-grotesk text-[30px] leading-[45px] text-center font-[700] md:text-[56px] md:leading-[84px] mb-8 md:mb-8 '>
-        Meet some of our <br className="md:hidden"/> <span className='text-[#FF00C7]'>humble gangsters</span> 
+        Meet some of our <br className="md:hidden"/> <span className='text-[#FF00C7]'>"humble gangsters"</span> 
         </h2>
         <p className='font-proxima-nova text-[16px] sm:text-[20px] font-normal leading-[19.2px] sm:leading-[24px] text-black mb-8 md:mb-12 text-center'>
           Describing ourselves as "humble gangsters" means we're a team of bold, confident innovators who take calculated risks while staying grounded and approachable. We bring a certain charm and edge to our work, tackling challenges with grit and resilience, without letting arrogance get in the way. We're savvy, resilient, and unconventional in our approach, yet we stay humble, earning respect through our actions, not attitude. We blend tenacity, resourcefulness, and integrity—qualities that make us relatable and effective, whether facing high-stakes situations or handling day-to-day challenges.

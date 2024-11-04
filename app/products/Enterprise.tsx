@@ -197,9 +197,9 @@ const Enterprise = () => {
         <div className="container mx-auto px-4 sm:px-6  flex flex-col justify-center items-center gap-4 md:gap-10">
           {/* top */}
           <div className="w-full md:w-[85%] flex flex-col justify-center align-middle" id="product-card">
-            <h2 className=" font-space-grotesk  text-[28px] lg:text-[50px] md:text-3xl font-bold  text-center leading-[36px] md:leading-10 lg:leading-[4rem]">
+            <h2 className=" font-space-grotesk  text-[28px] lg:text-[46px] md:text-3xl font-bold  text-center leading-[36px] md:leading-10 lg:leading-[4rem]">
               Articul8 AI – the enterprise GenAI platform that
-              <span className=" text-[#FA05C3]"> just works.</span>
+              <span className=" block text-[#FA05C3]"> just works.</span>
              
             </h2>
             {/* <h2 className="lg:md:text-[50px] md:text-3xl sm:text-2xl font-bold text-center">
