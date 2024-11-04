@@ -99,6 +99,14 @@ const secondGangsters = [
     image: '/images/icons/about/slider/9.png',
     alt: '9',
   },
+   {
+    image: '/images/icons/about/slider/10.png',
+    alt: '10',
+  },
+   {
+    image: '/images/icons/about/slider/11.png',
+    alt: '11',
+  },
 ];
 
 export default function HumbleGangsters() {
