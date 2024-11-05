@@ -71,7 +71,7 @@ const PlatformArchitecture = () => {
             impossible possible.
           </span>
         </h2>
-        <div className='flex flex-col lg:flex-row items-start justify-between gap-12'>
+        <div className='flex flex-col lg:flex-row items-center justify-between gap-12'>
           <div className='w-full lg:w-2/5'>
             <div className='space-y-2'>
               {items.map((item, index) => (

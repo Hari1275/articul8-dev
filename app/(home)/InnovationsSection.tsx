@@ -412,7 +412,7 @@ const InnovationsSection = () => {
   return (
     <section className='sm:py-16 pt-8 bg-[#F2F7FF]'>
       <div className='container mx-auto px-4 sm:px-6'>
-        <h2 className='hidden sm:block font-space-grotesk text-[26px] sm:text-[56px] font-bold mb-16 sm:leading-[84px] text-center leading-tight'>
+        <h2 className='hidden sm:block font-space-grotesk text-[26px] sm:text-[54px] font-bold mb-16 sm:leading-[84px] text-center leading-tight'>
           <span className='block mb-2'>
             There are{' '}
             <span className='text-[#FF00C7]'>groundbreaking innovations</span>

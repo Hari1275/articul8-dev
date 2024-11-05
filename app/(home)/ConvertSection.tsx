@@ -123,16 +123,16 @@ const ConvertSection = () => {
   return (
     <section className='sm:pt-16 pt-8 bg-gray-50 overflow-hidden'>
       <div className='container mx-auto px-4 sm:px-6'>
-        <h2 className='font-space-grotesk text-[26px] font-[700] leading-[45px] sm:text-[34px] sm:leading-[50px] md:text-[50px]  md:leading-[60px] text-[#060606] mb-12 sm:mb-16 text-center'>
-          <span className='block leading-tight'>
+        <h2 className='font-space-grotesk text-[26px] font-[700] leading-[45px] sm:text-[34px] sm:leading-[50px] md:text-[50px] lg:text-[54px]  lg:leading-[84px] text-[#060606] mb-12 sm:mb-16 text-center'>
+          <span className='block'>
             Convert your GenAI chaos to{' '}
             <span className='text-[#FA05C3] inline-flex items-center justify-center'>
               <span className='inline-block transition-all duration-300 ease-in-out'>
                 success
               </span>
             </span>{' '}
-            <span className='hidden sm:inline'>
-              <br />
+            <span className='hidden sm:block'>
+             
             </span>
             with the Articul8 platform.
           </span>
