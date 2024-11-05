@@ -181,7 +181,7 @@ const innovationData = [
         icon: '/images/icons/data-sculptor.svg',
         hoverIcon: '/images/icons/data-sculptor-hover.svg',
         selectedIcon: '/images/icons/data-sculptor-selected.svg',
-        title: 'DataSculptr',
+        title: 'DataSculptr™',
         subTitle:
           'Create highly curated datasets for building multimodal and domain-specific AI models.',
         description:
@@ -191,7 +191,7 @@ const innovationData = [
         icon: '/images/icons/data-craft.svg',
         hoverIcon: '/images/icons/data-craft-hover.svg',
         selectedIcon: '/images/icons/data-craft-selected.svg',
-        title: 'DataCraftr',
+        title: 'DataCraftr™',
         subTitle:
           'Create datasets for improving the performance of knowledge discovery and domain-specific models.',
         description:
@@ -201,7 +201,7 @@ const innovationData = [
         icon: '/images/icons/data-weavr.svg',
         hoverIcon: '/images/icons/data-weavr-hover.svg',
         selectedIcon: '/images/icons/data-weavr-selected.svg',
-        title: 'DataWeavr',
+        title: 'DataWeavr™',
         subTitle:
           'Identify shape, hidden patterns and relationships in very large, multi-modal datasets.',
         description:
@@ -219,7 +219,7 @@ const innovationData = [
         icon: '/images/icons/tru-embedr.svg',
         hoverIcon: '/images/icons/tru-embedr-hover.svg',
         selectedIcon: '/images/icons/tru-embedr-selected.svg',
-        title: 'TruEmbedr',
+        title: 'TruEmbedr™',
         subTitle:
           'A family of high-performance embedding models for complex context analysis.',
         description:
@@ -229,7 +229,7 @@ const innovationData = [
         icon: '/images/icons/hypr-rnkr.svg',
         hoverIcon: '/images/icons/hypr-rnkr-hover.svg',
         selectedIcon: '/images/icons/hypr-rnkr-selected.svg',
-        title: 'HyprRnkr',
+        title: 'HyprRnkr™',
         subTitle:
           'A family of high-performance reranker models for multi-context relevance analysis.',
         description:
@@ -247,7 +247,7 @@ const innovationData = [
         icon: '/images/icons/polyvrs.svg',
         hoverIcon: '/images/icons/polyvrs-hover.svg',
         selectedIcon: '/images/icons/polyvrs-selected.svg',
-        title: 'Polyvrs',
+        title: 'Polyvrs™',
         subTitle: 'A family of multimodal and multilingual models.',
         description:
           'Polyvrs is a family of high-performance multimodal, multilingual models, developed using large-scale data, advanced architecture, and optimized training. Available in various sizes, they excel at complex tasks requiring strong reasoning and multi-data type understanding.',
@@ -256,7 +256,7 @@ const innovationData = [
         icon: '/images/icons/optimoe.svg',
         hoverIcon: '/images/icons/optimoe-hover.svg',
         selectedIcon: '/images/icons/optimoe-selected.svg',
-        title: 'OptiMoE',
+        title: 'OptiMoE™',
         subTitle: 'A family of price-performant mixture-of-experts models.',
         description:
           'OptiMoE is a family of proprietary multimodal mixture of experts (MoE) models designed for advanced cognitive tasks, beyond basic pattern recognition or text generation. Using gating mechanisms, selective expert activation, sparse architecture, and proprietary optimizations, they achieve the benefits of large parameter models with a smaller computational footprint than traditional MoEs.',
@@ -265,7 +265,7 @@ const innovationData = [
         icon: '/images/icons/more.svg',
         hoverIcon: '/images/icons/more-hover.svg',
         selectedIcon: '/images/icons/more-selected.svg',
-        title: 'MoRE',
+        title: 'MoRE™',
         subTitle:
           'Novel model architecture that integrates multiple domain specific experts.',
         description:
@@ -293,7 +293,7 @@ const innovationData = [
         icon: '/images/icons/orchestr8r.svg',
         hoverIcon: '/images/icons/orchestr8r-hover.svg',
         selectedIcon: '/images/icons/orchestr8r-selected.svg',
-        title: 'Orchestr8r',
+        title: 'Orchestr8r™',
         subTitle:
           'An automated workflow orchestrator for large-scale deployments.',
         description:
@@ -303,7 +303,7 @@ const innovationData = [
         icon: '/images/icons/decyzn.svg',
         hoverIcon: '/images/icons/decyzn-hover.svg',
         selectedIcon: '/images/icons/decyzn-selected.svg',
-        title: 'Decyzn',
+        title: 'Decyzn™',
         subTitle: 'Empowering precision in autonomous decisions.',
         description:
           "Decyzn is Articul8's family of proprietary decision support nodes and is a key technology enabling ModelMesh™. These autonomous nodes utilize machine learning, probabilistic methods, and advanced software to enable precise, automated decision-making for complex tasks. Decyzn allows ModelMesh™ to autonomously adapt workflows, select tools, detect issues and choose actions.",
@@ -312,7 +312,7 @@ const innovationData = [
         icon: '/images/icons/aczn.svg',
         hoverIcon: '/images/icons/aczn-hover.svg',
         selectedIcon: '/images/icons/aczn-selected.svg',
-        title: 'Aczn',
+        title: 'Aczn™',
         subTitle: 'Autonomous actions for complex data analysis and analytics.',
         description:
           'Aczn is a family of ModelMesh action nodes that performs complex analyses, calculations and predictions on large multi-modal datasets with full traceability. It is capable of a wide range of advanced modeling and analytics, spanning from machine learning to cutting-edge probabilistic methods and reduced-order modeling.',
@@ -365,7 +365,7 @@ const innovationData = [
         icon: '/images/icons/acutask.svg',
         hoverIcon: '/images/icons/acutask-hover.svg',
         selectedIcon: '/images/icons/acutask-selected.svg',
-        title: 'AcuTask',
+        title: 'AcuTask™',
         subTitle:
           'Task-specific multimodal models for autonomous decisioning and actioning.',
         description:
@@ -375,7 +375,7 @@ const innovationData = [
         icon: '/images/icons/bayesiQ.svg',
         hoverIcon: '/images/icons/bayesiQ-hover.svg',
         selectedIcon: '/images/icons/bayesiQ-selected.svg',
-        title: 'BayesiQ',
+        title: 'BayesiQ™',
         subTitle:
           'Bayesian and Probabilistic graph models for autonomous systems.',
         description:
