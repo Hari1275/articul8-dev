@@ -60,6 +60,13 @@ const gangsters = [
     description:
       'As the Head of Product Technology at Articul8, I lead the development and execution of our technology strategy, ensuring the seamless integration of innovative solutions into our products. I collaborate closely with cross-functional teams to drive product excellence and deliver cutting-edge technology that meets our customers\' needs.',
   },
+  {
+    image: '/images/icons/about/slider/Chethan Rao.png',
+    name: 'Chethan Rao',
+    role: 'Head of GTM',
+    description:
+      'I focus on GTM strategy and execution at Articul8 with a goal of helping our customers achieve their business outcomes and ROI at scale with enterprise GenAI.',
+  },
 ];
 
 const secondGangsters = [
