@@ -82,43 +82,32 @@
     display: flex;
     gap: 8px;
     padding: 20px 0 0 0;
-    animation: scroll 40s linear infinite;
+    animation: scroll 600s linear infinite;
     width: max-content;
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
   }
 
-  .sliderSlow {
-    animation: scrollReverse 60s linear infinite;
+  .secondSlider .sliderSlow {
+    animation: scroll 740s linear infinite;
+    will-change: transform;
   }
 
-  /* Add pause on hover */
-  .sliderContainer:hover .slider {
-    animation-play-state: paused;
-  }
-
+  .sliderContainer:hover .slider,
   .sliderContainer:hover .sliderSlow {
     animation-play-state: paused;
   }
 }
 
-/* Add the correct scroll animation keyframes */
+/* Update animation to move by 75% */
 @keyframes scroll {
   0% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translate3d(calc(-93.33% - 112px), 0, 0); /* Move by three-quarters plus gaps */
   }
 }
-
-/* Remove or comment out the old slide animation */
-/* @keyframes slide {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-} */
 
 .slide {
   flex: 0 0 400px;

@@ -20,7 +20,7 @@ const gangsters = [
   },
   {
     image: '/images/icons/about/slider/Parvathi Letha.png',
-    name: 'Parvathi Nair Letha',
+    name: 'Parvathi Letha',
     role: 'Technical Product Manager',
     description:
       'I am Technical Product Manager at Articul8 leading the development of horizontal features of the product. I will also be responsible from the product side for working with the engineering team on integrating the Articul8 product into AWS Bedrock as well as launching the product on other cloud platforms.',
@@ -162,8 +162,9 @@ export default function HumbleGangsters() {
           onMouseMove={handleMouseMove}
         >
           <div className={styles.slider}>
-            {/* Both sets of cards with overlay */}
-            {[...gangsters, ...gangsters].map((gangster, index) => (
+            {[...gangsters, ...gangsters, ...gangsters, ...gangsters, ...gangsters, 
+              ...gangsters, ...gangsters, ...gangsters, ...gangsters, ...gangsters,
+              ...gangsters, ...gangsters, ...gangsters, ...gangsters, ...gangsters].map((gangster, index) => (
               <div key={`gangster-${index}`} className={styles.slide}>
                 <div className={styles.card}>
                   <div className={styles.imageWrapper}>
@@ -204,7 +205,9 @@ export default function HumbleGangsters() {
           onMouseMove={handleMouseMove}
         >
           <div className={`${styles.slider} ${styles.sliderSlow}`}>
-            {[...secondGangsters, ...secondGangsters].map((gangster, index) => (
+            {[...secondGangsters, ...secondGangsters, ...secondGangsters, ...secondGangsters, ...secondGangsters,
+              ...secondGangsters, ...secondGangsters, ...secondGangsters, ...secondGangsters, ...secondGangsters,
+              ...secondGangsters, ...secondGangsters, ...secondGangsters, ...secondGangsters, ...secondGangsters].map((gangster, index) => (
               <div key={`second-${index}`} className={styles.slide}>
                 <div className={styles.card}>
                   <div className={styles.imageWrapper}>
