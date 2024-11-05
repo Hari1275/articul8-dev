@@ -399,10 +399,7 @@ const InnovationsSection = () => {
 
   const handleInnovationHover = (index: number) => {
     setHoveredInnovation(index);
-  };
-
-  const handleInnovationLeave = () => {
-    setHoveredInnovation(null);
+    setSelectedInnovation(index);
   };
 
   const handleAccordionClick = (index: number) => {
@@ -446,7 +443,7 @@ const InnovationsSection = () => {
                 hasActiveHover={hoveredInnovation !== null}
                 onClick={() => handleInnovationClick(index)}
                 onMouseEnter={() => handleInnovationHover(index)}
-                onMouseLeave={handleInnovationLeave}
+                onMouseLeave={() => {}}
               />
             ))}
           </div>
