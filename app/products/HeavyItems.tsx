@@ -233,7 +233,7 @@ const HeavyItems = () => {
             },
             {
               title:
-                "Input data format ( TXT, PPTx, DOCx, PDFs, JSON, CSV, HTML, XML, OCR )",
+                "Input data format (TXT, PPTx, DOCx, PDFs, JSON, CSV, HTML, XML, OCR)",
               essential: true,
               enterprise: true,
               expert: true,
