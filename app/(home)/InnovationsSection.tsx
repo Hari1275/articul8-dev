@@ -80,19 +80,19 @@ const ProductCard = ({
           alt={title}
           width={18}
           height={18}
-          className='mr-3 md:mt-1'
+          className='w-[18px] h-[18px] md:w-[20px] md:h-[20px] mr-3 md:mt-1'
           priority
         />
         <div>
-          <p className='text-[18px] font-proxima-nova font-[600] leading-[20px]  text-black'>
+          <p className='text-[18px] sm:text-[20px] sm:leading-[22px] font-proxima-nova font-[600] leading-[20px]  text-black'>
             {title}
           </p>
         </div>
       </div>
-      <p className='text[16px] sm:leading-[18px] font-proxima-nova font-[600]  text-[#1130FF] mt-1'>
+      <p className='text[16px]  sm:text-[18px]   sm:leading-tight leading-tight font-proxima-nova font-[600]  text-[#1130FF] mt-1'>
         {subTitle}
       </p>
-      <p className='text-[14px] pt-2 font-proxima-nova font-[400] leading-[18px] text-black'>
+      <p className='text-[14px] sm:text-[16px] sm:leading-tight pt-2 font-proxima-nova font-[400] leading-[18px] text-black'>
         {description}
       </p>
     </div>
@@ -201,7 +201,7 @@ const innovationData = [
         icon: '/images/icons/data-weavr.svg',
         hoverIcon: '/images/icons/data-weavr-hover.svg',
         selectedIcon: '/images/icons/data-weavr-selected.svg',
-        title: 'DataWeavr™',
+        title: 'DataWeavr',
         subTitle:
           'Identify shape, hidden patterns and relationships in very large, multi-modal datasets.',
         description:
@@ -265,7 +265,7 @@ const innovationData = [
         icon: '/images/icons/more.svg',
         hoverIcon: '/images/icons/more-hover.svg',
         selectedIcon: '/images/icons/more-selected.svg',
-        title: 'MoRE™',
+        title: 'MoRE',
         subTitle:
           'Novel model architecture that integrates multiple domain specific experts.',
         description:
@@ -293,7 +293,7 @@ const innovationData = [
         icon: '/images/icons/orchestr8r.svg',
         hoverIcon: '/images/icons/orchestr8r-hover.svg',
         selectedIcon: '/images/icons/orchestr8r-selected.svg',
-        title: 'Orchestr8r™',
+        title: 'Orchestr8r',
         subTitle:
           'An automated workflow orchestrator for large-scale deployments.',
         description:

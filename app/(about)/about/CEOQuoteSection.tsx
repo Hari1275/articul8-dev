@@ -24,17 +24,8 @@ export default function CEOQuoteSection() {
               priority
             />
             <h3 className='font-proxima-nova text-[24px] sm:text-[36px] font-bold leading-[30px] sm:leading-[43.2px] text-[#090914] mb-6 mt-6 sm:pt-10 sm:pb-8'>
-              We don't just build software for our customers - we use it
-              ourselves every single day, for almost every task.
+              Enterprise GenAI requires extreme scale and personalization to accelerate meaningful outcomes. The gap between enterprise data and value cannot be closed with a general purpose GenAI platform with traditional methods.
             </h3>
-            {/* <div className='md:absolute bottom-0 left-6'>
-              <p className='font-proxima-nova text-[24px] font-bold leading-[29.23px] text-black'>
-                Arun Karthi Subramaniyan
-              </p>
-              <p className='font-proxima-nova text-[24px] font-normal leading-[29.23px] text-black'>
-                CEO
-              </p>
-            </div> */}
             <div >
               <p className='font-proxima-nova text-[20px] md:text-[24px]  leading-[26px]  font-bold md:leading-[29.23px] text-black'>
                 Arun Karthi Subramaniyan
