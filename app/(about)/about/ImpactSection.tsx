@@ -11,7 +11,7 @@ export default function ImpactSection() {
         <div className='flex flex-col sm:flex-row  sm:items-center  gap-10 sm:gap-12'>
           <div className='hidden sm:block w-full sm:w-1/2 order-1 sm:order-1'>
             <Image
-              src='/images/icons/about/team-photo.png'
+              src='/images/icons/about/team-photos.jpg'
               alt='Our team'
               width={600}
               height={400}
