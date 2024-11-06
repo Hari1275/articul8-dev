@@ -8,10 +8,10 @@ export default function MissionSection() {
           BUILDING FOR A BETTER TOMORROW
         </h1>
         <p className='font-proxima-nova text-[18px] sm:text-[40px] font-normal sm:font-semibold leading-[21.92px] sm:leading-[48.72px] text-black mx-auto text-center sm:text-left'>
-          <span className='sm:block'>
+          <span className='xl:block'>
             We are researchers at heart, dedicated to developing exceptional
           </span>
-          <span className='sm:block'>products that delight our customers.</span>
+          <span className='xl:block'>products that delight our customers.</span>
         </p>
       </div>
       <div className='hidden sm:flex justify-end items-end py-12'>

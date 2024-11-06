@@ -4,8 +4,8 @@ export default function CEOQuoteSection() {
   return (
     <section className='bg-white py-12 sm:py-24'>
       <div className='container mx-auto px-4 sm:px-6 md:relative'>
-        <div className='flex flex-col sm:flex-row items-center md:items-start  gap-8 sm:gap-16'>
-          <div className='w-full sm:w-1/2 order-1 sm:order-2'>
+        <div className='flex flex-col xl:flex-row items-center md:items-start  gap-8 sm:gap-16'>
+          <div className='w-full xl:w-1/2 order-1 xl:order-2'>
             <Image
               src='/images/arun-karthi-subramaniyan.png'
               alt='Arun Karthi Subramaniyan'
@@ -14,7 +14,7 @@ export default function CEOQuoteSection() {
               className='w-full h-auto object-cover rounded-lg'
             />
           </div>
-          <div className='w-full sm:w-1/2 order-2 sm:order-1'>
+          <div className='w-full xl:w-1/2 order-2 xl:order-1'>
             <Image
               src='/images/icons/quote.svg'
               alt='quote'

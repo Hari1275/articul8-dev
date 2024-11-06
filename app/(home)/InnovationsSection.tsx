@@ -47,7 +47,7 @@ const InnovationItem = ({
         className='mr-4 transition-all duration-300'
       />
       <p
-        className={`text-[30px] font-proxima-nova font-[700] leading-[46.14px] sm:text-lg
+        className={`text-[30px] font-proxima-nova font-[700] xl:leading-[46.14px] sm:text-[22px] lg:text-[26px]
           ${showBlueBackground ? 'text-white' : 'text-black'}
           transition-all duration-300`}
       >
@@ -412,7 +412,7 @@ const InnovationsSection = () => {
   return (
     <section className='sm:py-16 py-8 bg-[#F2F7FF]'>
       <div className='container mx-auto px-4 sm:px-6'>
-        <h2 className='hidden sm:block font-space-grotesk text-[26px] sm:text-[54px] font-bold mb-16 sm:leading-[84px] text-center leading-tight'>
+        <h2 className='hidden xl:block font-space-grotesk text-[26px] sm:text-[54px] font-bold mb-16 sm:leading-[84px] text-center leading-tight'>
           <span className='block mb-2'>
             There are{' '}
             <span className='text-[#FF00C7]'>groundbreaking innovations</span>
@@ -420,7 +420,7 @@ const InnovationsSection = () => {
           <span className='block'>behind the magic.</span>
         </h2>
 
-        <h2 className='sm:hidden font-space-grotesk text-[26px] font-[700] mb-8 text-center leading-[38px]'>
+        <h2 className='xl:hidden font-space-grotesk text-[26px] lg:text-[54px]  lg:leading-[84px] lg:mb-16 font-[700] mb-8 text-center leading-[38px]'>
           There are{' '}
           <span className='text-[#FF00C7] inline'>
             groundbreaking innovations

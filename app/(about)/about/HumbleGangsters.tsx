@@ -152,7 +152,7 @@ export default function HumbleGangsters() {
     <section className={styles.humbleGangsters}>
       <div className={`${styles.container} container mx-auto px-4 sm:px-6`}>
    
-        <h2 className='font-space-grotesk text-[30px] leading-[45px] text-center font-[700] md:text-[56px] md:leading-[84px] mb-8 md:mb-8 '>
+        <h2 className='font-space-grotesk text-[30px] leading-[45px] text-center font-[700] xl:text-[56px] xl:leading-[84px]  lg:text-[50px] lg:leading-[75px] mb-8 md:mb-8 '>
         Meet some of our <br className="md:hidden"/> <span className='text-[#FF00C7]'>&#8220;humble gangsters&#8221;</span> 
         </h2>
         <p className='font-proxima-nova text-[16px] sm:text-[20px] font-normal leading-[19.2px] sm:leading-[24px] text-black mb-8 md:mb-12 text-center'>
