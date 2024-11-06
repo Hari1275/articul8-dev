@@ -74,7 +74,7 @@ const Header = () => {
             onClick={() => setIsModalOpen(true)}
             className="text-[#1130FF] hover:underline font-semibold flex items-center"
           >
-            <span className="font-space-grotesk text-[20px] font-[700] leading-[26.07px] text-[#1130FF]">
+            <span className="font-space-grotesk text-[22px] font-[700] leading-[27.07px] text-[#1130FF]">
               Start Articul8&apos;ing
             </span>
             <Image

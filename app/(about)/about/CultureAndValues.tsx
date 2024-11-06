@@ -3,25 +3,25 @@ import Image from 'next/image';
 const values = [
   {
     icon: '/images/icons/about/staying-humble.svg',
-    title: 'Staying Humble',
+    title: 'Humility',
     description:
       'Maintaining a modest and grounded attitude, recognizing that there is always more to learn and improve upon.',
   },
   {
     icon: '/images/icons/about/being-aware.svg',
-    title: 'Being Aware',
+    title: 'Awareness',
     description:
       'Being mindful of your surroundings, actions, and impact, and striving to make informed and responsible decisions.',
   },
   {
     icon: '/images/icons/about/being-hungry.svg',
-    title: 'Being Hungry',
+    title: 'Curiosity',
     description:
       'Having a strong desire for growth, improvement, and achievement, constantly seeking new challenges and opportunities.',
   },
   {
     icon: '/images/icons/about/committing-to-excellence.svg',
-    title: 'Committing to Excellence',
+    title: 'Excellence',
     description:
       'Dedicating ourselves to achieving the highest standards of quality and integrity in everything we do.',
   },
@@ -43,7 +43,7 @@ export default function CultureAndValues() {
           trust.
         </p>
         <h3 className='font-space-grotesk text-[30px] sm:text-[40px] font-bold leading-[45px] sm:leading-[60px] text-black text-center md:text-left mb-8 sm:mb-12 pt-[10px] sm:pt-0'>
-        Humility, awareness, curiosity, excellence.
+        What we believe in...
         </h3>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
           {values.map((value, index) => (

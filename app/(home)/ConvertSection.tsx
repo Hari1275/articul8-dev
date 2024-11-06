@@ -142,7 +142,7 @@ const ConvertSection = () => {
     
         <div className='flex flex-col md:flex-row items-stretch bg-[#DCE0F3] rounded-t-lg overflow-hidden'>
           <div className='w-full md:w-2/5 p-8 md:p-12 flex flex-col justify-end md:justify-center items-center md:items-start'>
-            <h3 className='font-space-grotesk font-[700] text-[40px] sm:text-5xl md:text-[68px] text-center md:text-left leading-[51.04px] sm:mb-6 sm:leading-[108px]'>
+            <h3 className='font-space-grotesk font-[700] text-[40px] sm:text-5xl md:text-[68px] text-center md:text-left leading-[51.04px] sm:mb-6 sm:leading-[108px] lg:pl-16 2xl:pl-24'>
               Stop
               <br className='' />
               Falling
@@ -170,9 +170,9 @@ const ConvertSection = () => {
             </Link> */}
              <button
         onClick={() => setIsModalOpen(true)}
-        className='text-[#1130FF] hover:underline font-semibold flex items-center pt-2'
+        className='text-[#1130FF] hover:underline font-semibold flex items-center pt-2 lg:pl-16 2xl:pl-24'
       >
-        <span className='font-space-grotesk text-[20px] font-[700] leading-[26.07px] text-[#1130FF]'>
+        <span className='font-space-grotesk text-[22px] font-[700] leading-[27.07px] text-[#1130FF]'>
           Start Articul8&apos;ing
         </span>
         <Image
