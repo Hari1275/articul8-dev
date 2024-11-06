@@ -25,10 +25,10 @@ const FeatureCard = ({
         priority
       />
     </div>
-    <h3 className='font-proxima-nova text-[23px] sm:text-[40px] font-[700] leading-[30px] sm:text-2xl text-black  mb-3'>
+    <h3 className='font-proxima-nova text-[23px] xl:text-[40px] lg:text-[40px] font-[700] lg:leading-[50px] xl:leading-[50px] text-black  mb-3'>
       {title}
     </h3>
-    <p className='font-proxima-nova font-[400] text-[20px] text-black leading-[24px]'>
+    <p className='font-proxima-nova font-[400] text-[20px] text-black leading-tight'>
       {description}
     </p>
   </div>
@@ -131,7 +131,7 @@ const ConvertSection = () => {
                 success
               </span>
             </span>{' '}
-            <span className='hidden sm:block'>
+            <span className='hidden xl:block'>
              
             </span>
             with the Articul8 platform.
@@ -142,7 +142,7 @@ const ConvertSection = () => {
     
         <div className='flex flex-col md:flex-row items-stretch bg-[#DCE0F3] rounded-t-lg overflow-hidden'>
           <div className='w-full md:w-2/5 p-8 md:p-12 flex flex-col justify-end md:justify-center items-center md:items-start'>
-            <h3 className='font-space-grotesk font-[700] text-[40px] sm:text-5xl md:text-[68px] text-center md:text-left leading-[51.04px] sm:mb-6 sm:leading-[108px] lg:pl-16 2xl:pl-24'>
+            <h3 className='font-space-grotesk font-[700] text-[40px] sm:text-5xl md:text-[68px] text-center md:text-left leading-[51.04px] sm:mb-6 sm:leading-[108px]  lg:pl-8  xl:pl-16 2xl:pl-24'>
               Stop
               <br className='' />
               Falling
@@ -170,7 +170,7 @@ const ConvertSection = () => {
             </Link> */}
              <button
         onClick={() => setIsModalOpen(true)}
-        className='text-[#1130FF] hover:underline font-semibold flex items-center pt-2 lg:pl-16 2xl:pl-24'
+        className='text-[#1130FF] hover:underline font-semibold flex items-center pt-2 lg:pl-8  xl:pl-16 2xl:pl-24'
       >
         <span className='font-space-grotesk text-[22px] font-[700] leading-[27.07px] text-[#1130FF]'>
           Start Articul8&apos;ing

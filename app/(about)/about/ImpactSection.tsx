@@ -4,7 +4,7 @@ export default function ImpactSection() {
   return (
     <section className='bg-white py-0 sm:py-0'>
       <div className='container mx-auto px-4 sm:px-6'>
-        <h2 className='font-space-grotesk text-[30px] sm:text-[56px] font-bold leading-[38.28px] sm:leading-[71.46px] text-black text-center sm:text-left mb-4 sm:mb-10'>
+        <h2 className='font-space-grotesk text-[30px] xl:text-[56px] lg:text-[54px] lg:leading-[56px] font-bold leading-[38.28px] xl:leading-[71.46px] text-black text-center sm:text-left mb-4 sm:mb-10'>
           <span className='block sm:inline'>Driven by  <span className='text-[#FA05C3]'>impact,</span> </span>{' '}
           <span className='block sm:inline'>rooted in research</span>
         </h2>

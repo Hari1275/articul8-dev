@@ -49,6 +49,12 @@ const TrustedBy = () => {
           slidesToShow: 3,
         },
       },
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 5,
+        },
+      },
     ],
   };
 
