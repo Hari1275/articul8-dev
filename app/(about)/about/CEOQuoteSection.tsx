@@ -24,7 +24,7 @@ export default function CEOQuoteSection() {
               priority
             />
             <h3 className='font-proxima-nova text-[24px] sm:text-[36px] font-bold leading-[30px] sm:leading-[43.2px] text-[#090914] mb-6 mt-6 sm:pt-10 sm:pb-8'>
-              Enterprise GenAI requires extreme scale and personalization to accelerate meaningful outcomes. The gap between enterprise data and value cannot be closed with a general purpose GenAI platform with traditional methods.
+             Enterprise GenAI requires scalable personalization to deliver meaningful outcomes. The gap between enterprise data and business value cannot be closed with a general purpose GenAI platform.
             </h3>
             <div >
               <p className='font-proxima-nova text-[20px] md:text-[24px]  leading-[26px]  font-bold md:leading-[29.23px] text-black'>
