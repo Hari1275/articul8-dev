@@ -20,7 +20,7 @@ export default function ImpactSection() {
           </div>
           <div className='w-full sm:w-1/2 order-1 sm:order-1 sm:hidden'>
             <Image
-              src='/images/about-team-mobi.png'
+              src='/images/icons/about/team-photos.jpg'
               alt='Our team'
               width={600}
               height={400}
