@@ -15,7 +15,7 @@ export default function ImpactSection() {
               alt='Our team'
               width={600}
               height={400}
-              className='w-full h-auto object-cover'
+              className='w-full h-auto object-cover rounded-[25px]'
             />
           </div>
           <div className='w-full sm:w-1/2 order-1 sm:order-1 sm:hidden'>
@@ -24,7 +24,7 @@ export default function ImpactSection() {
               alt='Our team'
               width={600}
               height={400}
-              className='w-full h-auto object-cover'
+              className='w-full h-auto object-cover rounded-[25px]'
             />
           </div>
           <div className='w-full sm:w-1/2 order-2 sm:order-2'>
