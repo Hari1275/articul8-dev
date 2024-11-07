@@ -5,8 +5,7 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 import { useRouter } from 'next/router';
-import Modal from './Modal';
-import ProductModal from './Modal';
+import CTAForm from './Modal';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -61,7 +60,7 @@ const Header = () => {
           </nav>
         </div>
 
-        <ProductModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
+        <CTAForm isOpen={isOpen} onClose={() => setIsOpen(false)} />
         {/* "Start Articul8'ing" link */}
         <div className='flex items-center'>
           <button
@@ -174,7 +173,7 @@ const Header = () => {
           </div>
         </div>
       )}
-      <ProductModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
+      <CTAForm isOpen={isOpen} onClose={() => setIsOpen(false)} />
     </header>
   );
 };
