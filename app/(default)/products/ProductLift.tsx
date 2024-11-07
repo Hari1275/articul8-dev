@@ -18,18 +18,18 @@ import Modal from "../../../components/Modal";
 const Card = ({ item, onModalOpen }) => {
   return (
     <>
-      <div className="w-full bg-[#F2F7FF] py-6 md:py-8 pl-3 pr-3 md:pl-6 md:pr-6 flex flex-col gap-10   productLiftCard rounded-[16px] border-2  md:border-none  transition-all ease-linear duration-400 md:hover:scale-y-[1.05] md:hover:-translate-y-1">
+      <div className="w-full bg-[#F2F7FF] py-6 md:py-8 pl-3 pr-3 md:pl-6 md:pr-6 flex flex-col gap-6   productLiftCard rounded-[16px] border-2  md:border-none  transition-all ease-linear duration-400 md:hover:scale-y-[1.05] md:hover:-translate-y-1">
         {/* top */}
-        <div className="flex flex-col justify-center items-center md:items-start md:justify-start gap-y-5 md:min-h-[265px] xl:min-h-[240px] 2xl:min-h-[215px]">
+        <div className="flex flex-col justify-center items-center md:items-start md:justify-start gap-y-5  xl:min-h-[275px]  md:min-h-[290px] lg:min-h-[312px] 2xl:min-h-[260px]">
           <h3 className="font-proxima-nova text-[28px] font-bold text-center md:text-start leading-none">
             {item?.title}
           </h3>
-          <span className="font-proxima-nova text-[16px] md:text-[20px] font-[400] leading-tight text-center md:text-start">
+          <span className="font-proxima-nova text-[16px] md:text-[22px] md:pr-[14px] xl:pr-0 lg:pr-[14px]  xl:text-[20px] font-[400] leading-tight text-center md:text-start md:min-h-[120px] lg:min-h-[120px] xl:min-h-max 2xl:min-h-max">
             {item?.subTitle}
           </span>
           <div className="flex flex-col justify-center items-center md:items-start md:justify-start  gap-3 w-full">
             <button
-              className="bg-[#0231FF] text-[#E6E9F5] py-[14px] px-6 rounded-[3px] font-proxima-nova text-[18px] md:text-[20px] font-[700] "
+              className="bg-[#0231FF] text-[#E6E9F5] py-[14px] px-6 rounded-[3px] font-proxima-nova text-[18px] md:text-[20px] font-[700]"
               onClick={() => onModalOpen(item.modalName)}
             >
               {/* <Link href={item?.buttonLink || "/"}>{item?.button}</Link> */}
@@ -46,13 +46,13 @@ const Card = ({ item, onModalOpen }) => {
         {/* <div className="border-[1px] mt-2"></div> */}
 
         {/* bottom */}
-        <div className="flex flex-col gap-5 border-t-[1px] border-[#E6E6E6] pt-6">
+        <div className="flex flex-col gap-5 border-t-[1px] border-[#E6E6E6] pt-2">
           <h3 className="font-proxima-nova text-[18px] md:text-[22px] font-[600] text-[blue] leading-tight">
             Key Features
           </h3>
           <div className="flex flex-col gap-2">
             {item?.featuresTitle !== "" && (
-              <h3 className="font-proxima-nova text-[18px] md:text-[18px] leading-tight font-[600] md:pr-4 leading-5">
+              <h3 className="font-proxima-nova text-[18px] md:text-[18px]  font-[600] md:pr-4 leading-5">
                 {item?.featuresTitle}
               </h3>
             )}
@@ -132,7 +132,7 @@ const ProductLift = () => {
         "The essential GenAI Experience with your data, delivering outcomes from  Day 1.",
       button: "Start Articul8’ing",
       buttonLink: "",
-      accessContent: "Free 30-day access.",
+      accessContent: "Free 1-month access.",
       featuresTitle: "",
       modalName: "ProductModal",
       features: [
@@ -263,9 +263,8 @@ const ProductLift = () => {
         {/* top */}
         <div className="container mx-auto px-4 sm:px-6">
           <h3 className="font-space-grotesk lg:text-[46px] md:text-3xl text-3xl font-bold text-center">
-            Our products do the <span className="  text-[#FA05C3]">heavy lifting</span> for you.
-
-
+            Our products do the
+            <span className="  text-[#FA05C3]"> heavy lifting</span> for you.
           </h3>
         </div>
 
