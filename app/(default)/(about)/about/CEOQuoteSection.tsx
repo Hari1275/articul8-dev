@@ -4,8 +4,8 @@ export default function CEOQuoteSection() {
   return (
     <section className='bg-white py-12 sm:py-24'>
       <div className='container mx-auto px-4 sm:px-6 md:relative'>
-        <div className='flex flex-col xl:flex-row items-center md:items-start  gap-8 sm:gap-16'>
-          <div className='w-full xl:w-1/2 order-1 xl:order-2'>
+        <div className='flex flex-col lg:flex-row items-center md:items-start xl:items-start lg:items-center  gap-8 sm:gap-16'>
+          <div className='w-full lg:w-1/2 order-1 lg:order-2'>
             <Image
               src='/images/arun-karthi-subramaniyan.png'
               alt='Arun Karthi Subramaniyan'
@@ -14,7 +14,7 @@ export default function CEOQuoteSection() {
               className='w-full h-auto object-cover rounded-lg'
             />
           </div>
-          <div className='w-full xl:w-1/2 order-2 xl:order-1'>
+          <div className='w-full lg:w-1/2 order-2 lg:order-1'>
             <Image
               src='/images/icons/quote.svg'
               alt='quote'
@@ -23,7 +23,7 @@ export default function CEOQuoteSection() {
               className='w-8 h-8 sm:w-10 h-12 '
               priority
             />
-            <h3 className='font-proxima-nova text-[24px] sm:text-[36px] font-bold leading-[30px] sm:leading-[43.2px] text-[#090914] mb-6 mt-6 sm:pt-10 sm:pb-8'>
+            <h3 className='font-proxima-nova text-[24px] sm:text-[30px] xl:text-[36px]  sm:leading-[36px] font-bold leading-[30px] xl:leading-[43.2px] text-[#090914] mb-6 mt-6 sm:pt-10 sm:pb-8'>
              Enterprise GenAI requires scalable personalization to deliver meaningful outcomes. The gap between enterprise data and business value cannot be closed with a general purpose GenAI platform.
             </h3>
             <div >
