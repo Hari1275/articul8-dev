@@ -24,7 +24,7 @@ const Card = ({ item, onModalOpen }) => {
           <h3 className="font-proxima-nova text-[28px] font-bold text-center md:text-start leading-none">
             {item?.title}
           </h3>
-          <span className="font-proxima-nova text-[16px] md:text-[22px] md:pr-[14px] xl:pr-0 lg:pr-[14px]  xl:text-[20px] font-[400] leading-tight text-center md:text-start md:min-h-[120px] lg:min-h-[120px] xl:min-h-max 2xl:min-h-max">
+          <span className="font-proxima-nova text-[16px] md:text-[22px] md:pr-[14px] xl:pr-0 lg:pr-[14px]  xl:text-[20px] font-[400] leading-tight text-center md:text-start md:min-h-[120px] lg:min-h-[136px] xl:min-h-max 2xl:min-h-[78px]">
             {item?.subTitle}
           </span>
           <div className="flex flex-col justify-center items-center md:items-start md:justify-start  gap-3 w-full">
