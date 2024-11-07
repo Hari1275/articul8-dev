@@ -8,8 +8,8 @@ import {
   BsChevronDown,
   BsChevronUp,
 } from "react-icons/bs";
-import ProductModal from "../../components/ProductPageModal";
-import Modal from "../../components/Modal";
+import Modal from "../../../components/Modal";
+import ProductModal from "../../../components/ProductPageModal";
 
 const ToggleIcon = ({ isOpen }: { isOpen: boolean }) => (
   <div>{isOpen ? <BsChevronUp size={24} /> : <BsChevronDown size={24} />}</div>

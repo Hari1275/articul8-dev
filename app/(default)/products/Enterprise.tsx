@@ -1,17 +1,17 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import icon from "../../public/images/product10.png";
-import proEnterpriseicon1 from "../../public/images/proEnterpriseicon1.svg";
-import proEnterpriseicon2 from "../../public/images/proEnterpriseicon2.svg";
-import proEnterpriseicon3 from "../../public/images/proEnterpriseicon3.svg";
-import proEnterpriseicon4 from "../../public/images/proEnterpriseicon4.svg";
-import proEnterpriseicon5 from "../../public/images/proEnterpriseicon5.svg";
-import proEnterpriseicon6 from "../../public/images/proEnterpriseicon6.svg";
+import icon from "../../../public/images/product10.png";
+import proEnterpriseicon1 from "../../../public/images/proEnterpriseicon1.svg";
+import proEnterpriseicon2 from "../../../public/images/proEnterpriseicon2.svg";
+import proEnterpriseicon3 from "../../../public/images/proEnterpriseicon3.svg";
+import proEnterpriseicon4 from "../../../public/images/proEnterpriseicon4.svg";
+import proEnterpriseicon5 from "../../../public/images/proEnterpriseicon5.svg";
+import proEnterpriseicon6 from "../../../public/images/proEnterpriseicon6.svg";
 
-import aws from "../../public/images/aws.svg";
-import intel from "../../public/images/intel.svg";
-import amd from "../../public/images/amd.svg";
-import nvidia from "../../public/images/nvidia.svg";
+import aws from "../../../public/images/aws.svg";
+import intel from "../../../public/images/intel.svg";
+import amd from "../../../public/images/amd.svg";
+import nvidia from "../../../public/images/nvidia.svg";
 
 import Image from "next/image";
 
