@@ -185,7 +185,7 @@ const innovationData = [
         subTitle:
           'Create highly curated datasets for building multimodal and domain-specific AI models.',
         description:
-          'DataSculptr is a comprehensive suite of tools for data ingestion, annotation, curation, processing, and management. It enables efficient creation of high-quality datasets for pre-training, fine-tuning, and alignment of multimodal and domain-specific AI models.',
+          'DataSculptr™ is a comprehensive suite of tools for data ingestion, annotation, curation, processing, and management. It enables efficient creation of high-quality datasets for pre-training, fine-tuning, and alignment of multimodal and domain-specific AI models.',
       },
       {
         icon: '/images/icons/data-craft.svg',
@@ -195,17 +195,17 @@ const innovationData = [
         subTitle:
           'Create datasets for improving the performance of knowledge discovery and domain-specific models.',
         description:
-          'DataCraftr is a customizable tool suite for crafting curated datasets to evaluate and enhance the performance of knowledge discovery and domain-specific AI models. It enables users to set criteria for guiding data collection and curation which results in comprehensive datasets that improve model accuracy while reducing biases and errors.',
+          'DataCraftr™ is a customizable tool suite for crafting curated datasets to evaluate and enhance the performance of knowledge discovery and domain-specific AI models. It enables users to set criteria for guiding data collection and curation which results in comprehensive datasets that improve model accuracy while reducing biases and errors.',
       },
       {
         icon: '/images/icons/data-weavr.svg',
         hoverIcon: '/images/icons/data-weavr-hover.svg',
         selectedIcon: '/images/icons/data-weavr-selected.svg',
-        title: 'DataWeavr',
+        title: 'DataRel8r™',
         subTitle:
           'Identify shape, hidden patterns and relationships in very large, multi-modal datasets.',
         description:
-          'DataWeavr is a cutting-edge tool suite for analyzing and representing relationships in complex, multimodal, large-scale datasets. It uncovers hidden patterns and non-linear relationships by utilizing advanced topological analysis, clustering, graph modeling, data visualization, and dimensionality reduction techniques.',
+          'DataRel8r™ is a cutting-edge tool suite for analyzing and representing relationships in complex, multimodal, large-scale datasets. It uncovers hidden patterns and non-linear relationships by utilizing advanced topological analysis, clustering, graph modeling, data visualization, and dimensionality reduction techniques.',
       },
     ],
   },
@@ -223,7 +223,7 @@ const innovationData = [
         subTitle:
           'A family of high-performance embedding models for complex context analysis.',
         description:
-          'TruEmbedr is a family of advanced text and image embedding models that leverages transformer-based architecture, self-supervised learning, and large-scale training data. It enables accurate discovery of meaningful relationships in large, unstructured and noisy datasets, even in the presence of errors and outliers.',
+          'TruEmbedr™ is a family of advanced text and image embedding models that leverages transformer-based architecture, self-supervised learning, and large-scale training data. It enables accurate discovery of meaningful relationships in large, unstructured and noisy datasets, even in the presence of errors and outliers.',
       },
       {
         icon: '/images/icons/hypr-rnkr.svg',
@@ -233,7 +233,7 @@ const innovationData = [
         subTitle:
           'A family of high-performance reranker models for multi-context relevance analysis.',
         description:
-          'HyprRnkr is a family of leading-edge reranker models that leverages neural network architectures and Bayesian methods to measure the contextual relevance of content. These models enhance speed, accuracy and reliability of ambiguous and nuanced searches by understanding context, intent, and semantic relationships.',
+          'HyprRnkr™ is a family of leading-edge reranker models that leverages neural network architectures and Bayesian methods to measure the contextual relevance of content. These models enhance speed, accuracy and reliability of ambiguous and nuanced searches by understanding context, intent, and semantic relationships.',
       },
     ],
   },
@@ -250,7 +250,7 @@ const innovationData = [
         title: 'Polyvrs™',
         subTitle: 'A family of multimodal and multilingual models.',
         description:
-          'Polyvrs is a family of high-performance multimodal, multilingual models, developed using large-scale data, advanced architecture, and optimized training. Available in various sizes, they excel at complex tasks requiring strong reasoning and multi-data type understanding.',
+          'Polyvrs™ is a family of high-performance multimodal, multilingual models, developed using large-scale data, advanced architecture, and optimized training. Available in various sizes, they excel at complex tasks requiring strong reasoning and multi-data type understanding.',
       },
       {
         icon: '/images/icons/optimoe.svg',
@@ -259,17 +259,17 @@ const innovationData = [
         title: 'OptiMoE™',
         subTitle: 'A family of price-performant mixture-of-experts models.',
         description:
-          'OptiMoE is a family of proprietary multimodal mixture of experts (MoE) models designed for advanced cognitive tasks, beyond basic pattern recognition or text generation. Using gating mechanisms, selective expert activation, sparse architecture, and proprietary optimizations, they achieve the benefits of large parameter models with a smaller computational footprint than traditional MoEs.',
+          'OptiMoE™ is a family of proprietary multimodal mixture of experts (MoE) models designed for advanced cognitive tasks, beyond basic pattern recognition or text generation. Using gating mechanisms, selective expert activation, sparse architecture, and proprietary optimizations, they achieve the benefits of large parameter models with a smaller computational footprint than traditional MoEs.',
       },
       {
         icon: '/images/icons/more.svg',
         hoverIcon: '/images/icons/more-hover.svg',
         selectedIcon: '/images/icons/more-selected.svg',
-        title: 'MoRE',
+        title: 'MREx™',
         subTitle:
           'Novel model architecture that integrates multiple domain specific experts.',
         description:
-          "MoRE (Mixture of Real Experts) is Articul8's proprietary architecture that leverages advanced probabilistic methods for modeling uncertainty in routing. Unlike traditional MoE architectures, MoRE integrates multiple domain-specific models, into a single, highly performant model that adapts to a wide range of tasks and domains, without extensive retraining or fine-tuning.",
+          "MREx™ (Mixture of Real Experts) is Articul8's proprietary architecture that leverages advanced probabilistic methods for modeling uncertainty in routing. Unlike traditional MoE architectures, MREx™ integrates multiple domain-specific models, into a single, highly performant model that adapts to a wide range of tasks and domains, without extensive retraining or fine-tuning.",
       },
     ],
   },
@@ -306,7 +306,7 @@ const innovationData = [
         title: 'Decyzn™',
         subTitle: 'Empowering precision in autonomous decisions.',
         description:
-          "Decyzn is Articul8's family of proprietary decision support nodes and is a key technology enabling ModelMesh™. These autonomous nodes utilize machine learning, probabilistic methods, and advanced software to enable precise, automated decision-making for complex tasks. Decyzn allows ModelMesh™ to autonomously adapt workflows, select tools, detect issues and choose actions.",
+          "Decyzn™ is Articul8's family of proprietary decision support nodes and is a key technology enabling ModelMesh™. These autonomous nodes utilize machine learning, probabilistic methods, and advanced software to enable precise, automated decision-making for complex tasks. Decyzn™ allows ModelMesh™ to autonomously adapt workflows, select tools, detect issues and choose actions.",
       },
       {
         icon: '/images/icons/aczn.svg',
@@ -315,16 +315,16 @@ const innovationData = [
         title: 'Aczn™',
         subTitle: 'Autonomous actions for complex data analysis and analytics.',
         description:
-          'Aczn is a family of ModelMesh action nodes that performs complex analyses, calculations and predictions on large multi-modal datasets with full traceability. It is capable of a wide range of advanced modeling and analytics, spanning from machine learning to cutting-edge probabilistic methods and reduced-order modeling.',
+          'Aczn™ is a family of ModelMesh action nodes that performs complex analyses, calculations and predictions on large multi-modal datasets with full traceability. It is capable of a wide range of advanced modeling and analytics, spanning from machine learning to cutting-edge probabilistic methods and reduced-order modeling.',
       },
       {
         icon: '/images/icons/apex.svg',
         hoverIcon: '/images/icons/apex-hover.svg',
         selectedIcon: '/images/icons/apex-selected.svg',
-        title: 'Apex',
+        title: 'PanaSolv™',
         subTitle: 'Precision for autonomous systems with global optimization.',
         description:
-          "Apex is Articul8's global optimization framework that efficiently explores and solves vast solution spaces with precision, scaling from small models to complex systems. It utilizes advanced algorithms, including deterministic methods, stochastic optimization, genetic algorithms, and particle swarm optimization, along with proprietary topology optimization techniques.",
+          "PanaSolv™ is Articul8's global optimization framework that efficiently explores and solves vast solution spaces with precision, scaling from small models to complex systems. It utilizes advanced algorithms, including deterministic methods, stochastic optimization, genetic algorithms, and particle swarm optimization, along with proprietary topology optimization techniques.",
       },
     ],
   },
@@ -369,7 +369,7 @@ const innovationData = [
         subTitle:
           'Task-specific multimodal models for autonomous decisioning and actioning.',
         description:
-          'AcuTask is a family of multimodal LLMs that have been highly optimized for specific tasks. AcuTask powers many nodes within ModelMesh™ and delivers exceptional accuracy, efficiency, and reliability while balancing performance and cost. These models are rigorously tested and validated using Evalu8r, our proprietary evaluation framework.',
+          'AcuTask™ is a family of multimodal LLMs that have been highly optimized for specific tasks. AcuTask™ powers many nodes within ModelMesh™ and delivers exceptional accuracy, efficiency, and reliability while balancing performance and cost. These models are rigorously tested and validated using Evalu8r, our proprietary evaluation framework.',
       },
       {
         icon: '/images/icons/bayesiQ.svg',
@@ -379,7 +379,7 @@ const innovationData = [
         subTitle:
           'Bayesian and Probabilistic graph models for autonomous systems.',
         description:
-          'BayesiQ is a suite of Bayesian and probabilistic graph models optimized for complex multi-model systems, enabling autonomous decisions and actions. Utilizing advanced sampling methods, temporal models, variational inference, and Markov chains, BayesiQ achieves exceptional computational efficiency and scalability through distributed computing and optimized computational workflows.',
+          'BayesiQ™ is a suite of Bayesian and probabilistic graph models optimized for complex multi-model systems, enabling autonomous decisions and actions. Utilizing advanced sampling methods, temporal models, variational inference, and Markov chains, BayesiQ™ achieves exceptional computational efficiency and scalability through distributed computing and optimized computational workflows.',
       },
     ],
   },

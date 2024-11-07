@@ -7,63 +7,63 @@ const gangsters = [
   {
     image: '/images/icons/about/slider/Randall Avenell.png',
     name: 'Randall Avenell',
-    role: 'Security Engineer',
+    // role: 'Security Engineer',
     description:
       'I continuously monitor systems and infrastructure for security risks, implement fixes, and ensure all system, application and infrastructure changes are documented and compliant with SOC 2. I maintain up-to-date security documentation and provide regular compliance reports to management and auditors.',
   },
   {
     image: '/images/icons/about/slider/Zachary Jordan.png',
     name: 'Zachary Jordan',
-    role: 'Software Engineer',
+    // role: 'Software Engineer',
     description:
       'I am a software engineer at Articul8. I am responsible for building out our product through maintaining, improving, and building out new services and infrastructure.',
   },
   {
     image: '/images/icons/about/slider/Parvathi Letha.png',
     name: 'Parvathi Letha',
-    role: 'Technical Product Manager',
+    // role: 'Technical Product Manager',
     description:
       'I am Technical Product Manager at Articul8 leading the development of horizontal features of the product. I will also be responsible from the product side for working with the engineering team on integrating the Articul8 product into AWS Bedrock as well as launching the product on other cloud platforms.',
   },
   {
     image: '/images/icons/about/slider/Florian Mandel.png',
     name: 'Florian Mandel',
-    role: 'Technical Product Manager',
+    // role: 'Technical Product Manager',
     description:
       'I am proud to be part of the Articul8 team as Technical Product Manager. Specifically, I support all things related to sourcing and ingesting the data we need to build great domain-specific models.',
   },
   {
     image: '/images/icons/about/slider/Mohanapriya Singaravelu.png',
     name: 'Mohanapriya Singaravelu',
-    role: 'Software Engineer Intern',
+    // role: 'Software Engineer Intern',
     description:
       'I\'m a Software Engineer intern at Articul8. I\'ve been working on deploying the API documentation, Wiki on AWS and building CI/CD pipelines using Github Actions for the same.',
   },
   {
     image: '/images/icons/about/slider/Felipe Pavan.png',
     name: 'Felipe Henrique Wohnrath Pavan',
-    role: 'Infrastructure Engineer',
+    // role: 'Infrastructure Engineer',
     description:
       'I\'m an Infrastructure Engineer, maintaining and enhancing the underlying infrastructure of our product. In addition to my core responsibilities, I also contribute to various tasks related to automation, API development, and feature engineering.',
   },
   {
     image: '/images/icons/about/slider/Rob Carroll.png',
     name: 'Rob Carroll',
-    role: 'Product Manager',
+    // role: 'Product Manager',
     description:
       'I am a Product Manager at Articul8 AI and work with our teams to drive a differentiated AI platform which helps enterprises leverage a combination of AI models and their proprietary data to solve their most challenging problems. Enterprises have a large volume of valuable data and we help them turn that data into a key differentiator in their market.',
   },
   {
     image: '/images/icons/about/slider/Renato Giorgiani.png',
     name: 'Renato Giorgiani do Nascimento',
-    role: 'Head of Product Technology',
+    // role: 'Head of Product Technology',
     description:
       'As the Head of Product Technology at Articul8, I lead the development and execution of our technology strategy, ensuring the seamless integration of innovative solutions into our products. I collaborate closely with cross-functional teams to drive product excellence and deliver cutting-edge technology that meets our customers\' needs.',
   },
   {
     image: '/images/icons/about/slider/Chethan Rao.png',
     name: 'Chethan Rao',
-    role: 'Head of GTM',
+    // role: 'Head of GTM',
     description:
       'I focus on GTM strategy and execution at Articul8 with a goal of helping our customers achieve their business outcomes and ROI at scale with enterprise GenAI.',
   },
@@ -191,9 +191,9 @@ export default function HumbleGangsters() {
                       <h3 className={`${styles.name} font-proxima-nova text-left font-[700] text-[14.9px] leading-[18.9px] md:text-[14.9px] md:leading-[18.9px]`}>
                         {gangster.name}
                       </h3>
-                      <p className={`${styles.role} font-proxima-nova text-left font-[400] text-[12.53px] leading-[17.9px] md:text-[12.53px] md:leading-[17.9px]`}>
+                      {/* <p className={`${styles.role} font-proxima-nova text-left font-[400] text-[12.53px] leading-[17.9px] md:text-[12.53px] md:leading-[17.9px]`}>
                         {gangster.role}
-                      </p>
+                      </p> */}
                     </div>
                   </div>
                 </div>
