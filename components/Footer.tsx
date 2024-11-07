@@ -63,7 +63,7 @@ const Footer = () => {
               >
                 Privacy
               </a>
-              <a
+             {/*  <a
                 href="https://www.articul8.ai/support"
                 target='_blank'
                 rel='noopener noreferrer'
@@ -71,6 +71,7 @@ const Footer = () => {
               >
                 Support
               </a>
+               */}
             </div>
             <div className='font-proxima-nova font-[400] text-[14px] leading-[17.05px] text-[#000000] text-center'>
               ©{currentYear} Articul8, Inc. - All Rights Reserved
