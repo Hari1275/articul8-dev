@@ -71,8 +71,8 @@ const PlatformArchitecture = () => {
             impossible possible.
           </span>
         </h2>
-        <div className='flex flex-col lg:flex-row items-center justify-between gap-12'>
-          <div className='w-full lg:w-[60%] xl:w-2/5'>
+        <div className='flex flex-col xl:flex-row items-center justify-between gap-12'>
+          <div className='w-full  xl:w-2/5'>
             <div className='space-y-2'>
               {items.map((item, index) => (
                 <Disclosure key={index} as='div' className='mt-2'>
@@ -151,7 +151,7 @@ const PlatformArchitecture = () => {
               />
             </Link>
           </div>
-          <Link href='/products/#product-card' className='w-full lg:w-[40%]  xl:w-3/5' style={{ cursor: 'pointer' }}>
+          <Link href='/products/#product-card' className='w-full   xl:w-3/5' style={{ cursor: 'pointer' }}>
             <Image
               src='/images/Condensed-Version.png'
               alt='Articul8 Platform Architecture'
