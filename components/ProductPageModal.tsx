@@ -72,7 +72,7 @@ const ProductModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
             </svg>
           </button>
           <div ref={formContainerRef} className="min-h-[600px] w-full">
-            <div
+        <div
               data-form-id="d4ab0e7c-2593-ef11-ac21-7c1e521ac562"
               data-form-api-url="https://public-usa.mkt.dynamics.com/api/v1.0/orgs/51133799-f384-ef11-ac1e-000d3a106820/landingpageforms"
               data-cached-form-url="https://assets-usa.mkt.dynamics.com/51133799-f384-ef11-ac1e-000d3a106820/digitalassets/forms/d4ab0e7c-2593-ef11-ac21-7c1e521ac562"
