@@ -8,7 +8,7 @@ import CEOQuoteSection from './CEOQuoteSection';
 import HumbleGangsters from './HumbleGangsters';
 import TeamPhotoSection from './TeamPhotoSection';
 
-import '../../../styles/globals.css';
+import '../../../../styles/globals.css';
 import JoinTeamSection from './JoinTeamSection';
 
 export const metadata: Metadata = {

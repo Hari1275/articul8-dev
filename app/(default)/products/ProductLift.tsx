@@ -3,17 +3,17 @@ import { useState } from "react";
 import React from "react";
 import Image from "next/image";
 import { BsFillSquareFill, BsCheckLg } from "react-icons/bs";
-import "../../styles/globals.css";
+import "../../../styles/globals.css";
 import Link from "next/link";
 
-import lineFrame1 from "../../public/images/lineFrame1.svg";
-import lineFrame2 from "../../public/images/lineFrame2.svg";
+import lineFrame1 from "../../../public/images/lineFrame1.svg";
+import lineFrame2 from "../../../public/images/lineFrame2.svg";
 
-import smallLineFrame1 from "../../public/images/lineFrameSmall1.svg";
-import smallLineFrame2 from "../../public/images/lineFrameSmall2.svg";
+import smallLineFrame1 from "../../../public/images/lineFrameSmall1.svg";
+import smallLineFrame2 from "../../../public/images/lineFrameSmall2.svg";
 
-import ProductModal from "../../components/ProductPageModal";
-import Modal from "../../components/Modal";
+import ProductModal from "../../../components/ProductPageModal";
+import Modal from "../../../components/Modal";
 
 const Card = ({ item, onModalOpen }) => {
   return (
