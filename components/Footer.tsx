@@ -98,7 +98,7 @@ const Footer = () => {
               >
                 Privacy
               </a>
-              <a
+             {/*  <a
                 href="https://www.articul8.ai/support"
                 target='_blank'
                 rel='noopener noreferrer'
@@ -106,6 +106,7 @@ const Footer = () => {
               >
                 Support
               </a>
+              */}
             </div>
           </div>
           <div className='flex items-center'>
