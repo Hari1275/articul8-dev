@@ -8,8 +8,8 @@ export default function ImpactSection() {
           <span className='block sm:inline'>Driven by  <span className='text-[#FA05C3]'>impact,</span> </span>{' '}
           <span className='block sm:inline'>rooted in research</span>
         </h2>
-        <div className='flex flex-col sm:flex-row  sm:items-center  gap-10 sm:gap-12'>
-          <div className='hidden sm:block w-full sm:w-1/2 order-1 sm:order-1'>
+        <div className='flex flex-col lg:flex-row  lg:items-center  gap-10 lg:gap-12'>
+          <div className='hidden lg:block w-full lg:w-1/2 order-1 lg:order-1'>
             <Image
               src='/images/icons/about/team-photos.jpg'
               alt='Our team'
@@ -18,7 +18,7 @@ export default function ImpactSection() {
               className='w-full h-auto object-cover rounded-[25px]'
             />
           </div>
-          <div className='w-full sm:w-1/2 order-1 sm:order-1 sm:hidden'>
+          <div className='w-full lg:w-1/2 order-1 lg:order-1 lg:hidden'>
             <Image
               src='/images/icons/about/team-photos.jpg'
               alt='Our team'
@@ -27,7 +27,7 @@ export default function ImpactSection() {
               className='w-full h-auto object-cover rounded-[25px]'
             />
           </div>
-          <div className='w-full sm:w-1/2 order-2 sm:order-2'>
+          <div className='w-full lg:w-1/2 order-2 lg:order-2'>
             <p className='font-proxima-nova text-[16px] sm:text-[24px] font-normal leading-[19.2px] sm:leading-[28.8px]  2xl:text-[28px] 2xl:leading-[36.6px] text-black text-center sm:text-left mb-4 sm:mb-6'>
               We are a team of passionate innovators, relentlessly pursuing
               excellence in AI. Born from a shared vision to push the boundaries
