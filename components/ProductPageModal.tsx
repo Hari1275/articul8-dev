@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React from "react";
 
 interface ModalProps {
   isOpen: boolean;
@@ -7,41 +7,7 @@ interface ModalProps {
 }
 
 const ProductModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
-  const formContainerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (isOpen) {
-      // Remove any existing scripts first
-      const existingScript = document.querySelector("script[data-form-loader]");
-      if (existingScript) {
-        existingScript.remove();
-      }
-
-      // Create and add the form loader script
-      const script = document.createElement("script");
-      script.src =
-        "https://cxppusa1formui01cdnsa01-endpoint.azureedge.net/usa/FormLoader/FormLoader.bundle.js";
-      script.async = true;
-      script.setAttribute("data-form-loader", "true");
-
-      script.onload = () => {
-        console.log("Form script loaded");
-        if (window.FormLoader) {
-          window.FormLoader.Refresh();
-        }
-      };
-
-      document.body.appendChild(script);
-    }
-
-    return () => {
-      // Cleanup script when modal closes
-      const script = document.querySelector("script[data-form-loader]");
-      if (script) {
-        script.remove();
-      }
-    };
-  }, [isOpen]);
+  const iframeSrc = "/static/essential.html";
 
   if (!isOpen) return null;
 
@@ -71,25 +37,24 @@ const ProductModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
               />
             </svg>
           </button>
-          <div ref={formContainerRef} className="min-h-[600px] w-full">
-        <div
-              data-form-id="d4ab0e7c-2593-ef11-ac21-7c1e521ac562"
-              data-form-api-url="https://public-usa.mkt.dynamics.com/api/v1.0/orgs/51133799-f384-ef11-ac1e-000d3a106820/landingpageforms"
-              data-cached-form-url="https://assets-usa.mkt.dynamics.com/51133799-f384-ef11-ac1e-000d3a106820/digitalassets/forms/d4ab0e7c-2593-ef11-ac21-7c1e521ac562"
-            ></div>
+          <div className="overflow-hidden">
+            <iframe
+              src={iframeSrc}
+              title="Form Loader"
+              className="min-h-screen w-full"
+              frameBorder="0"
+              allowFullScreen
+              style={{
+                overflow: "hidden",
+                scrollbarWidth: "none",
+                msOverflowStyle: "none",
+              }}
+            ></iframe>
           </div>
         </div>
       </div>
     </div>
   );
 };
-
-declare global {
-  interface Window {
-    FormLoader?: {
-      Refresh: () => void;
-    };
-  }
-}
 
 export default ProductModal;
