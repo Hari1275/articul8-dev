@@ -497,15 +497,22 @@
 }
 
 /* Update the keyframes for right to left movement */
-@keyframes scrollReverse {
+/* @keyframes scrollReverse {
   0% {
     transform: translateX(0);
   }
   100% {
     transform: translateX(-50%);
   }
+} */
+@keyframes scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(calc(-93.33% - 112px), 0, 0); /* Move by three-quarters plus gaps */
+  }
 }
-
 /* Update for large screens */
 @media (min-width: 1280px) {
   .secondSlider .slide {
@@ -559,5 +566,41 @@
 @media (max-width: 767px) {
   .secondSlider .slider {
     gap: 4px; /* Match the first slider's mobile gap */
+  }
+}
+
+/* Update Mobile-specific styles */
+@media (max-width: 1023px) {
+  .sliderContainer {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    cursor: grab;
+    /* Add smooth scrolling behavior */
+    scroll-behavior: smooth;
+  }
+
+  .slider,
+  .sliderSlow {
+    animation: scrollMobile 1920s linear infinite; /* Add slower animation for mobile */
+    display: flex;
+    gap: 4px;
+  }
+
+  /* Add new keyframes for mobile scroll */
+  @keyframes scrollMobile {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  /* Pause animation on touch/scroll */
+  .sliderContainer:active .slider,
+  .sliderContainer:active .sliderSlow {
+    animation-play-state: paused;
   }
 }
