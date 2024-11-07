@@ -8,8 +8,8 @@ import {
   BsChevronDown,
   BsChevronUp,
 } from "react-icons/bs";
-import Modal from "../../../components/Modal";
 import ProductModal from "../../../components/ProductPageModal";
+import Modal from "../../../components/Modal";
 
 const ToggleIcon = ({ isOpen }: { isOpen: boolean }) => (
   <div>{isOpen ? <BsChevronUp size={24} /> : <BsChevronDown size={24} />}</div>
@@ -410,7 +410,7 @@ const HeavyItems = () => {
       "The essential GenAI Experience with your data, delivering outcomes from  Day 1.",
     button: "Start Articul8’ing",
     buttonLink: "",
-    accessContent: "Free 30-day access.",
+    accessContent: "Free 1-month access.",
   };
   const item2 = {
     id: 2,
@@ -433,34 +433,34 @@ const HeavyItems = () => {
 
   return (
     <>
-      <div className="pt-8 md:mt-0 w-full bg-white  pb-[60px] flex flex-col  justify-center items-center relative">
+      <div className="pt-8 lg:mt-0 w-full bg-white  pb-[60px] flex flex-col  justify-center items-center relative">
         {/* top */}
 
-        <div className="container  mx-auto px-4 sm:px-6 flex flex-row justify-center items-center sticky top-[36px] md:top-[60px] z-[10] bg-white">
+        <div className="container  mx-auto px-4 sm:px-6 flex flex-row justify-center items-center sticky top-[40px] md:top-[61px] lg:top-[60px] z-[10] bg-white">
           <div className="w-[60%]  lg:w-[42%]    flex items-center"></div>
 
           <div className="w-[40%]   lg:w-[58%] flex flex-row justify-between">
             {/* md:border-r-[1px] */}
-            <div className="w-1/3  lg:w-[33%] md:items-start  flex items-end md:bg-[#F2F7FF] md:rounded-t-[12px] ">
-              <div className="flex justify-center items-center align-middle h-[185px] w-full     lg:hidden text-center  border-l-[1px] border-r-[1px] md:border-r-[0px] border-t-[1px] pb-1 pt-3">
+            <div className="w-1/3  lg:w-[33%] lg:items-start  flex items-end lg:bg-[#F2F7FF] lg:rounded-t-[12px] ">
+              <div className="flex justify-center items-center align-middle h-[185px] w-full     lg:hidden text-center  border-l-[1px] border-r-[1px] lg:border-r-[0px] border-t-[1px] pb-1 pt-3">
                 <div
-                  className="h-full flex flex-col items-center    whitespace-nowrap  text-transform  font-proxima-nova font-[700] text-[20px] md:text-[28px]"
+                  className="h-full flex flex-col items-center    whitespace-nowrap  text-transform  font-proxima-nova font-[700] text-[20px] lg:text-[28px]"
                   style={{ height: "max-content" }}
                 >
                   A8 Essential
                 </div>
               </div>
 
-              <div className="hidden lg:flex flex-col justify-center items-center md:px-1 lg:px-4 lg:py-5   py-4 gap-2">
-                <h3 className="font-proxima-nova font-[700] text-[20px]  md:text-[28px] md:text-center">
+              <div className="hidden lg:flex flex-col justify-center items-center  lg:px-4 lg:py-5   py-4 gap-2">
+                <h3 className="font-proxima-nova font-[700] text-[20px]  lg:text-[28px] lg:text-center lg:min-h-[70px]  xl:min-h-max  lg:leading-8">
                   {item1?.title}
                 </h3>
-                <span className="font-proxima-nova font-[400] text-[14px] md:text-[18px] text-center mb-6  2xl:text-[18px] leading-tight">
+                <span className="font-proxima-nova font-[400] text-[14px] lg:text-[18px] text-center mb-6 lg:mb-3  2xl:text-[18px] leading-tight  lg:min-h-[140px]  xl:min-h-max 2xl:min-h-max">
                   {item1?.subTitle}
                 </span>
 
                 <button
-                  className="bg-[#0231FF] text-white py-[10px] px-4 rounded-[4px] font-proxima-nova font-[700] text-[12px] md:text-[18px]"
+                  className="bg-[#0231FF] text-white py-[10px] px-4 rounded-[4px] font-proxima-nova font-[700] text-[12px] lg:text-[18px]"
                   onClick={() => setIsProductModalOpen(true)}
                 >
                   {/* <Link href={item1?.buttonLink || "/"}>{item1?.button}</Link> */}
@@ -468,32 +468,32 @@ const HeavyItems = () => {
                 </button>
 
                 {item1?.accessContent !== "" && (
-                  <div className=" text-center font-proxima-nova font-[700] text-[12px] md:text-[18px]">
+                  <div className=" text-center font-proxima-nova font-[700] text-[12px] lg:text-[18px]">
                     {item1.accessContent}
                   </div>
                 )}
               </div>
             </div>
-            <div className="w-1/3 lg:w-[33%]  flex items-end md:items-start md:bg-[#F2F7FF] md:rounded-t-[12px]">
-              <div className="flex justify-center items-center align-middle h-[185px] w-full     lg:hidden text-center md:border-l-[1px] border-l-[0px]  md:border-r-[0px] border-r-[1px]    border-t-[1px] pb-3 pt-3">
+            <div className="w-1/3 lg:w-[33%]  flex items-end lg:items-start lg:bg-[#F2F7FF] lg:rounded-t-[12px]">
+              <div className="flex justify-center items-center align-middle h-[185px] w-full     lg:hidden text-center lg:border-l-[1px] border-l-[0px]  lg:border-r-[0px] border-r-[1px]    border-t-[1px] pb-3 pt-3">
                 <div
-                  className="h-full flex flex-col items-center    whitespace-nowrap  text-transform  font-proxima-nova font-[700] text-[20px]  md:text-[28px] pt-2"
+                  className="h-full flex flex-col items-center    whitespace-nowrap  text-transform  font-proxima-nova font-[700] text-[20px]  lg:text-[28px] pt-2"
                   style={{ height: "max-content" }}
                 >
                   A8 Enterprise
                 </div>
               </div>
 
-              <div className="hidden lg:flex flex-col justify-center items-center md:px-1 lg:px-4 lg:py-5 py-4 gap-2">
-                <h3 className="font-proxima-nova font-[700] text-[20px] md:text-center md:text-[28px]">
+              <div className="hidden lg:flex flex-col justify-center items-center lg:px-4  lg:py-5 py-4 gap-2">
+                <h3 className="font-proxima-nova font-[700] text-[20px]  lg:text-[28px] lg:text-center lg:min-h-[70px]  xl:min-h-max  lg:leading-8">
                   {item2?.title}
                 </h3>
-                <span className="font-proxima-nova font-[400] text-[14px]  text-center mb-6 md:text-[18px]  2xl:text-[18px]  leading-tight">
+                <span className="lg:mb-3 font-proxima-nova font-[400] text-[14px]  text-center mb-6 lg:text-[18px]  2xl:text-[18px]  leading-tight lg:min-h-[140px]  xl:min-h-max 2xl:min-h-max ">
                   {item2?.subTitle}
                 </span>
 
                 <button
-                  className="bg-[#0231FF] text-white py-[10px] px-4 rounded-[4px] font-proxima-nova font-[700] text-[12px] md:text-[18px]"
+                  className="bg-[#0231FF] text-white py-[10px] px-4 rounded-[4px] font-proxima-nova font-[700] text-[12px] lg:text-[18px]"
                   onClick={() => setIsModalOpen(true)}
                 >
                   {/* <Link href={item2?.buttonLink || "/"}>{item2?.button}</Link> */}
@@ -501,32 +501,32 @@ const HeavyItems = () => {
                 </button>
 
                 {item2?.accessContent !== "" && (
-                  <div className=" text-center font-proxima-nova font-[700] text-[12px] md:text-[18px]">
+                  <div className=" text-center font-proxima-nova font-[700] text-[12px] lg:text-[18px]">
                     {item2.accessContent}
                   </div>
                 )}
               </div>
             </div>
-            <div className="w-1/3 lg:w-[33%]  flex items-end md:items-start md:bg-[#F2F7FF] md:rounded-t-[12px] ">
-              <div className="flex justify-center items-center align-middle h-[185px] w-full     lg:hidden text-center border-r-[1px] md:border-l-[1px] border-l-[0px] border-t-[1px] pt-9 pb-0">
+            <div className="w-1/3 lg:w-[33%]  flex items-end lg:items-start lg:bg-[#F2F7FF] lg:rounded-t-[12px] ">
+              <div className="flex justify-center items-center align-middle h-[185px] w-full     lg:hidden text-center border-r-[1px] lg:border-l-[1px] border-l-[0px] border-t-[1px] pt-9 pb-0">
                 <div
-                  className="h-full flex flex-col items-center    whitespace-nowrap  text-transform  font-proxima-nova font-[700] text-[20px] md:text-[28px]"
+                  className="h-full flex flex-col items-center    whitespace-nowrap  text-transform  font-proxima-nova font-[700] text-[20px] lg:text-[28px]"
                   style={{ height: "max-content" }}
                 >
                   A8 Expert
                 </div>
               </div>
 
-              <div className="hidden lg:flex flex-col justify-center items-center md:px-1 lg:px-4 lg:py-5   py-4 gap-2">
-                <h3 className="font-proxima-nova font-[700] text-[20px] md:text-center md:text-[28px]">
+              <div className="hidden lg:flex flex-col justify-center items-center  lg:px-4 lg:py-5   py-4 gap-2">
+                <h3 className="font-proxima-nova font-[700] text-[20px]  lg:text-[28px] lg:text-center lg:min-h-[70px]  xl:min-h-max  lg:leading-8">
                   {item3?.title}
                 </h3>
-                <span className="font-proxima-nova font-[400] text-[14px]  text-center mb-6 md:text-[18px]   2xl:text-[18px]  leading-tight">
+                <span className="font-proxima-nova lg:mb-4 2xl:mb-3 font-[400] text-[14px]  text-center mb-6 lg:text-[18px]   2xl:text-[18px]  leading-tight lg:min-h-[140px]  xl:min-h-max 2xl:min-h-max ">
                   {item3?.subTitle}
                 </span>
 
                 <button
-                  className="bg-[#0231FF] text-white py-[10px] px-4 rounded-[4px] font-proxima-nova font-[700] text-[12px] md:text-[18px]"
+                  className="bg-[#0231FF] text-white py-[10px] px-4 rounded-[4px] font-proxima-nova font-[700] text-[12px] lg:text-[18px]"
                   onClick={() => setIsModalOpen(true)}
                 >
                   {/* <Link href={item3?.buttonLink || "/"}>{item3?.button}</Link> */}
@@ -535,7 +535,7 @@ const HeavyItems = () => {
                 </button>
 
                 {item3?.accessContent !== "" && (
-                  <div className=" text-center font-proxima-nova font-[700] text-[12px] md:text-[18px]">
+                  <div className=" text-center font-proxima-nova font-[700] text-[12px] lg:text-[18px]">
                     {item3.accessContent}
                   </div>
                 )}
@@ -567,7 +567,7 @@ const HeavyItems = () => {
                     className="flex items-center w-full text-left py-3 sm:py-4 px-3 sm:px-4 focus:outline-none"
                     onClick={() => setOpenItem(open ? -1 : index)}
                   >
-                    <p className="font-proxima-nova font-[700] md:text-[20px] flex-grow   text-[18px]">
+                    <p className="font-proxima-nova font-[700] lg:text-[20px] flex-grow   text-[18px]">
                       {item.title}
                     </p>
                     <ToggleIcon
@@ -599,7 +599,7 @@ const HeavyItems = () => {
                                     style={{ borderColor: item.borderColor }}
                                   >
                                     {/* border-r-[1px] */}
-                                    <div className="font-proxima-nova font-[700] w-full text-[14px] md:text-[18px] md:leading-5 py-3 pl-2 md:pl-5 items-center text-start">
+                                    <div className="font-proxima-nova font-[700] w-full text-[14px] lg:text-[18px] lg:leading-5 py-3 pl-2 lg:pl-5 items-center text-start">
                                       {main.title}
                                     </div>
                                   </div>
@@ -622,7 +622,7 @@ const HeavyItems = () => {
                                     </div>
 
                                     <div
-                                      className="w-1/3  border-r-[1px] md:border-r-[0px]   border-b-[1px]"
+                                      className="w-1/3  border-r-[1px] lg:border-r-[0px]   border-b-[1px]"
                                       style={{ borderColor: item.borderColor }}
                                     >
                                       <div className="w-full flex justify-center  items-center align-middle py-3">
@@ -636,7 +636,7 @@ const HeavyItems = () => {
                                     </div>
 
                                     <div
-                                      className="w-1/3 border-b-[1px] md:border-l-[1px] border-l-[0px] "
+                                      className="w-1/3 border-b-[1px] lg:border-l-[1px] border-l-[0px] "
                                       style={{ borderColor: item.borderColor }}
                                     >
                                       <div className="w-full flex justify-center  items-center align-middle py-3">
@@ -652,11 +652,11 @@ const HeavyItems = () => {
                                 )}
 
                                 {/* <div
-                                  className="w-[60%]  lg:w-[42%] border-b-[1px]   flex items-center border-r-[1px]"
+                                  className="w-[60%] lg:w-[40%] lg:w-[42%] border-b-[1px]   flex items-center border-r-[1px]"
                                   style={{ borderColor: item.borderColor }}
 
                                 >
-                                  <div className="font-proxima-nova font-[700]   w-full  text-[14px]  md:text-[15px]   py-3 pl-2 md:pl-5  items-center text-start">
+                                  <div className="font-proxima-nova font-[700]   w-full  text-[14px]  lg:text-[15px]   py-3 pl-2 lg:pl-5  items-center text-start">
                                     {main.title}
                                   </div>
                                 </div> */}
@@ -679,16 +679,16 @@ const HeavyItems = () => {
                                     <div className="flex flex-row justify-center ">
                                       {/* right */}
                                       <div
-                                        className="w-[60%]  lg:w-[42%] border-b-[1px]   flex items-center "
+                                        className="w-[60%]  lg:w-[42%] border-b-[1px]    flex items-center "
                                         style={{
                                           borderColor: item.borderColor,
                                         }}
                                       >
                                         {/* border-r-[1px] */}
-                                        <div className="w-full text-[16px]  py-3  pl-2 md:pl-7 items-center">
-                                          <div className="flex flex-row gap-1 justify-start align-middle items-center md:align-top md:items-top md:justify-start">
+                                        <div className="w-full text-[16px]  py-3  pl-2 lg:pl-7 items-center">
+                                          <div className="flex flex-row gap-1 justify-start align-middle items-center lg:align-top lg:items-top lg:justify-start">
                                             <div
-                                              className="flex justify-center align-middle md:justify-start md:align-top p-1"
+                                              className="flex justify-center align-middle lg:justify-start lg:align-top p-1"
                                               style={{ height: "max-content" }}
                                             >
                                               <BsFillSquareFill
@@ -696,7 +696,7 @@ const HeavyItems = () => {
                                                 className="w-[6px] h-[6px]"
                                               />
                                             </div>
-                                            <span className="font-proxima-nova font-[400] md:text-[18px] 2xl:text-[17px]  text-[14px] leading-4 md:leading-5">
+                                            <span className="font-proxima-nova font-[400] lg:text-[18px] 2xl:text-[17px]  text-[14px] leading-4 mr-1 lg:leading-5">
                                               {subItem.title}
                                             </span>
                                           </div>
@@ -722,7 +722,7 @@ const HeavyItems = () => {
                                         </div>
 
                                         <div
-                                          className="w-1/3  border-r-[1px] md:border-r-[0px] border-b-[1px]"
+                                          className="w-1/3  border-r-[1px] lg:border-r-[0px] border-b-[1px]"
                                           style={{
                                             borderColor: item.borderColor,
                                           }}
@@ -738,7 +738,7 @@ const HeavyItems = () => {
                                         </div>
 
                                         <div
-                                          className="w-1/3 md:border-l-[1px] border-l-[0px] border-b-[1px]"
+                                          className="w-1/3 lg:border-l-[1px] border-l-[0px] border-b-[1px]"
                                           style={{
                                             borderColor: item.borderColor,
                                           }}
