@@ -3,45 +3,38 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import Modal from './Modal';
+
 import { useRouter } from 'next/router';
+import Modal from './Modal';
+import ProductModal from './Modal';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const pathname = usePathname();
-
+  const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   const getLinkClassName = (href: string) => {
     const isActive = pathname === href;
-    return `text-black font-proxima-nova text-[22px] leading-[27.07px] font-[${isActive ? '700' : '400'
-      }] hover:text-black transition duration-300 ${isActive ? 'text-gray-900' : ''
-      }`;
+    return `text-black font-proxima-nova text-[22px] leading-[27.07px] font-[${
+      isActive ? '700' : '400'
+    }] hover:text-black transition duration-300 ${
+      isActive ? 'text-gray-900' : ''
+    }`;
   };
-
 
   const getLinkClassNameMobile = (href: string) => {
     const isActive = pathname === href;
 
-    return `text-white font-proxima-nova text-[34px] font-[400] leading-[40px] px-8 py-2 hover:border-2 hover:border-[#4D6EFF] hover:rounded-md transition-all duration-300 ${isActive ? 'border-2 border-[#4D6EFF] rounded-md' : 'border-none  rounded-none'
-      }`
-
-
-
-
-
-
-
-
-
-
+    return `text-white font-proxima-nova text-[34px] font-[400] leading-[40px] px-8 py-2 hover:border-2 hover:border-[#4D6EFF] hover:rounded-md transition-all duration-300 ${
+      isActive
+        ? 'border-2 border-[#4D6EFF] rounded-md'
+        : 'border-none  rounded-none'
+    }`;
   };
-
-
-
 
   return (
     <header className='fixed top-0 left-0 right-0 bg-white z-50'>
@@ -68,13 +61,14 @@ const Header = () => {
           </nav>
         </div>
 
+        <ProductModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
         {/* "Start Articul8'ing" link */}
-        <div className="flex items-center">
+        <div className='flex items-center'>
           <button
-            onClick={() => setIsModalOpen(true)}
-            className="text-[#1130FF] hover:underline font-semibold flex items-center"
+            onClick={() => setIsOpen(true)}
+            className='text-[#1130FF] hover:underline font-semibold flex items-center'
           >
-            <span className="font-space-grotesk text-[22px] font-[700] leading-[27.07px] text-[#1130FF]">
+            <span className='font-space-grotesk text-[22px] font-[700] leading-[27.07px] text-[#1130FF]'>
               Start Articul8&apos;ing
             </span>
             <Image
@@ -145,14 +139,12 @@ const Header = () => {
                 href='/'
                 className={getLinkClassNameMobile('/')}
                 onClick={toggleMenu}
-
               >
                 Home
               </Link>
 
               <Link
                 href='/products'
-
                 onClick={toggleMenu}
                 className={getLinkClassNameMobile('/products')}
               >
@@ -172,17 +164,17 @@ const Header = () => {
               Start Articul8&apos;ing
             </button>
           </div> */}
-          <div className="p-4">
+          <div className='p-4'>
             <button
-              onClick={() => setIsModalOpen(true)}
-              className="font-space-grotesk text-[16px] w-full bg-white font-bold text-[#1130FF] px-6 py-3 rounded-md leading-[22.97px] hover:bg-gray-100 transition duration-300 inline-block text-center"
+              onClick={() => setIsOpen(true)}
+              className='font-space-grotesk text-[16px] w-full bg-white font-bold text-[#1130FF] px-6 py-3 rounded-md leading-[22.97px] hover:bg-gray-100 transition duration-300 inline-block text-center'
             >
               Start Articul8&apos;ing
             </button>
           </div>
         </div>
       )}
-      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <ProductModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
     </header>
   );
 };
