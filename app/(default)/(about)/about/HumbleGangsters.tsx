@@ -2,7 +2,6 @@
 import React from 'react';
 import Image from 'next/image';
 import styles from './HumbleGangsters.module.css';
-import { useState } from 'react';
 
 const gangsters = [
   {
@@ -123,7 +122,6 @@ export default function HumbleGangsters() {
   const [scrollLeft, setScrollLeft] = React.useState(0);
   const sliderRef = React.useRef<HTMLDivElement>(null);
   const secondSliderRef = React.useRef<HTMLDivElement>(null);
-  const [imageLoading, setImageLoading] = useState<{ [key: string]: boolean }>({});
 
   // Only apply touch handling for mobile devices
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
@@ -150,10 +148,6 @@ export default function HumbleGangsters() {
     }
   };
 
-  // Replace the existing repeatedGangsters declarations with:
-  const repeatedGangsters = [...Array(16)].flatMap(() => gangsters);
-  const repeatedSecondGangsters = [...Array(16)].flatMap(() => secondGangsters);
-
   return (
     <section className={styles.humbleGangsters}>
       <div className={`${styles.container} container mx-auto px-4 sm:px-6`}>
@@ -175,30 +169,19 @@ export default function HumbleGangsters() {
           onMouseMove={handleMouseMove}
         >
           <div className={styles.slider}>
-            {repeatedGangsters.map((gangster, index) => (
+            {[...gangsters, ...gangsters, ...gangsters, ...gangsters, ...gangsters, 
+              ...gangsters, ...gangsters, ...gangsters, ...gangsters, ...gangsters,
+              ...gangsters, ...gangsters, ...gangsters, ...gangsters, ...gangsters].map((gangster, index) => (
               <div key={`gangster-${index}`} className={styles.slide}>
                 <div className={styles.card}>
                   <div className={styles.imageWrapper}>
                     <Image
                       src={gangster.image}
                       alt={gangster.name}
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      priority={index < 9}
-                      quality={75}
-                      onLoadingComplete={() => {
-                        setImageLoading(prev => ({
-                          ...prev,
-                          [gangster.image]: true
-                        }));
-                      }}
-                      className={`${styles.image} ${
-                        imageLoading[gangster.image] ? 'opacity-100' : 'opacity-0'
-                      } transition-opacity duration-300`}
+                      layout='fill'
+                      objectFit='cover'
+                      className={styles.image}
                     />
-                    {!imageLoading[gangster.image] && (
-                      <div className={styles.imagePlaceholder}></div>
-                    )}
                   </div>
                   <div className={styles.overlay}>
                     <p className={`${styles.description} font-proxima-nova text-left font-semibold text-[16px] leading-[24px] md:text-[16px] md:leading-[24px]`}>
@@ -229,30 +212,19 @@ export default function HumbleGangsters() {
           onMouseMove={handleMouseMove}
         >
           <div className={`${styles.slider} ${styles.sliderSlow}`}>
-            {repeatedSecondGangsters.map((gangster, index) => (
+            {[...secondGangsters, ...secondGangsters, ...secondGangsters, ...secondGangsters, ...secondGangsters,
+              ...secondGangsters, ...secondGangsters, ...secondGangsters, ...secondGangsters, ...secondGangsters,
+              ...secondGangsters, ...secondGangsters, ...secondGangsters, ...secondGangsters, ...secondGangsters].map((gangster, index) => (
               <div key={`second-${index}`} className={styles.slide}>
                 <div className={styles.card}>
                   <div className={styles.imageWrapper}>
                     <Image
                       src={gangster.image}
                       alt={gangster.alt}
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      priority={index < 9}
-                      quality={75}
-                      onLoadingComplete={() => {
-                        setImageLoading(prev => ({
-                          ...prev,
-                          [gangster.image]: true
-                        }));
-                      }}
-                      className={`${styles.image} ${
-                        imageLoading[gangster.image] ? 'opacity-100' : 'opacity-0'
-                      } transition-opacity duration-300`}
+                      layout='fill'
+                      objectFit='cover'
+                      className={styles.image}
                     />
-                    {!imageLoading[gangster.image] && (
-                      <div className={styles.imagePlaceholder}></div>
-                    )}
                   </div>
                 </div>
               </div>
