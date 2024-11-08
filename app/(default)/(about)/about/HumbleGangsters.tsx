@@ -126,10 +126,12 @@ export default function HumbleGangsters() {
   // Only apply touch handling for mobile devices
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
-  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => {
     if (!isMobile) return;
+    
+    const pageX = 'touches' in e ? e.touches[0].pageX : (e as React.MouseEvent).pageX;
     setIsDragging(true);
-    setStartX(e.pageX - (sliderRef.current?.offsetLeft || 0));
+    setStartX(pageX - (sliderRef.current?.offsetLeft || 0));
     setScrollLeft(sliderRef.current?.scrollLeft || 0);
   };
 
@@ -138,14 +140,30 @@ export default function HumbleGangsters() {
     setIsDragging(false);
   };
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => {
     if (!isMobile || !isDragging) return;
-    e.preventDefault();
-    const x = e.pageX - (sliderRef.current?.offsetLeft || 0);
+    e.preventDefault(); // Prevent default touch behavior
+    
+    const pageX = 'touches' in e ? e.touches[0].pageX : (e as React.MouseEvent).pageX;
+    const x = pageX - (sliderRef.current?.offsetLeft || 0);
     const walk = (x - startX) * 2;
+    
     if (sliderRef.current) {
       sliderRef.current.scrollLeft = scrollLeft - walk;
     }
+  };
+
+  // Add touch event handlers
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    handleMouseDown(e);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    handleMouseMove(e);
+  };
+
+  const handleTouchEnd = () => {
+    handleMouseUp();
   };
 
   return (
@@ -167,6 +185,10 @@ export default function HumbleGangsters() {
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseUp}
           onMouseMove={handleMouseMove}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          style={{ touchAction: 'pan-y pinch-zoom' }}
         >
           <div className={styles.slider}>
             {[...gangsters, ...gangsters, ...gangsters, ...gangsters, ...gangsters, 
@@ -221,6 +243,10 @@ export default function HumbleGangsters() {
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseUp}
           onMouseMove={handleMouseMove}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          style={{ touchAction: 'pan-y pinch-zoom' }}
         >
           <div className={`${styles.slider} ${styles.sliderSlow}`}>
             {[...secondGangsters, ...secondGangsters, ...secondGangsters, ...secondGangsters, ...secondGangsters,
