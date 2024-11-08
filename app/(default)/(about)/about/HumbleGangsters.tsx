@@ -175,13 +175,24 @@ export default function HumbleGangsters() {
               <div key={`gangster-${index}`} className={styles.slide}>
                 <div className={styles.card}>
                   <div className={styles.imageWrapper}>
-                    <Image
-                      src={gangster.image}
-                      alt={gangster.name}
-                      layout='fill'
-                      objectFit='cover'
-                      className={styles.image}
-                    />
+                  <Image
+      src={gangster.image}
+      alt={gangster.name}
+      width={500}  // Specify width
+      height={500} // Specify height
+      className={styles.image}
+      loading="eager"
+      placeholder="blur"
+      blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRg..." // You can generate this or use a simple color
+      quality={75}
+      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+      priority={index < 3}
+      style={{
+        objectFit: 'cover',
+        width: '100%',
+        height: '100%',
+      }}
+    />
                   </div>
                   <div className={styles.overlay}>
                     <p className={`${styles.description} font-proxima-nova text-left font-semibold text-[16px] leading-[24px] md:text-[16px] md:leading-[24px]`}>
@@ -218,13 +229,24 @@ export default function HumbleGangsters() {
               <div key={`second-${index}`} className={styles.slide}>
                 <div className={styles.card}>
                   <div className={styles.imageWrapper}>
-                    <Image
-                      src={gangster.image}
-                      alt={gangster.alt}
-                      layout='fill'
-                      objectFit='cover'
-                      className={styles.image}
-                    />
+                  <Image
+      src={gangster.image}
+      alt={gangster.alt}
+      width={500}  // Specify width
+      height={500} // Specify height
+      className={styles.image}
+      loading="eager"
+      placeholder="blur"
+      blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRg..." // You can generate this or use a simple color
+      quality={75}
+      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+      priority={index < 3}
+      style={{
+        objectFit: 'cover',
+        width: '100%',
+        height: '100%',
+      }}
+    />
                   </div>
                 </div>
               </div>
