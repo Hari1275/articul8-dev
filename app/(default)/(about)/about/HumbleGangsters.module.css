@@ -592,18 +592,28 @@
     scrollbar-width: none;
     -ms-overflow-style: none;
     cursor: grab;
-    /* Prevent vertical bounce */
-    overscroll-behavior-y: none;
-    /* Prevent horizontal bounce */
+    /* Allow vertical scroll but prevent horizontal bounce */
     overscroll-behavior-x: contain;
+    overscroll-behavior-y: auto; /* Changed from none to auto */
     /* Enable smooth scrolling */
     scroll-behavior: smooth;
-    /* Prevent iOS rubber-banding */
     position: relative;
     z-index: 1;
     /* Enable hardware acceleration */
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
+    /* Add touch-action to allow vertical scroll */
+    touch-action: pan-x pan-y pinch-zoom;
+  }
+
+  /* Prevent scrolling issues */
+  .humbleGangsters {
+    position: relative;
+    z-index: 1;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    /* Allow vertical scroll */
+    overscroll-behavior-y: auto; /* Changed from none to auto */
   }
 
   .slider,
@@ -655,11 +665,11 @@
 /* iOS-specific fixes */
 @supports (-webkit-touch-callout: none) {
   .sliderContainer {
-    /* Prevent rubber-banding */
-    overscroll-behavior-y: none;
+    /* Allow vertical scroll but prevent horizontal bounce */
     overscroll-behavior-x: contain;
-    /* Better touch handling */
-    touch-action: pan-x pinch-zoom;
+    overscroll-behavior-y: auto; /* Changed from none to auto */
+    /* Update touch-action to allow vertical scroll */
+    touch-action: pan-x pan-y pinch-zoom;
   }
 
   .slider,
@@ -692,4 +702,10 @@
 .noAutoScroll .sliderSlow {
   animation: none !important;
   transform: none !important;
+}
+
+/* Add this new class for when dragging */
+.sliderContainer.dragging {
+  /* Prevent vertical scroll only while dragging */
+  touch-action: pan-x pinch-zoom;
 }
