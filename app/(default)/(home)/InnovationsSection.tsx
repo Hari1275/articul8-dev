@@ -430,7 +430,7 @@ const InnovationsSection = () => {
         </h2>
 
         {/* Desktop view */}
-        <div className="hidden sm:grid grid-cols-1 lg:grid-cols-10 gap-12 sm:px-0">
+        <div className="hidden lg:grid grid-cols-1 lg:grid-cols-10 gap-12 sm:px-0">
           <div className="lg:col-span-4">
             {innovationData.map((item, index) => (
               <InnovationItem
@@ -474,7 +474,7 @@ const InnovationsSection = () => {
         </div>
 
         {/* Mobile view */}
-        <div className="sm:hidden">
+        <div className="lg:hidden">
           {innovationData.map((item, index) => (
             <AccordionItem
               key={index}
