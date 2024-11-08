@@ -125,6 +125,9 @@ export default function HumbleGangsters() {
   const [autoScroll, setAutoScroll] = React.useState(true);
   const [isTouch, setIsTouch] = React.useState(false);
   const touchTimeout = React.useRef<NodeJS.Timeout>();
+  const [startScrollPos, setStartScrollPos] = React.useState(0);
+  const [currentScrollPos, setCurrentScrollPos] = React.useState(0);
+  const [scrolling, setScrolling] = React.useState(false);
 
   // Only apply touch handling for mobile devices
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
@@ -154,37 +157,75 @@ export default function HumbleGangsters() {
   const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
     setIsTouch(true);
     setAutoScroll(false);
+    setScrolling(true);
+
     if (touchTimeout.current) {
       clearTimeout(touchTimeout.current);
     }
 
     if (!isMobile) return;
+
     setIsDragging(true);
-    setStartX(e.touches[0].pageX - (sliderRef.current?.offsetLeft || 0));
-    setScrollLeft(sliderRef.current?.scrollLeft || 0);
+    const touch = e.touches[0];
+    setStartX(touch.pageX - (sliderRef.current?.offsetLeft || 0));
+    setStartScrollPos(sliderRef.current?.scrollLeft || 0);
+    setCurrentScrollPos(sliderRef.current?.scrollLeft || 0);
   };
 
   const handleTouchEnd = () => {
     if (!isMobile) return;
     setIsDragging(false);
+    setScrolling(false);
 
-    // Restore auto-scroll after a delay
+    // Add momentum scrolling
+    if (sliderRef.current) {
+      const velocity = currentScrollPos - startScrollPos;
+      const momentum = velocity * 0.5; // Adjust this multiplier for more/less momentum
+
+      const targetScroll = currentScrollPos + momentum;
+      sliderRef.current.scrollTo({
+        left: targetScroll,
+        behavior: 'smooth',
+      });
+    }
+
+    // Restore auto-scroll after a longer delay
     touchTimeout.current = setTimeout(() => {
       setAutoScroll(true);
       setIsTouch(false);
-    }, 1000);
+    }, 1500);
   };
 
   const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
     if (!isMobile || !isDragging) return;
+
     const touch = e.touches[0];
     const x = touch.pageX - (sliderRef.current?.offsetLeft || 0);
-    const walk = (x - startX) * 2;
+    const walk = (x - startX) * 1.5; // Reduced multiplier for smoother scrolling
 
     if (sliderRef.current) {
-      sliderRef.current.scrollLeft = scrollLeft - walk;
+      const newScrollPos = startScrollPos - walk;
+      setCurrentScrollPos(newScrollPos);
+      sliderRef.current.scrollLeft = newScrollPos;
     }
   };
+
+  // Add scroll event listener for smooth scrolling
+  React.useEffect(() => {
+    const slider = sliderRef.current;
+
+    const handleScroll = () => {
+      if (!scrolling && slider) {
+        setCurrentScrollPos(slider.scrollLeft);
+      }
+    };
+
+    slider?.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      slider?.removeEventListener('scroll', handleScroll);
+    };
+  }, [scrolling]);
 
   return (
     <section className={styles.humbleGangsters}>
