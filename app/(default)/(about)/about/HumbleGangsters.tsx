@@ -209,7 +209,7 @@ export default function HumbleGangsters() {
         <div
           className={`${styles.sliderContainer} ${
             !autoScroll ? styles.noAutoScroll : ''
-          }`}
+          } ${isDragging ? styles.dragging : ''}`}
           ref={sliderRef}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
