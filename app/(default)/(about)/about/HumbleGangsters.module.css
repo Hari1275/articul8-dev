@@ -604,6 +604,38 @@
     transform: translateZ(0);
     /* Add touch-action to allow vertical scroll */
     touch-action: pan-x pan-y pinch-zoom;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    /* Improved touch handling */
+    touch-action: pan-x pan-y;
+    /* Smoother scrolling */
+    scroll-snap-points-x: repeat(100%);
+  }
+
+  .slide {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  /* Add momentum-based scrolling */
+  .slider,
+  .sliderSlow {
+    /* Previous styles... */
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    transition: transform 0.3s ease-out;
+  }
+
+  /* Smooth out the drag interaction */
+  .sliderContainer.dragging {
+    scroll-snap-type: none;
+    cursor: grabbing;
+  }
+
+  .sliderContainer.dragging .slider,
+  .sliderContainer.dragging .sliderSlow {
+    transition: none;
   }
 
   /* Prevent scrolling issues */
@@ -708,4 +740,24 @@
 .sliderContainer.dragging {
   /* Prevent vertical scroll only while dragging */
   touch-action: pan-x pinch-zoom;
+}
+
+/* Add smooth scrolling for iOS */
+@supports (-webkit-touch-callout: none) {
+  .sliderContainer {
+    /* Previous styles... */
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .slide {
+    scroll-snap-align: start;
+  }
+}
+
+/* Add smooth momentum scrolling */
+.slider,
+.sliderSlow {
+  /* Previous styles... */
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
