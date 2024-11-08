@@ -5,7 +5,7 @@ import styles from './HumbleGangsters.module.css';
 
 const gangsters = [
   {
-    image: '/images/icons/about/slider/Randall Avenell.png',
+    image: '/images/icons/about/slider/Randall Avenell-1.png',
     name: 'Randall Avenell',
     // role: 'Security Engineer',
     description:
@@ -40,14 +40,14 @@ const gangsters = [
       'I\'m a Software Engineer intern at Articul8. I\'ve been working on deploying the API documentation, Wiki on AWS and building CI/CD pipelines using Github Actions for the same.',
   },
   {
-    image: '/images/icons/about/slider/Felipe Pavan.png',
+    image: '/images/icons/about/slider/Felipe Pavan-1.png',
     name: 'Felipe Henrique Wohnrath Pavan',
     // role: 'Infrastructure Engineer',
     description:
       'I\'m an Infrastructure Engineer, maintaining and enhancing the underlying infrastructure of our product. In addition to my core responsibilities, I also contribute to various tasks related to automation, API development, and feature engineering.',
   },
   {
-    image: '/images/icons/about/slider/Rob Carroll.png',
+    image: '/images/icons/about/slider/Rob Carroll-1.png',
     name: 'Rob Carroll',
     // role: 'Product Manager',
     description:
