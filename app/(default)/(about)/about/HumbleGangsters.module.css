@@ -7,6 +7,10 @@
 .sliderContainer {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+  -webkit-overflow-scrolling: touch; /* Add smooth scrolling on iOS */
+  overscroll-behavior: none; /* Prevent bounce effects */
+  touch-action: pan-x; /* Allow only horizontal touch actions */
+  user-select: none; /* Prevent text selection while dragging */
 }
 
 .humbleGangsters {
@@ -148,6 +152,8 @@
   transform: translate3d(0, 0, 0);
   will-change: transform;
   filter: none;
+  -webkit-user-drag: none;
+  user-select: none;
 }
 
 .overlay {
