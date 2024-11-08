@@ -35,7 +35,7 @@ const ProductPage = () => {
             <div className="text-[19px]  md:text-[21px] lg:text-[24px] flex flex-col gap-1 mt-4 text-center font-proxima-nova font-[400] md:text-start  lg:pr-0">
               <span className="md:leading-7  lg:leading-8 hidden md:flex">
                 Articul8’s products make it straightforward for your
-                dev teams to build sophisticated, enterprise-scale, expert-level
+                teams to build sophisticated, enterprise-scale, expert-level
                 GenAI applications that encode your domain expertise.
               </span>
               {/* <span className="leading-none hidden md:flex">
