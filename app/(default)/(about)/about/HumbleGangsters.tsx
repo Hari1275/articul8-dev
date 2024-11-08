@@ -126,90 +126,30 @@ export default function HumbleGangsters() {
   // Only apply touch handling for mobile devices
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
-  // Add a small threshold to detect if it's a click vs drag
-  const [startTime, setStartTime] = React.useState(0);
-  const [moveDistance, setMoveDistance] = React.useState(0);
-
-  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => {
+  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!isMobile) return;
-    
-    // Prevent default behavior
-    e.preventDefault();
-    e.stopPropagation();
-    
-    const pageX = 'touches' in e ? e.touches[0].pageX : (e as React.MouseEvent).pageX;
     setIsDragging(true);
-    setStartX(pageX - (sliderRef.current?.offsetLeft || 0));
+    setStartX(e.pageX - (sliderRef.current?.offsetLeft || 0));
     setScrollLeft(sliderRef.current?.scrollLeft || 0);
-    setStartTime(Date.now());
-    setMoveDistance(0);
   };
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => {
+  const handleMouseUp = () => {
+    if (!isMobile) return;
+    setIsDragging(false);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!isMobile || !isDragging) return;
-    
-    // Prevent default behavior
     e.preventDefault();
-    e.stopPropagation();
-    
-    const pageX = 'touches' in e ? e.touches[0].pageX : (e as React.MouseEvent).pageX;
-    const x = pageX - (sliderRef.current?.offsetLeft || 0);
+    const x = e.pageX - (sliderRef.current?.offsetLeft || 0);
     const walk = (x - startX) * 2;
-    
-    setMoveDistance(Math.abs(walk));
-    
     if (sliderRef.current) {
       sliderRef.current.scrollLeft = scrollLeft - walk;
     }
   };
 
-  const handleMouseUp = (e?: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => {
-    if (!isMobile) return;
-    
-    if (e) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-    
-    // If the movement was small and quick, treat it as a tap/click
-    const isClick = moveDistance < 10 && (Date.now() - startTime) < 200;
-    
-    if (!isClick) {
-      // Prevent click events if it was a drag
-      e?.preventDefault();
-      e?.stopPropagation();
-    }
-    
-    setIsDragging(false);
-    setMoveDistance(0);
-  };
-
-  // Update touch handlers
-  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    handleMouseDown(e);
-  };
-
-  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    handleMouseMove(e);
-  };
-
-  const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    handleMouseUp(e);
-  };
-
-  // Prevent click events during drag
-  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (moveDistance > 10) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-  };
-
   return (
-    <section className={styles.humbleGangsters} onClick={handleClick}>
+    <section className={styles.humbleGangsters}>
       <div className={`${styles.container} container mx-auto px-4 sm:px-6`}>
    
         <h2 className='font-space-grotesk text-[30px] leading-[45px] text-center font-[700] xl:text-[56px] xl:leading-[84px]  lg:text-[50px] lg:leading-[75px] mb-8 md:mb-8 '>
@@ -227,16 +167,6 @@ export default function HumbleGangsters() {
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseUp}
           onMouseMove={handleMouseMove}
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
-          onClick={handleClick}
-          style={{ 
-            touchAction: 'none',
-            WebkitTouchCallout: 'none',
-            WebkitUserSelect: 'none',
-            userSelect: 'none'
-          }}
         >
           <div className={styles.slider}>
             {[...gangsters, ...gangsters, ...gangsters, ...gangsters, ...gangsters, 
@@ -245,24 +175,13 @@ export default function HumbleGangsters() {
               <div key={`gangster-${index}`} className={styles.slide}>
                 <div className={styles.card}>
                   <div className={styles.imageWrapper}>
-                  <Image
-      src={gangster.image}
-      alt={gangster.name}
-      width={500}  // Specify width
-      height={500} // Specify height
-      className={styles.image}
-      loading="eager"
-      placeholder="blur"
-      blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRg..." // You can generate this or use a simple color
-      quality={75}
-      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-      priority={index < 3}
-      style={{
-        objectFit: 'cover',
-        width: '100%',
-        height: '100%',
-      }}
-    />
+                    <Image
+                      src={gangster.image}
+                      alt={gangster.name}
+                      layout='fill'
+                      objectFit='cover'
+                      className={styles.image}
+                    />
                   </div>
                   <div className={styles.overlay}>
                     <p className={`${styles.description} font-proxima-nova text-left font-semibold text-[16px] leading-[24px] md:text-[16px] md:leading-[24px]`}>
@@ -291,16 +210,6 @@ export default function HumbleGangsters() {
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseUp}
           onMouseMove={handleMouseMove}
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
-          onClick={handleClick}
-          style={{ 
-            touchAction: 'none',
-            WebkitTouchCallout: 'none',
-            WebkitUserSelect: 'none',
-            userSelect: 'none'
-          }}
         >
           <div className={`${styles.slider} ${styles.sliderSlow}`}>
             {[...secondGangsters, ...secondGangsters, ...secondGangsters, ...secondGangsters, ...secondGangsters,
@@ -309,24 +218,13 @@ export default function HumbleGangsters() {
               <div key={`second-${index}`} className={styles.slide}>
                 <div className={styles.card}>
                   <div className={styles.imageWrapper}>
-                  <Image
-      src={gangster.image}
-      alt={gangster.alt}
-      width={500}  // Specify width
-      height={500} // Specify height
-      className={styles.image}
-      loading="eager"
-      placeholder="blur"
-      blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRg..." // You can generate this or use a simple color
-      quality={75}
-      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-      priority={index < 3}
-      style={{
-        objectFit: 'cover',
-        width: '100%',
-        height: '100%',
-      }}
-    />
+                    <Image
+                      src={gangster.image}
+                      alt={gangster.alt}
+                      layout='fill'
+                      objectFit='cover'
+                      className={styles.image}
+                    />
                   </div>
                 </div>
               </div>

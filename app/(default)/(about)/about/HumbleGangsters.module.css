@@ -7,14 +7,6 @@
 .sliderContainer {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
-  -webkit-overflow-scrolling: touch; /* Add smooth scrolling on iOS */
-  overscroll-behavior: none; /* Prevent bounce effects */
-  touch-action: none !important;
-  -webkit-touch-callout: none !important;
-  -webkit-tap-highlight-color: transparent;
-  -webkit-user-select: none !important;
-  user-select: none !important;
-  cursor: grab;
 }
 
 .humbleGangsters {
@@ -121,7 +113,6 @@
   flex: 0 0 400px;
   margin: 0 8px;
   min-width: 400px;
-  pointer-events: none; /* Prevent unwanted interactions */
 }
 
 .card {
@@ -134,8 +125,6 @@
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   transform: translate3d(0, 0, 0);
-  -webkit-tap-highlight-color: transparent;
-  pointer-events: auto; /* Re-enable interactions for card */
 }
 
 .imageWrapper {
@@ -159,9 +148,6 @@
   transform: translate3d(0, 0, 0);
   will-change: transform;
   filter: none;
-  -webkit-user-drag: none;
-  user-select: none;
-  pointer-events: none;
 }
 
 .overlay {
@@ -298,22 +284,22 @@
 }
 
 /* Handle touch devices */
-/* @media (hover: none) { */
-  /* .slider {
+@media (hover: none) {
+  .slider {
     -webkit-overflow-scrolling: touch;
     scroll-behavior: smooth;
-  } */
+  }
 
-  /* .overlay {
+  .overlay {
     opacity: 1;
     visibility: visible;
     background: rgba(242, 247, 255, 0.95);
-  } */
+  }
 
   /* .image {
     opacity: 0.1;
   } */
-/* } */
+}
 
 /* Mobile and Tablet Layout (up to 1023px) */
 @media (max-width: 1023px) {
