@@ -9,8 +9,12 @@
   scrollbar-width: none; /* Firefox */
   -webkit-overflow-scrolling: touch; /* Add smooth scrolling on iOS */
   overscroll-behavior: none; /* Prevent bounce effects */
-  touch-action: pan-x; /* Allow only horizontal touch actions */
-  user-select: none; /* Prevent text selection while dragging */
+  touch-action: none !important;
+  -webkit-touch-callout: none !important;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none !important;
+  user-select: none !important;
+  cursor: grab;
 }
 
 .humbleGangsters {
@@ -117,6 +121,7 @@
   flex: 0 0 400px;
   margin: 0 8px;
   min-width: 400px;
+  pointer-events: none; /* Prevent unwanted interactions */
 }
 
 .card {
@@ -129,6 +134,8 @@
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   transform: translate3d(0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+  pointer-events: auto; /* Re-enable interactions for card */
 }
 
 .imageWrapper {
@@ -154,6 +161,7 @@
   filter: none;
   -webkit-user-drag: none;
   user-select: none;
+  pointer-events: none;
 }
 
 .overlay {

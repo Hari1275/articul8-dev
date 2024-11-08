@@ -126,48 +126,90 @@ export default function HumbleGangsters() {
   // Only apply touch handling for mobile devices
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
+  // Add a small threshold to detect if it's a click vs drag
+  const [startTime, setStartTime] = React.useState(0);
+  const [moveDistance, setMoveDistance] = React.useState(0);
+
   const handleMouseDown = (e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => {
     if (!isMobile) return;
+    
+    // Prevent default behavior
+    e.preventDefault();
+    e.stopPropagation();
     
     const pageX = 'touches' in e ? e.touches[0].pageX : (e as React.MouseEvent).pageX;
     setIsDragging(true);
     setStartX(pageX - (sliderRef.current?.offsetLeft || 0));
     setScrollLeft(sliderRef.current?.scrollLeft || 0);
-  };
-
-  const handleMouseUp = () => {
-    if (!isMobile) return;
-    setIsDragging(false);
+    setStartTime(Date.now());
+    setMoveDistance(0);
   };
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => {
     if (!isMobile || !isDragging) return;
-    e.preventDefault(); // Prevent default touch behavior
+    
+    // Prevent default behavior
+    e.preventDefault();
+    e.stopPropagation();
     
     const pageX = 'touches' in e ? e.touches[0].pageX : (e as React.MouseEvent).pageX;
     const x = pageX - (sliderRef.current?.offsetLeft || 0);
     const walk = (x - startX) * 2;
+    
+    setMoveDistance(Math.abs(walk));
     
     if (sliderRef.current) {
       sliderRef.current.scrollLeft = scrollLeft - walk;
     }
   };
 
-  // Add touch event handlers
+  const handleMouseUp = (e?: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => {
+    if (!isMobile) return;
+    
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    
+    // If the movement was small and quick, treat it as a tap/click
+    const isClick = moveDistance < 10 && (Date.now() - startTime) < 200;
+    
+    if (!isClick) {
+      // Prevent click events if it was a drag
+      e?.preventDefault();
+      e?.stopPropagation();
+    }
+    
+    setIsDragging(false);
+    setMoveDistance(0);
+  };
+
+  // Update touch handlers
   const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    e.preventDefault();
     handleMouseDown(e);
   };
 
   const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    e.preventDefault();
     handleMouseMove(e);
   };
 
-  const handleTouchEnd = () => {
-    handleMouseUp();
+  const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    handleMouseUp(e);
+  };
+
+  // Prevent click events during drag
+  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (moveDistance > 10) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
   };
 
   return (
-    <section className={styles.humbleGangsters}>
+    <section className={styles.humbleGangsters} onClick={handleClick}>
       <div className={`${styles.container} container mx-auto px-4 sm:px-6`}>
    
         <h2 className='font-space-grotesk text-[30px] leading-[45px] text-center font-[700] xl:text-[56px] xl:leading-[84px]  lg:text-[50px] lg:leading-[75px] mb-8 md:mb-8 '>
@@ -188,7 +230,13 @@ export default function HumbleGangsters() {
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
-          style={{ touchAction: 'pan-y pinch-zoom' }}
+          onClick={handleClick}
+          style={{ 
+            touchAction: 'none',
+            WebkitTouchCallout: 'none',
+            WebkitUserSelect: 'none',
+            userSelect: 'none'
+          }}
         >
           <div className={styles.slider}>
             {[...gangsters, ...gangsters, ...gangsters, ...gangsters, ...gangsters, 
@@ -246,7 +294,13 @@ export default function HumbleGangsters() {
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
-          style={{ touchAction: 'pan-y pinch-zoom' }}
+          onClick={handleClick}
+          style={{ 
+            touchAction: 'none',
+            WebkitTouchCallout: 'none',
+            WebkitUserSelect: 'none',
+            userSelect: 'none'
+          }}
         >
           <div className={`${styles.slider} ${styles.sliderSlow}`}>
             {[...secondGangsters, ...secondGangsters, ...secondGangsters, ...secondGangsters, ...secondGangsters,
