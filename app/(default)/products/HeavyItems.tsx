@@ -488,7 +488,7 @@ const HeavyItems = () => {
                 <h3 className='font-proxima-nova font-[700] text-[20px]  lg:text-[28px] lg:text-center lg:min-h-[70px]  xl:min-h-max  lg:leading-8'>
                   {item2?.title}
                 </h3>
-                <span className='lg:mb-3 font-proxima-nova font-[400] text-[14px]  text-center mb-6 lg:text-[18px]  2xl:text-[18px]  leading-tight lg:min-h-[140px]  xl:min-h-max 2xl:min-h-max '>
+                <span className='font-proxima-nova font-[400] text-[14px]  lg:mb-3 text-center mb-6 lg:text-[18px]  2xl:text-[18px]  leading-tight lg:min-h-[140px]  xl:min-h-max 2xl:min-h-max '>
                   {item2?.subTitle}
                 </span>
 
@@ -521,7 +521,7 @@ const HeavyItems = () => {
                 <h3 className='font-proxima-nova font-[700] text-[20px]  lg:text-[28px] lg:text-center lg:min-h-[70px]  xl:min-h-max  lg:leading-8'>
                   {item3?.title}
                 </h3>
-                <span className='font-proxima-nova lg:mb-4 2xl:mb-3 font-[400] text-[14px]  text-center mb-6 lg:text-[18px]   2xl:text-[18px]  leading-tight lg:min-h-[140px]  xl:min-h-max 2xl:min-h-max '>
+                <span className='font-proxima-nova lg:mb-3 2xl:mb-3 font-[400] text-[14px]  text-center mb-6 lg:text-[18px]   2xl:text-[18px]  leading-tight lg:min-h-[140px]  xl:min-h-max 2xl:min-h-max '>
                   {item3?.subTitle}
                 </span>
 
