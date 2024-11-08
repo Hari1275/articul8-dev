@@ -37,14 +37,14 @@ const gangsters = [
     name: 'Mohanapriya Singaravelu',
     // role: 'Software Engineer Intern',
     description:
-      'I\'m a Software Engineer intern at Articul8. I\'ve been working on deploying the API documentation, Wiki on AWS and building CI/CD pipelines using Github Actions for the same.',
+      "I'm a Software Engineer intern at Articul8. I've been working on deploying the API documentation, Wiki on AWS and building CI/CD pipelines using Github Actions for the same.",
   },
   {
     image: '/images/icons/about/slider/Felipe Pavan-1.png',
     name: 'Felipe Henrique Wohnrath Pavan',
     // role: 'Infrastructure Engineer',
     description:
-      'I\'m an Infrastructure Engineer, maintaining and enhancing the underlying infrastructure of our product. In addition to my core responsibilities, I also contribute to various tasks related to automation, API development, and feature engineering.',
+      "I'm an Infrastructure Engineer, maintaining and enhancing the underlying infrastructure of our product. In addition to my core responsibilities, I also contribute to various tasks related to automation, API development, and feature engineering.",
   },
   {
     image: '/images/icons/about/slider/Rob Carroll-1.png',
@@ -58,7 +58,7 @@ const gangsters = [
     name: 'Renato Giorgiani do Nascimento',
     // role: 'Head of Product Technology',
     description:
-      'As the Head of Product Technology at Articul8, I lead the development and execution of our technology strategy, ensuring the seamless integration of innovative solutions into our products. I collaborate closely with cross-functional teams to drive product excellence and deliver cutting-edge technology that meets our customers\' needs.',
+      "As the Head of Product Technology at Articul8, I lead the development and execution of our technology strategy, ensuring the seamless integration of innovative solutions into our products. I collaborate closely with cross-functional teams to drive product excellence and deliver cutting-edge technology that meets our customers' needs.",
   },
   {
     image: '/images/icons/about/slider/Chethan Rao.png',
@@ -106,11 +106,11 @@ const secondGangsters = [
     image: '/images/icons/about/slider/9.png',
     alt: '9',
   },
-   {
+  {
     image: '/images/icons/about/slider/10.png',
     alt: '10',
   },
-   {
+  {
     image: '/images/icons/about/slider/11.png',
     alt: '11',
   },
@@ -122,6 +122,9 @@ export default function HumbleGangsters() {
   const [scrollLeft, setScrollLeft] = React.useState(0);
   const sliderRef = React.useRef<HTMLDivElement>(null);
   const secondSliderRef = React.useRef<HTMLDivElement>(null);
+  const [autoScroll, setAutoScroll] = React.useState(true);
+  const [isTouch, setIsTouch] = React.useState(false);
+  const touchTimeout = React.useRef<NodeJS.Timeout>();
 
   // Only apply touch handling for mobile devices
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
@@ -148,47 +151,118 @@ export default function HumbleGangsters() {
     }
   };
 
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    setIsTouch(true);
+    setAutoScroll(false);
+    if (touchTimeout.current) {
+      clearTimeout(touchTimeout.current);
+    }
+
+    if (!isMobile) return;
+    setIsDragging(true);
+    setStartX(e.touches[0].pageX - (sliderRef.current?.offsetLeft || 0));
+    setScrollLeft(sliderRef.current?.scrollLeft || 0);
+  };
+
+  const handleTouchEnd = () => {
+    if (!isMobile) return;
+    setIsDragging(false);
+
+    // Restore auto-scroll after a delay
+    touchTimeout.current = setTimeout(() => {
+      setAutoScroll(true);
+      setIsTouch(false);
+    }, 1000);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (!isMobile || !isDragging) return;
+    const touch = e.touches[0];
+    const x = touch.pageX - (sliderRef.current?.offsetLeft || 0);
+    const walk = (x - startX) * 2;
+
+    if (sliderRef.current) {
+      sliderRef.current.scrollLeft = scrollLeft - walk;
+    }
+  };
+
   return (
     <section className={styles.humbleGangsters}>
       <div className={`${styles.container} container mx-auto px-4 sm:px-6`}>
-   
         <h2 className='font-space-grotesk text-[30px] leading-[45px] text-center font-[700] xl:text-[56px] xl:leading-[84px]  lg:text-[50px] lg:leading-[75px] mb-8 md:mb-8 '>
-        Meet some of our <br className="md:hidden"/> <span className='text-[#FF00C7]'>&#8220;humble gangsters&#8221;</span> 
+          Meet some of our <br className='md:hidden' />{' '}
+          <span className='text-[#FF00C7]'>&#8220;humble gangsters&#8221;</span>
         </h2>
         <p className='font-proxima-nova text-[16px] sm:text-[20px] font-normal leading-[19.2px] sm:leading-[24px] text-black mb-8 md:mb-12 text-center'>
-          Describing ourselves as "humble gangsters" means we're a team of bold, confident innovators who take calculated risks while staying grounded and approachable. We bring a certain charm and edge to our work, tackling challenges with grit and resilience, without letting arrogance get in the way. We're savvy, resilient, and unconventional in our approach, yet we stay humble, earning respect through our actions, not attitude. We blend tenacity, resourcefulness, and integrity—qualities that make us relatable and effective, whether facing high-stakes situations or handling day-to-day challenges.
+          Describing ourselves as "humble gangsters" means we're a team of bold,
+          confident innovators who take calculated risks while staying grounded
+          and approachable. We bring a certain charm and edge to our work,
+          tackling challenges with grit and resilience, without letting
+          arrogance get in the way. We're savvy, resilient, and unconventional
+          in our approach, yet we stay humble, earning respect through our
+          actions, not attitude. We blend tenacity, resourcefulness, and
+          integrity—qualities that make us relatable and effective, whether
+          facing high-stakes situations or handling day-to-day challenges.
         </p>
-        
+
         {/* First Slider */}
-        <div 
-          className={styles.sliderContainer}
+        <div
+          className={`${styles.sliderContainer} ${
+            !autoScroll ? styles.noAutoScroll : ''
+          }`}
           ref={sliderRef}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+          onTouchMove={handleTouchMove}
           onMouseDown={handleMouseDown}
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseUp}
           onMouseMove={handleMouseMove}
         >
           <div className={styles.slider}>
-            {[...gangsters, ...gangsters, ...gangsters, ...gangsters, ...gangsters, 
-              ...gangsters, ...gangsters, ...gangsters, ...gangsters, ...gangsters,
-              ...gangsters, ...gangsters, ...gangsters, ...gangsters, ...gangsters].map((gangster, index) => (
+            {[
+              ...gangsters,
+              ...gangsters,
+              ...gangsters,
+              ...gangsters,
+              ...gangsters,
+              ...gangsters,
+              ...gangsters,
+              ...gangsters,
+              ...gangsters,
+              ...gangsters,
+              ...gangsters,
+              ...gangsters,
+              ...gangsters,
+              ...gangsters,
+              ...gangsters,
+            ].map((gangster, index) => (
               <div key={`gangster-${index}`} className={styles.slide}>
                 <div className={styles.card}>
                   <div className={styles.imageWrapper}>
                     <Image
                       src={gangster.image}
                       alt={gangster.name}
-                      layout='fill'
-                      objectFit='cover'
+                      fill
+                      sizes='(max-width: 640px) 100vw, 
+                             (max-width: 1023px) 320px,
+                             (max-width: 1279px) 400px,
+                             450px'
+                      priority={index < 4} // Load first 4 images immediately
                       className={styles.image}
+                      quality={90}
                     />
                   </div>
                   <div className={styles.overlay}>
-                    <p className={`${styles.description} font-proxima-nova text-left font-semibold text-[16px] leading-[24px] md:text-[16px] md:leading-[24px]`}>
+                    <p
+                      className={`${styles.description} font-proxima-nova text-left font-semibold text-[16px] leading-[24px] md:text-[16px] md:leading-[24px]`}
+                    >
                       {gangster.description}
                     </p>
                     <div className={styles.personInfo}>
-                      <h3 className={`${styles.name} font-proxima-nova text-left font-[700] text-[14.9px] leading-[18.9px] md:text-[14.9px] md:leading-[18.9px]`}>
+                      <h3
+                        className={`${styles.name} font-proxima-nova text-left font-[700] text-[14.9px] leading-[18.9px] md:text-[14.9px] md:leading-[18.9px]`}
+                      >
                         {gangster.name}
                       </h3>
                       {/* <p className={`${styles.role} font-proxima-nova text-left font-[400] text-[12.53px] leading-[17.9px] md:text-[12.53px] md:leading-[17.9px]`}>
@@ -203,7 +277,7 @@ export default function HumbleGangsters() {
         </div>
 
         {/* Second Slider */}
-        <div 
+        <div
           className={`${styles.sliderContainer} ${styles.secondSlider}`}
           ref={secondSliderRef}
           onMouseDown={handleMouseDown}
@@ -212,18 +286,37 @@ export default function HumbleGangsters() {
           onMouseMove={handleMouseMove}
         >
           <div className={`${styles.slider} ${styles.sliderSlow}`}>
-            {[...secondGangsters, ...secondGangsters, ...secondGangsters, ...secondGangsters, ...secondGangsters,
-              ...secondGangsters, ...secondGangsters, ...secondGangsters, ...secondGangsters, ...secondGangsters,
-              ...secondGangsters, ...secondGangsters, ...secondGangsters, ...secondGangsters, ...secondGangsters].map((gangster, index) => (
+            {[
+              ...secondGangsters,
+              ...secondGangsters,
+              ...secondGangsters,
+              ...secondGangsters,
+              ...secondGangsters,
+              ...secondGangsters,
+              ...secondGangsters,
+              ...secondGangsters,
+              ...secondGangsters,
+              ...secondGangsters,
+              ...secondGangsters,
+              ...secondGangsters,
+              ...secondGangsters,
+              ...secondGangsters,
+              ...secondGangsters,
+            ].map((gangster, index) => (
               <div key={`second-${index}`} className={styles.slide}>
                 <div className={styles.card}>
                   <div className={styles.imageWrapper}>
                     <Image
                       src={gangster.image}
                       alt={gangster.alt}
-                      layout='fill'
-                      objectFit='cover'
+                      fill
+                      sizes='(max-width: 640px) 100vw, 
+                             (max-width: 1023px) 320px,
+                             (max-width: 1279px) 400px,
+                             450px'
+                      priority={index < 4} // Load first 4 images immediately
                       className={styles.image}
+                      quality={85}
                     />
                   </div>
                 </div>

@@ -105,7 +105,11 @@
     transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translate3d(calc(-93.33% - 112px), 0, 0); /* Move by three-quarters plus gaps */
+    transform: translate3d(
+      calc(-93.33% - 112px),
+      0,
+      0
+    ); /* Move by three-quarters plus gaps */
   }
 }
 
@@ -456,10 +460,10 @@
   }
 }
 
-@media (max-width: 640px) { 
-.secondSlider {
-  margin-top: 1.5rem
-}
+@media (max-width: 640px) {
+  .secondSlider {
+    margin-top: 1.5rem;
+  }
 }
 
 /* Override hover effects for second slider */
@@ -517,7 +521,11 @@
     transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translate3d(calc(-93.33% - 112px), 0, 0); /* Move by three-quarters plus gaps */
+    transform: translate3d(
+      calc(-93.33% - 112px),
+      0,
+      0
+    ); /* Move by three-quarters plus gaps */
   }
 }
 /* Update for large screens */
@@ -584,30 +592,104 @@
     scrollbar-width: none;
     -ms-overflow-style: none;
     cursor: grab;
-    /* Add smooth scrolling behavior */
+    /* Prevent vertical bounce */
+    overscroll-behavior-y: none;
+    /* Prevent horizontal bounce */
+    overscroll-behavior-x: contain;
+    /* Enable smooth scrolling */
     scroll-behavior: smooth;
+    /* Prevent iOS rubber-banding */
+    position: relative;
+    z-index: 1;
+    /* Enable hardware acceleration */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
   }
 
   .slider,
   .sliderSlow {
-    animation: scrollMobile 1920s linear infinite; /* Add slower animation for mobile */
     display: flex;
     gap: 4px;
+    /* Prevent iOS issues */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform;
+    /* Slower animation for mobile */
+    animation: scrollMobile 1920s linear infinite;
   }
 
-  /* Add new keyframes for mobile scroll */
-  @keyframes scrollMobile {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
+  /* Prevent scrolling issues */
+  .humbleGangsters {
+    position: relative;
+    z-index: 1;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    overscroll-behavior: none;
   }
 
-  /* Pause animation on touch/scroll */
-  .sliderContainer:active .slider,
-  .sliderContainer:active .sliderSlow {
-    animation-play-state: paused;
+  /* Optimize performance */
+  .card {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform;
+    /* Prevent iOS highlighting */
+    -webkit-tap-highlight-color: transparent;
   }
+
+  .imageWrapper {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform;
+  }
+
+  .image {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform;
+    /* Prevent image dragging */
+    -webkit-user-drag: none;
+    user-drag: none;
+  }
+}
+
+/* iOS-specific fixes */
+@supports (-webkit-touch-callout: none) {
+  .sliderContainer {
+    /* Prevent rubber-banding */
+    overscroll-behavior-y: none;
+    overscroll-behavior-x: contain;
+    /* Better touch handling */
+    touch-action: pan-x pinch-zoom;
+  }
+
+  .slider,
+  .sliderSlow {
+    /* Prevent animation issues */
+    animation: none;
+    /* Enable smooth scrolling */
+    scroll-behavior: smooth;
+  }
+
+  /* Prevent text selection */
+  .card {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+}
+
+/* Update animation keyframes */
+@keyframes scrollMobile {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Add these new utility classes */
+.noAutoScroll .slider,
+.noAutoScroll .sliderSlow {
+  animation: none !important;
+  transform: none !important;
 }
