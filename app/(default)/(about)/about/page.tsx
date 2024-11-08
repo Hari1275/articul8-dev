@@ -20,13 +20,13 @@ export const metadata: Metadata = {
 const AboutPage: React.FC = () => {
   return (
     <div>
-      {/* <Hero /> */}
+      <Hero />
       <MissionSection />
       <ImpactSection />
       <CEOQuoteSection />
       <CultureAndValues />
       <HumbleGangsters />
-      {/* <TeamPhotoSection /> */}
+      <TeamPhotoSection />
       <JoinTeamSection />
     </div>
   );
