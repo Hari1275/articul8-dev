@@ -122,6 +122,9 @@
   border-radius: 16px; /* Slightly smaller radius for mobile */
   cursor: pointer;
   overflow: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
 }
 
 .imageWrapper {
@@ -129,7 +132,9 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  transform: translateZ(0); /* Force GPU acceleration */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
 }
 
 .image {
@@ -138,11 +143,11 @@
   object-fit: cover;
   object-position: center;
   transition: opacity 0.4s ease;
-  image-rendering: -webkit-optimize-contrast; /* Improve image sharpness */
-  image-rendering: crisp-edges;
-  -webkit-backface-visibility: hidden; /* Prevent blur during transitions */
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  transform: translateZ(0);
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+  filter: none;
 }
 
 .overlay {
@@ -155,14 +160,16 @@
   padding: 1.5rem; /* Smaller padding for mobile */
   opacity: 0;
   visibility: hidden;
-  transition: all 0.4s ease;
-  transform: translateZ(0);
+  transition: opacity 0.4s ease;
+  transform: translate3d(0, 0, 0);
+  will-change: opacity;
   backface-visibility: hidden;
 }
 
 /* Remove all scaling effects */
 .card:hover .image {
   opacity: 0;
+  transform: none;
 }
 
 .card:hover .overlay {
@@ -289,9 +296,9 @@
     background: rgba(242, 247, 255, 0.95);
   }
 
-  .image {
+  /* .image {
     opacity: 0.1;
-  }
+  } */
 }
 
 /* Mobile and Tablet Layout (up to 1023px) */
