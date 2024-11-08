@@ -513,13 +513,25 @@ const HeavyItems = () => {
                   className='h-full flex flex-col items-center    whitespace-nowrap  text-transform  font-proxima-nova font-[700] text-[20px] lg:text-[28px]'
                   style={{ height: 'max-content' }}
                 >
-                  A8 Expert
+                  A8 
+                  
+                  Expert
                 </div>
               </div>
 
               <div className='hidden lg:flex flex-col justify-center items-center  lg:px-4 lg:py-5   py-4 gap-2'>
-                <h3 className='font-proxima-nova font-[700] text-[20px]  lg:text-[28px] lg:text-center lg:min-h-[70px]  xl:min-h-max  lg:leading-8'>
-                  {item3?.title}
+                <h3 className='hidden md:block font-proxima-nova font-[700] text-[20px] lg:text-[28px] lg:text-center lg:min-h-[70px] xl:min-h-max lg:leading-8'>
+                  {/* Split title for md screens only */}
+                  <span className='md:block xl:hidden'>
+                    {item3?.title?.split(' ')[0]} {/* Shows "A8" */}
+                  </span>
+                  <span className='md:block xl:hidden'>
+                    {item3?.title?.split(' ').slice(1).join(' ')} {/* Shows "Expert" */}
+                  </span>
+                  {/* Single line for lg+ screens */}
+                  <span className='hidden xl:block'>
+                    {item3?.title}
+                  </span>
                 </h3>
                 <span className='font-proxima-nova lg:mb-3 2xl:mb-3 font-[400] text-[14px]  text-center mb-6 lg:text-[18px]   2xl:text-[18px]  leading-tight lg:min-h-[140px]  xl:min-h-max 2xl:min-h-max '>
                   {item3?.subTitle}
