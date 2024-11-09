@@ -64,20 +64,22 @@ const TrustedBy = () => {
         <h2 className='font-proxima-nova font-[600] text-[14px] leading-[14px] sm:text-[24px] sm:leading-[29.23px] text-[#737373] sm:text-[#000000] text-center mb-6 sm:mb-8'>
           Trusted by leading global enterprises
         </h2>
-        <Slider {...settings}>
-          {companies.map((company, index) => (
-            <div key={index} className='flex justify-center items-center px-2'>
-              <Image
-                src={`/images/logos/${company}-logo.svg`}
-                alt={company}
-                width={100}
-                height={40}
-                objectFit='contain'
-                className='h-6 sm:h-8 w-auto'
-              />
-            </div>
-          ))}
-        </Slider>
+        <div className="trusted-by-slider">
+          <Slider {...settings}>
+            {companies.map((company, index) => (
+              <div key={index} className='flex justify-center items-center px-2'>
+                <Image
+                  src={`/images/logos/${company}-logo.svg`}
+                  alt={company}
+                  width={100}
+                  height={40}
+                  objectFit='contain'
+                  className='h-6 sm:h-8 w-auto'
+                />
+              </div>
+            ))}
+          </Slider>
+        </div>
       </div>
     </section>
   );
