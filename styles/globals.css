@@ -88,14 +88,16 @@ body {
 
 /* Add this to your existing globals.css */
 
-.slick-slide {
-  display: flex !important;
-  justify-content: center;
-  align-items: center;
-  height: 60px; /* Adjust as needed */
+
+.slick-dots {
+  bottom: -30px !important;
 }
 
-.slick-track {
-  display: flex !important;
-  align-items: center;
+.slick-dots li button:before {
+  font-size: 8px !important;
+  color: #FF00C7 !important;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #FF00C7 !important;
 }

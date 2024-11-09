@@ -1,0 +1,29 @@
+/* Slick carousel custom styles */
+.slick-slide {
+  padding: 0 8px;  /* Add consistent padding */
+}
+
+.slick-dots {
+  bottom: -35px !important;
+}
+
+.slick-dots li {
+  margin: 0 2px !important;
+}
+
+.slick-dots li button:before {
+  font-size: 8px !important;
+  color: #FF00C7 !important;
+  opacity: 0.25 !important;
+}
+
+.slick-dots li.slick-active button:before {
+  opacity: 1 !important;
+}
+
+/* Fix slider overflow */
+.slick-slider {
+  overflow: hidden;
+  margin: 0 -8px;  /* Compensate for slide padding */
+}
+
