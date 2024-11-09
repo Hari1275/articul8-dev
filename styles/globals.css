@@ -91,13 +91,16 @@ body {
 
 .slick-dots {
   bottom: -30px !important;
+  
 }
 
 .slick-dots li button:before {
+  margin: 0 2px;
   font-size: 8px !important;
-  color: #FF00C7 !important;
+  color: #e5e7eb !important;
 }
 
 .slick-dots li.slick-active button:before {
-  color: #FF00C7 !important;
+  margin: 0 2px;
+  color: #e5e7eb !important;
 }
