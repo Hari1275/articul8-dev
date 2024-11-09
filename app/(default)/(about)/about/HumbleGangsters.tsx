@@ -235,7 +235,7 @@ export default function HumbleGangsters() {
           <span className='text-[#FF00C7]'>&#8220;humble gangsters&#8221;</span>
         </h2>
         <p className='font-proxima-nova text-[16px] sm:text-[20px] font-normal leading-[19.2px] sm:leading-[24px] text-black mb-8 md:mb-12 text-center'>
-          Describing ourselves as "humble gangsters" means we're a team of bold,
+          For us "humble gangsters" means that we're a team of bold,
           confident innovators who take calculated risks while staying grounded
           and approachable. We bring a certain charm and edge to our work,
           tackling challenges with grit and resilience, without letting
