@@ -22,95 +22,39 @@
   width: 100%;
   overflow: hidden;
   position: relative;
-  padding: 0 16px;
+  padding: 0;
 }
 
-/* Mobile-specific styles */
-@media (max-width: 1020px) {
-  .sliderContainer {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    cursor: grab;
-  }
-
-  .slider,
-  .sliderSlow {
-    animation: none;
-    display: flex;
-    gap: 4px;
-  }
-
-  .secondSlider {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .secondSlider .slider {
-    animation: none;
-    scroll-behavior: smooth;
-  }
-
-  .card {
-    cursor: default; /* Remove pointer cursor */
-  }
-
-  .overlay {
-    display: none; /* Completely disable overlay */
-  }
-
-  .image {
-    opacity: 1 !important; /* Force image to always be visible */
-    transition: none; /* Remove transitions */
-  }
-
-  /* Remove any hover effects */
-  .card:hover .image {
-    opacity: 1;
-  }
-
-  .card:hover .overlay {
-    opacity: 0;
-    visibility: hidden;
-  }
+.slider {
+  display: flex;
+  gap: 8px;
+  padding: 20px 0 0 0;
+  width: max-content;
 }
 
-/* Desktop-specific styles */
-@media (min-width: 768px) {
-  .slider {
-    display: flex;
-    gap: 8px;
-    padding: 20px 0 0 0;
-    animation: scroll 600s linear infinite;
-    width: max-content;
-    transform: translate3d(0, 0, 0);
-    will-change: transform;
-  }
-
-  .secondSlider .sliderSlow {
-    animation: scroll 740s linear infinite;
-    will-change: transform;
-  }
-
-  .sliderContainer:hover .slider,
-  .sliderContainer:hover .sliderSlow {
-    animation-play-state: paused;
-  }
+/* First slider animation */
+.firstSlider {
+  animation: marqueeRightToLeft 100s linear infinite;
 }
 
-/* Update animation to move by 75% */
-@keyframes scroll {
+/* Second slider animation (slower) */
+.secondSlider {
+  animation: marqueeRightToLeft 120s linear infinite;
+}
+
+/* Updated keyframes for seamless loop */
+@keyframes marqueeRightToLeft {
   0% {
-    transform: translate3d(0, 0, 0);
+    transform: translateX(0);
   }
   100% {
-    transform: translate3d(
-      calc(-93.33% - 112px),
-      0,
-      0
-    ); /* Move by three-quarters plus gaps */
+    transform: translateX(calc(-110% - 8px)); /* Account for gap between items */
   }
+}
+
+/* Pause on hover */
+.sliderContainer:hover .slider {
+  animation-play-state: paused;
 }
 
 .slide {
@@ -122,8 +66,8 @@
 .card {
   position: relative;
   width: 100%;
-  height: 320px; /* Smaller height for mobile */
-  border-radius: 16px; /* Slightly smaller radius for mobile */
+  height: 320px;
+  border-radius: 16px;
   cursor: pointer;
   overflow: hidden;
   -webkit-backface-visibility: hidden;
@@ -161,7 +105,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 1.5rem; /* Smaller padding for mobile */
+  padding: 1.5rem;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.4s ease;
@@ -170,10 +114,8 @@
   backface-visibility: hidden;
 }
 
-/* Remove all scaling effects */
 .card:hover .image {
   opacity: 0;
-  transform: none;
 }
 
 .card:hover .overlay {
@@ -181,39 +123,135 @@
   visibility: visible;
 }
 
-.description {
-  font-size: 1rem; /* Smaller font for mobile */
-  line-height: 1.5;
-  color: #111827;
-  font-weight: 400;
-  max-width: 100%;
-  margin-bottom: auto;
-}
+/* Mobile styles */
+@media (max-width: 1023px) {
+  .humbleGangsters {
+    overflow-x: hidden;
+  }
 
-.personInfo {
-  margin-top: 1.5rem;
-}
+  .sliderContainer {
+    margin: 0 -0.5rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    cursor: grab;
+  }
 
-.name {
-  font-size: 1.25rem; /* Smaller font for mobile */
-  font-weight: 600;
-  margin-bottom: 0.25rem;
-  color: #000;
-  line-height: 1.2;
-}
+  .card {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    background: #f2f7ff;
+    transform: translateZ(0);
+  }
 
-.role {
-  font-size: 1rem; /* Smaller font for mobile */
-  color: #4b5563;
-  font-weight: 400;
+  .overlay {
+    position: relative;
+    opacity: 1;
+    visibility: visible;
+    order: 1;
+    padding: 2rem;
+    flex: 1;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    transform: none;
+    transition: none;
+  }
+
+  .imageWrapper {
+    position: relative;
+    order: 2;
+    height: 280px;
+    flex-shrink: 0;
+    transform: translateZ(0);
+  }
+
+  .image {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .description {
+    font-size: 1rem;
+    margin-bottom: auto;
+    flex: 1;
+  }
+
+  .personInfo {
+    margin-top: 1.5rem;
+  }
+
+  /* First Slider Card - Fixed height */
+  .cardContent {
+    background: #f2f7ff;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 350px; /* Fixed height for all cards */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .textContent {
+    padding: 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .description {
+    font-size: 16px;
+    line-height: 24px;
+    color: #111827;
+    margin-bottom: 16px;
+    flex: 1; /* Take remaining space */
+  }
+
+  .name {
+    font-size: 14.9px;
+    line-height: 18.9px;
+    font-weight: 700;
+    color: #000;
+    margin-top: auto; /* Push to bottom of text content */
+  }
+
+  .imageContainer {
+    position: relative;
+    width: 100%;
+    height: 240px;
+  }
+
+  /* Second Slider Fixes */
+  .mobileSliderContainer:nth-child(2) {
+    margin: 3rem -16px 0; /* Negative margin to align with edges */
+    padding: 0 16px;
+  }
+
+  .imageOnlyCard {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  /* Slider spacing fixes */
+  .mobileSlider :global(.slick-list) {
+    overflow: visible;
+    margin: 0 -8px;
+    padding: 0 !important;
+  }
+
+  /* Update second slider settings in the component */
+  .mobileSliderContainer:nth-child(2) :global(.slick-track) {
+    margin-left: 0; /* Reset any automatic margins */
+  }
 }
 
 /* Tablet styles */
 @media (min-width: 640px) {
-  .humbleGangsters {
-    padding: 3rem 0;
-  }
-
   .slide {
     flex: 0 0 320px;
     margin: 0 0.75rem;
@@ -227,29 +265,13 @@
   .overlay {
     padding: 1.5rem;
   }
-
-  .description {
-    font-size: 1.075rem;
-  }
-
-  .name {
-    font-size: 1.5rem;
-  }
-
-  .role {
-    font-size: 1.075rem;
-  }
 }
 
 /* Desktop styles */
 @media (min-width: 1024px) {
-  .humbleGangsters {
-    padding: 4rem 0;
-  }
-
   .slide {
     flex: 0 0 400px;
-    margin: 0 0.2rem; /* Reduced from 1rem */
+    margin: 0 0.2rem;
   }
 
   .card {
@@ -260,26 +282,13 @@
   .overlay {
     padding: 1.5rem;
   }
-
-  .description {
-    font-size: 1.125rem;
-    max-width: 90%;
-  }
-
-  .name {
-    font-size: 1.75rem;
-  }
-
-  .role {
-    font-size: 1.125rem;
-  }
 }
 
 /* Large desktop styles */
 @media (min-width: 1280px) {
   .slide {
     flex: 0 0 450px;
-    margin: 0 0.5rem; /* Reduced from 1.25rem */
+    margin: 0 0.5rem;
   }
 
   .card {
@@ -287,95 +296,48 @@
   }
 }
 
-/* Handle touch devices */
-@media (hover: none) {
-  .slider {
-    -webkit-overflow-scrolling: touch;
-    scroll-behavior: smooth;
-  }
+/* Second slider specific styles */
+.secondSlider .card:hover .image {
+  opacity: 1;
+}
 
+.secondSlider .overlay {
+  display: none;
+}
+
+.secondSlider .card {
+  cursor: default;
+}
+
+.secondSlider .image {
+  opacity: 1 !important;
+  transition: none;
+}
+
+/* Touch device handling */
+@media (hover: none) {
   .overlay {
     opacity: 1;
     visibility: visible;
     background: rgba(242, 247, 255, 0.95);
   }
-
-  /* .image {
-    opacity: 0.1;
-  } */
 }
 
-/* Mobile and Tablet Layout (up to 1023px) */
+/* Mobile and Tablet Layout adjustments */
 @media (max-width: 1023px) {
-  .humbleGangsters {
-    overflow-x: hidden; /* Explicitly hide horizontal overflow */
-  }
-
-  .sliderContainer {
-    margin: 0 -0.5rem; /* Compensate for slide margins */
-  }
-
-  .card {
-    display: flex;
-    flex-direction: column;
-    height: 500px; /* Fixed height for consistency */
-    background: #f2f7ff;
-    transform: translateZ(0);
-  }
-
-  .overlay {
-    position: relative;
-    opacity: 1;
-    visibility: visible;
-    order: 1;
-    padding: 2rem;
-    flex: 1; /* Takes up remaining space */
-    /* min-height: 220px;  */
-    min-height: 300px; /* Minimum height for content */
-    display: flex;
-    flex-direction: column;
-    transform: none;
-    transition: none;
-  }
-
-  .imageWrapper {
-    position: relative;
-    order: 2;
-    height: 280px; /* Fixed height for image */
-    flex-shrink: 0; /* Prevents image from shrinking */
-    transform: translateZ(0);
-  }
-
-  .image {
-    opacity: 1;
-    transform: none; /* Remove transform on mobile */
-    transition: none; /* Remove transition on mobile */
-  }
-
-  .description {
-    font-size: 1rem;
-    margin-bottom: auto; /* Pushes personInfo to bottom */
-    flex: 1;
-  }
-
-  .personInfo {
-    margin-top: 1.5rem;
-  }
-
-  /* Override styles for second slider on mobile */
   .secondSlider .card {
-    height: 280px; /* Reduced height since we don't have content */
-    background: transparent; /* Remove background since no content */
+    height: 280px;
+    background: transparent;
   }
 
   .secondSlider .overlay {
-    display: none; /* Hide overlay completely */
+    display: none;
   }
 
   .secondSlider .imageWrapper {
-    position: absolute; /* Reset position */
-    order: unset; /* Reset order */
-    height: 100%; /* Full height */
+    position: absolute;
+    order: unset;
+    height: 100%;
   }
 
   .secondSlider .image {
@@ -386,7 +348,7 @@
 /* Tablet specific adjustments */
 @media (min-width: 640px) and (max-width: 1023px) {
   .card {
-    height: 700px; /* Slightly taller for tablet */
+    height: 700px;
   }
 
   .overlay {
@@ -398,13 +360,12 @@
     height: 320px;
   }
 
-  /* Override for second slider */
   .secondSlider .card {
-    height: 320px; /* Adjust height for tablet */
+    height: 320px;
   }
 }
 
-/* Desktop styles - keep original hover effect */
+/* Desktop hover effects */
 @media (min-width: 1024px) {
   .card {
     height: 310px;
@@ -431,333 +392,320 @@
   }
 }
 
-/* Add this new class for different speed and direction */
-.sliderReverse {
-  animation: scrollReverse 30s linear infinite;
+/* Add this to your existing CSS */
+.paused {
+  transition: transform 0.3s ease-out;
 }
 
-/* Add this new keyframe animation */
+.paused .slider {
+  transition: transform 0.3s ease-out;
+}
 
-@keyframes scrollReverse {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
+/* Hide sliders on mobile and tablet */
+@media (max-width: 1279px) {
+  .sliderContainer {
+    display: none;  /* Hide the sliders completely */
   }
 }
 
-/* Update responsive spacing */
-@media (min-width: 640px) {
+/* Only show sliders on desktop */
+@media (min-width: 1280px) {
+  .sliderContainer {
+    display: block;  /* Show sliders */
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 0;
+  }
+
+  .slider {
+    display: flex;
+    gap: 8px;
+    padding: 20px 0 0 0;
+    width: max-content;
+  }
+
+  /* First slider animation */
+  .firstSlider {
+    animation: marqueeRightToLeft 100s linear infinite;
+  }
+
+  /* Second slider animation (slower) */
   .secondSlider {
-    margin-top: 1.5rem;
+    animation: marqueeRightToLeft 120s linear infinite;
   }
 }
 
-@media (min-width: 1024px) {
-  .secondSlider {
-    margin-top: 0;
+/* Remove mobile-specific styles since sliders will be hidden */
+@media (max-width: 1279px) {
+  .humbleGangsters {
+    overflow-x: hidden;
   }
 }
 
-@media (max-width: 640px) {
-  .secondSlider {
-    margin-top: 1.5rem;
+/* Keep desktop styles */
+/* @media (min-width: 1024px) {
+  .slide {
+    flex: 0 0 400px;
+    margin: 0 0.2rem;
   }
-}
 
-/* Override hover effects for second slider */
-.secondSlider .card:hover .image {
-  opacity: 1; /* Keep image visible on hover */
-}
-
-.secondSlider .overlay {
-  display: none; /* Remove overlay completely for second slider */
-}
-
-.secondSlider .card {
-  cursor: default; /* Remove pointer cursor since there's no interaction */
-}
-
-/* Ensure image is always visible in second slider */
-.secondSlider .image {
-  opacity: 1 !important;
-  transition: none;
-}
-
-/* Handle touch devices - override for second slider */
-@media (hover: none) {
-  .secondSlider .image {
-    opacity: 1 !important;
+  .card {
+    height: 310px;
+    border-radius: 21px;
   }
-}
 
-.secondSlider .slide {
-  flex: 0 0 400px; /* Match the first slider's width */
-  min-width: 400px; /* Match the first slider's min-width */
-  margin: 0 8px;
-}
-
-.sliderSlow {
-  animation: scrollReverse 60s linear infinite;
-}
-
-/* Update the animation for the second slider */
-.sliderSlow {
-  animation: scrollReverse 60s linear infinite;
-}
-
-/* Update the keyframes for right to left movement */
-/* @keyframes scrollReverse {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
+  .overlay {
+    padding: 1.5rem;
   }
 } */
-@keyframes scroll {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  100% {
-    transform: translate3d(
-      calc(-93.33% - 112px),
-      0,
-      0
-    ); /* Move by three-quarters plus gaps */
-  }
-}
-/* Update for large screens */
-@media (min-width: 1280px) {
-  .secondSlider .slide {
-    flex: 0 0 450px; /* Match the first slider's large screen width */
-    margin: 0 0.5rem;
-  }
-}
 
-/* Update for tablet */
-@media (min-width: 640px) {
-  .secondSlider .slide {
-    flex: 0 0 320px; /* Match the first slider's tablet width */
-    margin: 0 0.75rem;
+/* Mobile Slider Styles - Fixed */
+@media (max-width: 1279px) {
+  .mobileSliders {
+    display: block;
+    margin-top: 2rem;
+    padding: 0 16px;
   }
-}
 
-/* Update the second slider styles to match first slider exactly */
-.secondSlider .slide {
-  flex: 0 0 400px;
-  min-width: 400px;
-  margin: 0 0.2rem; /* Match the first slider's margin */
-}
-
-/* Update responsive styles for second slider to match first slider exactly */
-@media (min-width: 640px) {
-  .secondSlider .slide {
-    flex: 0 0 320px;
-    margin: 0 0.75rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .secondSlider .slide {
-    flex: 0 0 400px;
-    margin: 0 0.2rem; /* Match the first slider's margin */
-  }
-}
-
-@media (min-width: 1280px) {
-  .secondSlider .slide {
-    flex: 0 0 450px;
-    margin: 0 0.5rem; /* Match the first slider's margin */
-  }
-}
-
-/* Ensure gap is consistent between both sliders */
-.secondSlider .slider {
-  gap: 8px; /* Match the first slider's gap */
-}
-
-@media (max-width: 767px) {
-  .secondSlider .slider {
-    gap: 4px; /* Match the first slider's mobile gap */
-  }
-}
-
-/* Update Mobile-specific styles */
-@media (max-width: 1023px) {
-  .sliderContainer {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    cursor: grab;
-    /* Allow vertical scroll but prevent horizontal bounce */
-    overscroll-behavior-x: contain;
-    overscroll-behavior-y: auto; /* Changed from none to auto */
-    /* Enable smooth scrolling */
-    scroll-behavior: smooth;
+  .mobileSliderContainer {
+    margin-bottom: 4rem;
     position: relative;
-    z-index: 1;
-    /* Enable hardware acceleration */
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    /* Add touch-action to allow vertical scroll */
-    touch-action: pan-x pan-y pinch-zoom;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    /* Improved touch handling */
-    touch-action: pan-x pan-y;
-    /* Smoother scrolling */
-    scroll-snap-points-x: repeat(100%);
   }
 
-  .slide {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-  }
-
-  /* Add momentum-based scrolling */
-  .slider,
-  .sliderSlow {
-    /* Previous styles... */
-    -webkit-overflow-scrolling: touch;
-    scroll-behavior: smooth;
-    transition: transform 0.3s ease-out;
-  }
-
-  /* Smooth out the drag interaction */
-  .sliderContainer.dragging {
-    scroll-snap-type: none;
-    cursor: grabbing;
-  }
-
-  .sliderContainer.dragging .slider,
-  .sliderContainer.dragging .sliderSlow {
-    transition: none;
-  }
-
-  /* Prevent scrolling issues */
-  .humbleGangsters {
-    position: relative;
-    z-index: 1;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    /* Allow vertical scroll */
-    overscroll-behavior-y: auto; /* Changed from none to auto */
-  }
-
-  .slider,
-  .sliderSlow {
+  /* First slider card styles */
+  .cardContent {
+    background: #f2f7ff;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 500px; /* Fixed height for all cards */
     display: flex;
-    gap: 4px;
-    /* Prevent iOS issues */
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    will-change: transform;
-    /* Slower animation for mobile */
-    animation: scrollMobile 1920s linear infinite;
+    flex-direction: column;
   }
 
-  /* Prevent scrolling issues */
-  .humbleGangsters {
+  .textContent {
+    padding: 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .imageContainer {
     position: relative;
-    z-index: 1;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    overscroll-behavior: none;
+    width: 100%;
+    height: 240px; /* Fixed height for image */
   }
 
-  /* Optimize performance */
-  .card {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    will-change: transform;
-    /* Prevent iOS highlighting */
-    -webkit-tap-highlight-color: transparent;
+  /* Second slider card styles */
+  .imageOnlyCard {
+    position: relative;
+    width: 100%;
+    height: 500px; /* Match the height of first slider cards */
+    border-radius: 12px;
+    overflow: hidden;
   }
 
-  .imageWrapper {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    will-change: transform;
+  .slideImage {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
   }
 
-  .image {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    will-change: transform;
-    /* Prevent image dragging */
-    -webkit-user-drag: none;
-    user-drag: none;
+  /* Responsive adjustments */
+  @media (min-width: 640px) and (max-width: 1279px) {
+    /* Taller cards for tablet view */
+    /* .cardContent,
+    .imageOnlyCard {
+      height: 600px; 
+    } */
+
+    .imageContainer {
+      height: 300px; /* Larger images for tablet view */
+    }
+  }
+
+  /* Second slider specific styles */
+  .mobileSliderContainer:nth-child(2) {
+    margin-top: 2rem;
+  }
+
+  .mobileSliderContainer:nth-child(2) .mobileCard {
+    background: transparent;
+    height: 200px;
+  }
+
+  .mobileSliderContainer:nth-child(2) .mobileImageWrapper {
+    height: 200px;
+    border-radius: 8px;
+    overflow: hidden;
+    order: 1; /* Only image */
+  }
+
+  .mobileSliderContainer:nth-child(2) .mobileContent {
+    display: none; /* Hide content in second slider */
+  }
+
+  /* Fix slider spacing */
+  .mobileSlider {
+    margin: 0 -8px;
+  }
+
+  .mobileSlide {
+    padding: 0 8px;
+  }
+
+  /* Slider dots */
+  .mobileSlider :global(.slick-list) {
+    overflow: visible;
+    margin: 0 -8px;
+  }
+
+  .mobileSlider :global(.slick-slide) {
+    padding: 0 8px;
+  }
+
+  .mobileSlider :global(.slick-dots) {
+    bottom: -30px;
+    text-align: left;
+    padding-left: 8px;
+  }
+
+  .mobileSlider :global(.slick-dots li) {
+    margin: 0 4px;
+  }
+
+  .mobileSlider :global(.slick-dots li button:before) {
+    font-size: 8px;
+    color: #e5e7eb;
+    opacity: 0.3;
+  }
+
+  .mobileSlider :global(.slick-dots li.slick-active button:before) {
+    opacity: 1;
+  }
+
+  /* Hide desktop sliders */
+  .desktopSliders {
+    display: none;
   }
 }
 
-/* iOS-specific fixes */
-@supports (-webkit-touch-callout: none) {
-  .sliderContainer {
-    /* Allow vertical scroll but prevent horizontal bounce */
-    overscroll-behavior-x: contain;
-    overscroll-behavior-y: auto; /* Changed from none to auto */
-    /* Update touch-action to allow vertical scroll */
-    touch-action: pan-x pan-y pinch-zoom;
-  }
-
-  .slider,
-  .sliderSlow {
-    /* Prevent animation issues */
-    animation: none;
-    /* Enable smooth scrolling */
-    scroll-behavior: smooth;
-  }
-
-  /* Prevent text selection */
-  .card {
-    -webkit-user-select: none;
-    user-select: none;
+/* Desktop styles */
+@media (min-width: 1280px) {
+  .mobileSliders {
+    display: none;
   }
 }
 
-/* Update animation keyframes */
-@keyframes scrollMobile {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
+/* Keep desktop styles as is */
+@media (min-width: 1280px) {
+  .mobileSliders {
+    display: none;
   }
 }
 
-/* Add these new utility classes */
-.noAutoScroll .slider,
-.noAutoScroll .sliderSlow {
-  animation: none !important;
-  transform: none !important;
-}
-
-/* Add this new class for when dragging */
-.sliderContainer.dragging {
-  /* Prevent vertical scroll only while dragging */
-  touch-action: pan-x pinch-zoom;
-}
-
-/* Add smooth scrolling for iOS */
-@supports (-webkit-touch-callout: none) {
-  .sliderContainer {
-    /* Previous styles... */
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
+/* Mobile Styles - With Slick Slider specific styles */
+@media (max-width: 1279px) {
+  .desktopSliders {
+    display: none;
   }
 
-  .slide {
-    scroll-snap-align: start;
+  .container {
+    padding: 0;
   }
-}
 
-/* Add smooth momentum scrolling */
-.slider,
-.sliderSlow {
-  /* Previous styles... */
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  .mobileSliders {
+    margin-top: 2rem;
+  }
+
+  .mobileSliderContainer {
+    margin-bottom: 3rem;
+  }
+
+  /* First Slider Card */
+  .slideItem {
+    padding: 0 8px;
+  }
+
+  .cardContent {
+    background: #f2f7ff;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .textContent {
+    padding: 24px;
+  }
+
+  .description {
+    font-size: 16px;
+    line-height: 24px;
+    color: #111827;
+    margin-bottom: 16px;
+  }
+
+  .name {
+    font-size: 14.9px;
+    line-height: 18.9px;
+    font-weight: 700;
+    color: #000;
+  }
+
+  .imageContainer {
+    position: relative;
+    width: 100%;
+    height: 240px;
+  }
+
+  /* Second Slider Card */
+  .imageOnlyCard {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .slideImage {
+    object-fit: cover;
+  }
+
+  /* Slick Slider Custom Styles - Scoped to this component */
+  .mobileSlider :global(.slick-slider) {
+    overflow: hidden;
+    margin: 0 -8px;
+  }
+
+  .mobileSlider :global(.slick-slide) {
+    padding: 0 8px;
+  }
+
+  .mobileSlider :global(.slick-dots) {
+    bottom: -30px;
+    text-align: left;
+    padding-left: 24px;
+  }
+
+  .mobileSlider :global(.slick-dots li) {
+    margin: 0 4px;
+  }
+
+  .mobileSlider :global(.slick-dots li button:before) {
+    font-size: 6px;
+    color: #e5e7eb;
+    opacity: 0.3;
+  }
+
+  .mobileSlider :global(.slick-dots li.slick-active button:before) {
+    opacity: 1;
+  }
+
+  /* Center Mode Adjustments */
+  .mobileSlider :global(.slick-slide) {
+    opacity: 1;
+  }
+
+  .mobileSlider :global(.center .slick-center) {
+    opacity: 1;
+  }
 }

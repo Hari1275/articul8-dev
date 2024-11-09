@@ -1,6 +1,9 @@
 'use client';
 import React from 'react';
 import Image from 'next/image';
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import styles from './HumbleGangsters.module.css';
 
 const gangsters = [
@@ -117,125 +120,84 @@ const secondGangsters = [
 ];
 
 export default function HumbleGangsters() {
-  const [isDragging, setIsDragging] = React.useState(false);
-  const [startX, setStartX] = React.useState(0);
-  const [scrollLeft, setScrollLeft] = React.useState(0);
-  const sliderRef = React.useRef<HTMLDivElement>(null);
-  const secondSliderRef = React.useRef<HTMLDivElement>(null);
-  const [autoScroll, setAutoScroll] = React.useState(true);
-  const [isTouch, setIsTouch] = React.useState(false);
-  const touchTimeout = React.useRef<NodeJS.Timeout>();
-  const [startScrollPos, setStartScrollPos] = React.useState(0);
-  const [currentScrollPos, setCurrentScrollPos] = React.useState(0);
-  const [scrolling, setScrolling] = React.useState(false);
-
-  // Only apply touch handling for mobile devices
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-
-  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isMobile) return;
-    setIsDragging(true);
-    setStartX(e.pageX - (sliderRef.current?.offsetLeft || 0));
-    setScrollLeft(sliderRef.current?.scrollLeft || 0);
-  };
-
-  const handleMouseUp = () => {
-    if (!isMobile) return;
-    setIsDragging(false);
-  };
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isMobile || !isDragging) return;
-    e.preventDefault();
-    const x = e.pageX - (sliderRef.current?.offsetLeft || 0);
-    const walk = (x - startX) * 2;
-    if (sliderRef.current) {
-      sliderRef.current.scrollLeft = scrollLeft - walk;
-    }
-  };
-
-  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
-    setIsTouch(true);
-    setAutoScroll(false);
-    setScrolling(true);
-
-    if (touchTimeout.current) {
-      clearTimeout(touchTimeout.current);
-    }
-
-    if (!isMobile) return;
-
-    setIsDragging(true);
-    const touch = e.touches[0];
-    setStartX(touch.pageX - (sliderRef.current?.offsetLeft || 0));
-    setStartScrollPos(sliderRef.current?.scrollLeft || 0);
-    setCurrentScrollPos(sliderRef.current?.scrollLeft || 0);
-  };
-
-  const handleTouchEnd = () => {
-    if (!isMobile) return;
-    setIsDragging(false);
-    setScrolling(false);
-
-    // Add momentum scrolling
-    if (sliderRef.current) {
-      const velocity = currentScrollPos - startScrollPos;
-      const momentum = velocity * 0.5; // Adjust this multiplier for more/less momentum
-
-      const targetScroll = currentScrollPos + momentum;
-      sliderRef.current.scrollTo({
-        left: targetScroll,
-        behavior: 'smooth',
-      });
-    }
-
-    // Restore auto-scroll after a longer delay
-    touchTimeout.current = setTimeout(() => {
-      setAutoScroll(true);
-      setIsTouch(false);
-    }, 1500);
-  };
-
-  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
-    if (!isMobile || !isDragging) return;
-
-    const touch = e.touches[0];
-    const x = touch.pageX - (sliderRef.current?.offsetLeft || 0);
-    const walk = (x - startX) * 1.5; // Reduced multiplier for smoother scrolling
-
-    if (sliderRef.current) {
-      const newScrollPos = startScrollPos - walk;
-      setCurrentScrollPos(newScrollPos);
-      sliderRef.current.scrollLeft = newScrollPos;
-    }
-  };
-
-  // Add scroll event listener for smooth scrolling
-  React.useEffect(() => {
-    const slider = sliderRef.current;
-
-    const handleScroll = () => {
-      if (!scrolling && slider) {
-        setCurrentScrollPos(slider.scrollLeft);
+  // Simplified settings for first slider
+  const firstSliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 1279,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 1023,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        }
       }
-    };
+    ]
+    // className: "center",
+    // centerMode: true,
+    // centerPadding: "20px",
+  };
 
-    slider?.addEventListener('scroll', handleScroll, { passive: true });
-
-    return () => {
-      slider?.removeEventListener('scroll', handleScroll);
-    };
-  }, [scrolling]);
+  // Settings for second slider (image grid)
+  const secondSliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 1279,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        }
+      }
+    ]
+  };
 
   return (
     <section className={styles.humbleGangsters}>
-      <div className={`${styles.container} container mx-auto px-4 sm:px-6`}>
+      <div className={styles.container}>
         <h2 className='font-space-grotesk text-[30px] leading-[45px] text-center font-[700] xl:text-[56px] xl:leading-[84px]  lg:text-[50px] lg:leading-[75px] mb-8 md:mb-8 '>
           Meet some of our <br className='md:hidden' />{' '}
           <span className='text-[#FF00C7]'>&#8220;humble gangsters&#8221;</span>
         </h2>
-        <p className='font-proxima-nova text-[16px] sm:text-[20px] font-normal leading-[19.2px] sm:leading-[24px] text-black mb-8 md:mb-12 text-center'>
-          For us "humble gangsters" means that we're a team of bold,
+        <p className='px-4 font-proxima-nova text-[16px] sm:text-[20px] font-normal leading-[19.2px] sm:leading-[24px] text-black mb-8 md:mb-12 text-center'>
+          Describing ourselves as "humble gangsters" means we're a team of bold,
           confident innovators who take calculated risks while staying grounded
           and approachable. We bring a certain charm and edge to our work,
           tackling challenges with grit and resilience, without letting
@@ -246,123 +208,107 @@ export default function HumbleGangsters() {
           facing high-stakes situations or handling day-to-day challenges.
         </p>
 
-        {/* First Slider */}
-        <div
-          className={`${styles.sliderContainer} ${
-            !autoScroll ? styles.noAutoScroll : ''
-          } ${isDragging ? styles.dragging : ''}`}
-          ref={sliderRef}
-          onTouchStart={handleTouchStart}
-          onTouchEnd={handleTouchEnd}
-          onTouchMove={handleTouchMove}
-          onMouseDown={handleMouseDown}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseUp}
-          onMouseMove={handleMouseMove}
-        >
-          <div className={styles.slider}>
-            {[
-              ...gangsters,
-              ...gangsters,
-              ...gangsters,
-              ...gangsters,
-              ...gangsters,
-              ...gangsters,
-              ...gangsters,
-              ...gangsters,
-              ...gangsters,
-              ...gangsters,
-              ...gangsters,
-              ...gangsters,
-              ...gangsters,
-              ...gangsters,
-              ...gangsters,
-            ].map((gangster, index) => (
-              <div key={`gangster-${index}`} className={styles.slide}>
-                <div className={styles.card}>
-                  <div className={styles.imageWrapper}>
-                    <Image
-                      src={gangster.image}
-                      alt={gangster.name}
-                      fill
-                      sizes='(max-width: 640px) 100vw, 
-                             (max-width: 1023px) 320px,
-                             (max-width: 1279px) 400px,
-                             450px'
-                      priority={index < 4} // Load first 4 images immediately
-                      className={styles.image}
-                      quality={90}
-                    />
-                  </div>
-                  <div className={styles.overlay}>
-                    <p
-                      className={`${styles.description} font-proxima-nova text-left font-semibold text-[16px] leading-[24px] md:text-[16px] md:leading-[24px]`}
-                    >
-                      {gangster.description}
-                    </p>
-                    <div className={styles.personInfo}>
-                      <h3
-                        className={`${styles.name} font-proxima-nova text-left font-[700] text-[14.9px] leading-[18.9px] md:text-[14.9px] md:leading-[18.9px]`}
-                      >
-                        {gangster.name}
-                      </h3>
-                      {/* <p className={`${styles.role} font-proxima-nova text-left font-[400] text-[12.53px] leading-[17.9px] md:text-[12.53px] md:leading-[17.9px]`}>
-                        {gangster.role}
-                      </p> */}
+        {/* Desktop Sliders */}
+        <div className={styles.desktopSliders}>
+          {/* First Slider */}
+          <div className={styles.sliderContainer}>
+            <div className={`${styles.slider} ${styles.firstSlider}`}>
+              {[...gangsters, ...gangsters, ...gangsters].map((gangster, index) => (
+                <div key={`gangster-${index}`} className={styles.slide}>
+                  <div className={styles.card}>
+                    <div className={styles.imageWrapper}>
+                      <Image
+                        src={gangster.image}
+                        alt={gangster.name}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1023px) 320px, (max-width: 1279px) 400px, 450px"
+                        priority={index < 4}
+                        className={styles.image}
+                        quality={90}
+                      />
+                    </div>
+                    <div className={styles.overlay}>
+                      <p className={`${styles.description} font-proxima-nova text-left font-semibold text-[16px] leading-[24px] md:text-[16px] md:leading-[24px]`}>
+                        {gangster.description}
+                      </p>
+                      <div className={styles.personInfo}>
+                        <h3 className={`${styles.name} font-proxima-nova text-left font-[700] text-[14.9px] leading-[18.9px] md:text-[14.9px] md:leading-[18.9px]`}>
+                          {gangster.name}
+                        </h3>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+          </div>
+
+          {/* Second Slider */}
+          <div className={styles.sliderContainer}>
+            <div className={`${styles.slider} ${styles.secondSlider}`}>
+              {[...secondGangsters, ...secondGangsters, ...secondGangsters].map((gangster, index) => (
+                <div key={`second-${index}`} className={styles.slide}>
+                  <div className={styles.card}>
+                    <div className={styles.imageWrapper}>
+                      <Image
+                        src={gangster.image}
+                        alt={gangster.alt}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1023px) 320px, (max-width: 1279px) 400px, 450px"
+                        priority={index < 4}
+                        className={styles.image}
+                        quality={85}
+                      />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* Second Slider */}
-        <div
-          className={`${styles.sliderContainer} ${styles.secondSlider}`}
-          ref={secondSliderRef}
-          onMouseDown={handleMouseDown}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseUp}
-          onMouseMove={handleMouseMove}
-        >
-          <div className={`${styles.slider} ${styles.sliderSlow}`}>
-            {[
-              ...secondGangsters,
-              ...secondGangsters,
-              ...secondGangsters,
-              ...secondGangsters,
-              ...secondGangsters,
-              ...secondGangsters,
-              ...secondGangsters,
-              ...secondGangsters,
-              ...secondGangsters,
-              ...secondGangsters,
-              ...secondGangsters,
-              ...secondGangsters,
-              ...secondGangsters,
-              ...secondGangsters,
-              ...secondGangsters,
-            ].map((gangster, index) => (
-              <div key={`second-${index}`} className={styles.slide}>
-                <div className={styles.card}>
-                  <div className={styles.imageWrapper}>
+        {/* Mobile Sliders */}
+        <div className={styles.mobileSliders}>
+          {/* First Mobile Slider */}
+          <div className={styles.mobileSliderContainer}>
+            <Slider {...firstSliderSettings}>
+              {gangsters.map((gangster, index) => (
+                <div key={index} className={styles.slideItem}>
+                  <div className={styles.cardContent}>
+                    <div className={styles.textContent}>
+                      <p className={styles.description}>{gangster.description}</p>
+                      <h3 className={styles.name}>{gangster.name}</h3>
+                    </div>
+                    <div className={styles.imageContainer}>
+                      <Image
+                        src={gangster.image}
+                        alt={gangster.name}
+                        fill
+                        className={styles.slideImage}
+                      />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </Slider>
+          </div>
+
+          {/* Second Mobile Slider */}
+          <div className={styles.mobileSliderContainer}>
+            <Slider {...secondSliderSettings}>
+              {secondGangsters.map((item, index) => (
+                <div key={index} className={styles.slideItem}>
+                  <div className={styles.imageOnlyCard}>
                     <Image
-                      src={gangster.image}
-                      alt={gangster.alt}
+                      src={item.image}
+                      alt={item.alt}
                       fill
-                      sizes='(max-width: 640px) 100vw, 
-                             (max-width: 1023px) 320px,
-                             (max-width: 1279px) 400px,
-                             450px'
-                      priority={index < 4} // Load first 4 images immediately
-                      className={styles.image}
-                      quality={85}
+                      className={styles.slideImage}
                     />
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </Slider>
           </div>
         </div>
       </div>
