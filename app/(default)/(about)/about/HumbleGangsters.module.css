@@ -576,7 +576,7 @@
 
   .mobileSlider :global(.slick-dots li button:before) {
     font-size: 8px;
-    color: #FF00C7;
+    color: #e5e7eb;
     opacity: 0.3;
   }
 
@@ -692,7 +692,7 @@
 
   .mobileSlider :global(.slick-dots li button:before) {
     font-size: 6px;
-    color: #FF00C7;
+    color: #e5e7eb;
     opacity: 0.3;
   }
 
