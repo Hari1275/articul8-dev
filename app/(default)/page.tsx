@@ -8,7 +8,7 @@ import UnlockSection from './(home)/UnlockSection';
 import PlatformArchitecture from './(home)/PlatformArchitecture';
 import '../../styles/globals.css';
 export const metadata: Metadata = {
-  title: 'Home',
+  title: 'Articul8 | Solving the World’s Toughest Problems with Generative AI',
   description:
     'Welcome to Articul8 - The GenAI platform that brings order to chaos.',
 };
