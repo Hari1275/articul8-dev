@@ -1,0 +1,12 @@
+.trusted-by-slider :global(.slick-slide) {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+  }
+
+  
+  .trusted-by-slider :global(.slick-track) {
+    display: flex !important;
+    align-items: center;
+  }

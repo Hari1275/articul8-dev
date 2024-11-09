@@ -115,7 +115,7 @@ const Footer = () => {
             </span>
             <div className='flex items-center gap-4'>
               <a
-                href='https://twitter.com/Articul8_AI'
+                href='https://x.com/Articul8_AI'
                 target='_blank'
                 rel='noopener noreferrer'
               >
