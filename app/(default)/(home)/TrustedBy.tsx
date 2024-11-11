@@ -69,7 +69,7 @@ const TrustedBy = () => {
             {companies.map((company, index) => (
               <div key={index} className='flex justify-center items-center px-2'>
                 <Image
-                  src={`/images/logos/${company}-logo.svg`}
+                  src={`/images/logos/${company}-logo.png`}
                   alt={company}
                   width={100}
                   height={40}
