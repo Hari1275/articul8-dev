@@ -13,7 +13,7 @@ const Footer = () => {
           <div className='flex justify-between items-center'>
             <div className='flex-shrink-0'>
               <Image
-                src='/images/footer-logo.svg'
+                src='/images/footer.svg'
                 alt='Articul8 Logo'
                 width={120}
                 height={36}
