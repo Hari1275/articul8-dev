@@ -46,7 +46,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <link rel="icon" href="/favicon.svg" type="image/png" sizes="32x32" />
+      <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32" />
       <body className={`${proximaNova.variable} ${spaceGrotesk.variable} font-proxima-nova`}>
         {children}
       </body>
