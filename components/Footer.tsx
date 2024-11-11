@@ -13,7 +13,7 @@ const Footer = () => {
           <div className='flex justify-between items-center'>
             <div className='flex-shrink-0'>
               <Image
-                src='/images/footer-logo.svg'
+                src='/images/footer.svg'
                 alt='Articul8 Logo'
                 width={120}
                 height={36}
@@ -83,7 +83,7 @@ const Footer = () => {
         <div className='hidden sm:flex items-center justify-between'>
           <div className='flex items-center gap-8'>
             <Image
-              src='/images/footer-logo.svg'
+              src='/images/footer.svg'
               alt='Articul8 Logo'
               width={100}
               height={30}
