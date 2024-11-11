@@ -83,7 +83,7 @@ const Footer = () => {
         <div className='hidden sm:flex items-center justify-between'>
           <div className='flex items-center gap-8'>
             <Image
-              src='/images/footer-logo.svg'
+              src='/images/footer.svg'
               alt='Articul8 Logo'
               width={100}
               height={30}
