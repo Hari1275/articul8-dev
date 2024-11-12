@@ -12,8 +12,8 @@ export async function fetchAPI({ url, method = 'GET', body, headers = {} }: Fetc
   try {
     const mergedHeaders = {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${STRAPI_API_TOKEN}`,
-      ...headers,
+      // 'Authorization': `Bearer ${STRAPI_API_TOKEN}`,
+      // ...headers,
     };
 
     const res = await fetch(`${STRAPI_URL}/api${url}`, {
