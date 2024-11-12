@@ -56,6 +56,24 @@ export async function getBlogPost(slug: string) {
 
 export async function getHomePageData() {
   return fetchAPI({
-    url: '/home?populate[HeroSection][populate]=*&populate[GlobalEnterprisesSection][populate]=*',
+    url: '/home?populate[HeroSection][populate]=*&populate[GlobalEnterprisesSection][populate]=*&populate[FasterTimeSection][populate][MainTitle][populate]=*&populate[FasterTimeSection][populate][Cards][populate]=Icon&populate[FeaturesSection][populate][MainTitle][populate]=*&populate[FeaturesSection][populate][FeatureCards][populate]=Icon&populate[FeaturesSection][populate][CtaButton][populate]=*&populate[FeaturesSection][populate]=Image&populate[GenAiChaosSection][populate][MainTitle]=*&populate[GenAiChaosSection][populate][Cards][populate]=*&populate[LastSection][populate]=*',
   });
-} 
+}
+
+export async function getHeaderData() {
+  return fetchAPI({
+    url: '/header?populate[Logo][populate]=*&populate[NavLinks][populate]=*&populate[CtaButton][populate]=*',
+  });
+}
+
+export async function getFooterData() {
+  return fetchAPI({
+    url: '/footer?populate[Logo][populate]=*&populate[NavLinks][populate]=*&populate[SocialNavLinks][populate]=*',
+  });
+}
+
+export async function getAboutPageData() {
+  return fetchAPI({
+    url: '/about?populate[HeroSection][populate]=*&populate[ImapctSection][populate]=*&populate[CeoSection][populate]=*',
+  });
+}

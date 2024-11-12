@@ -2,10 +2,17 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import ErrorBoundary from '../../../components/ErrorBoundary';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const AnimatedText = () => {
+interface AnimatedTextProps {
+  data: {
+    XFaster: number;
+  };
+}
+
+const AnimatedText = ({ data }: AnimatedTextProps) => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
 
@@ -61,19 +68,21 @@ const AnimatedText = () => {
   }, []);
 
   return (
-    <div
-      ref={sectionRef}
-      className='h-[55vh] sm:h-[70vh] flex flex-col items-center justify-center overflow-hidden bg-white'
-    >
-      <div ref={textRef} className='flex flex-col items-center'>
-        <p className='font-proxima-nova font-bold text-[20vw] sm:text-[315.66px] text-[#112FFF] leading-none mb-2'>
-          4x
-        </p>
-        <p className='font-space-grotesk font-bold text-[5vw] sm:text-[93.95px] text-black leading-tight text-center whitespace-nowrap'>
-        Faster time to ROI
-        </p>
+    <ErrorBoundary>
+      <div
+        ref={sectionRef}
+        className='h-[55vh] sm:h-[70vh] flex flex-col items-center justify-center overflow-hidden bg-white'
+      >
+        <div ref={textRef} className='flex flex-col items-center'>
+          <p className='font-proxima-nova font-bold text-[20vw] sm:text-[315.66px] text-[#112FFF] leading-none mb-2'>
+            {data?.XFaster || 4}x
+          </p>
+          <p className='font-space-grotesk font-bold text-[5vw] sm:text-[93.95px] text-black leading-tight text-center whitespace-nowrap'>
+            Faster time to ROI
+          </p>
+        </div>
       </div>
-    </div>
+    </ErrorBoundary>
   );
 };
 

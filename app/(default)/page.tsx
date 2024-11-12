@@ -27,20 +27,22 @@ export const metadata: Metadata = {
 
 const HomePage = async () => {
   const pageData = await getHomePageData();
-  console.log("HomePage ~ pageData:", pageData);
-
+  
   return (
     <div>
-      <Hero data={pageData?.data?.HeroSection} />
-      <TrustedBy data={pageData?.data?.GlobalEnterprisesSection} />
-      <SimplestWay />
-      <UnlockSection />
-      <PlatformArchitecture />
+      <Hero data={pageData.data.HeroSection} />
+      <TrustedBy data={pageData.data.GlobalEnterprisesSection} />
+      <SimplestWay data={pageData.data.FasterTimeSection} />
+      <UnlockSection data={{
+        XFaster: pageData.data.FasterTimeSection.XFaster,
+        Cards: pageData.data.FasterTimeSection.Cards
+      }} />
+      <PlatformArchitecture data={pageData.data.FeaturesSection} />
       <InnovationsSection />
-      <ConvertSection />
-      {/* <Features />
-      <BlogPreview />
-      <Contact /> */}
+      <ConvertSection data={{
+        GenAiChaosSection: pageData.data.GenAiChaosSection,
+        LastSection: pageData.data.LastSection
+      }} />
     </div>
   );
 };

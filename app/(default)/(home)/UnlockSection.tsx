@@ -6,6 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import AnimatedText from './AnimatedText';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import UnlockSectionHeader from './UnlockSectionHeader';
+import ErrorBoundary from '../../../components/ErrorBoundary';
 // import UnlockSectionHeader from './UnlockSectionHeader';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -65,16 +66,32 @@ const useResponsiveValues = () => {
   return values;
 };
 
-const Card = React.memo<{
-  card: {
-    title: string[];
-    image: string;
+interface CardData {
+  Title: string;
+  Icon: {
+    url: string;
+    alternativeText: string;
   };
+}
+
+interface UnlockSectionProps {
+  data: {
+    XFaster: number;
+    Cards: CardData[];
+  };
+}
+
+// Update the Card component props
+interface CardProps {
+  card: CardData;
   index: number;
   totalCards: number;
   isMobile: boolean;
-}>(({ card, index, totalCards, isMobile }) => {
+}
+
+const Card = React.memo<CardProps>(({ card, index, totalCards, isMobile }) => {
   const cardRef = useRef<HTMLDivElement>(null);
+  const title = card.Title.split('\n').filter(line => line.trim());
 
   useEffect(() => {
     if (isMobile) return; // Skip hover animation for mobile
@@ -112,11 +129,10 @@ const Card = React.memo<{
             background: 'linear-gradient(to right, #E8F1FF, #C1F0F4)',
             boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
           }}
-          aria-label={`Card ${index + 1}: ${card.title.join(' ')}`}
         >
           <div className='card-content flex-grow'>
             <h3 className='font-proxima-nova text-[23px] leading-[27.6px] font-[600] text-left'>
-              {card.title.map((line, i) => (
+              {title.map((line, i) => (
                 <span key={i} className='block'>
                   {line}
                 </span>
@@ -125,8 +141,8 @@ const Card = React.memo<{
           </div>
           <div className='flex justify-start mt-auto'>
             <Image
-              src={card.image}
-              alt={`${card.title.join(' ')}`}
+              src={card.Icon.url}
+              alt={card.Icon.alternativeText || `${title.join(' ')}`}
               width={80}
               height={80}
               className='card-image -mb-2'
@@ -153,11 +169,10 @@ const Card = React.memo<{
         boxShadow: '0 10px 20px rgba(0,0,0,0.1)',
         backfaceVisibility: 'hidden',
       }}
-      aria-label={`Card ${index + 1}: ${card.title.join(' ')}`}
     >
       <div className='card-content flex-grow'>
         <h3 className='font-proxima-nova sm:text-[32px] sm:leading-[38.4px] font-[600] sm:font-[600] text-[16px] text-left mb-2'>
-          {card.title.map((line, i) => (
+          {title.map((line, i) => (
             <span key={i} className='block'>
               {line}
             </span>
@@ -166,8 +181,8 @@ const Card = React.memo<{
       </div>
       <div className='relative flex items-end justify-start h-16 sm:h-20 md:h-24'>
         <Image
-          src={card.image}
-          alt={`${card.title.join(' ')}`}
+          src={card.Icon.url}
+          alt={card.Icon.alternativeText || `${title.join(' ')}`}
           width={120}
           height={120}
           className='card-image transition-all duration-300'
@@ -181,7 +196,7 @@ const Card = React.memo<{
 
 Card.displayName = 'Card';
 
-const UnlockSection = () => {
+const UnlockSection = ({ data }: UnlockSectionProps) => {
   const sectionRef = useRef<HTMLElement>(null);
   const cardsContainerRef = useRef<HTMLDivElement>(null);
   const mobileCardsContainerRef = useRef<HTMLDivElement>(null);
@@ -318,34 +333,6 @@ const UnlockSection = () => {
     animateCards();
   }, [animateCards]);
 
-  const cardData = [
-    {
-      title: ['Improved', 'Accuracy'],
-      image: '/images/icons/Accuracy.svg',
-    },
-    {
-      title: ['Improved', 'Precision'],
-      image: '/images/icons/Precision.svg',
-    },
-    {
-      title: ['100%', 'Traceability'],
-      image: '/images/icons/Traceability.svg',
-    },
-    {
-      title: ['Reduction in', 'Complex Human-', 'in-the-Loop Decisions'],
-      image:
-        '/images/icons/Reduction in Complex Human-in-the-Loop Decisions.svg',
-    },
-    {
-      title: ['Reduction in', 'Components to Build', 'Application'],
-      image: '/images/icons/Reduction in Components to Build Application.svg',
-    },
-    {
-      title: ['Richer Semantic', 'Understanding', 'of Your Data'],
-      image: '/images/icons/Richer Semantic Understanding of Your Data.svg',
-    },
-  ];
-
   const updateScrollButtons = useCallback(() => {
     const container = isMobile ? mobileCardsContainerRef.current : cardsContainerRef.current;
     if (container) {
@@ -388,8 +375,9 @@ const UnlockSection = () => {
   };
 
   return (
-    <section className='bg-white relative sm:pt-12 sm:pb-1'>
-      <AnimatedText />
+    <ErrorBoundary>
+      <section className='bg-white relative sm:pt-12 sm:pb-1'>
+        <AnimatedText data={{ XFaster: data.XFaster }} />
       <div ref={sectionRef as React.RefObject<HTMLDivElement>} className='overflow-visible relative'>
         <div className='container mx-auto px-4 sm:px-6 relative'>
           {/* Navigation Arrows - Show for both mobile and desktop */}
@@ -430,12 +418,12 @@ const UnlockSection = () => {
                 paddingBottom: '1rem',
               }}
             >
-              {cardData.map((card, index) => (
+              {data.Cards.map((card, index) => (
                 <Card
                   key={index}
                   card={card}
                   index={index}
-                  totalCards={cardData.length}
+                  totalCards={data.Cards.length}
                   isMobile={isMobile}
                 />
               ))}
@@ -455,13 +443,13 @@ const UnlockSection = () => {
               <div
                 className='absolute top-1/2 left-[20%] sm:left-1/2 lg:left-1/2 transform -translate-x-1/2 -translate-y-1/2'
                 style={{
-                  width: `${cardData.length * (cardWidth + gap) - gap}px`,
+                  width: `${data.Cards.length * (cardWidth + gap) - gap}px`,
                   height: isMobile
                     ? `${cardWidth * 0.8}px`
                     : `${cardWidth * 1.2 + 60}px`,
                 }}
               >
-                {cardData.map((card, index) => (
+                {data.Cards.map((card, index) => (
                   <div
                     key={index}
                     className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'
@@ -471,13 +459,13 @@ const UnlockSection = () => {
                         ? `${cardWidth * 0.8}px`
                         : `${cardWidth * 1.2}px`,
                       transition: 'all 0.5s ease',
-                      zIndex: cardData.length - index, // Reverse the z-index
+                      zIndex: data.Cards.length - index, // Reverse the z-index
                     }}
                   >
                     <Card
                       card={card}
                       index={index}
-                      totalCards={cardData.length}
+                      totalCards={data.Cards.length}
                       isMobile={isMobile}
                     />
                   </div>
@@ -496,6 +484,7 @@ const UnlockSection = () => {
         }
       `}</style>
     </section>
+    </ErrorBoundary>
   );
 };
 
