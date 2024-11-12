@@ -30,8 +30,8 @@ const HomePage = async () => {
 
   return (
     <div>
-      <Hero />
-      <TrustedBy />
+      <Hero data={pageData?.data} />
+      <TrustedBy data={pageData?.data} />
       <SimplestWay />
       <UnlockSection />
       <PlatformArchitecture />

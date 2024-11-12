@@ -52,4 +52,10 @@ export async function getBlogPost(slug: string) {
   return fetchAPI({
     url: `/blog-posts?filters[slug][$eq]=${slug}&populate=*`,
   });
+}
+
+export async function getHomePageData() {
+  return fetchAPI({
+    url: '/home?populate[HeroSection][populate]=*&populate[GlobalEnterprisesSection][populate]=*',
+  });
 } 
