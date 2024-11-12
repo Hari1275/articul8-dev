@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { getPageData } from '../../utils/strapi';
+import { getHomePageData, getPageData } from '../../utils/strapi';
 import ConvertSection from './(home)/ConvertSection';
 import Hero from './(home)/Hero';
 import InnovationsSection from './(home)/InnovationsSection';
@@ -15,15 +15,15 @@ export const metadata: Metadata = {
     'Welcome to Articul8 - The GenAI platform that brings order to chaos.',
 };
 
-async function getHomePageData() {
-  try {
-    const response = await getPageData('home');
-    return response.data[0]?.attributes;
-  } catch (error) {
-    console.error('Error fetching home page data:', error);
-    return null;
-  }
-}
+    // async function getHomePageData() {
+    //   try {
+    //     const response = await getPageData('home');
+    //     return response.data[0]?.attributes;
+    //   } catch (error) {
+    //     console.error('Error fetching home page data:', error);
+    //     return null;
+    //   }
+    // }
 
 const HomePage = async () => {
   const pageData = await getHomePageData();
