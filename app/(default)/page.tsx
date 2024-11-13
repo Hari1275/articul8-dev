@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 
 const HomePage = async () => {
   const pageData = await getHomePageData();
-  
+  console.log('pageData', pageData);
   return (
     <div>
       <Hero data={pageData.data.HeroSection} />
@@ -38,7 +38,7 @@ const HomePage = async () => {
         Cards: pageData.data.FasterTimeSection.Cards
       }} />
       <PlatformArchitecture data={pageData.data.FeaturesSection} />
-      <InnovationsSection />
+      <InnovationsSection data={pageData.data.InnovationsSection} />
       <ConvertSection data={{
         GenAiChaosSection: pageData.data.GenAiChaosSection,
         LastSection: pageData.data.LastSection

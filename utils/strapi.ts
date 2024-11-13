@@ -56,7 +56,7 @@ export async function getBlogPost(slug: string) {
 
 export async function getHomePageData() {
   return fetchAPI({
-    url: '/home?populate[HeroSection][populate]=*&populate[GlobalEnterprisesSection][populate]=*&populate[FasterTimeSection][populate][MainTitle][populate]=*&populate[FasterTimeSection][populate][Cards][populate]=Icon&populate[FeaturesSection][populate][MainTitle][populate]=*&populate[FeaturesSection][populate][FeatureCards][populate]=Icon&populate[FeaturesSection][populate][CtaButton][populate]=*&populate[FeaturesSection][populate]=Image&populate[GenAiChaosSection][populate][MainTitle]=*&populate[GenAiChaosSection][populate][Cards][populate]=*&populate[LastSection][populate]=*',
+    url: '/home?populate[0]=HeroSection&populate[1]=HeroSection.HeroImage&populate[2]=GlobalEnterprisesSection&populate[3]=GlobalEnterprisesSection.Enterprises&populate[4]=FasterTimeSection&populate[5]=FasterTimeSection.MainTitle&populate[6]=FasterTimeSection.Cards&populate[7]=FasterTimeSection.Cards.Icon&populate[8]=FeaturesSection&populate[9]=FeaturesSection.MainTitle&populate[10]=FeaturesSection.FeatureCards&populate[11]=FeaturesSection.FeatureCards.Icon&populate[12]=FeaturesSection.CtaButton&populate[13]=FeaturesSection.Image&populate[14]=InnovationsSection&populate[15]=InnovationsSection.MainTitle&populate[16]=InnovationsSection.InnovationCards&populate[17]=InnovationsSection.InnovationCards.Icon&populate[18]=InnovationsSection.InnovationCards.HoverIcon&populate[19]=InnovationsSection.InnovationCards.Contents&populate[20]=InnovationsSection.InnovationCards.Contents.Icon&populate[21]=InnovationsSection.InnovationCards.Contents.HoverIcon&populate[22]=GenAiChaosSection&populate[23]=GenAiChaosSection.MainTitle&populate[24]=GenAiChaosSection.Cards&populate[25]=GenAiChaosSection.Cards.Icon&populate[26]=LastSection&populate[27]=LastSection.CtaButton&populate[28]=LastSection.Image',
   });
 }
 
@@ -74,6 +74,18 @@ export async function getFooterData() {
 
 export async function getAboutPageData() {
   return fetchAPI({
-    url: '/about?populate[HeroSection][populate]=*&populate[ImapctSection][populate]=*&populate[CeoSection][populate]=*',
+    url: '/about?populate[0]=HeroSection&populate[1]=HeroSection.BannerVideo&populate[2]=ImapctSection&populate[3]=ImapctSection.mainTitle&populate[4]=ImapctSection.Image&populate[5]=CeoSection&populate[6]=CeoSection.Image&populate[7]=ClutureAndValuesSection&populate[8]=ClutureAndValuesSection.ClutureAndValueCards&populate[9]=ClutureAndValuesSection.ClutureAndValueCards.Icon&populate[10]=HumbleGangstersSection&populate[11]=HumbleGangstersSection.MainTitle&populate[12]=HumbleGangstersSection.HumbleGangsterCards&populate[13]=HumbleGangstersSection.HumbleGangsterCards.Image&populate[14]=HumbleGangstersSection.Images&populate[15]=HumbleGangstersSection.BannerVideo&populate[16]=LastSection&populate[17]=LastSection.MainTitle&populate[18]=LastSection.CtaButton',
+  });
+}
+
+export async function getProductPageData() {
+  return fetchAPI({
+    url: '/product?populate[0]=HeroSection&populate[1]=HeroSection.MainTitle&populate[2]=HeroSection.Image&populate[3]=ProductWorksSection&populate[4]=ProductWorksSection.MainTitle&populate[5]=ProductWorksSection.Image&populate[6]=ProductWorksSection.ProductWorkCards&populate[7]=ProductWorksSection.ProductWorkCards.Icon&populate[8]=ProductWorksSection.ProductWorkCards.Environments.Icon&populate[9]=ProductWorksSection.ProductWorkCards.SupportedGPUAccelerators&populate[10]=ProductLiftingSection&populate[11]=ProductLiftingSection.ProductLiftingCards&populate[12]=ProductLiftingSection.ProductLiftingCards.BasicDetail&populate[13]=ProductLiftingSection.ProductLiftingCards.KeyFeatures&populate[14]=ProductLiftingSection.ProductLiftingCards.KeyFeatures.Points&populate[15]=ProductLiftingSection.MainTitle&populate[16]=ProductPlansSection&populate[17]=ProductPlansSection.Points&populate[18]=ProductPlansSection.Points.SubPoints&populate[19]=ProductPlansSection.Points.SubPoints.SubPointItems&populate[20]=ProductPlansSection.A8Expert.CtaButton&populate[21]=ProductPlansSection.A8Enterprise.CtaButton&populate[22]=ProductPlansSection.A8Essential.CtaButton',
+  });
+}
+
+export async function getFormData() {
+  return fetchAPI({
+    url: '/form',
   });
 }

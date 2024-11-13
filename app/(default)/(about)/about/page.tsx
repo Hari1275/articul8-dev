@@ -19,17 +19,17 @@ export const metadata: Metadata = {
 
 const AboutPage = async () => {
   const pageData = await getAboutPageData();
-
+  // console.log('pageData', pageData.data.LastSection);
   return (
     <div>
       <Hero data={pageData.data.HeroSection} />
       <MissionSection data={pageData.data.HeroSection} />
       <ImpactSection data={pageData.data.ImapctSection} />
       <CEOQuoteSection data={pageData.data.CeoSection} />
-      <CultureAndValues />
-      <HumbleGangsters />
-      <TeamPhotoSection />
-      <JoinTeamSection />
+      <CultureAndValues data={pageData.data.ClutureAndValuesSection} />
+      <HumbleGangsters data={pageData.data.HumbleGangstersSection} />
+      <TeamPhotoSection data={pageData.data.HumbleGangstersSection} />
+      <JoinTeamSection data={pageData.data.LastSection} />
     </div>
   );
 };

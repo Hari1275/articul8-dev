@@ -6,7 +6,7 @@ import Modal from '../../../components/Modal';
 import ErrorBoundary from '../../../components/ErrorBoundary';
 
 interface FeatureCardProps {
-  icon: {
+  Icon: {
     url: string;
     alternativeText: string;
   };
@@ -41,12 +41,12 @@ interface ConvertSectionProps {
   };
 }
 
-const FeatureCard = ({ icon, Title, Content }: FeatureCardProps) => (
+const FeatureCard = ({ Icon, Title, Content }: FeatureCardProps) => (
   <div className='bg-[#F9FAFB] rounded-lg p-6 shadow-sm border border-[#EAECF0]'>
     <div className='mb-4'>
       <Image
-        src={icon.url}
-        alt={icon.alternativeText || Title}
+        src={Icon?.url}
+        alt={Icon?.alternativeText || Title}
         width={40}
         height={40}
         className='w-10 h-10'

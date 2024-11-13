@@ -1,5 +1,6 @@
 'use client';
 import React, { useEffect, useRef, useState } from 'react';
+import { getFormData } from '../utils/strapi';
 
 interface ModalProps {
   isOpen: boolean;
@@ -9,9 +10,22 @@ interface ModalProps {
 const ProductModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
   const formContainerRef = useRef<HTMLDivElement>(null);
   const [iframe, setIframe] = useState<HTMLIFrameElement | null>(null);
+  const [formHtml, setFormHtml] = useState<string>('');
 
   useEffect(() => {
-    if (isOpen && formContainerRef.current) {
+    const fetchForm = async () => {
+      try {
+        const formData = await getFormData();
+        setFormHtml(formData.data.A8RequestFUFromSalesLeads);
+      } catch (error) {
+        console.error('Error fetching form:', error);
+      }
+    };
+    fetchForm();
+  }, []);
+
+  useEffect(() => {
+    if (isOpen && formContainerRef.current && formHtml) {
       // Create an iframe for isolated context
       const newIframe = document.createElement('iframe');
       newIframe.style.width = '100%';
@@ -22,9 +36,8 @@ const ProductModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
       formContainerRef.current.appendChild(newIframe);
       setIframe(newIframe);
 
-      // Write content to iframe - similar to new window approach
-      const iframeDoc =
-        newIframe.contentDocument || newIframe.contentWindow?.document;
+      // Write content to iframe
+      const iframeDoc = newIframe.contentDocument || newIframe.contentWindow?.document;
       if (iframeDoc) {
         iframeDoc.open();
         iframeDoc.write(`
@@ -34,11 +47,7 @@ const ProductModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
               <title>Product Form</title>
             </head>
             <body style="margin:0;padding:0;">
-            <div
-        data-form-id='00591cf1-bc93-ef11-8a6a-7c1e520257df'
-        data-form-api-url='https://public-usa.mkt.dynamics.com/api/v1.0/orgs/940bd128-2956-ef11-bfdf-6045bddbb00e/landingpageforms'
-        data-cached-form-url='https://assets-usa.mkt.dynamics.com/940bd128-2956-ef11-bfdf-6045bddbb00e/digitalassets/forms/00591cf1-bc93-ef11-8a6a-7c1e520257df' ></div>
-        <script src = 'https://cxppusa1formui01cdnsa01-endpoint.azureedge.net/usa/FormLoader/FormLoader.bundle.js' ></script>
+              ${formHtml}
             </body>
           </html>
         `);
@@ -52,7 +61,7 @@ const ProductModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
         setIframe(null);
       }
     };
-  }, [isOpen]);
+  }, [isOpen, formHtml]);
 
   if (!isOpen) return null;
 
