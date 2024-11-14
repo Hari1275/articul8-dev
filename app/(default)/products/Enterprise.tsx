@@ -28,10 +28,10 @@ const Card = ({ item }) => {
           className="object-cover"
         />
 
-        <h3 className="text-[19px]  md:text-[28px] font-semibold text-center md:text-start leading-tight font-proxima-nova">
+        <h3 className="text-[19px]  md:text-[28px] font-semibold text-center md:text-start leading-tight font-proxima-nova xl:text-[24px] ">
           {item.title}
         </h3>
-        <span className="text-[16px] font-[400]  md:text-[20px] leading-tight text-center md:text-start font-proxima-nova leading-6">
+        <span className="text-[16px] font-[400]  md:text-[20px] leading-tight text-center md:text-start font-proxima-nova leading-6 xl:text-[18px]">
           {item.content}
         </span>
         {item?.environments && item.environments?.length > 0 && (
@@ -211,10 +211,10 @@ const Enterprise = () => {
             className="w-full md:w-[85%] flex flex-col justify-center align-middle"
             id="product-card"
           >
-            <h3 className=" font-space-grotesk  text-[28px] lg:text-[46px] md:text-3xl font-bold  text-center leading-[36px] md:leading-10 lg:leading-[4rem]">
+            <h2 className=" font-space-grotesk  text-[28px] lg:text-[46px] md:text-3xl font-bold  text-center leading-[36px] md:leading-10 lg:leading-[4rem]">
               Articul8 AI – the enterprise GenAI platform that
               <span className="  text-[#FA05C3]"> just works.</span>
-            </h3>
+            </h2>
           </div>
 
           {/* middle */}

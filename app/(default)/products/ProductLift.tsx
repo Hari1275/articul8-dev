@@ -262,10 +262,10 @@ const ProductLift = () => {
         </div> */}
         {/* top */}
         <div className='container mx-auto px-4 sm:px-6'>
-          <h3 className='font-space-grotesk lg:text-[46px] md:text-3xl text-3xl font-bold text-center'>
+          <h2 className='font-space-grotesk lg:text-[46px] md:text-3xl text-3xl font-bold text-center'>
             Our products do the
             <span className='  text-[#FA05C3]'> heavy lifting</span> for you.
-          </h3>
+          </h2>
         </div>
 
         {/* tabs */}
