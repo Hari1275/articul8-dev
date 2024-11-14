@@ -26,7 +26,7 @@ const FeatureCard = ({
         priority
       />
     </div>
-    <h3 className='font-proxima-nova text-[23px]  lg:text-[40px] font-[700] lg:leading-[50px] xl:leading-[50px] text-black  mb-3 xl:text-[32px]'>
+    <h3 className='font-space-grotesk text-[23px]  lg:text-[40px] font-[700] lg:leading-[50px] xl:leading-[50px] text-black  mb-3 xl:text-[32px] '>
       {title}
     </h3>
     <p className='font-proxima-nova xl:text-[20px] font-[400] text-[20px] text-black leading-tight'>
