@@ -61,9 +61,9 @@ const TrustedBy = () => {
   return (
     <section className='bg-white pt-4 pb-2'>
       <div className='container mx-auto px-4 sm:px-6'>
-        <h2 className='font-proxima-nova font-[600] text-[14px] leading-[14px] sm:text-[24px] sm:leading-[29.23px] text-[#737373] sm:text-[#000000] text-center mb-6 sm:mb-8'>
+        <h3 className='font-proxima-nova font-[600] text-[14px] leading-[14px] sm:text-[24px] sm:leading-[29.23px] text-[#737373] sm:text-[#000000] text-center mb-6 sm:mb-8 lg:text-[24px]'>
           Trusted by leading global enterprises
-        </h2>
+        </h3>
         <div className="trusted-by-slider">
           <Slider {...settings}>
             {companies.map((company, index) => (
