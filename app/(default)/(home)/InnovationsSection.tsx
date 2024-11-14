@@ -47,7 +47,7 @@ const InnovationItem = ({
         className="mr-4 transition-all duration-300"
       />
       <p
-        className={`text-[30px] font-proxima-nova font-[700] xl:leading-[46.14px] sm:text-[22px] lg:text-[26px]
+        className={`text-[30px] font-proxima-nova font-[700] xl:leading-[46.14px] sm:text-[22px] xl:text-[24px]  lg:text-[26px] 
           ${showBlueBackground ? "text-white" : "text-black"}
           transition-all duration-300`}
       >
@@ -431,7 +431,7 @@ const InnovationsSection = () => {
 
         {/* Desktop view */}
         <div className="hidden lg:grid grid-cols-1 lg:grid-cols-10 gap-12 sm:px-0">
-          <div className="lg:col-span-4">
+          <div className="lg:col-span-4 xl:text-[24px]">
             {innovationData.map((item, index) => (
               <InnovationItem
                 key={index}
@@ -445,6 +445,7 @@ const InnovationsSection = () => {
                 onClick={() => handleInnovationClick(index)}
                 onMouseEnter={() => handleInnovationHover(index)}
                 onMouseLeave={() => {}}
+               
               />
             ))}
           </div>

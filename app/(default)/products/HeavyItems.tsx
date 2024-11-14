@@ -708,7 +708,7 @@ const HeavyItems = () => {
                                                 className='w-[6px] h-[6px]'
                                               />
                                             </div>
-                                            <span className='font-proxima-nova font-[400] lg:text-[18px] 2xl:text-[17px]  text-[14px] leading-4 mr-1 lg:leading-5'>
+                                            <span className='font-proxima-nova font-[400] lg:text-[18px] xl:text-[16px]  text-[14px] leading-4 mr-1 lg:leading-5'>
                                               {subItem.title}
                                             </span>
                                           </div>
