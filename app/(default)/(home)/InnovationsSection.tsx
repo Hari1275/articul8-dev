@@ -411,7 +411,8 @@ const InnovationsSection = () => {
     hoveredInnovation !== null ? hoveredInnovation : selectedInnovation;
 
   return (
-    <section className="sm:py-16 py-8 bg-[#F2F7FF]">
+    // sm:py-16 py-8
+    <section className=" bg-[#F2F7FF]">
       <div className="container mx-auto px-4 sm:px-6">
         <h2 className="hidden xl:block font-space-grotesk text-[26px] sm:text-[54px] font-bold mb-16 sm:leading-[84px] text-center leading-tight">
           <span className="block mb-2">

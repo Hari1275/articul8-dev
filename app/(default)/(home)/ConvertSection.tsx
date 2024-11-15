@@ -122,7 +122,7 @@ const ConvertSection = () => {
   };
 
   return (
-    <section className='sm:pt-16 pt-8 bg-gray-50 overflow-hidden'>
+    <section className='bg-gray-50 overflow-hidden'>
       <div className='container mx-auto px-4 sm:px-6'>
         <h2 className='font-space-grotesk text-[26px] font-[700] leading-tight sm:text-[34px] sm:leading-[50px] md:text-[50px] lg:text-[54px]  lg:leading-[84px] text-[#060606] mb-12 sm:mb-16 text-center'>
           <span className='block'>

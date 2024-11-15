@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function MissionSection() {
   return (
-    <section className='bg-white pt-8 pb-6 sm:py-12 md:py-16 relative'>
+    <section className='bg-white py-12  sm:py-12 md:py-12 relative'>
       <div className='container mx-auto px-4 sm:px-6 '>
         <h1 className='font-space-grotesk text-[40px] sm:text-[64px] font-bold leading-[51.04px] sm:leading-[81.66px] text-black sm:mb-8 mb-4 xl:mb-3 mx-auto text-center sm:text-left xl:text-center'>
           BUILDING FOR A BETTER TOMORROW
@@ -14,7 +14,7 @@ export default function MissionSection() {
           {/* <span className='xl:block xl:text-center'>products that delight our customers.</span> */}
         </p>
       </div>
-      <div className='hidden sm:flex justify-end items-end py-12'>
+      <div className='hidden sm:flex justify-end items-end pt-12'>
         <Image
           src='/images/icons/vertical-strip.svg'
           alt='Decorative vertical strip'

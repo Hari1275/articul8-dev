@@ -193,7 +193,7 @@ const Enterprise = () => {
 
   return (
     <>
-      <div className="w-full bg-white pt-8 md:pt-16  pb-10   flex justify-center items-center bg-[background: #ECEFF2] ">
+      <div className="w-full bg-white    pb-12 md:pb-0   flex justify-center items-center bg-[background: #ECEFF2] ">
         <div className="container mx-auto px-4 sm:px-6  flex flex-col justify-center items-center gap-4 md:gap-10">
           {/* top */}
           {/* <div className="w-full md:w-[85%] flex flex-col justify-center align-middle" id="product-card">

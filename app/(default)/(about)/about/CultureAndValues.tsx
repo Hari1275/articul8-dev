@@ -29,7 +29,7 @@ const values = [
 
 export default function CultureAndValues() {
   return (
-    <section className=' bg-[#F2F7FF] py-8 sm:pt-16 sm:pb-20'>
+    <section className=' bg-[#F2F7FF] py-8 sm:pt-0 sm:pb-20'>
       <div className='container mx-auto px-4 sm:px-6'>
         <h2 className='font-space-grotesk text-[30px] sm:text-[56px] font-bold leading-[45px] sm:leading-[84px] text-black text-center md:text-left mb-4 sm:mb-4'>
           Our culture and values
