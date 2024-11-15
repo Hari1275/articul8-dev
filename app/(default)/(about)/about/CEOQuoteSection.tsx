@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function CEOQuoteSection() {
   return (
-    <section className='bg-white py-12 sm:py-24'>
+    <section className='bg-white py-12 sm:py-16'>
       <div className='container mx-auto px-4 sm:px-6 md:relative'>
         <div className='flex flex-col md:flex-row items-center md:items-center xl:items-start lg:items-center  gap-8 sm:gap-16'>
           <div className='w-full md:w-1/2 order-1 md:order-2'>

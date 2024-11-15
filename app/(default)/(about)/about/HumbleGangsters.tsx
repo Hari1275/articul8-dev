@@ -190,7 +190,7 @@ export default function HumbleGangsters() {
   };
 
   return (
-    <section className={styles.humbleGangsters}>
+    <section className={styles.humbleGangsters} style={{paddingTop:'0px !important'}}>
       <div className={styles.container}>
         <h2 className='font-space-grotesk text-[30px] leading-[45px] text-center font-[700] xl:text-[56px] xl:leading-[84px]  lg:text-[50px] lg:leading-[75px] mb-8 md:mb-8 '>
           Meet some of our <br className='md:hidden' />{' '}

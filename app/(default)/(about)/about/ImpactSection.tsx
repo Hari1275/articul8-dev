@@ -4,7 +4,10 @@ export default function ImpactSection() {
   return (
     <section className='bg-white py-0 sm:py-0'>
       <div className='container mx-auto px-4 sm:px-6'>
-        <h2 className='font-space-grotesk text-[30px] xl:text-[56px] lg:text-[54px] lg:leading-[56px] font-bold leading-[38.28px] xl:leading-[71.46px] text-black text-center sm:text-left mb-4 sm:mb-10 xl:text-center'>
+        <h2 className='font-space-grotesk text-[30px] xl:text-[56px] lg:text-[54px] lg:leading-[56px] font-bold leading-[38.28px] xl:leading-[71.46px] text-black text-center sm:text-left mb-4 sm:mb-10 xl:text-center pb-8 sm:pb-0 pt-0'
+        style={{paddingTop: '0px !important'}}
+
+        >
           <span className='block sm:inline'>Driven by  <span className='text-[#FA05C3]'>impact,</span> </span>{' '}
           <span className='block sm:inline'>rooted in research</span>
         </h2>
@@ -48,7 +51,7 @@ export default function ImpactSection() {
           </div>
         </div>
       </div>
-      <div className='hidden sm:flex justify-start items-start sm:pt-[120px] pt-[100px]'>
+      <div className='hidden sm:flex justify-start items-start sm:pt-12 pt-12'>
         <Image
           src='/images/icons/vertical-strip-left.svg'
           alt='Decorative vertical strip'

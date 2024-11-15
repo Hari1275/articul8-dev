@@ -24,7 +24,7 @@ h1 {
 }
 
 h2 {
-  @apply xl:text-[54px]  xl:leading-[64px] !important;
+  @apply xl:text-[54px]  xl:leading-[64px] pt-12 !important ;
 }
 
 @layer utilities {
