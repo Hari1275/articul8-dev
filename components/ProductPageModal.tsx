@@ -36,9 +36,9 @@ const ProductModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
             <body style="margin:0;padding:0;">
             <div
         data-form-id='00591cf1-bc93-ef11-8a6a-7c1e520257df'
-        data-form-api-url='https://public-usa.mkt.dynamics.com/api/v1.0/orgs/51133799-f384-ef11-ac1e-000d3a106820/landingpageforms'
-        data-cached-form-url='https://assets-usa.mkt.dynamics.com/51133799-f384-ef11-ac1e-000d3a106820/digitalassets/forms/00591cf1-bc93-ef11-8a6a-7c1e520257df' ></div>
-        <script src='https://cxppusa1formui01cdnsa01-endpoint.azureedge.net/usa/FormLoader/FormLoader.bundle.js'></script>
+        data-form-api-url='https://public-usa.mkt.dynamics.com/api/v1.0/orgs/940bd128-2956-ef11-bfdf-6045bddbb00e/landingpageforms'
+        data-cached-form-url='https://assets-usa.mkt.dynamics.com/940bd128-2956-ef11-bfdf-6045bddbb00e/digitalassets/forms/00591cf1-bc93-ef11-8a6a-7c1e520257df' ></div>
+        <script src = 'https://cxppusa1formui01cdnsa01-endpoint.azureedge.net/usa/FormLoader/FormLoader.bundle.js' ></script>
             </body>
           </html>
         `);
