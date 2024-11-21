@@ -190,13 +190,13 @@ export default function HumbleGangsters() {
   };
 
   return (
-    <section className={styles.humbleGangsters}>
+    <section className={styles.humbleGangsters} style={{paddingTop:'0px !important'}}>
       <div className={styles.container}>
         <h2 className='font-space-grotesk text-[30px] leading-[45px] text-center font-[700] xl:text-[56px] xl:leading-[84px]  lg:text-[50px] lg:leading-[75px] mb-8 md:mb-8 '>
           Meet some of our <br className='md:hidden' />{' '}
           <span className='text-[#FF00C7]'>&#8220;humble gangsters&#8221;</span>
         </h2>
-        <p className='px-4 font-proxima-nova text-[16px] sm:text-[20px] font-normal leading-[19.2px] sm:leading-[24px] text-black mb-8 md:mb-12 text-center'>
+        <p className='px-4 font-proxima-nova text-[16px] sm:text-[20px] font-normal leading-[19.2px] sm:leading-[24px] text-black mb-8 md:mb-12 text-center xl:text-[24px] xl:leading-[30px] xl:px-[12rem]'>
           Describing ourselves as "humble gangsters" means we're a team of bold,
           confident innovators who take calculated risks while staying grounded
           and approachable. We bring a certain charm and edge to our work,

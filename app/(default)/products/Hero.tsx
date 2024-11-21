@@ -10,18 +10,18 @@ const ProductPage = () => {
         <div className="container  mx-auto px-4 sm:px-6    flex flex-col md:flex-row  gap-6">
           <div className="w-full md:w-1/2 lg:w-[54%]  flex flex-col justify-center md:mt-[-20px] lg:mt-[-90px]">
             <h1 className="font-[700] text-center md:text-start font-space-grotesk">
-              <div className="leading-tight hidden md:block  text-[45px] md:text-[44px] lg:text-[60px] pr-[12px]">
+              <div className="leading-tight hidden md:block  text-[45px] md:text-[44px] lg:text-[60px] pr-[12px] ">
                 {/* YOUR PATH TO EXPERT-LEVEL
                 <span className="text-[#FA05C3] pl-2">GenAI</span> APPLICATIONS */}
 
-                <span className="leading-tight hidden md:block  text-[45px] md:text-[44px] lg:text-[60px] pr-[12px]">
+                <span className="leading-tight hidden md:block  text-[45px] md:text-[44px] lg:text-[60px] pr-[12px] xl:text-[64px]">
                   YOUR PATH TO
                 </span>
-                <span className="leading-tight hidden md:block  text-[45px] md:text-[44px] lg:text-[60px] pr-[12px]">
+                <span className="leading-tight hidden md:block  text-[45px] md:text-[44px] lg:text-[60px] pr-[12px] xl:text-[64px]">
                   EXPERT-LEVEL{" "}
                   <span className=" leading-tight text-[#FA05C3] text-[45px] md:text-[44px] lg:text-[60px]">GenAI</span>
                 </span>
-                <span className="leading-tight hidden md:block  text-[45px] md:text-[44px] lg:text-[60px] pr-[12px]">
+                <span className="leading-tight hidden md:block  text-[45px] md:text-[44px] lg:text-[60px] pr-[12px] xl:text-[64px]">
                   APPLICATIONS
                 </span>
               </div>

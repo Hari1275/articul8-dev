@@ -234,7 +234,7 @@ const ProductLift = () => {
 
   return (
     <>
-      <div className='w-full bg-[#F2F7FF]  md:bg-white pt-0 md:pt-10 pb-0 md:pb-0 flex flex-col md:gap-16 gap-8 justify-center items-center bg-[background: #ECEFF2]'>
+      <div className='w-full bg-[#F2F7FF]  md:bg-white pt-0 md:pt-12 pb-0 md:pb-0 flex flex-col md:gap-16 gap-8 justify-center items-center bg-[background: #ECEFF2]'>
         {/* top patti */}
 
         <div className='w-full flex flex-row justify-end gap-20 md:gap-28 mb-5 md:mb-0'>
@@ -262,10 +262,12 @@ const ProductLift = () => {
         </div> */}
         {/* top */}
         <div className='container mx-auto px-4 sm:px-6'>
-          <h3 className='font-space-grotesk lg:text-[46px] md:text-3xl text-3xl font-bold text-center'>
+          <h2 className='font-space-grotesk lg:text-[46px] md:text-3xl text-3xl font-bold text-center pt-0'
+          style={{paddingTop:'0px !important'}}
+          >
             Our products do the
             <span className='  text-[#FA05C3]'> heavy lifting</span> for you.
-          </h3>
+          </h2>
         </div>
 
         {/* tabs */}

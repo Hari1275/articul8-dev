@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function CEOQuoteSection() {
   return (
-    <section className='bg-white py-12 sm:py-24'>
+    <section className='bg-white py-12 sm:py-16'>
       <div className='container mx-auto px-4 sm:px-6 md:relative'>
         <div className='flex flex-col md:flex-row items-center md:items-center xl:items-start lg:items-center  gap-8 sm:gap-16'>
           <div className='w-full md:w-1/2 order-1 md:order-2'>
@@ -23,7 +23,7 @@ export default function CEOQuoteSection() {
               className='w-8 h-8 sm:w-10 h-12 '
               priority
             />
-            <h3 className='font-proxima-nova text-[24px] sm:text-[26px] xl:text-[36px]  sm:leading-[36px] font-bold leading-[30px] xl:leading-[43.2px] text-[#090914] mb-6 mt-6 sm:pt-10 sm:pb-8'>
+            <h3 className='font-proxima-nova text-[24px] sm:text-[26px]   sm:leading-[36px] font-[500] leading-[30px] xl:text-[36px] xl:leading-[43.2px] text-[#090914] mb-6 mt-6 sm:pt-10 sm:pb-8'>
              Enterprise GenAI requires scalable personalization to deliver meaningful outcomes. The gap between enterprise data and business value cannot be closed with a general purpose GenAI platform.
             </h3>
             <div >
