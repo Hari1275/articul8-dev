@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   description:
     'Welcome to Articul8 - The GenAI platform that brings order to chaos.',
 };
+<<<<<<< HEAD
+=======
+
+>>>>>>> 55da6a9ebe37198a203291e9c5bb93cbd087d657
 const HomePage = () => {
   return (
     <div>

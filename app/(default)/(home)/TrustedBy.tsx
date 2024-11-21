@@ -61,9 +61,9 @@ const TrustedBy = () => {
   return (
     <section className='bg-white pt-4 pb-2'>
       <div className='container mx-auto px-4 sm:px-6'>
-        <h2 className='font-proxima-nova font-[600] text-[14px] leading-[14px] sm:text-[24px] sm:leading-[29.23px] text-[#737373] sm:text-[#000000] text-center mb-6 sm:mb-8'>
+        <h3 className='font-proxima-nova font-[600] text-[14px] leading-[14px] sm:text-[24px] sm:leading-[29.23px] text-[#737373] sm:text-[#000000] text-center mb-6 sm:mb-8 lg:text-[24px]'>
           Trusted by leading global enterprises
-        </h2>
+        </h3>
         <div className="trusted-by-slider">
           <Slider {...settings}>
             {companies.map((company, index) => (
@@ -71,10 +71,15 @@ const TrustedBy = () => {
                 <Image
                   src={`/images/logos/${company}-logo.png`}
                   alt={company}
-                  width={100}
-                  height={40}
-                  objectFit='contain'
+                  width={200}
+                  height={80}
+                  quality={100}
+                  priority={index < 3}
                   className='h-6 sm:h-8 w-auto'
+                  style={{
+                    objectFit: 'contain',
+                    maxWidth: '100%',
+                  }}
                 />
               </div>
             ))}

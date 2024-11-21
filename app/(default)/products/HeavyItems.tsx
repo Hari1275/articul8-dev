@@ -433,7 +433,7 @@ const HeavyItems = () => {
 
   return (
     <>
-      <div className='pt-8 lg:mt-0 w-full bg-white  pb-[60px] flex flex-col  justify-center items-center relative'>
+      <div className='pt-12 lg:mt-0 w-full bg-white  pb-[60px] flex flex-col  justify-center items-center relative'>
         {/* top */}
 
         <div className='container  mx-auto px-4 sm:px-6 flex flex-row justify-center items-center sticky top-[40px] md:top-[61px] lg:top-[60px] z-[10] bg-white'>
@@ -708,7 +708,7 @@ const HeavyItems = () => {
                                                 className='w-[6px] h-[6px]'
                                               />
                                             </div>
-                                            <span className='font-proxima-nova font-[400] lg:text-[18px] 2xl:text-[17px]  text-[14px] leading-4 mr-1 lg:leading-5'>
+                                            <span className='font-proxima-nova font-[400] lg:text-[18px] xl:text-[16px]  text-[14px] leading-4 mr-1 lg:leading-5'>
                                               {subItem.title}
                                             </span>
                                           </div>

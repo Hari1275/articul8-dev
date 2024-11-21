@@ -61,7 +61,7 @@ const PlatformArchitecture = () => {
   ];
 
   return (
-    <section className='sm:pt-12 pt-2 pb-16 px-4 bg-white'>
+    <section className=' pb-16 px-4 bg-white'>
       <div className='container mx-auto px-4 sm:px-6'>
         <h2 className='font-space-grotesk text-[26px]  sm:text-[36px] md:text-[50px]  lg:text-[54px]  lg:leading-[84px] font-bold sm:mb-20 py-8 leading-tight text-center lg:text-center'>
           Articul8 platform makes the
@@ -94,7 +94,7 @@ const PlatformArchitecture = () => {
                             height={32}
                           />
                         </div>
-                        <p className='font-proxima-nova flex-grow font-[600] text-[14px] sm:text-[24px] leading-[18px] sm:leading-[28px] pr-2'>
+                        <p className='font-proxima-nova flex-grow font-[600] text-[14px] sm:text-[24px] leading-[18px] sm:leading-[28px] pr-2 xl:text-[24px]'>
                           {item.title}
                         </p>
                         <div className='mt-[2px]'>
@@ -122,7 +122,7 @@ const PlatformArchitecture = () => {
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -10 }}
                                 transition={{ duration: 0.2, delay: 0.1 }}
-                                className='font-proxima-nova px-4 pt-0 sm:pt-0 pb-4 text-[12px] sm:text-[18px] font-[400] leading-[15px] sm:leading-[21px] text-[#000] ml-12'
+                                className='font-proxima-nova px-4 pt-0 sm:pt-0 pb-4 text-[12px] sm:text-[18px] font-[400] leading-[15px] sm:leading-[21px] text-[#000] ml-12 xl:text-[18px]'
                               >
                                 {item.description}
                               </motion.p>

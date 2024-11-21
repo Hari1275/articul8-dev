@@ -115,7 +115,7 @@ const Card = React.memo<{
           aria-label={`Card ${index + 1}: ${card.title.join(' ')}`}
         >
           <div className='card-content flex-grow'>
-            <h3 className='font-proxima-nova text-[23px] leading-[27.6px] font-[600] text-left'>
+            <h3 className='font-space-grotesk text-[23px] leading-[27.6px] font-[600] text-left'>
               {card.title.map((line, i) => (
                 <span key={i} className='block'>
                   {line}
@@ -156,7 +156,7 @@ const Card = React.memo<{
       aria-label={`Card ${index + 1}: ${card.title.join(' ')}`}
     >
       <div className='card-content flex-grow'>
-        <h3 className='font-proxima-nova sm:text-[32px] sm:leading-[38.4px] font-[600] sm:font-[600] text-[16px] text-left mb-2'>
+        <h3 className='font-space-grotesk sm:text-[32px] sm:leading-[38.4px] font-[600] sm:font-[600] text-[16px] text-left mb-2'>
           {card.title.map((line, i) => (
             <span key={i} className='block'>
               {line}
@@ -388,7 +388,7 @@ const UnlockSection = () => {
   };
 
   return (
-    <section className='bg-white relative sm:pt-12 sm:pb-1'>
+    <section className='bg-white relative sm:pt-0 sm:pb-1'>
       <AnimatedText />
       <div ref={sectionRef as React.RefObject<HTMLDivElement>} className='overflow-visible relative'>
         <div className='container mx-auto px-4 sm:px-6 relative'>
@@ -488,9 +488,9 @@ const UnlockSection = () => {
         </div>
       </div>
       <style jsx>{`
-        section {
-          min-height: 100vh;
-        }
+        // section {
+        //   min-height: 100vh;
+        // }
         :global(.scrollbar-hide::-webkit-scrollbar) {
           display: none;
         }
