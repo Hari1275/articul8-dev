@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import { useState } from 'react';
-import UnlockSectionHeader from './UnlockSectionHeader';
+import { UnlockSectionHeader } from './UnlockSectionHeader';
 import Modal from '../../../components/Modal';
 import ErrorBoundary from '../../../components/ErrorBoundary';
 
@@ -53,10 +53,10 @@ const FeatureCard = ({ Icon, Title, Content }: FeatureCardProps) => (
         priority
       />
     </div>
-    <h3 className='font-proxima-nova text-[23px] xl:text-[40px] lg:text-[40px] font-[700] lg:leading-[50px] xl:leading-[50px] text-black mb-3'>
+    <h3 className='font-space-grotesk text-[23px] lg:text-[40px] font-[700] lg:leading-[50px] xl:leading-[50px] text-black mb-3 xl:text-[32px]'>
       {Title}
     </h3>
-    <p className='font-proxima-nova font-[400] text-[20px] text-black leading-tight'>
+    <p className='font-proxima-nova xl:text-[20px] font-[400] text-[20px] text-black leading-tight'>
       {Content}
     </p>
   </div>
@@ -99,8 +99,8 @@ const ConvertSection = ({ data }: ConvertSectionProps) => {
   };
 
   return (
-      <ErrorBoundary>
-      <section className='sm:pt-16 pt-8 bg-gray-50 overflow-hidden'>
+    <ErrorBoundary>
+      <section className='bg-gray-50 overflow-hidden'>
         <div className='container mx-auto px-4 sm:px-6'>
           <h2 className='font-space-grotesk text-[26px] font-[700] leading-tight sm:text-[34px] sm:leading-[50px] md:text-[50px] lg:text-[54px] lg:leading-[84px] text-[#060606] mb-12 sm:mb-16 text-center'>
             <span className='block'>
@@ -119,7 +119,7 @@ const ConvertSection = ({ data }: ConvertSectionProps) => {
 
           <div className='flex flex-col md:flex-row items-stretch bg-[#DCE0F3] rounded-t-lg overflow-hidden'>
             <div className='w-full md:w-2/5 p-8 md:p-12 flex flex-col justify-end md:justify-center items-center md:items-start'>
-              <h3 className='font-space-grotesk font-[700] text-[40px] sm:text-5xl md:text-[68px] text-center md:text-left leading-[51.04px] sm:mb-6 sm:leading-[108px] lg:pl-8 xl:pl-16 2xl:pl-24'>
+              <h3 className='font-space-grotesk font-[700] text-[40px] sm:text-5xl md:text-[68px] text-center md:text-left leading-[51.04px] sm:mb-6 sm:leading-[108px] lg:pl-8 xl:pl-16 2xl:pl-24 xl:leading-[80px] xl:text-[64px]'>
                 {data?.LastSection?.MainTitle || 'Stop\nFalling\nBehind'}
               </h3>
               <button
@@ -152,7 +152,7 @@ const ConvertSection = ({ data }: ConvertSectionProps) => {
           </div>
         </div>
       </section>
-     </ErrorBoundary>
+    </ErrorBoundary>
   );
 };
 

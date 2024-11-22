@@ -39,19 +39,19 @@ const AnimatedText = ({ data }: AnimatedTextProps) => {
 
       // Animate text shrinking and fading in, then increase size slightly
       tl.to(text, {
-        scale: 1,
+        scale: 0.7,
         opacity: 1,
         ease: 'power2.out',
-        duration: 0.8,
+        duration: 0.7,
       }).to(text, {
         scale: 1.2,
-        duration: 0.2,
+        duration: 0.4,
       });
 
       // Additional animation for mobile devices
       if (window.innerWidth <= 768) {
         tl.to(text, {
-          scale: 1.2,
+          scale: 1.0,
           duration: 0.2,
           ease: 'power1.inOut',
         }).to(text, {
@@ -71,7 +71,7 @@ const AnimatedText = ({ data }: AnimatedTextProps) => {
     <ErrorBoundary>
       <div
         ref={sectionRef}
-        className='h-[55vh] sm:h-[70vh] flex flex-col items-center justify-center overflow-hidden bg-white'
+        className='h-[35vh] sm:h-[70vh] flex flex-col items-center justify-center overflow-hidden bg-white'
       >
         <div ref={textRef} className='flex flex-col items-center'>
           <p className='font-proxima-nova font-bold text-[20vw] sm:text-[315.66px] text-[#112FFF] leading-none mb-2'>

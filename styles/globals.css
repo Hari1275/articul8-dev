@@ -19,6 +19,14 @@ body {
   font-family: var(--font-proxima-nova), sans-serif;
 }
 
+h1 {
+  @apply  xl:text-[64px] !important;
+}
+
+h2 {
+  @apply xl:text-[54px]  xl:leading-[64px] pt-12 !important ;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

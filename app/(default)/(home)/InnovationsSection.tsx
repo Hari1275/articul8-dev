@@ -82,7 +82,7 @@ const InnovationItem = ({
         className="mr-4 transition-all duration-300"
       />
       <p
-        className={`text-[30px] font-proxima-nova font-[700] xl:leading-[46.14px] sm:text-[22px] lg:text-[26px]
+        className={`text-[30px] font-proxima-nova font-[700] xl:leading-[46.14px] sm:text-[22px] xl:text-[24px] lg:text-[26px] 
           ${showBlueBackground ? "text-white" : "text-black"}
           transition-all duration-300`}
       >
@@ -226,19 +226,25 @@ const InnovationsSection = ({ data }: InnovationsSectionProps) => {
 
   return (
     <ErrorBoundary>
-      <section className="sm:py-16 py-8 bg-[#F6F6FF]">
+      <section className="bg-[#F2F7FF]">
         <div className="container mx-auto px-4 sm:px-6">
           <h2 className="hidden xl:block font-space-grotesk text-[26px] sm:text-[54px] font-bold mb-16 sm:leading-[84px] text-center leading-tight">
             <span className="block mb-2">
-              {data.MainTitle.PrefixTitle}{" "}
-              <span className="text-[#FF00C7]">{data.MainTitle.HighlightedTitle}</span>
+              {data?.MainTitle?.PrefixTitle || 'There are'}{' '}
+              <span className="text-[#FF00C7]">{data?.MainTitle?.HighlightedTitle || 'groundbreaking innovations'}</span>
             </span>
-            <span className="block">{data.MainTitle.SuffixTitle}</span>
+            <span className="block">{data?.MainTitle?.SuffixTitle || 'behind the magic.'}</span>
+          </h2>
+
+          <h2 className="xl:hidden font-space-grotesk text-[26px] lg:text-[54px] lg:leading-[84px] lg:mb-16 font-[700] mb-8 text-center leading-[38px]">
+            {data?.MainTitle?.PrefixTitle || 'There are'}{' '}
+            <span className="text-[#FF00C7] inline">{data?.MainTitle?.HighlightedTitle || 'groundbreaking innovations'}</span>{' '}
+            {data?.MainTitle?.SuffixTitle || 'behind the magic.'}
           </h2>
 
           {/* Desktop view */}
           <div className="hidden lg:grid grid-cols-1 lg:grid-cols-10 gap-12 sm:px-0">
-            <div className="lg:col-span-4">
+            <div className="lg:col-span-4 xl:text-[24px]">
               {data?.InnovationCards.map((item, index) => (
                 <InnovationItem
                   key={index}
@@ -264,13 +270,13 @@ const InnovationsSection = ({ data }: InnovationsSectionProps) => {
                   transition={{ duration: 0.3 }}
                 >
                   {data?.InnovationCards[displayedInnovation].Contents.map(
-                    (product, index) => (
+                    (content, index) => (
                       <ProductCard
                         key={index}
-                        icon={product.Icon?.url || ""}
-                        title={product.Title}
-                        subTitle={product.SubTitle}
-                        description={product.Content}
+                        icon={content.Icon.url}
+                        title={content.Title}
+                        subTitle={content.SubTitle}
+                        description={content.Content}
                         isLast={index === data.InnovationCards[displayedInnovation].Contents.length - 1}
                       />
                     )
@@ -291,14 +297,14 @@ const InnovationsSection = ({ data }: InnovationsSectionProps) => {
                 isOpen={openAccordion === index}
                 onClick={() => handleAccordionClick(index)}
               >
-                {item.Contents.map((product, productIndex) => (
+                {item.Contents.map((content, contentIndex) => (
                   <ProductCard
-                    key={productIndex}
-                    icon={product.Icon?.url || ""}
-                    title={product.Title}
-                    subTitle={product.SubTitle}
-                    description={product.Content}
-                    isLast={productIndex === item.Contents.length - 1}
+                    key={contentIndex}
+                    icon={content.Icon.url}
+                    title={content.Title}
+                    subTitle={content.SubTitle}
+                    description={content.Content}
+                    isLast={contentIndex === item.Contents.length - 1}
                   />
                 ))}
               </AccordionItem>

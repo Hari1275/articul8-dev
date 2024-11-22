@@ -5,9 +5,8 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import AnimatedText from './AnimatedText';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import UnlockSectionHeader from './UnlockSectionHeader';
+import { UnlockSectionHeader } from './UnlockSectionHeader';
 import ErrorBoundary from '../../../components/ErrorBoundary';
-// import UnlockSectionHeader from './UnlockSectionHeader';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -94,13 +93,12 @@ const Card = React.memo<CardProps>(({ card, index, totalCards, isMobile }) => {
   const title = card.Title.split('\n').filter(line => line.trim());
 
   useEffect(() => {
-    if (isMobile) return; // Skip hover animation for mobile
+    if (isMobile) return;
 
     const cardElement = cardRef.current;
     if (!cardElement) return;
 
     const hoverAnimation = gsap.timeline({ paused: true });
-    // hoverAnimation removed (as in your original code)
 
     const playAnimation = () => hoverAnimation.play();
     const reverseAnimation = () => hoverAnimation.reverse();
@@ -131,7 +129,7 @@ const Card = React.memo<CardProps>(({ card, index, totalCards, isMobile }) => {
           }}
         >
           <div className='card-content flex-grow'>
-            <h3 className='font-proxima-nova text-[23px] leading-[27.6px] font-[600] text-left'>
+            <h3 className='font-space-grotesk text-[23px] leading-[27.6px] font-[600] text-left'>
               {title.map((line, i) => (
                 <span key={i} className='block'>
                   {line}
@@ -154,7 +152,6 @@ const Card = React.memo<CardProps>(({ card, index, totalCards, isMobile }) => {
     );
   }
 
-  // Existing card design for tablet and desktop
   return (
     <div
       ref={cardRef}
@@ -164,14 +161,13 @@ const Card = React.memo<CardProps>(({ card, index, totalCards, isMobile }) => {
         height: '100%',
         zIndex: totalCards - index,
         transformStyle: 'preserve-3d',
-        background:
-          'linear-gradient(to bottom right, #E8F1FF, #C1F0F4, #C2D3FD)',
+        background: 'linear-gradient(to bottom right, #E8F1FF, #C1F0F4, #C2D3FD)',
         boxShadow: '0 10px 20px rgba(0,0,0,0.1)',
         backfaceVisibility: 'hidden',
       }}
     >
       <div className='card-content flex-grow'>
-        <h3 className='font-proxima-nova sm:text-[32px] sm:leading-[38.4px] font-[600] sm:font-[600] text-[16px] text-left mb-2'>
+        <h3 className='font-space-grotesk sm:text-[32px] sm:leading-[38.4px] font-[600] sm:font-[600] text-[16px] text-left mb-2'>
           {title.map((line, i) => (
             <span key={i} className='block'>
               {line}
@@ -376,114 +372,111 @@ const UnlockSection = ({ data }: UnlockSectionProps) => {
 
   return (
     <ErrorBoundary>
-      <section className='bg-white relative sm:pt-12 sm:pb-1'>
+      <section className='bg-white relative sm:pt-0 sm:pb-1'>
         <AnimatedText data={{ XFaster: data.XFaster }} />
-      <div ref={sectionRef as React.RefObject<HTMLDivElement>} className='overflow-visible relative'>
-        <div className='container mx-auto px-4 sm:px-6 relative'>
-          {/* Navigation Arrows - Show for both mobile and desktop */}
-          <div className='absolute -top-8 right-4 flex space-x-3 z-10'>
-            <button
-              onClick={scrollLeft}
-              disabled={!canScrollLeft}
-              aria-label='Scroll left'
-              className={`w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300 ${canScrollLeft
-                ? 'bg-blue-600 hover:bg-blue-700 text-white'
-                : 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                }`}
-            >
-              <ChevronLeft size={20} />
-            </button>
-            <button
-              onClick={scrollRight}
-              disabled={!canScrollRight}
-              aria-label='Scroll right'
-              className={`w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300 ${canScrollRight
-                ? 'bg-blue-600 hover:bg-blue-700 text-white'
-                : 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                }`}
-            >
-              <ChevronRight size={20} />
-            </button>
-          </div>
-
-          {isMobile ? (
-            <div
-              ref={mobileCardsContainerRef}
-              className='flex overflow-x-auto scrollbar-hide snap-x snap-mandatory'
-              style={{
-                scrollbarWidth: 'none',
-                msOverflowStyle: 'none',
-                WebkitOverflowScrolling: 'touch',
-                paddingTop: '1rem',
-                paddingBottom: '1rem',
-              }}
-            >
-              {data.Cards.map((card, index) => (
-                <Card
-                  key={index}
-                  card={card}
-                  index={index}
-                  totalCards={data.Cards.length}
-                  isMobile={isMobile}
-                />
-              ))}
+        <div ref={sectionRef as React.RefObject<HTMLDivElement>} className='overflow-visible relative'>
+          <div className='container mx-auto px-4 sm:px-6 relative'>
+            {/* Navigation Arrows - Show for both mobile and desktop */}
+            <div className='absolute -top-8 right-4 flex space-x-3 z-10'>
+              <button
+                onClick={scrollLeft}
+                disabled={!canScrollLeft}
+                aria-label='Scroll left'
+                className={`w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300 ${canScrollLeft
+                  ? 'bg-blue-600 hover:bg-blue-700 text-white'
+                  : 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                  }`}
+              >
+                <ChevronLeft size={20} />
+              </button>
+              <button
+                onClick={scrollRight}
+                disabled={!canScrollRight}
+                aria-label='Scroll right'
+                className={`w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300 ${canScrollRight
+                  ? 'bg-blue-600 hover:bg-blue-700 text-white'
+                  : 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                  }`}
+              >
+                <ChevronRight size={20} />
+              </button>
             </div>
-          ) : (
-            // Desktop view remains the same
-            <div
-              ref={cardsContainerRef}
-              className='relative overflow-x-auto pt-12'
-              style={{
-                width: '100%',
-                height: `${cardWidth * 1.2 + 60}px`,
-                scrollbarWidth: 'none',
-                msOverflowStyle: 'none',
-              }}
-            >
+
+            {isMobile ? (
               <div
-                className='absolute top-1/2 left-[20%] sm:left-1/2 lg:left-1/2 transform -translate-x-1/2 -translate-y-1/2'
+                ref={mobileCardsContainerRef}
+                className='flex overflow-x-auto scrollbar-hide snap-x snap-mandatory'
                 style={{
-                  width: `${data.Cards.length * (cardWidth + gap) - gap}px`,
-                  height: isMobile
-                    ? `${cardWidth * 0.8}px`
-                    : `${cardWidth * 1.2 + 60}px`,
+                  scrollbarWidth: 'none',
+                  msOverflowStyle: 'none',
+                  WebkitOverflowScrolling: 'touch',
+                  paddingTop: '1rem',
+                  paddingBottom: '1rem',
                 }}
               >
                 {data.Cards.map((card, index) => (
-                  <div
+                  <Card
                     key={index}
-                    className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'
-                    style={{
-                      width: `${cardWidth}px`,
-                      height: isMobile
-                        ? `${cardWidth * 0.8}px`
-                        : `${cardWidth * 1.2}px`,
-                      transition: 'all 0.5s ease',
-                      zIndex: data.Cards.length - index, // Reverse the z-index
-                    }}
-                  >
-                    <Card
-                      card={card}
-                      index={index}
-                      totalCards={data.Cards.length}
-                      isMobile={isMobile}
-                    />
-                  </div>
+                    card={card}
+                    index={index}
+                    totalCards={data.Cards.length}
+                    isMobile={isMobile}
+                  />
                 ))}
               </div>
-            </div>
-          )}
+            ) : (
+              // Desktop view remains the same
+              <div
+                ref={cardsContainerRef}
+                className='relative overflow-x-auto pt-12'
+                style={{
+                  width: '100%',
+                  height: `${cardWidth * 1.2 + 60}px`,
+                  scrollbarWidth: 'none',
+                  msOverflowStyle: 'none',
+                }}
+              >
+                <div
+                  className='absolute top-1/2 left-[20%] sm:left-1/2 lg:left-1/2 transform -translate-x-1/2 -translate-y-1/2'
+                  style={{
+                    width: `${data.Cards.length * (cardWidth + gap) - gap}px`,
+                    height: isMobile
+                      ? `${cardWidth * 0.8}px`
+                      : `${cardWidth * 1.2 + 60}px`,
+                  }}
+                >
+                  {data.Cards.map((card, index) => (
+                    <div
+                      key={index}
+                      className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'
+                      style={{
+                        width: `${cardWidth}px`,
+                        height: isMobile
+                          ? `${cardWidth * 0.8}px`
+                          : `${cardWidth * 1.2}px`,
+                        transition: 'all 0.5s ease',
+                        zIndex: data.Cards.length - index, // Reverse the z-index
+                      }}
+                    >
+                      <Card
+                        card={card}
+                        index={index}
+                        totalCards={data.Cards.length}
+                        isMobile={isMobile}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
         </div>
-      </div>
-      <style jsx>{`
-        section {
-          min-height: 100vh;
-        }
-        :global(.scrollbar-hide::-webkit-scrollbar) {
-          display: none;
-        }
-      `}</style>
-    </section>
+        <style jsx>{`
+          :global(.scrollbar-hide::-webkit-scrollbar) {
+            display: none;
+          }
+        `}</style>
+      </section>
     </ErrorBoundary>
   );
 };

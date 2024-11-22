@@ -32,9 +32,7 @@ interface HumbleGangstersProps {
 }
 
 const HumbleGangsters = ({ data }: HumbleGangstersProps) => {
-  // Simplified settings for first slider
-
-  console.log('data', data?.Images);
+  // Settings for sliders remain unchanged
   const firstSliderSettings = {
     dots: true,
     infinite: true,
@@ -74,7 +72,6 @@ const HumbleGangsters = ({ data }: HumbleGangstersProps) => {
     ]
   };
 
-  // Settings for second slider (image grid)
   const secondSliderSettings = {
     dots: true,
     infinite: true,
@@ -101,15 +98,14 @@ const HumbleGangsters = ({ data }: HumbleGangstersProps) => {
   };
 
   return (
-    
     <ErrorBoundary>
-      <section className={styles.humbleGangsters}>
+      <section className={styles.humbleGangsters} style={{paddingTop:'0px !important'}}>
         <div className={styles.container}>
           <h2 className='font-space-grotesk text-[30px] leading-[45px] text-center font-[700] xl:text-[56px] xl:leading-[84px] lg:text-[50px] lg:leading-[75px] mb-8 md:mb-8'>
             {data?.MainTitle?.PrefixTitle || 'Meet some of our'} <br className='md:hidden' />{' '}
             <span className='text-[#FF00C7]'>{data?.MainTitle?.HighlightedTitle || '"humble gangsters"'}</span>
           </h2>
-          <p className='px-4 font-proxima-nova text-[16px] sm:text-[20px] font-normal leading-[19.2px] sm:leading-[24px] text-black mb-8 md:mb-12 text-center'>
+          <p className='px-4 font-proxima-nova text-[16px] sm:text-[20px] font-normal leading-[19.2px] sm:leading-[24px] text-black mb-8 md:mb-12 text-center xl:text-[24px] xl:leading-[30px] xl:px-[12rem]'>
             {data?.Content}
           </p>
 

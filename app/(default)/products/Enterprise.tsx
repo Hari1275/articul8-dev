@@ -59,10 +59,10 @@ const Card = ({ item }: { item: ProductWorkCard }) => {
         />
       )}
 
-      <h3 className="text-[19px] md:text-[28px] font-semibold text-center md:text-start leading-tight font-proxima-nova">
+      <h3 className="text-[19px] md:text-[28px] font-semibold text-center md:text-start leading-tight font-proxima-nova xl:text-[24px]">
         {item.Title}
       </h3>
-      <span className="text-[16px] font-[400] md:text-[20px] leading-tight text-center md:text-start font-proxima-nova leading-6">
+      <span className="text-[16px] font-[400] md:text-[20px] leading-tight text-center md:text-start font-proxima-nova leading-6 xl:text-[18px]">
         {item.Content}
       </span>
       
@@ -126,13 +126,13 @@ const Enterprise = ({ productWorksData }: EnterpriseProps) => {
   }, [productWorksData.ProductWorkCards]);
 
   return (
-    <div className="w-full bg-white pt-8 md:pt-16 pb-10 flex justify-center items-center bg-[background: #ECEFF2]">
+    <div className="w-full bg-white pb-12 md:pb-0 flex justify-center items-center bg-[background: #ECEFF2]">
       <div className="container mx-auto px-4 sm:px-6 flex flex-col justify-center items-center gap-4 md:gap-10">
         <div className="w-full md:w-[85%] flex flex-col justify-center align-middle" id="product-card">
-          <h3 className="font-space-grotesk text-[28px] lg:text-[46px] md:text-3xl font-bold text-center leading-[36px] md:leading-10 lg:leading-[4rem]">
+          <h2 className="font-space-grotesk text-[28px] lg:text-[46px] md:text-3xl font-bold text-center leading-[36px] md:leading-10 lg:leading-[4rem]">
             {productWorksData.MainTitle.PrefixTitle}
             <span className="text-[#FA05C3]"> {productWorksData.MainTitle.HighlightedTitle}</span>
-          </h3>
+          </h2>
         </div>
 
         <div className="w-full flex justify-center">

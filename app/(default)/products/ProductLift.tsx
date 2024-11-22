@@ -49,7 +49,6 @@ interface ProductLiftProps {
 }
 
 const Card = ({ item, onModalOpen }: { item: ProductLiftingCard; onModalOpen: (modalName: string) => void }) => {
-  // console.log('item', item.BasicDetail.Title);
   return (
     <div className='w-full bg-[#F2F7FF] py-6 md:py-8 pl-3 pr-3 md:pl-6 md:pr-6 flex flex-col gap-6 productLiftCard rounded-[16px] border-2 md:border-none transition-all ease-linear duration-400 md:hover:scale-y-[1.05] md:hover:-translate-y-1'>
       <div className='flex flex-col justify-center items-center md:items-start md:justify-start gap-y-5 xl:min-h-[275px] md:min-h-[290px] lg:min-h-[312px] 2xl:min-h-[260px]'>
@@ -160,7 +159,10 @@ const ProductLift = ({ productLiftData }: ProductLiftProps) => {
       </div>
 
       <div className='container mx-auto px-4 sm:px-6'>
-        <h3 className='font-space-grotesk lg:text-[46px] md:text-3xl text-3xl font-bold text-center'>
+        <h3 
+          className='font-space-grotesk lg:text-[46px] md:text-3xl text-3xl font-bold text-center'
+          style={{paddingTop: '0px !important'}}
+        >
           {productLiftData.MainTitle.PrefixTitle}
           <span className='text-[#FA05C3]'>{productLiftData.MainTitle.HighlightedTitle}</span>
           {productLiftData.MainTitle.SuffixTitle}

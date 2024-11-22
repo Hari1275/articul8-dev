@@ -21,11 +21,11 @@ const JoinTeamSection = ({ data }: JoinTeamSectionProps) => {
     <ErrorBoundary>
       <section className="w-full py-6 sm:py-16 bg-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="font-space-grotesk text-[30px] leading-[45px] md:text-[80px] md:leading-[120px] font-bold mb-8">
+          <h3 className="font-space-grotesk text-[30px] leading-[45px] md:text-[80px] md:leading-[120px] font-bold mb-8 xl:leading-[80px] xl:text-[64px]">
             {data?.MainTitle?.PrefixTitle || 'Come,'}{' '}
             <span className='text-[#FF00C7]'>{data?.MainTitle?.HighlightedTitle || 'Join'}</span>{' '}
             {data?.MainTitle?.SuffixTitle || 'Our Team of Innovators'}
-          </h2>
+          </h3>
           <Link 
             href={data?.CtaButton?.Herf || "https://jobs.ashbyhq.com/articul8"}
             target="_blank"

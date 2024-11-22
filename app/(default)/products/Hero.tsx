@@ -1,5 +1,4 @@
 import Image from "next/image";
-import icon2 from "../../../public/images/productbanner2.gif";
 
 interface HeroProps {
   heroData: {
@@ -9,7 +8,6 @@ interface HeroProps {
       HighlightedTitle: string;
       SuffixTitle: string;
     };
-    
     Image: {
       url: string;
       alternativeText: string;
@@ -19,7 +17,7 @@ interface HeroProps {
 
 const ProductPage = ({ heroData }: HeroProps) => {
   const titles = heroData.MainTitle.PrefixTitle.split('\n');
-  // console.log('titles', heroData.Image.url);
+
   return (
     <>
       <div className="md:pt-[120px] pt-8 lg:pt-20 pb-0 md:pb-6 flex justify-center items-center bg-[#ECEFF2]">
@@ -28,7 +26,7 @@ const ProductPage = ({ heroData }: HeroProps) => {
             <h1 className="font-[700] text-center md:text-start font-space-grotesk">
               <div className="leading-tight hidden md:block text-[45px] md:text-[44px] lg:text-[60px] pr-[12px]">
                 {titles.map((title, index) => (
-                  <span key={index} className="leading-tight hidden md:block text-[45px] md:text-[44px] lg:text-[60px] pr-[12px]">
+                  <span key={index} className="leading-tight hidden md:block text-[45px] md:text-[44px] lg:text-[60px] pr-[12px] xl:text-[64px]">
                     {title}{' '}
                     {index === 1 && (
                       <span className="leading-tight text-[#FA05C3] text-[45px] md:text-[44px] lg:text-[60px]">
@@ -37,7 +35,7 @@ const ProductPage = ({ heroData }: HeroProps) => {
                     )}
                   </span>
                 ))}
-                <span className="leading-tight hidden md:block text-[45px] md:text-[44px] lg:text-[60px] pr-[12px]">
+                <span className="leading-tight hidden md:block text-[45px] md:text-[44px] lg:text-[60px] pr-[12px] xl:text-[64px]">
                   {heroData.MainTitle.SuffixTitle}
                 </span>
               </div>

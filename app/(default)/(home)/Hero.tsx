@@ -27,7 +27,7 @@ export default function Hero({ data }: HeroProps) {
     "VALUES",
     "KNOWLEDGE",
   ];
-  console.log("Hero ~ words:", words);
+  
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isExpanded, setIsExpanded] = useState(true);
 
