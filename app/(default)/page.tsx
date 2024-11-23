@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 
 const HomePage = async () => {
   const pageData = await getHomePageData();
-  
+
   return (
     <div>
       <Hero data={pageData.data.HeroSection} />

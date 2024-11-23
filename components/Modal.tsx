@@ -16,6 +16,7 @@ const CTAForm: React.FC<ModalProps> = ({ isOpen, onClose }) => {
     const fetchForm = async () => {
       try {
         const formData = await getFormData();
+        
         setFormHtml(formData.data.A8SignUpForA8Essential);
       } catch (error) {
         console.error('Error fetching form:', error);
