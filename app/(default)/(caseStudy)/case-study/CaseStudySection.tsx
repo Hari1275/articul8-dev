@@ -8,28 +8,28 @@ const caseStudies = [
     title: "Uptype: GenAI-Powered Cybersecurity Insights",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     image: "/images/case-study/case-study-1.png",
-    link: "#",
+    slug: "uptype-genai-cybersecurity",
   },
   {
     id: 2,
     title: "Intel: Knowledge Discovery Knowledge Mining and Root Cause Analysis of Semiconductor Fab Incidents",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     image: null,
-    link: "#",
+    slug: "intel-manufacturing",
   },
   {
     id: 3,
     title: "B2B Global Financial Services Company: Research-Ready Use Case",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     image: "/images/case-study/case-study-1.png",
-    link: "#",
+    slug: "b2b-financial-services",
   },
   {
     id: 4,
     title: "BCG: Knowledge Discovery & Enterprise Search Use Case",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     image: "/images/case-study/case-study-2.png",
-    link: "#",
+    slug: "bcg-knowledge-discovery",
   }
 ]
 
@@ -94,7 +94,7 @@ export default function CaseStudySection() {
                     {study.description}
                   </p>
                   <Link 
-                    href={study.link}
+                    href={`/case-study/${study.slug}`}
                     className="inline-flex items-center font-space-grotesk
                     text-[16px] leading-[20px]
                     sm:text-[17px] sm:leading-[21.7px]
@@ -129,7 +129,7 @@ export default function CaseStudySection() {
                   {study.description}
                 </p>
                 <Link 
-                  href={study.link}
+                  href={`/case-study/${study.slug}`}
                   className="inline-flex items-center font-space-grotesk
                   text-[16px] leading-[20px]
                   sm:text-[17px] sm:leading-[21.7px]

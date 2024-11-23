@@ -8,8 +8,8 @@ async function getCaseStudyData(slug: string) {
   const caseStudies = {
     'intel-manufacturing': {
       title: 'Intel: Manufacturing Root Cause Analysis',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
-      image: '/images/case-study/intel-manufacturing.jpg',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      image: '/images/case-study/case-study-hero.png',
       sections: {
         background: 'Chip manufacturing is a complex, dynamic process...',
         challenge: 'Machine downtime in semiconductor fab costs millions of $s...',
@@ -39,6 +39,7 @@ export default async function CaseStudyPage({
     <main className="bg-white">
       <div className="container mx-auto px-4 sm:px-6">
         <CaseStudyDetailSection data={caseStudy} />
+        <div className="py-8"></div>
       </div>
     </main>
   )

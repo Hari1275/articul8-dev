@@ -26,7 +26,7 @@ const HeroSection = () => (
       </p>
       <div className="flex justify-center md:py-8">
         <Link 
-          href="#"
+          href="/case-study/intel-manufacturing"
           className="inline-flex items-center font-space-grotesk
           text-[16px] sm:text-[17px] md:text-[18px]
           leading-[20px] sm:leading-[21px] md:leading-[22.97px]
