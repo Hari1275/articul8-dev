@@ -35,9 +35,9 @@ const caseStudies = [
 
 export default function CaseStudySection() {
   return (
-    <section className="py-16">
+    <section className="md:pb-12 md:pt-8">
       {/* Header */}
-      <div className="flex justify-between items-center mb-8">
+      <div className="flex justify-between md:items-baseline items-baseline md:mb-16 mb-4">
         <h2 className="font-space-grotesk text-black
           text-[32px] leading-[48px] 
           sm:text-[44px] sm:leading-[66px]
@@ -62,11 +62,11 @@ export default function CaseStudySection() {
       </div>
 
       {/* Case Studies Grid */}
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid md:grid-cols-2 md:gap-x-12 md:gap-y-12 gap-y-6 gap-x-6 grid-auto-flow-dense">
         {caseStudies.map((study) => (
           <div 
             key={study.id} 
-            className={`bg-[#F9F9F9] ${study.image ? 'flex flex-col' : 'h-fit'}`}
+            className={`bg-[#F9F9F9] ${study.image ? 'flex flex-col md:row-span-2' : 'h-fit'}`}
           >
             {study.image ? (
               <>
@@ -86,7 +86,7 @@ export default function CaseStudySection() {
                     font-bold mb-1.5">
                     {study.title}
                   </h3>
-                  <p className="font-proxima-nova text-black
+                  <p className="py-4 font-proxima-nova text-black
                     text-[18px] leading-[22px]
                     sm:text-[20px] sm:leading-[24.36px]
                     md:text-[24px] md:leading-[29.23px]
@@ -113,7 +113,6 @@ export default function CaseStudySection() {
                 </div>
               </>
             ) : (
-              // Content-only card with same typography
               <div className="py-8 px-4">
                 <h3 className="font-space-grotesk text-black
                   text-[18px] leading-[23px]
@@ -122,7 +121,7 @@ export default function CaseStudySection() {
                   font-bold mb-1.5">
                   {study.title}
                 </h3>
-                <p className="font-proxima-nova text-black
+                <p className="py-4 font-proxima-nova text-black
                   text-[18px] leading-[22px]
                   sm:text-[20px] sm:leading-[24.36px]
                   md:text-[24px] md:leading-[29.23px]

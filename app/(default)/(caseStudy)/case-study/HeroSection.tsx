@@ -2,7 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 
 const HeroSection = () => (
-  <section className="relative py-4 sm:py-12 md:py-12">
+  <section className="relative py-4 sm:py-12 md:pt-12 md:pb-4">
     <div className="relative aspect-[16/9] w-full">
       <Image
         src="/images/case-study/case-study-hero.png"
@@ -12,7 +12,7 @@ const HeroSection = () => (
         priority
       />
     </div>
-    <div className="space-y-4 mt-6">
+    <div className="space-y-4 md:mt-12 mt-6">
       <h1 className="font-space-grotesk text-black
         text-[32px] leading-[40px] sm:text-[40px] sm:leading-[51px] md:text-[48px] md:leading-[61.25px]
         font-bold text-center uppercase tracking-wide">
@@ -24,7 +24,7 @@ const HeroSection = () => (
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
         eiusmod tempor incididunt ut labore et dolore magna aliqua.
       </p>
-      <div className="flex justify-center">
+      <div className="flex justify-center md:py-8">
         <Link 
           href="#"
           className="inline-flex items-center font-space-grotesk

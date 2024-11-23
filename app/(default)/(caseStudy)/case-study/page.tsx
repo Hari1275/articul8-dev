@@ -2,6 +2,7 @@ import '../../../../styles/globals.css';
 import CaseStudySection from './CaseStudySection';
 import HeroSection from './HeroSection'
 import RelatedArticlesSection from './RelatedArticlesSection'
+import StartArticulatingSection from './StartArticulatingSection'
 
 export default function CaseStudyPage() {
   // Sample related articles data
@@ -51,6 +52,11 @@ export default function CaseStudyPage() {
 
         <CaseStudySection />
       </div>
+      
+      {/* Full width section */}
+      <StartArticulatingSection />
+      <div className='py-12 md:py-16'></div>
+
     </main>
   )
 }
