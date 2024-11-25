@@ -37,10 +37,10 @@ export default async function CaseStudyPage({
 
   return (
     <main className="bg-white">
-      <div className="container mx-auto px-4 sm:px-6">
+     
         <CaseStudyDetailSection data={caseStudy} />
         <div className="py-8"></div>
-      </div>
+   
     </main>
   )
 }

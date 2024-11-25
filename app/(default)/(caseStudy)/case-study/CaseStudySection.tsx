@@ -21,21 +21,21 @@ const caseStudies = [
     id: 3,
     title: "B2B Global Financial Services Company: Research-Ready Use Case",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    image: "/images/case-study/case-study-1.png",
+    image: "/images/case-study/case-study-2.png",
     slug: "b2b-financial-services",
   },
   {
     id: 4,
     title: "BCG: Knowledge Discovery & Enterprise Search Use Case",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    image: "/images/case-study/case-study-2.png",
+    image: "/images/case-study/case-study-1.png",
     slug: "bcg-knowledge-discovery",
   }
 ]
 
 export default function CaseStudySection() {
   return (
-    <section className="md:pb-12 md:pt-8">
+    <section className="md:pb-12 md:pt-8 pb-8">
       {/* Header */}
       <div className="flex justify-between md:items-baseline items-baseline md:mb-16 mb-4">
         <h2 className="font-space-grotesk text-black

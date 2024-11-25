@@ -42,37 +42,41 @@ const contentSections = [
 
 export default function CaseStudyDetailSection({ data }: Props) {
   return (
-    <section className="py-8 lg:py-12 lg:py-16 ">
-      {/* Hero Section */}
-      <div className="grid lg:grid-cols-2 gap-4 lg:gap-8 bg-[#F3F2F2] lg:py-24">
-        {/* Image - Shows first on mobile */}
-        <div className="relative aspect-[16/9] lg:order-2">
-          <Image
-            src={data.image}
-            alt={data.title}
-            fill
-            className="object-cover brightness-75"
-            priority
-          />
-        </div>
-        {/* Content - Shows second on mobile */}
-        <div className="p-6 lg:p-8 lg:order-1">
-          <h1 className="font-space-grotesk text-black
-            text-[32px] leading-[41px]
-            sm:text-[40px] sm:leading-[51px]
-            md:text-[44px] md:leading-[56px]
-            lg:text-[48px] lg:leading-[61.25px]
-            uppercase font-bold mb-3 md:mb-6">
-            {data.title}
-          </h1>
-          <p className="font-proxima-nova text-[#666666]
-            text-[16px] leading-[19.5px]
-            sm:text-[18px] sm:leading-[22px]
-            md:text-[20px] md:leading-[24px]
-            lg:text-[24px] lg:leading-[29.23px]
-            font-normal">
-            {data.description}
-          </p>
+    <section className="py-8 lg:py-12 lg:py-16">
+      {/* Hero Section - Full width background */}
+      <div className="bg-[#F3F2F2]">
+        <div className="container mx-auto px-4 sm:px-0">
+          <div className="grid lg:grid-cols-2 gap-4 lg:gap-8 lg:py-24">
+            {/* Image - Shows first on mobile */}
+            <div className="relative aspect-[16/9] lg:order-2">
+              <Image
+                src={data.image}
+                alt={data.title}
+                fill
+                className="object-cover brightness-75"
+                priority
+              />
+            </div>
+            {/* Content - Shows second on mobile */}
+            <div className="p-6 lg:p-8 lg:order-1">
+              <h1 className="font-space-grotesk text-black
+                text-[32px] leading-[41px]
+                sm:text-[40px] sm:leading-[51px]
+                md:text-[44px] md:leading-[56px]
+                lg:text-[48px] lg:leading-[61.25px]
+                uppercase font-bold mb-3 md:mb-6">
+                {data.title}
+              </h1>
+              <p className="font-proxima-nova text-[#666666]
+                text-[16px] leading-[19.5px]
+                sm:text-[18px] sm:leading-[22px]
+                md:text-[20px] md:leading-[24px]
+                lg:text-[24px] lg:leading-[29.23px]
+                font-normal">
+                {data.description}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -87,28 +91,31 @@ export default function CaseStudyDetailSection({ data }: Props) {
         />
       </div>
 
-      {/* Content Sections */}
-      <div className="space-y-0 lg:space-y-8 mt-0 lg:mt-16">
-        {contentSections.map((section) => (
-          <div key={section.id} className="relative">
-            <h2 className="font-space-grotesk text-black
-              text-[28px] leading-[42px]
-              sm:text-[32px] sm:leading-[48px]
-              md:text-[36px] md:leading-[54px]
-              lg:text-[40px] lg:leading-[60px]
-              font-bold mb-4 md:mb-6">
-              {section.title}
-            </h2>
-            <p className="font-proxima-nova text-[#666666]
-              text-[16px] leading-[19.5px]
-              sm:text-[18px] sm:leading-[22px]
-              md:text-[20px] md:leading-[24px]
-              lg:text-[24px] lg:leading-[29.23px]
-              font-normal">
-              {section.content}
-            </p>
-          </div>
-        ))}
+      {/* Rest of the component wrapped in container */}
+      <div className="container mx-auto px-4 sm:px-6">
+        {/* Content Sections */}
+        <div className="space-y-0 lg:space-y-8 mt-0 lg:mt-16">
+          {contentSections.map((section) => (
+            <div key={section.id} className="relative">
+              <h2 className="font-space-grotesk text-black
+                text-[28px] leading-[42px]
+                sm:text-[32px] sm:leading-[48px]
+                md:text-[36px] md:leading-[54px]
+                lg:text-[40px] lg:leading-[60px]
+                font-bold mb-4 md:mb-6">
+                {section.title}
+              </h2>
+              <p className="font-proxima-nova text-[#666666]
+                text-[16px] leading-[19.5px]
+                sm:text-[18px] sm:leading-[22px]
+                md:text-[20px] md:leading-[24px]
+                lg:text-[24px] lg:leading-[29.23px]
+                font-normal">
+                {section.content}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   )
