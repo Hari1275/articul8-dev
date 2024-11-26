@@ -39,7 +39,13 @@ const contentSections = [
     id: 'background',
     title: 'Background',
     content: `Boston Consulting Group (BCG), a leading global management consulting firm, was looking to improve the productivity of their consulting staff. Specifically, their goal was to bring actionable insights from 50+ years of accumulated data and knowledge to their consultants' fingertips, thereby enabling them to focus on valuable analysis and developing better insights rather than spending time searching and locating information.
-    
+    Boston Consulting Group (BCG), a leading global management consulting firm, was looking to improve the productivity of their consulting staff. Specifically, their goal was to bring actionable insights from 50+ years of accumulated data and knowledge to their consultants' fingertips, thereby enabling them to focus on valuable analysis and developing better insights rather than spending time searching and locating information.
+    Boston Consulting Group (BCG), a leading global management consulting firm, was looking to improve the productivity of their consulting staff. Specifically, their goal was to bring actionable insights from 50+ years of accumulated data and knowledge to their consultants' fingertips, thereby enabling them to focus on valuable analysis and developing better insights rather than spending time searching and locating information.
+    Boston Consulting Group (BCG), a leading global management consulting firm, was looking to improve the productivity of their consulting staff. Specifically, their goal was to bring actionable insights from 50+ years of accumulated data and knowledge to their consultants' fingertips, thereby enabling them to focus on valuable analysis and developing better insights rather than spending time searching and locating information.
+    Boston Consulting Group (BCG), a leading global management consulting firm, was looking to improve the productivity of their consulting staff. Specifically, their goal was to bring actionable insights from 50+ years of accumulated data and knowledge to their consultants' fingertips, thereby enabling them to focus on valuable analysis and developing better insights rather than spending time searching and locating information.
+    Boston Consulting Group (BCG), a leading global management consulting firm, was looking to improve the productivity of their consulting staff. Specifically, their goal was to bring actionable insights from 50+ years of accumulated data and knowledge to their consultants' fingertips, thereby enabling them to focus on valuable analysis and developing better insights rather than spending time searching and locating information.
+    Boston Consulting Group (BCG), a leading global management consulting firm, was looking to improve the productivity of their consulting staff. Specifically, their goal was to bring actionable insights from 50+ years of accumulated data and knowledge to their consultants' fingertips, thereby enabling them to focus on valuable analysis and developing better insights rather than spending time searching and locating information.
+    Boston Consulting Group (BCG), a leading global management consulting firm, was looking to improve the productivity of their consulting staff. Specifically, their goal was to bring actionable insights from 50+ years of accumulated data and knowledge to their consultants' fingertips, thereby enabling them to focus on valuable analysis and developing better insights rather than spending time searching and locating information.Boston Consulting Group (BCG), a leading global management consulting firm, was looking to improve the productivity of their consulting staff. Specifically, their goal was to bring actionable insights from 50+ years of accumulated data and knowledge to their consultants' fingertips, thereby enabling them to focus on valuable analysis and developing better insights rather than spending time searching and locating information.Boston Consulting Group (BCG), a leading global management consulting firm, was looking to improve the productivity of their consulting staff. Specifically, their goal was to bring actionable insights from 50+ years of accumulated data and knowledge to their consultants' fingertips, thereby enabling them to focus on valuable analysis and developing better insights rather than spending time searching and locating information.Boston Consulting Group (BCG), a leading global management consulting firm, was looking to improve the productivity of their consulting staff. Specifically, their goal was to bring actionable insights from 50+ years of accumulated data and knowledge to their consultants' fingertips, thereby enabling them to focus on valuable analysis and developing better insights rather than spending time searching and locating information.Boston Consulting Group (BCG), a leading global management consulting firm, was looking to improve the productivity of their consulting staff. Specifically, their goal was to bring actionable insights from 50+ years of accumulated data and knowledge to their consultants' fingertips, thereby enabling them to focus on valuable analysis and developing better insights rather than spending time searching and locating information.Boston Consulting Group (BCG), a leading global management consulting firm, was looking to improve the productivity of their consulting staff. Specifically, their goal was to bring actionable insights from 50+ years of accumulated data and knowledge to their consultants' fingertips, thereby enabling them to focus on valuable analysis and developing better insights rather than spending time searching and locating information.
     
     `
   },
@@ -110,9 +116,9 @@ export default function CaseStudyDetailSection({ data }: Props) {
       </div>
 
       {/* Statistics Section */}
-      <div className="bg-[#F2F7FF] py-12 md:py-16 lg:py-20">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+      <div className="py-12 md:py-16 lg:py-20">
+        <div className="container mx-auto px-4 sm:px-6 bg-[#F2F7FF] md:py-12 py-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
             {statistics.map((stat, index) => (
               <div key={index} className="bg-white p-6 md:p-8 rounded-lg">
                 <h3 className="font-proxima-nova text-[#FA05C3]
@@ -136,16 +142,16 @@ export default function CaseStudyDetailSection({ data }: Props) {
       </div>
 
       {/* Content Section with Left Menu */}
-      <div className="container mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-8 mt-12">
-          {/* Left Menu - Sticky on desktop */}
-          <div className="lg:sticky lg:top-24 h-fit">
-            <nav className="space-y-2 md:space-y-3">
+      <div className="container mx-auto px-0 sm:px-0">
+        <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-8 md:mt-12">
+          {/* Left Menu - Sticky only on desktop */}
+          <div className="relative lg:sticky lg:top-24 lg:h-fit">
+            <nav className="flex flex-row lg:flex-col overflow-x-auto lg:overflow-x-visible space-x-4 lg:space-x-0 space-y-0 lg:space-y-3 pb-4 lg:pb-0">
               {contentSections.map((section) => (
                 <button
                   key={section.id}
                   onClick={() => setActiveSection(section.id)}
-                  className={`w-full text-left px-4 py-3 font-space-grotesk
+                  className={`whitespace-nowrap lg:whitespace-normal text-left px-4 py-3 font-space-grotesk
                     text-[18px] leading-[27px]
                     sm:text-[20px] sm:leading-[30px]
                     md:text-[24px] md:leading-[36px]
