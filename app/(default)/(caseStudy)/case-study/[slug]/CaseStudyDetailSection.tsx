@@ -224,8 +224,8 @@ export default function CaseStudyDetailSection({ data }: Props) {
                 ref={setSectionRef(section.id)}
                 className={`${
                   index === contentSections.length - 1 
-                    ? 'pb-16 lg:pb-40' 
-                    : 'mb-16 lg:mb-32'
+                    ? 'pb-8 lg:pb-20'
+                    : 'mb-8 lg:mb-16'
                 }`}
               >
                 <h2 className="font-space-grotesk text-black
