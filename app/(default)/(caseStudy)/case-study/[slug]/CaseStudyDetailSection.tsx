@@ -157,7 +157,7 @@ export default function CaseStudyDetailSection({ data }: Props) {
       </div>
 
       {/* Statistics Section */}
-      <div className="py-12 md:py-16 lg:py-20">
+      <div className="pt-12 pb-0 md:py-16 lg:py-20">
         <div className="container mx-auto px-4 sm:px-6 bg-[#F2F7FF] md:py-12 py-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
             {statistics.map((stat, index) => (
@@ -183,7 +183,7 @@ export default function CaseStudyDetailSection({ data }: Props) {
       </div>
 
       {/* Content Section with Left Menu */}
-      <div className="container mx-auto px-4 sm:px-0">
+      <div className="container mx-auto px-4 lg:px-0 md:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-8 md:mt-0">
           {/* Left Menu - Only visible on desktop */}
           <div className="hidden lg:block relative lg:sticky lg:top-24 lg:h-fit lg:pt-16">
@@ -224,15 +224,15 @@ export default function CaseStudyDetailSection({ data }: Props) {
                 ref={setSectionRef(section.id)}
                 className={`${
                   index === contentSections.length - 1 
-                    ? 'pb-8 lg:pb-20'
-                    : 'mb-8 lg:mb-16'
+                    ? 'pb-2 lg:pb-20'
+                    : 'mb-4 lg:mb-16'
                 }`}
               >
                 <h2 className="font-space-grotesk text-black
                   text-[28px] leading-[28px]
                   sm:text-[34px] sm:leading-[34px]
                   md:text-[40px] md:leading-[40px]
-                  font-bold mb-8">
+                  font-bold mb-4 lg:mb-8">
                   {section.title}
                 </h2>
                 <p className="font-proxima-nova text-[#666666]

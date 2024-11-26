@@ -3,7 +3,7 @@ import Link from "next/link"
 
 const HeroSection = () => (
   <section className="relative py-4 md:pt-24 md:pb-20">
-    <div className="grid md:grid-cols-[40%_60%] gap-8 items-center md:py-12">
+    <div className="grid lg:grid-cols-[40%_60%] gap-8 items-center md:py-16">
       {/* Left Column - Image (40%) */}
       <div className="relative aspect-[16/9] w-full">
         <Image
@@ -30,7 +30,7 @@ const HeroSection = () => (
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </p>
         <Link 
-          href="#"
+          href="/case-study/intel-manufacturing"
           className="font-space-grotesk text-[#112FFF]
             text-[16px] leading-[20px]
             md:text-[18px] md:leading-[22.97px]
