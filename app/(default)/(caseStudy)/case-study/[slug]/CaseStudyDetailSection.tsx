@@ -1,7 +1,7 @@
 'use client'
 
 import Image from "next/image"
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 
 interface CaseStudyData {
   title: string;
@@ -68,6 +68,47 @@ const contentSections = [
 
 export default function CaseStudyDetailSection({ data }: Props) {
   const [activeSection, setActiveSection] = useState('background')
+  const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({})
+
+  // Scroll to section when menu item is clicked
+  const scrollToSection = (sectionId: string) => {
+    setActiveSection(sectionId)
+    sectionRefs.current[sectionId]?.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  // Create a callback ref function with proper type
+  const setSectionRef = (id: string) => (el: HTMLDivElement | null) => {
+    sectionRefs.current[id] = el
+  }
+
+  // Handle scroll spy
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + window.innerHeight / 2; // Use middle of viewport
+
+      // Find which section is currently in view
+      let currentSectionId = contentSections[0].id;
+
+      contentSections.forEach(section => {
+        const element = sectionRefs.current[section.id];
+        if (!element) return;
+
+        const rect = element.getBoundingClientRect();
+        const absoluteTop = window.scrollY + rect.top;
+
+        if (scrollPosition >= absoluteTop) {
+          currentSectionId = section.id;
+        }
+      });
+
+      setActiveSection(currentSectionId);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <section className="py-8 lg:py-12">
@@ -142,43 +183,56 @@ export default function CaseStudyDetailSection({ data }: Props) {
       </div>
 
       {/* Content Section with Left Menu */}
-      <div className="container mx-auto px-0 sm:px-0">
-        <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-8 md:mt-12">
-          {/* Left Menu - Sticky only on desktop */}
-          <div className="relative lg:sticky lg:top-24 lg:h-fit">
-            <nav className="flex flex-row lg:flex-col overflow-x-auto lg:overflow-x-visible space-x-4 lg:space-x-0 space-y-0 lg:space-y-3 pb-4 lg:pb-0">
+      <div className="container mx-auto px-4 sm:px-0">
+        <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-8 md:mt-0">
+          {/* Left Menu - Only visible on desktop */}
+          <div className="hidden lg:block relative lg:sticky lg:top-24 lg:h-fit lg:pt-16">
+            <nav className="flex flex-col space-y-3 px-4 relative">
+              {/* Indicator Line */}
+              {/* <div className="absolute left-0 w-[3px] bg-[#E6E6E6] h-full" /> */}
+              
               {contentSections.map((section) => (
-                <button
-                  key={section.id}
-                  onClick={() => setActiveSection(section.id)}
-                  className={`whitespace-nowrap lg:whitespace-normal text-left px-4 py-3 font-space-grotesk
-                    text-[18px] leading-[27px]
-                    sm:text-[20px] sm:leading-[30px]
-                    md:text-[24px] md:leading-[36px]
-                    font-medium transition-colors duration-200
-                    ${activeSection === section.id 
-                      ? 'bg-[#F3F2F2] text-[#112FFF]' 
-                      : 'text-black hover:bg-gray-50'
-                    }`}
-                >
-                  {section.title}
-                </button>
+                <div key={section.id} className="relative">
+                  {/* Active Section Indicator */}
+                  {activeSection === section.id && (
+                    <div className="absolute left-0 w-[3px] bg-[#112FFF] h-full 
+                      transition-all duration-300" 
+                    />
+                  )}
+                  <button
+                    onClick={() => scrollToSection(section.id)}
+                    className={`relative text-left px-6 py-4 font-space-grotesk w-full
+                      text-[24px] leading-[36px]
+                      font-medium transition-colors duration-200
+                      ${activeSection === section.id 
+                        ? 'text-[#112FFF]' 
+                        : 'text-black hover:text-[#112FFF]'
+                      }`}
+                  >
+                    {section.title}
+                  </button>
+                </div>
               ))}
             </nav>
           </div>
 
           {/* Right Content */}
-          <div className="lg:pl-8">
-            {contentSections.map((section) => (
+          <div className="lg:px-12 lg:-mt-8">
+            {contentSections.map((section, index) => (
               <div
                 key={section.id}
-                className={`${activeSection === section.id ? 'block' : 'hidden'}`}
+                ref={setSectionRef(section.id)}
+                className={`${
+                  index === contentSections.length - 1 
+                    ? 'pb-16 lg:pb-40' 
+                    : 'mb-16 lg:mb-32'
+                }`}
               >
                 <h2 className="font-space-grotesk text-black
                   text-[28px] leading-[28px]
                   sm:text-[34px] sm:leading-[34px]
                   md:text-[40px] md:leading-[40px]
-                  font-bold mb-6">
+                  font-bold mb-8">
                   {section.title}
                 </h2>
                 <p className="font-proxima-nova text-[#666666]
