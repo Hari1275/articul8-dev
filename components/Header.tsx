@@ -79,6 +79,7 @@ const Header = ({ data }: HeaderProps) => {
                   {link.Label}
                 </Link>
               ))}
+              {/* <Link href='/case-study' className={getLinkClassName('/case-study')}>Case Study</Link> */}
             </nav>
           </div>
 

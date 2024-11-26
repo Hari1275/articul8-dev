@@ -1,6 +1,7 @@
 import '../../../../styles/globals.css';
 import CaseStudySection from './CaseStudySection';
 import HeroSection from './HeroSection'
+import LinkedInFeed from './LinkedIn';
 import RelatedArticlesSection from './RelatedArticlesSection'
 import StartArticulatingSection from './StartArticulatingSection'
 
@@ -55,6 +56,7 @@ export default function CaseStudyPage() {
       
       {/* Full width section */}
       <StartArticulatingSection />
+      <LinkedInFeed />
       <div className='py-12 md:py-16'></div>
 
     </main>
