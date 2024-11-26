@@ -2,7 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 
 const HeroSection = () => (
-  <section className="relative py-4 md:pt-24 md:pb-20">
+  <section className="relative py-4 pb-6 md:pt-24 md:pb-12">
     <div className="grid lg:grid-cols-[40%_60%] gap-8 items-center md:py-16">
       {/* Left Column - Image (40%) */}
       <div className="relative aspect-[16/9] w-full">
@@ -40,9 +40,9 @@ const HeroSection = () => (
           <Image
             src="/images/case-study/icons/arrow-right.svg"
             alt="Read more"
-            width={12}
-            height={12}
-            className="ml-2"
+            width={16}
+            height={16}
+            className="ml-1 md:ml-1 w-[16px] h-[16px] md:w-[20px] md:h-[20px]"
           />
         </Link>
       </div>

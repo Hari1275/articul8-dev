@@ -1,13 +1,19 @@
 import Image from "next/image"
 import Link from "next/link"
 
-const caseStudies = [
+export const CASE_STUDIES = [
   {
     id: 1,
     title: "BCG: Knowledge Discovery & Enterprise Search",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     image: "/images/case-study/placeholder.png",
     slug: "bcg-knowledge-discovery",
+    sections: {
+      background: "Boston Consulting Group (BCG), a leading global management consulting firm...",
+      challenge: "For BCG's consultants to deliver value in a timely manner...",
+      solution: "Articul8 AI deployed a full-stack, production-grade enterprise GenAI platform...",
+      outcomes: "Using the Articul8 GenAI platform, the customer processed decades of structured..."
+    }
   },
   {
     id: 2,
@@ -15,12 +21,18 @@ const caseStudies = [
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     image: "/images/case-study/placeholder.png",
     slug: "financial-analytics",
+    sections: {
+      background: "The financial analytics company was looking to improve...",
+      challenge: "Financial analysts were spending significant time...",
+      solution: "Using Articul8's platform, we developed...",
+      outcomes: "The solution resulted in significant improvements..."
+    }
   }
 ]
 
 export default function CaseStudySection() {
   return (
-    <section className="py-2 md:py-12">
+    <section className="pt-0 pb-8 md:pt-8 md:pb-12">
       {/* Header */}
       <div className="flex justify-between items-baseline mb-8 md:mb-16">
         <h2 className="font-space-grotesk text-black
@@ -48,7 +60,7 @@ export default function CaseStudySection() {
 
       {/* Case Studies Grid */}
       <div className="grid md:grid-cols-2 gap-x-12 md:gap-y-12 gap-y-4">
-        {caseStudies.map((study) => (
+        {CASE_STUDIES.map((study) => (
           <div key={study.id} className="bg-[#F9F9F9]">
             <div className="relative aspect-[16/9] w-full">
               <Image
@@ -87,7 +99,7 @@ export default function CaseStudySection() {
                   alt="Read more"
                   width={12}
                   height={12}
-                  className="ml-2"
+                  className="ml-1 md:ml-1 w-[16px] h-[16px] md:w-[20px] md:h-[20px]"
                 />
               </Link>
             </div>
