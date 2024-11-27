@@ -11,76 +11,45 @@ interface CaseStudyData {
     background: string;
     challenge: string;
     solution: string;
-    outcomes: string;
+    outcomes: Array<{
+      title: string;
+      content: string;
+    }>;
   };
+  statistics: Array<{
+    value: string;
+    label: string;
+  }>;
 }
 
 interface Props {
   data: CaseStudyData;
 }
 
-const statistics = [
-  {
-    value: "39%",
-    label: "Uplift in work completion rate."
-  },
-  {
-    value: "27%",
-    label: "Enhancement in search relevance."
-  },
-  {
-    value: "+46",
-    label: "Point Net Promoter Score (NPS) increase."
-  }
-]
-
-const contentSections = [
-  {
-    id: 'background',
-    title: 'Background',
-    content: `Boston Consulting Group (BCG), a leading global management consulting firm, was looking to improve the productivity of their consulting staff. Specifically, their goal was to bring actionable insights from 50+ years of accumulated data and knowledge to their consultants' fingertips, thereby enabling them to focus on valuable analysis and developing better insights rather than spending time searching and locating information.
-    `
-  },
-  {
-    id: 'challenge',
-    title: 'Challenge',
-    content: `For BCG's consultants to deliver value in a timely manner to their clients, they were up against the significant challenge of making sense of an ever-growing digital repository accumulated over 50+ years dispersed across multiple data sources and involving multiple data formats. Every document was rich in text, graphs, and imagery and was hard to analyze quickly. Existing knowledge systems often forced consultants to use keyword-based searches, sometimes having to go page by page, and scanning entire documents from top to bottom. Consultants struggled to find the most relevant insights despite time-consuming search efforts.`
-  },
-  {
-    id: 'solution',
-    title: 'Solution',
-    content: `Articul8 AI deployed a full-stack, production-grade enterprise GenAI platform in a few weeks that included a conversational system with contextual understanding, multimodal capabilities, and in-app document citation and exploration. The product was powered by a domain-specific multi-modal (image and text) large language model built on BCG's corpus of unstructured, mixed-mode knowledge data, and deployed within BCG's virtual private cloud (VPC) without any data leaving the enterprise perimeter.`
-  },
-  {
-    id: 'outcomes',
-    title: 'Outcomes',
-    content: `Using the Articul8 GenAI platform, the customer processed decades of structured and unstructured data from a number of sources to develop a natural language based GenAI application for manufacturing equipment root cause analysis (RCA). This resulted in accelerated incident resolution, improved equipment uptime, reduced manufacturing downtime, reduced maintenance and repair costs & improving overall manufacturing efficiency.`
-  }
-]
-
 export default function CaseStudyDetailSection({ data }: Props) {
-  const [activeSection, setActiveSection] = useState('background')
+  // Generate content sections dynamically from data.sections
+  const contentSections = Object.keys(data.sections).map(key => ({
+    id: key,
+    title: key.charAt(0).toUpperCase() + key.slice(1) // Capitalize first letter
+  }));
+
+  const [activeSection, setActiveSection] = useState(contentSections[0].id)
   const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({})
 
-  // Scroll to section when menu item is clicked
   const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId)
     sectionRefs.current[sectionId]?.scrollIntoView({ behavior: 'smooth' })
   }
 
-  // Create a callback ref function with proper type
   const setSectionRef = (id: string) => (el: HTMLDivElement | null) => {
     sectionRefs.current[id] = el
   }
 
-  // Handle scroll spy
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + window.innerHeight / 2; // Use middle of viewport
+      const scrollPosition = window.scrollY + window.innerHeight / 2;
 
-      // Find which section is currently in view
       let currentSectionId = contentSections[0].id;
-
       contentSections.forEach(section => {
         const element = sectionRefs.current[section.id];
         if (!element) return;
@@ -97,18 +66,57 @@ export default function CaseStudyDetailSection({ data }: Props) {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial check
+    handleScroll();
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const renderSectionContent = (sectionId: string) => {
+    if (sectionId === 'outcomes') {
+      return (
+        <div className="space-y-8">
+          {data.sections.outcomes.map((outcome, index) => (
+            <div key={index} className="flex gap-4">
+              <div className="flex-shrink-0 mt-2">
+                <div className="w-[6px] h-[6px] rounded-full bg-black" />
+              </div>
+              <div className="flex-1">
+                <p className="font-proxima-nova text-black
+                  text-[18px] leading-[22px]
+                  sm:text-[20px] sm:leading-[24px]
+                  md:text-[24px] md:leading-[29px]">
+                  <span className="font-bold">{outcome.title}:</span>
+                  {' '}
+                  {outcome.content}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      );
+    }
+
+    const content = data.sections[sectionId as keyof typeof data.sections];
+    if (typeof content === 'string') {
+      return (
+        <p className="font-proxima-nova text-black
+          text-[18px] leading-[22px]
+          sm:text-[20px] sm:leading-[24px]
+          md:text-[24px] md:leading-[29px]">
+          {content}
+        </p>
+      );
+    }
+
+    return null;
+  };
+
   return (
     <section className="py-8 lg:py-12">
-      {/* Hero Section - Full width background */}
+      {/* Hero Section */}
       <div className="bg-[#F3F2F2]">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-2 gap-4 lg:gap-8 py-12 lg:py-24">
-            {/* Content */}
             <div className="p-6 lg:p-8">
               <h1 className="font-space-grotesk text-black
                 text-[32px] leading-[41px]
@@ -123,7 +131,6 @@ export default function CaseStudyDetailSection({ data }: Props) {
                 {data.description}
               </p>
             </div>
-            {/* Image */}
             <div className="relative aspect-[16/9]">
               <Image
                 src={data.image}
@@ -137,7 +144,7 @@ export default function CaseStudyDetailSection({ data }: Props) {
         </div>
       </div>
 
-      {/* Dot Line - Attached directly to hero section */}
+      {/* Dot Line */}
       <div className="w-full h-[2px] lg:h-[5px] flex justify-start">
         <Image
           src='/images/case-study/dot-line.png'
@@ -152,7 +159,7 @@ export default function CaseStudyDetailSection({ data }: Props) {
       <div className="pt-12 pb-0 md:py-16 lg:py-20">
         <div className="container mx-auto px-4 sm:px-6 bg-[#F2F7FF] md:py-12 py-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
-            {statistics.map((stat, index) => (
+            {data.statistics.map((stat, index) => (
               <div key={index} className="bg-white p-6 md:p-8 rounded-lg">
                 <h3 className="font-proxima-nova text-[#FA05C3]
                   text-[40px] leading-[48px]
@@ -177,15 +184,11 @@ export default function CaseStudyDetailSection({ data }: Props) {
       {/* Content Section with Left Menu */}
       <div className="container mx-auto px-4 lg:px-0 md:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-8 md:mt-0">
-          {/* Left Menu - Only visible on desktop */}
+          {/* Left Menu */}
           <div className="hidden lg:block relative lg:sticky lg:top-24 lg:h-fit lg:pt-16">
             <nav className="flex flex-col space-y-3 px-4 relative">
-              {/* Indicator Line */}
-              {/* <div className="absolute left-0 w-[3px] bg-[#E6E6E6] h-full" /> */}
-              
               {contentSections.map((section) => (
                 <div key={section.id} className="relative">
-                  {/* Active Section Indicator */}
                   {activeSection === section.id && (
                     <div className="absolute left-0 w-[3px] bg-[#112FFF] h-full 
                       transition-all duration-300" 
@@ -214,11 +217,7 @@ export default function CaseStudyDetailSection({ data }: Props) {
               <div
                 key={section.id}
                 ref={setSectionRef(section.id)}
-                className={`${
-                  index === contentSections.length - 1 
-                    ? 'pb-2 lg:pb-20'
-                    : 'mb-4 lg:mb-16'
-                }`}
+                className={index === contentSections.length - 1 ? 'pb-2 lg:pb-20' : 'mb-4 lg:mb-16'}
               >
                 <h2 className="font-space-grotesk text-black
                   text-[28px] leading-[28px]
@@ -227,13 +226,7 @@ export default function CaseStudyDetailSection({ data }: Props) {
                   font-bold mb-4 lg:mb-8">
                   {section.title}
                 </h2>
-                <p className="font-proxima-nova text-[#666666]
-                  text-[18px] leading-[22px]
-                  sm:text-[20px] sm:leading-[24.36px]
-                  md:text-[24px] md:leading-[29.23px]
-                  font-normal">
-                  {section.content}
-                </p>
+                {renderSectionContent(section.id)}
               </div>
             ))}
           </div>
