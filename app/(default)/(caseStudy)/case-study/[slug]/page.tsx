@@ -2,6 +2,7 @@ import '../../../../../styles/globals.css';
 import { getCaseStudyPageData, createSlug } from '../../../../../utils/strapi';
 import CaseStudyDetailSection from './CaseStudyDetailSection';
 import { notFound } from 'next/navigation';
+import ErrorBoundary from '../components/ErrorBoundary';
 
 // Get case study data based on slug
 async function getCaseStudyData(slug: string) {
@@ -42,10 +43,12 @@ export default async function CaseStudyPage({
   const caseStudy = await getCaseStudyData(params.slug);
 
   return (
-    <main className="bg-white">
-      <CaseStudyDetailSection data={caseStudy} />
-      <div className="py-8"></div>
-    </main>
+    <ErrorBoundary>
+      <main className="bg-white">
+        <CaseStudyDetailSection data={caseStudy} />
+        <div className="py-8"></div>
+      </main>
+    </ErrorBoundary>
   )
 }
 
