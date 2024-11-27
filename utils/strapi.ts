@@ -89,3 +89,18 @@ export async function getFormData() {
     url: '/form',
   });
 }
+
+export async function getCaseStudyPageData() {
+  return fetchAPI({
+    url: '/case-study?populate[0]=CaseStudies&populate[1]=CaseStudies.BasicDetail&populate[2]=CaseStudies.BasicDetail.Logo&populate[3]=CaseStudies.BasicDetail.Image&populate[4]=CaseStudies.PercentageCards&populate[5]=CaseStudies.Outcomes&populate[6]=LastSection.Image&populate[7]=LastSection.Button',
+  });
+}
+
+// Add this utility function
+export function createSlug(title: string): string {
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-') // Replace any non-alphanumeric character with a hyphen
+    .replace(/^-+|-+$/g, '') // Remove leading and trailing hyphens
+    .trim();
+}

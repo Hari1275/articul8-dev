@@ -1,39 +1,31 @@
 import Image from "next/image"
 import Link from "next/link"
+import { createSlug } from '../../../../utils/strapi';
 
-export const CASE_STUDIES = [
-  {
-    id: 1,
-    title: "BCG: Knowledge Discovery & Enterprise Search",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    image: "/images/case-study/placeholder.png",
-    slug: "bcg-knowledge-discovery",
-    sections: {
-      background: "Boston Consulting Group (BCG), a leading global management consulting firm...",
-      challenge: "For BCG's consultants to deliver value in a timely manner...",
-      solution: "Articul8 AI deployed a full-stack, production-grade enterprise GenAI platform...",
-      outcomes: "Using the Articul8 GenAI platform, the customer processed decades of structured..."
-    }
-  },
-  {
-    id: 2,
-    title: "Major Financial Analytics Company: Financial Research Analyst Assistant",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    image: "/images/case-study/placeholder.png",
-    slug: "financial-analytics",
-    sections: {
-      background: "The financial analytics company was looking to improve...",
-      challenge: "Financial analysts were spending significant time...",
-      solution: "Using Articul8's platform, we developed...",
-      outcomes: "The solution resulted in significant improvements..."
-    }
-  }
-]
+interface CaseStudy {
+  BasicDetail: {
+    Title: string;
+    Content: string;
+    Image: {
+      url: string;
+    };
+  };
+  Background: string;
+  Challenge: string;
+  Solution: string;
+  Outcomes: Array<{
+    Title: string;
+    Content: string;
+  }>;
+}
 
-export default function CaseStudySection() {
+interface CaseStudySectionProps {
+  caseStudies: CaseStudy[];
+}
+
+export default function CaseStudySection({ caseStudies }: CaseStudySectionProps) {
   return (
     <section className="pt-0 pb-8 md:pt-8 md:pb-12">
-      {/* Header */}
       <div className="flex justify-between items-baseline mb-8 md:mb-16">
         <h2 className="font-space-grotesk text-black
           text-[32px] leading-[48px]
@@ -58,14 +50,13 @@ export default function CaseStudySection() {
         </button>
       </div>
 
-      {/* Case Studies Grid */}
       <div className="grid md:grid-cols-2 gap-x-12 md:gap-y-12 gap-y-4">
-        {CASE_STUDIES.map((study) => (
-          <div key={study.id} className="bg-[#F9F9F9]">
+        {caseStudies.map((study, index) => (
+          <div key={index} className="bg-[#F9F9F9]">
             <div className="relative aspect-[16/9] w-full">
               <Image
-                src={study.image}
-                alt={study.title}
+                src={study.BasicDetail.Image.url}
+                alt={study.BasicDetail.Title}
                 fill
                 className="object-cover"
               />
@@ -76,17 +67,17 @@ export default function CaseStudySection() {
                 sm:text-[20px] sm:leading-[25.5px]
                 md:text-[22px] md:leading-[28.07px]
                 font-bold mb-4">
-                {study.title}
+                {study.BasicDetail.Title}
               </h3>
               <p className="font-proxima-nova text-black
                 text-[18px] leading-[22px]
                 sm:text-[20px] sm:leading-[24.36px]
                 md:text-[24px] md:leading-[29.23px]
                 font-normal mb-6">
-                {study.description}
+                {study.BasicDetail.Content}
               </p>
               <Link 
-                href={`/case-study/${study.slug}`}
+                href={`/case-study/${createSlug(study.BasicDetail.Title)}`}
                 className="font-space-grotesk text-[#112FFF]
                   text-[16px] leading-[20px]
                   sm:text-[17px] sm:leading-[21.7px]

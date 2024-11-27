@@ -1,21 +1,36 @@
 import '../../../../../styles/globals.css';
-import { CASE_STUDIES } from '../CaseStudySection';
+import { getCaseStudyPageData, createSlug } from '../../../../../utils/strapi';
 import CaseStudyDetailSection from './CaseStudyDetailSection';
 import { notFound } from 'next/navigation';
 
 // Get case study data based on slug
 async function getCaseStudyData(slug: string) {
-  const caseStudy = CASE_STUDIES.find(study => study.slug === slug);
+  const { data } = await getCaseStudyPageData();
+  const caseStudy = data.CaseStudies.find(
+    study => createSlug(study.BasicDetail.Title) === slug
+  );
   
   if (!caseStudy) {
     notFound();
   }
 
   return {
-    title: caseStudy.title,
-    description: caseStudy.description,
-    image: caseStudy.image,
-    sections: caseStudy.sections
+    title: caseStudy.BasicDetail.Title,
+    description: caseStudy.BasicDetail.Content,
+    image: caseStudy.BasicDetail.Image.url,
+    sections: {
+      background: caseStudy.Background,
+      challenge: caseStudy.Challenge,
+      solution: caseStudy.Solution,
+      outcomes: caseStudy.Outcomes.map(outcome => ({
+        title: outcome.Title,
+        content: outcome.Content
+      }))
+    },
+    statistics: caseStudy.PercentageCards.map(card => ({
+      value: `${card.Percentage}%`,
+      label: card.Title
+    }))
   };
 }
 
@@ -36,7 +51,9 @@ export default async function CaseStudyPage({
 
 // Generate static params for static generation
 export async function generateStaticParams() {
-  return CASE_STUDIES.map((study) => ({
-    slug: study.slug,
+  const { data } = await getCaseStudyPageData();
+  
+  return data.CaseStudies.map((study) => ({
+    slug: createSlug(study.BasicDetail.Title),
   }));
 } 
