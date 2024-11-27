@@ -163,17 +163,17 @@ export default function CaseStudyDetailSection({ data }: Props) {
     <React.Suspense fallback={<div>Loading...</div>}>
       <section className="py-8 lg:py-12">
         {/* Hero Section */}
-        <div className="bg-[#F3F2F2]">
+        <div className="bg-[#FFF]">
           <div className="container mx-auto px-4 sm:px-6">
             <div className="grid lg:grid-cols-2 gap-4 lg:gap-8 py-12 lg:py-24">
-              <div className="p-6 lg:p-8">
+              <div >
                 <h1 className="font-space-grotesk text-black
                   text-[32px] leading-[41px]
                   lg:text-[48px] lg:leading-[61.25px]
                   uppercase font-bold mb-6">
                   {data.title}
                 </h1>
-                <p className="font-proxima-nova text-[#666666]
+                <p className="font-proxima-nova text-[#000]
                   text-[16px] leading-[19.5px]
                   lg:text-[24px] lg:leading-[29.23px]
                   font-normal">
@@ -205,7 +205,7 @@ export default function CaseStudyDetailSection({ data }: Props) {
         </div>
 
         {/* Statistics Section */}
-        <div className="pt-12 pb-0 md:py-16 lg:py-20">
+        <div className="pt-12 pb-0 md:py-16 lg:py-16">
           <div className="container mx-auto px-4 sm:px-6 bg-[#F2F7FF] md:py-12 py-6">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
               {data.statistics.map((stat, index) => (
@@ -233,9 +233,9 @@ export default function CaseStudyDetailSection({ data }: Props) {
         {/* Content Section with Left Menu */}
         <div className="container mx-auto px-4 lg:px-0 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-8 md:mt-0">
-            {/* Left Menu */}
-            <div className="hidden lg:block relative lg:sticky lg:top-24 lg:h-fit lg:pt-16">
-              <nav className="flex flex-col space-y-3 px-4 relative">
+            {/* Left Menu - Reduced spacing between menu items */}
+            <div className="hidden lg:block relative lg:sticky lg:top-24 lg:h-fit lg:pt-12">
+              <nav className="flex flex-col space-y-1 px-4 relative">
                 {contentSections.map((section) => (
                   <div key={section.id} className="relative">
                     <AnimatePresence>
@@ -251,7 +251,7 @@ export default function CaseStudyDetailSection({ data }: Props) {
                     </AnimatePresence>
                     <motion.button
                       onClick={() => scrollToSection(section.id)}
-                      className={`relative text-left px-6 py-4 font-space-grotesk w-full
+                      className={`relative text-left px-6 py-2 font-space-grotesk w-full
                         text-[24px] leading-[36px]
                         font-medium transition-colors duration-200
                         ${activeSection === section.id 
@@ -269,13 +269,13 @@ export default function CaseStudyDetailSection({ data }: Props) {
               </nav>
             </div>
 
-            {/* Right Content */}
+            {/* Right Content - Reduced spacing between sections */}
             <div className="lg:px-12 lg:-mt-8">
               {contentSections.map((section, index) => (
                 <motion.div
                   key={section.id}
                   ref={setSectionRef(section.id)}
-                  className={index === contentSections.length - 1 ? 'pb-2 lg:pb-20' : 'mb-4 lg:mb-16'}
+                  className={index === contentSections.length - 1 ? 'pb-0 lg:pb-2' : 'mb-0 lg:mb-2'}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -285,7 +285,7 @@ export default function CaseStudyDetailSection({ data }: Props) {
                     text-[28px] leading-[28px]
                     sm:text-[34px] sm:leading-[34px]
                     md:text-[40px] md:leading-[40px]
-                    font-bold mb-4 lg:mb-8">
+                    font-bold mb-3 lg:mb-6">
                     {section.title}
                   </h2>
                   {renderSectionContent(section.id)}

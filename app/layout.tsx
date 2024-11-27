@@ -1,7 +1,8 @@
 import { Space_Grotesk } from 'next/font/google';
 import localFont from 'next/font/local';
+import GoogleAnalytics from './components/GoogleAnalytics'
 
-
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -44,11 +45,17 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // console.log('Environment:', process.env.NODE_ENV);
+  // console.log('GA ID:', process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID);
+
   return (
     <html lang='en'>
       <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32" />
       <body className={`${proximaNova.variable} ${spaceGrotesk.variable} font-proxima-nova`}>
         {children}
+        {process.env.NODE_ENV === 'production' && GA_MEASUREMENT_ID && (
+          <GoogleAnalytics GA_MEASUREMENT_ID={GA_MEASUREMENT_ID} />
+        )}
       </body>
     </html>
   );
