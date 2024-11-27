@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import React, { useState, useEffect, useRef } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 
 interface CaseStudyData {
   title: string;
@@ -27,18 +28,37 @@ interface Props {
 }
 
 export default function CaseStudyDetailSection({ data }: Props) {
-  // Generate content sections dynamically from data.sections
   const contentSections = Object.keys(data.sections).map(key => ({
     id: key,
-    title: key.charAt(0).toUpperCase() + key.slice(1) // Capitalize first letter
+    title: key.charAt(0).toUpperCase() + key.slice(1)
   }));
 
   const [activeSection, setActiveSection] = useState(contentSections[0].id)
+  const [isScrolling, setIsScrolling] = useState(false)
   const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({})
 
   const scrollToSection = (sectionId: string) => {
-    setActiveSection(sectionId)
-    sectionRefs.current[sectionId]?.scrollIntoView({ behavior: 'smooth' })
+    if (isScrolling) return; // Prevent multiple clicks while scrolling
+    
+    setIsScrolling(true);
+    setActiveSection(sectionId);
+    
+    const element = sectionRefs.current[sectionId];
+    if (element) {
+      const headerOffset = 120;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+
+      // Reset scrolling state after animation
+      setTimeout(() => {
+        setIsScrolling(false);
+      }, 1000); // Adjust timing based on your needs
+    }
   }
 
   const setSectionRef = (id: string) => (el: HTMLDivElement | null) => {
@@ -46,30 +66,44 @@ export default function CaseStudyDetailSection({ data }: Props) {
   }
 
   useEffect(() => {
+    let scrollTimeout: NodeJS.Timeout;
+    
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + window.innerHeight / 2;
-
-      let currentSectionId = contentSections[0].id;
-      contentSections.forEach(section => {
-        const element = sectionRefs.current[section.id];
-        if (!element) return;
-
-        const rect = element.getBoundingClientRect();
-        const absoluteTop = window.scrollY + rect.top;
-
-        if (scrollPosition >= absoluteTop) {
-          currentSectionId = section.id;
+      if (isScrolling) return; // Don't update active section while programmatically scrolling
+      
+      // Debounce scroll handler
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        const scrollPosition = window.scrollY + 150;
+        
+        let newActiveSection = contentSections[0].id;
+        let minDistance = Infinity;
+        
+        contentSections.forEach(section => {
+          const element = sectionRefs.current[section.id];
+          if (!element) return;
+          
+          const rect = element.getBoundingClientRect();
+          const distance = Math.abs(rect.top - 150); // Distance from target scroll position
+          
+          if (distance < minDistance) {
+            minDistance = distance;
+            newActiveSection = section.id;
+          }
+        });
+        
+        if (newActiveSection !== activeSection) {
+          setActiveSection(newActiveSection);
         }
-      });
-
-      setActiveSection(currentSectionId);
+      }, 50);
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll();
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(scrollTimeout);
+    };
+  }, [contentSections, activeSection, isScrolling]);
 
   const renderSectionContent = (sectionId: string) => {
     if (sectionId === 'outcomes') {
@@ -189,12 +223,18 @@ export default function CaseStudyDetailSection({ data }: Props) {
             <nav className="flex flex-col space-y-3 px-4 relative">
               {contentSections.map((section) => (
                 <div key={section.id} className="relative">
-                  {activeSection === section.id && (
-                    <div className="absolute left-0 w-[3px] bg-[#112FFF] h-full 
-                      transition-all duration-300" 
-                    />
-                  )}
-                  <button
+                  <AnimatePresence>
+                    {activeSection === section.id && (
+                      <motion.div
+                        className="absolute left-0 w-[3px] bg-[#112FFF] h-full"
+                        initial={{ scaleY: 0 }}
+                        animate={{ scaleY: 1 }}
+                        exit={{ scaleY: 0 }}
+                        transition={{ duration: 0.2 }}
+                      />
+                    )}
+                  </AnimatePresence>
+                  <motion.button
                     onClick={() => scrollToSection(section.id)}
                     className={`relative text-left px-6 py-4 font-space-grotesk w-full
                       text-[24px] leading-[36px]
@@ -203,9 +243,12 @@ export default function CaseStudyDetailSection({ data }: Props) {
                         ? 'text-[#112FFF]' 
                         : 'text-black hover:text-[#112FFF]'
                       }`}
+                    whileHover={{ x: 4 }}
+                    transition={{ duration: 0.2 }}
+                    disabled={isScrolling}
                   >
                     {section.title}
-                  </button>
+                  </motion.button>
                 </div>
               ))}
             </nav>
@@ -214,10 +257,14 @@ export default function CaseStudyDetailSection({ data }: Props) {
           {/* Right Content */}
           <div className="lg:px-12 lg:-mt-8">
             {contentSections.map((section, index) => (
-              <div
+              <motion.div
                 key={section.id}
                 ref={setSectionRef(section.id)}
                 className={index === contentSections.length - 1 ? 'pb-2 lg:pb-20' : 'mb-4 lg:mb-16'}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
               >
                 <h2 className="font-space-grotesk text-black
                   text-[28px] leading-[28px]
@@ -227,7 +274,7 @@ export default function CaseStudyDetailSection({ data }: Props) {
                   {section.title}
                 </h2>
                 {renderSectionContent(section.id)}
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
