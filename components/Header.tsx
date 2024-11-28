@@ -57,6 +57,7 @@ const Header = () => {
             <Link href='/about' className={getLinkClassName('/about')}>
               About Us
             </Link>
+            <Link href='/case-study' className={getLinkClassName('/case-study')}>Case Studies</Link>
           </nav>
         </div>
 
@@ -155,6 +156,13 @@ const Header = () => {
                 onClick={toggleMenu}
               >
                 About Us
+              </Link>
+              <Link
+                href='/case-study'
+                className={getLinkClassNameMobile('/case-study')}
+                onClick={toggleMenu}
+              >
+                Case Studies
               </Link>
             </nav>
           </div>
