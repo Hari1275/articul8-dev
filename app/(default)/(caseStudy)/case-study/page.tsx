@@ -10,7 +10,7 @@ export default function CaseStudyPage() {
   
   return (
     <main className="bg-white">
-      <div className="container mx-auto px-4 md:px-6 lg:px-8">
+      <div className="container mx-auto px-4 md:px-6 lg:px-6">
         <HeroSection caseStudy={firstCaseStudy.BasicDetail} />
         <hr className="border-t border-[#E6E6E6]" />
         <CaseStudySection caseStudies={CASE_STUDIES} />

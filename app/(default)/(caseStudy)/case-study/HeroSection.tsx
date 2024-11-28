@@ -23,7 +23,8 @@ const HeroSection = ({ caseStudy }: HeroSectionProps) => {
 
   return (
     <section className="relative py-4 pb-6 md:pt-24 md:pb-12">
-      <div className="grid lg:grid-cols-[45%_55%] gap-8 lg:gap-12 items-center md:py-16">
+      
+      <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center md:py-16">
         <div className="relative aspect-[16/9] w-full">
           <Image
             src={caseStudy.Image.url}
