@@ -251,7 +251,7 @@ export default function CaseStudyDetailSection({ data }: Props) {
         </div>
 
         {/* Dot Line */}
-        <div className="w-full h-[2px] lg:h-[5px] flex justify-start">
+        <div className="container mx-auto px-4 sm:px-6 w-full h-[2px] lg:h-[5px] flex justify-start">
           <Image
             src='/images/case-study/dot-line.png'
             alt='Dotted line separator'
@@ -263,8 +263,8 @@ export default function CaseStudyDetailSection({ data }: Props) {
 
         {/* Statistics Section */}
         {data.statistics.length > 0 ? (
-          <div className="pt-12 pb-0 md:py-16 lg:py-16">
-            <div className="container mx-auto px-4 sm:px-6 bg-[#F2F7FF] md:py-12 py-6">
+          <div className="container mx-auto px-4 sm:px-4 pt-12 pb-0 md:py-16 lg:py-16">
+            <div className="container mx-auto px-4 sm:px-12 bg-[#F2F7FF] md:py-12 py-6">
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-8">
                 {data.statistics.map((stat, index) => (
                   <div key={index} className="bg-white p-6 md:p-8 rounded-lg">
