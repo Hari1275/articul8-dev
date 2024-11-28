@@ -41,13 +41,21 @@ export default function CaseStudyDetailSection({ data }: Props) {
   );
 
   const [activeSection, setActiveSection] = useState(contentSections[0].id)
-  const [isScrolling, setIsScrolling] = useState(false)
   const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({})
-  const scrollTimeout = useRef<NodeJS.Timeout>()
+  const isManualScrolling = useRef(false)
+  const scrollEndTimeout = useRef<NodeJS.Timeout>()
 
   const handleScroll = useCallback(
     throttle(() => {
-      if (isScrolling) return;
+      if (isManualScrolling.current) {
+        const currentScrollPos = window.scrollY;
+        setTimeout(() => {
+          if (currentScrollPos === window.scrollY) {
+            isManualScrolling.current = false;
+          }
+        }, 50);
+        return;
+      }
 
       const scrollPosition = window.scrollY + 150;
       let newActiveSection = contentSections[0].id;
@@ -70,45 +78,49 @@ export default function CaseStudyDetailSection({ data }: Props) {
         setActiveSection(newActiveSection);
       }
     }, 100),
-    [contentSections, activeSection, isScrolling]
+    [contentSections, activeSection]
   );
 
   const scrollToSection = useCallback((sectionId: string) => {
-    if (isScrolling) return;
-    
-    setIsScrolling(true);
-    setActiveSection(sectionId);
-    
     const element = sectionRefs.current[sectionId];
-    if (element) {
-      const headerOffset = 120;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+    if (!element) return;
 
-      requestAnimationFrame(() => {
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-      });
-
-      if (scrollTimeout.current) {
-        clearTimeout(scrollTimeout.current);
-      }
-
-      scrollTimeout.current = setTimeout(() => {
-        setIsScrolling(false);
-      }, 1000);
+    if (scrollEndTimeout.current) {
+      clearTimeout(scrollEndTimeout.current);
     }
-  }, [isScrolling]);
+
+    isManualScrolling.current = true;
+    setActiveSection(sectionId);
+
+    const headerOffset = 120;
+    const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+    const offsetPosition = elementPosition - headerOffset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
+
+    scrollEndTimeout.current = setTimeout(() => {
+      isManualScrolling.current = false;
+    }, 800);
+  }, []);
 
   useEffect(() => {
+    const handleWheel = () => {
+      if (isManualScrolling.current) {
+        isManualScrolling.current = false;
+      }
+    };
+
+    window.addEventListener('wheel', handleWheel, { passive: true });
     window.addEventListener('scroll', handleScroll);
-    
+
     return () => {
+      window.removeEventListener('wheel', handleWheel);
       window.removeEventListener('scroll', handleScroll);
-      if (scrollTimeout.current) {
-        clearTimeout(scrollTimeout.current);
+      if (scrollEndTimeout.current) {
+        clearTimeout(scrollEndTimeout.current);
       }
       handleScroll.cancel();
     };
@@ -296,7 +308,7 @@ export default function CaseStudyDetailSection({ data }: Props) {
                         />
                       )}
                     </AnimatePresence>
-                    <motion.button
+                    <button
                       onClick={() => scrollToSection(section.id)}
                       className={`relative text-left px-6 py-2 font-space-grotesk w-full
                         text-[24px] leading-[36px]
@@ -305,12 +317,9 @@ export default function CaseStudyDetailSection({ data }: Props) {
                           ? 'text-[#112FFF]' 
                           : 'text-black hover:text-[#112FFF]'
                         }`}
-                      whileHover={{ x: 4 }}
-                      transition={{ duration: 0.2 }}
-                      disabled={isScrolling}
                     >
                       {section.title}
-                    </motion.button>
+                    </button>
                   </div>
                 ))}
               </nav>
