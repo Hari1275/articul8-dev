@@ -216,8 +216,8 @@ export default function CaseStudyDetailSection({ data }: Props) {
                   <Image
                     src={data.logo}
                     alt={data.title}
-                    width={150}
-                    height={150}
+                    width={80}
+                    height={80}
                     priority
                   />
                 )}

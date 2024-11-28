@@ -27,7 +27,8 @@ export const CASE_STUDIES = [
       Content: "Discover how Articul8 GenAI boosted BCG's productivity by 39% and search relevance by 27%, unlocking insights from 50+ years of data.",
       Image: {
         url: "/images/case-study/bcg-case.png"
-      }
+      },
+      logo: '/images/case-study/bcg-logo.png'
     },
     Background: "Boston Consulting Group (BCG), a leading global management consulting firm, was looking to improve the productivity of their consulting staff. Specifically, their goal was to bring actionable insights from 50+ years of accumulated data and knowledge to their consultants' fingertips, thereby enabling them to focus on valuable analysis and developing better insights rather than spending time searching and locating information.",
     Challenge: "For BCG's consultants to deliver value in a timely manner to their clients, they were up against the significant challenge of making sense of an ever-growing digital repository accumulated over 50+ years dispersed across multiple data sources and involving multiple data formats. Every document was rich in text, graphs, and imagery and was hard to analyze quickly. Existing knowledge systems often forced consultants to use keyword-based searches, sometimes having to go page by page, and scanning entire documents from top to bottom. Consultants struggled to find the most relevant insights despite time-consuming search efforts.",
