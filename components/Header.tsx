@@ -56,10 +56,10 @@ const Header = () => {
             <Link href='/products' className={getLinkClassName('/products')}>
               Product
             </Link>
+            <Link href='/case-studies' className={getLinkClassName('/case-studies')}>Case Studies</Link>
             <Link href='/about' className={getLinkClassName('/about')}>
               About Us
             </Link>
-            <Link href='/case-studies' className={getLinkClassName('/case-studies')}>Case Studies</Link>
           </nav>
         </div>
 
@@ -153,19 +153,20 @@ const Header = () => {
                 Product
               </Link>
               <Link
-                href='/about'
-                className={getLinkClassNameMobile('/about')}
-                onClick={toggleMenu}
-              >
-                About Us
-              </Link>
-              <Link
                 href='/case-studies'
                 className={getLinkClassNameMobile('/case-studies')}
                 onClick={toggleMenu}
               >
                 Case Studies
               </Link>
+              <Link
+                href='/about'
+                className={getLinkClassNameMobile('/about')}
+                onClick={toggleMenu}
+              >
+                About Us
+              </Link>
+              
             </nav>
           </div>
           {/* <div className='p-4'>
