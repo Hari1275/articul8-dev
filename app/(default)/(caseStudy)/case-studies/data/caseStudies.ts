@@ -96,7 +96,7 @@ CASE_STUDIES =
       },
       {
         Percentage: "~100ms",
-        Title: "Enhancement in search relevance."
+        Title: "Roundtrip search retrieval time."
       },
       {
         Percentage: "Fastest",
