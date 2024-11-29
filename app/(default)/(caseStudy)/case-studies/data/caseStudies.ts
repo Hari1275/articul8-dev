@@ -1,4 +1,6 @@
-export const CASE_STUDIES = [
+export const 
+CASE_STUDIES =
+ [
   {
     BasicDetail: {
       Title: "MANUFACTURING ROOT CAUSE ANALYSIS",
@@ -9,9 +11,9 @@ export const CASE_STUDIES = [
       logo: '/images/case-study/intel-logo.svg'
     },
     Background: "Chip manufacturing is a complex, dynamic process that requires constant monitoring, analysis, and optimization. Intel developed a manufacturing 'incident assistant' using Articul8's GenAI platform to diagnose & resolve manufacturing problems & improve overall manufacturing process efficiency.",
-    Challenge: "Machine downtime in semiconductor fabs costs millions of dollars. Identifying issues during downtime is complicated, highly manual, and depends on the engineer's technical work experience as well as the ability to draw quick insights from past historical data and multiple data sources and types (structured, unstructured data, time series data, etc.). Intel was looking for a GenAI powered solution to diagnose & resolve manufacturing problems & improve overall manufacturing process efficiency.",
+    Challenge: "Machine downtime in semiconductor fabs costs millions of dollars. Identifying issues during downtime is complicated, highly manual, and depends on the engineer/technician's work experience as well as the ability to draw quick insights from past historical data and multiple data sources and types (structured, unstructured data, time series data, etc.). Intel was looking for a GenAI powered solution to diagnose & resolve manufacturing problems & improve overall manufacturing process efficiency.",
     Solution: {
-      content: "Using Articul8's GenAI platform, Intel ingested and analyzed structured and unstructured data from these sources, including historical data and real-time feeds from sensors and semiconductor manufacturing equipment, to empower manufacturing engineers and technicians to gain valuable insights. These insights enabled faster root cause analysis, reduction of manufacturing downtime, automated work order creation, and improving overall manufacturing process efficiency.",
+      content: "Using Articul8's GenAI platform, Intel ingested and analyzed structured and unstructured data from diverse sources, including historical data and real-time feeds from sensors and semiconductor manufacturing equipment, to empower manufacturing engineers and technicians to gain valuable insights into their manufacturing operations and make data-driven decisions for failure mode root cause analysis, reduction of manufacturing downtime, automated work order creation, and improving overall manufacturing process efficiency.",
       videoUrl: '/images/case-study/intel-video.mp4'
     },
     Outcomes: [
@@ -72,8 +74,8 @@ export const CASE_STUDIES = [
         url: "/images/case-study/financial-case.png"
       }
     },
-    Background: "A leading B2B financial data and analytics company was looking to leverage the power of GenAI to benefit their large organization and their client base. The mission was to transform the legacy financial data and analytics experience to meet the evolved needs of the customer and automate insights far beyond the limits of traditional financial analysis offered in their current software products.",
-    Challenge: "The company's end-users such as investment banking and equity research teams deal with vast quantities of financial data - from market reports and economic indicators to company filings and global events. Traditional methods of financial data analysis are manual and time-consuming, and financial analysts spend hours on the company's platform searching and reading through all relevant documents to distill the data into actionable insights. In addition, they spend a considerable amount of time manually putting together reports that could sometimes be hundreds of pages long. They rely on tools offered by the Financial Analytics Company to inform and improve their investment thesis, however, the existing tools didn't offer rich connected inputs sourced from multi-modal datasets. This left a significant burden of connecting disparate sources of data on the analysts.",
+    Background: "A leading B2B financial data and analytics company, was looking to leverage the power of Generative AI (GenAI) to drive transformational change in their software products. The mission was to transform the large financial data corpus owned by the customer into actionable insights for their end customers, pushing beyond the limits of traditional financial analysis offered in their current software products.",
+    Challenge: "The company's end-users such as investment banking and equity research teams deal with vast quantities of financial data - from market reports and economic indicators to company filings and global events. Traditional methods of financial data analysis are manual and time-consuming, and financial analysts spend hours on the company's platform searching and reading through all relevant documents to distill the data into actionable insights. In addition, they spend a considerable amount of time manually putting together reports that could sometimes be hundreds of pages long. They rely on tools offered by the Financial Analytics Company to inform and improve their investment thesis, however, the exiting tools didn't offer rich connected inputs sourced from multi-modal datasets. This left a significant burden of connecting disparate sources of data on the analysts.",
     Solution: {
       content: "The company partnered with Articul8 AI to leverage GenAI to drive automated data understanding and multimodal insights, with a focus on improving their end-user experience to bring customer-facing, revenue generating use cases to market quickly. Leveraging Articul8 AI's GenAI platform, the team processed and ingested 2M+ documents (250B+ tokens) including 10K filings, 10Qs, earnings transcripts and proprietary research and analysis documents in their production deployment. The outcome was a GenAI-powered financial analyst copilot that included capabilities such as conversational search, on-demand summaries and insights with source links, role-based metadata filtering for customized access, and multi-dimensional summarization through a knowledge graph for exhaustive analysis."
     },
@@ -90,7 +92,7 @@ export const CASE_STUDIES = [
     PercentageCards: [
       {
         Percentage: "2 million+",
-        Title: "Documents, ingested"
+        Title: "Documents ingested"
       },
       {
         Percentage: "~100ms",
