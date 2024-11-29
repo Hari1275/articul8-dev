@@ -24,13 +24,15 @@ const HeroSection = ({ caseStudy }: HeroSectionProps) => {
   return (
     <section className="relative py-4 pb-6 md:pt-24 md:pb-12">
       
-      <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center md:py-16">
-        <div className="relative aspect-[16/9] w-full">
+      <div className="grid lg:grid-cols-2 py-8 gap-8 lg:gap-12 items-center md:py-16">
+        <div className="relative w-full">
           <Image
             src={caseStudy.Image.url}
             alt={caseStudy.Title}
-            fill
-            className="object-cover rounded-lg"
+            width={0}
+            height={0}
+            sizes="100vw"
+            className="w-full h-auto"
             priority
           />
         </div>
@@ -51,7 +53,7 @@ const HeroSection = ({ caseStudy }: HeroSectionProps) => {
             {caseStudy.Content}
           </p>
           <Link 
-            href={`/case-study/${createSlug(caseStudy.Title)}`}
+            href={`/case-studies/${createSlug(caseStudy.Title)}`}
             className="font-space-grotesk text-[#112FFF]
               text-[16px] leading-[20px]
               md:text-[18px] md:leading-[22.97px]
