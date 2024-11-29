@@ -141,16 +141,22 @@ export default function CaseStudyDetailSection({ data }: Props) {
         <div className="space-y-8">
           {data.sections.outcomes.map((outcome, index) => (
             <div key={index} className="flex gap-4">
-              <div className="flex-shrink-0 mt-2">
-                <div className="w-[6px] h-[6px] rounded-full bg-black" />
-              </div>
+              {outcome.title && (
+                <div className="flex-shrink-0 mt-2">
+                  <div className="w-[6px] h-[6px] rounded-full bg-black" />
+                </div>
+              )}
               <div className="flex-1">
                 <p className="font-proxima-nova text-black
                   text-[18px] leading-[22px]
                   sm:text-[20px] sm:leading-[24px]
                   md:text-[24px] md:leading-[29px]">
-                  <span className="font-bold">{outcome.title}:</span>
-                  {' '}
+                  {outcome.title && (
+                    <>
+                      <span className="font-bold">{outcome.title}:</span>
+                      {' '}
+                    </>
+                  )}
                   {outcome.content}
                 </p>
               </div>
@@ -173,12 +179,11 @@ export default function CaseStudyDetailSection({ data }: Props) {
           {data.sections.solution.videoUrl && (
             <div className="relative aspect-video w-full mt-8">
               <video
-                className="w-full rounded-lg"
-                autoPlay
-           muted
-                loop
-                playsInline
+                className="w-full rounded-lg [&::-webkit-media-controls-download-button]:hidden [&::-webkit-media-controls-enclosure]:!rounded-lg"
+                controls
                 poster="/images/case-study/video-thumbnail.png"
+                controlsList="nodownload"
+                playsInline
               >
                 <source src={data.sections.solution.videoUrl} type="video/mp4" />
                 Your browser does not support the video tag.
@@ -210,14 +215,14 @@ export default function CaseStudyDetailSection({ data }: Props) {
         {/* Hero Section */}
         <div className="bg-[#FFF]">
           <div className="container mx-auto px-4 sm:px-6">
-            <div className="grid lg:grid-cols-2 gap-4 lg:gap-8 py-12 lg:py-24">
+            <div className="grid lg:grid-cols-2 gap-4 lg:gap-8 py-12 lg:py-24 items-center">
               <div className="w-full">
                 {data.logo && (
                   <Image
                     src={data.logo}
                     alt={data.title}
-                    width={80}
-                    height={80}
+                    width={100}
+                    height={100}
                     priority
                   />
                 )}
@@ -236,15 +241,17 @@ export default function CaseStudyDetailSection({ data }: Props) {
                 </p>
               </div>
               <div className="w-full relative">
-                <div className="relative aspect-[16/9] w-full">
+               
                   <Image
                     src={data.image}
                     alt={data.title}
-                    fill
-                    className="object-cover rounded-lg"
-                    {...imageProps}
+                    width={0}
+                    height={0}
+                    sizes="100vw"
+                    className="w-full h-auto"
+                    priority
                   />
-                </div>
+              
               </div>
             </div>
           </div>

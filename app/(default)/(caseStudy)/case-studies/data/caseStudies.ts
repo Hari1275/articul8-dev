@@ -6,7 +6,7 @@ export const CASE_STUDIES = [
       Image: {
         url: "/images/case-study/intel-case.png"
       },
-      logo: '/images/case-study/intel-logo.png'
+      logo: '/images/case-study/intel-logo.svg'
     },
     Background: "Chip manufacturing is a complex, dynamic process that requires constant monitoring, analysis, and optimization. Intel developed a manufacturing 'incident assistant' using Articul8's GenAI platform to diagnose & resolve manufacturing problems & improve overall manufacturing process efficiency.",
     Challenge: "Machine downtime in semiconductor fabs costs millions of dollars. Identifying issues during downtime is complicated, highly manual, and depends on the engineer's technical work experience as well as the ability to draw quick insights from past historical data and multiple data sources and types (structured, unstructured data, time series data, etc.). Intel was looking for a GenAI powered solution to diagnose & resolve manufacturing problems & improve overall manufacturing process efficiency.",
@@ -16,7 +16,7 @@ export const CASE_STUDIES = [
     },
     Outcomes: [
       {
-        Title: "Business Impact",
+        Title: "",
         Content: "Using the Articul8 GenAI platform, Intel processed decades of structured and unstructured data from a number of sources such as machine logs, knowledge articles, and internal knowledge wiki pages to develop a natural language based GenAI application for manufacturing equipment root cause analysis (RCA). This resulted in accelerated incident resolution times, thousands of hours saved in highly skilled labor productivity, saving millions in fab equipment downtime costs per year & improving overall manufacturing efficiency."
       }
     ]
@@ -28,7 +28,7 @@ export const CASE_STUDIES = [
       Image: {
         url: "/images/case-study/bcg-case.png"
       },
-      logo: '/images/case-study/bcg-logo.png'
+      logo: '/images/case-study/bcg-logo.svg'
     },
     Background: "Boston Consulting Group (BCG), a leading global management consulting firm, was looking to improve the productivity of their consulting staff. Specifically, their goal was to bring actionable insights from 50+ years of accumulated data and knowledge to their consultants' fingertips, thereby enabling them to focus on valuable analysis and developing better insights rather than spending time searching and locating information.",
     Challenge: "For BCG's consultants to deliver value in a timely manner to their clients, they were up against the significant challenge of making sense of an ever-growing digital repository accumulated over 50+ years dispersed across multiple data sources and involving multiple data formats. Every document was rich in text, graphs, and imagery and was hard to analyze quickly. Existing knowledge systems often forced consultants to use keyword-based searches, sometimes having to go page by page, and scanning entire documents from top to bottom. Consultants struggled to find the most relevant insights despite time-consuming search efforts.",
@@ -73,18 +73,18 @@ export const CASE_STUDIES = [
       }
     },
     Background: "A leading B2B financial data and analytics company was looking to leverage the power of GenAI to benefit their large organization and their client base. The mission was to transform the legacy financial data and analytics experience to meet the evolved needs of the customer and automate insights far beyond the limits of traditional financial analysis offered in their current software products.",
-    Challenge: "The company's expert users such as investment banking and equity research teams deal with vast quantities of financial data - from market reports and economic indicators to company filings and global events. Traditional methods of financial data analysis require analysts to spend significant time manually searching and reading through all relevant documents to distill the data into actionable insights. In addition, they rely on tools built by the Financial Analytics Company to perform and improve their investment thesis, however, the scaling tools didn't fit the current needs. They rely on tools built by the Financial Analytics Company to perform and improve their investment thesis, however, the scaling tools didn't fit the current needs.",
+    Challenge: "The company's end-users such as investment banking and equity research teams deal with vast quantities of financial data - from market reports and economic indicators to company filings and global events. Traditional methods of financial data analysis are manual and time-consuming, and financial analysts spend hours on the company's platform searching and reading through all relevant documents to distill the data into actionable insights. In addition, they spend a considerable amount of time manually putting together reports that could sometimes be hundreds of pages long. They rely on tools offered by the Financial Analytics Company to inform and improve their investment thesis, however, the existing tools didn't offer rich connected inputs sourced from multi-modal datasets. This left a significant burden of connecting disparate sources of data on the analysts.",
     Solution: {
-      content: "The company partnered with Articul8 to leverage GenAI to drive exceptional data understanding and continuous insights, with a focus on improving their end-user experience to bring customer facing, revenue generating use cases to market quickly. Our company ingested 15,000+ company documents (10GB+ tokens) including the filings, transcripts and proprietary research and analysis documents in their production environment. The outcome was a GenAI-based financial analysis app that included capabilities such as conversational insights, on-demand summary and interpretation with real-time data, and a knowledge graph for exhaustive analysis."
+      content: "The company partnered with Articul8 AI to leverage GenAI to drive automated data understanding and multimodal insights, with a focus on improving their end-user experience to bring customer-facing, revenue generating use cases to market quickly. Leveraging Articul8 AI's GenAI platform, the team processed and ingested 2M+ documents (250B+ tokens) including 10K filings, 10Qs, earnings transcripts and proprietary research and analysis documents in their production deployment. The outcome was a GenAI-powered financial analyst copilot that included capabilities such as conversational search, on-demand summaries and insights with source links, role-based metadata filtering for customized access, and multi-dimensional summarization through a knowledge graph for exhaustive analysis."
     },
     Outcomes: [
       {
         Title: "Business Impact",
-        Content: "This project received strong support from the company's C-suite and Board, reflecting GenAI's role in driving the company's growth and innovation strategy. The stage for the company's evolution from a data provider to a true insights provider was set, with the potential to reach the company's end customers through in-depth analytics and insights. The product was in 'limited beta-to-production deployment' in the words of the company's CEO and is already on track to drive multi-million dollars in net new revenue."
+        Content: "This project received strong support from the company's C-suite and Board, reflecting GenAI's role in driving the company's growth and innovation and setting the stage for the company's evolution from a data provider to a business insights provider. This strategic shift is aimed at delivering greater value to the company's end customers through in-depth analytics and insights. The copilot product was the 'fastest beta-to-production deployment', in the words of the company's CIO and is already on track to drive multi-million dollars in net new revenue."
       },
       {
         Title: "User Experience",
-        Content: "Analysts reported 100x+ improvement search/retrieval time even with thousands of concurrent users. In addition, the GenAI-based application demonstrated the ability of research 'thumb-up' score across hundreds of users in tens of thousands of documents."
+        Content: "Articul8's vertically integrated and optimized GenAI platform enabled a ~100ms roundtrip search retrieval time even with thousands of concurrent users. In addition, the GenAI-powered application received a 95% quality of response 'thumbs-up' score across hundreds of users in tens of enterprises during the product rollout."
       }
     ],
     PercentageCards: [

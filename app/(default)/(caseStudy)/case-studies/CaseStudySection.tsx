@@ -71,20 +71,24 @@ export default function CaseStudySection({ caseStudies }: CaseStudySectionProps)
 
       <div className="grid md:grid-cols-2 gap-x-12 md:gap-y-12 gap-y-4">
         {caseStudies.slice(1).map((study, index) => (
-          <div key={index + 1} className="bg-[#F9F9F9]">
-            <div className="relative aspect-[16/9] w-full">
-              <Image
+          <div key={index + 1} >
+            <div className="relative w-full">
+          <Image
                 src={study.BasicDetail.Image.url}
                 alt={study.BasicDetail.Title}
-                fill
-                className="object-cover"
-              />
+                width={0}
+                height={0}
+                sizes="100vw"
+                className="w-full h-auto"
+                priority
+          />
             </div>
-            <div className="p-8">
+            <div className="p-8 bg-[#F9F9F9]">
               <h3 className="font-space-grotesk text-black
                 text-[18px] leading-[23px]
                 sm:text-[20px] sm:leading-[25.5px]
                 md:text-[22px] md:leading-[28.07px]
+                2xl:min-h-[56.15px]
                 font-bold mb-4">
                 {study.BasicDetail.Title}
               </h3>
@@ -96,7 +100,7 @@ export default function CaseStudySection({ caseStudies }: CaseStudySectionProps)
                 {study.BasicDetail.Content}
               </p>
               <Link 
-                href={`/case-study/${createSlug(study.BasicDetail.Title)}`}
+                href={`/case-studies/${createSlug(study.BasicDetail.Title)}`}
                 className="font-space-grotesk text-[#112FFF]
                   text-[16px] leading-[20px]
                   sm:text-[17px] sm:leading-[21.7px]
