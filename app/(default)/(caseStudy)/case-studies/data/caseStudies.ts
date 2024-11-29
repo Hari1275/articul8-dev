@@ -1,8 +1,8 @@
 export const CASE_STUDIES = [
   {
     BasicDetail: {
-      Title: "INTEL: MANUFACTURING ROOT CAUSE ANALYSIS",
-      Content: "Learn how Intel partnered with Articul8 to build a GenAI-powered 'inquiries assistant' that diagnoses and resolves manufacturing equipment issues, resulting in downtime costs.",
+      Title: "MANUFACTURING ROOT CAUSE ANALYSIS",
+      Content: "Learn how Intel partnered with Articul8 to build a GenAI-powered 'incident assistant' that diagnoses and resolves manufacturing issues, saving millions in downtime costs.",
       Image: {
         url: "/images/case-study/intel-case.png"
       },
@@ -23,7 +23,7 @@ export const CASE_STUDIES = [
   },
   {
     BasicDetail: {
-      Title: "BCG: KNOWLEDGE DISCOVERY & ENTERPRISE SEARCH",
+      Title: "KNOWLEDGE DISCOVERY & ENTERPRISE SEARCH",
       Content: "Discover how Articul8 GenAI boosted BCG's productivity by 39% and search relevance by 27%, unlocking insights from 50+ years of data.",
       Image: {
         url: "/images/case-study/bcg-case.png"
