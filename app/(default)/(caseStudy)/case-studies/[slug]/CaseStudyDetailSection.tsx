@@ -150,7 +150,7 @@ export default function CaseStudyDetailSection({ data }: Props) {
                 <p className="font-proxima-nova text-black
                   text-[18px] leading-[22px]
                   sm:text-[20px] sm:leading-[24px]
-                  md:text-[24px] md:leading-[29px]">
+                  md:text-[20px] md:leading-[24px]">
                   {outcome.title && (
                     <>
                       <span className="font-bold">{outcome.title}:</span>
@@ -172,7 +172,7 @@ export default function CaseStudyDetailSection({ data }: Props) {
           <p className="font-proxima-nova text-black
             text-[18px] leading-[22px]
             sm:text-[20px] sm:leading-[24px]
-            md:text-[24px] md:leading-[29px]">
+            md:text-[20px] md:leading-[24px]">
             {data.sections.solution.content}
           </p>
           
@@ -200,7 +200,7 @@ export default function CaseStudyDetailSection({ data }: Props) {
         <p className="font-proxima-nova text-black
           text-[18px] leading-[22px]
           sm:text-[20px] sm:leading-[24px]
-          md:text-[24px] md:leading-[29px]">
+          md:text-[20px] md:leading-[24px]">
           {content}
         </p>
       );
@@ -346,8 +346,8 @@ export default function CaseStudyDetailSection({ data }: Props) {
                 >
                   <h2 className="font-space-grotesk text-black
                     text-[28px] leading-[28px]
-                    sm:text-[34px] sm:leading-[34px]
-                    md:text-[40px] md:leading-[40px]
+                    sm:!text-[34px] sm:!leading-[34px]
+                    md:!text-[40px] md:!leading-[40px]
                     font-bold mb-3 lg:mb-6">
                     {section.title}
                   </h2>
