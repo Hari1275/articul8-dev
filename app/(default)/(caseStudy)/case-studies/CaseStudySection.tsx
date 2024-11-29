@@ -71,9 +71,9 @@ export default function CaseStudySection({ caseStudies }: CaseStudySectionProps)
 
       <div className="grid md:grid-cols-2 gap-x-12 md:gap-y-12 gap-y-4">
         {caseStudies.slice(1).map((study, index) => (
-          <div key={index + 1} >
+          <div key={index + 1} className="flex flex-col h-full">
             <div className="relative w-full">
-          <Image
+              <Image
                 src={study.BasicDetail.Image.url}
                 alt={study.BasicDetail.Title}
                 width={0}
@@ -81,24 +81,26 @@ export default function CaseStudySection({ caseStudies }: CaseStudySectionProps)
                 sizes="100vw"
                 className="w-full h-auto"
                 priority
-          />
+              />
             </div>
-            <div className="p-8 bg-[#F9F9F9]">
-              <h3 className="font-space-grotesk text-black
-                text-[18px] leading-[23px]
-                sm:text-[20px] sm:leading-[25.5px]
-                md:text-[22px] md:leading-[28.07px]
-                2xl:min-h-[56.15px]
-                font-bold mb-4">
-                {study.BasicDetail.Title}
-              </h3>
-              <p className="font-proxima-nova text-black
-                text-[18px] leading-[22px]
-                sm:text-[20px] sm:leading-[24.36px]
-                md:text-[24px] md:leading-[29.23px]
-                font-normal mb-6">
-                {study.BasicDetail.Content}
-              </p>
+            <div className="p-8 bg-[#F9F9F9] flex flex-col flex-grow">
+              <div className="flex-grow">
+                <h3 className="font-space-grotesk text-black
+                  text-[18px] leading-[23px] min-h-[46px]
+                  sm:text-[20px] sm:leading-[25.5px] sm:min-h-[51px]
+                  md:text-[22px] md:leading-[28.07px] md:min-h-[56px]
+                  2xl:min-h-[56.15px]
+                  font-bold mb-4">
+                  {study.BasicDetail.Title}
+                </h3>
+                <p className="font-proxima-nova text-black
+                  text-[18px] leading-[22px]
+                  sm:text-[20px] sm:leading-[24.36px]
+                  md:text-[24px] md:leading-[29.23px]
+                  font-normal mb-6">
+                  {study.BasicDetail.Content}
+                </p>
+              </div>
               <Link 
                 href={`/case-studies/${createSlug(study.BasicDetail.Title)}`}
                 className="font-space-grotesk text-[#112FFF]
