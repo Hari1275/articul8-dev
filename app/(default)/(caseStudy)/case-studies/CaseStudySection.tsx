@@ -50,13 +50,13 @@ export default function CaseStudySection({ caseStudies }: CaseStudySectionProps)
   return (
     <section className="pt-0 pb-8 md:pt-8 md:pb-12">
       <div className="flex justify-between items-baseline mb-8 md:mb-12">
-        {/* <h2 className="font-space-grotesk text-black
+        <h2 className="font-space-grotesk text-black
           text-[32px] leading-[48px]
           sm:text-[44px] sm:leading-[66px]
           md:text-[56px] md:leading-[84px]
           font-bold">
           Case Studies
-        </h2> */}
+        </h2>
         {/* <button className="flex items-center font-space-grotesk text-[#1130FF]
           text-[18px] leading-[23px]
           sm:text-[20px] sm:leading-[25.5px]
