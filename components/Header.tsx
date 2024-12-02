@@ -17,7 +17,8 @@ const Header = () => {
   };
 
   const getLinkClassName = (href: string) => {
-    const isActive = pathname === href;
+    const isActive = pathname === href || 
+      (href === '/case-studies' && pathname?.startsWith('/case-studies/'));
     return `text-black font-proxima-nova text-[22px] leading-[27.07px] font-[${
       isActive ? '700' : '400'
     }] hover:text-black transition duration-300 ${
@@ -26,7 +27,8 @@ const Header = () => {
   };
 
   const getLinkClassNameMobile = (href: string) => {
-    const isActive = pathname === href;
+    const isActive = pathname === href || 
+      (href === '/case-studies' && pathname?.startsWith('/case-studies/'));
 
     return `text-white font-proxima-nova text-[34px] font-[400] leading-[40px] px-8 py-2 hover:border-2 hover:border-[#4D6EFF] hover:rounded-md transition-all duration-300 ${
       isActive
@@ -54,6 +56,7 @@ const Header = () => {
             <Link href='/products' className={getLinkClassName('/products')}>
               Product
             </Link>
+            <Link href='/case-studies' className={getLinkClassName('/case-studies')}>Case Studies</Link>
             <Link href='/about' className={getLinkClassName('/about')}>
               About Us
             </Link>
@@ -150,12 +153,20 @@ const Header = () => {
                 Product
               </Link>
               <Link
+                href='/case-studies'
+                className={getLinkClassNameMobile('/case-studies')}
+                onClick={toggleMenu}
+              >
+                Case Studies
+              </Link>
+              <Link
                 href='/about'
                 className={getLinkClassNameMobile('/about')}
                 onClick={toggleMenu}
               >
                 About Us
               </Link>
+              
             </nav>
           </div>
           {/* <div className='p-4'>
