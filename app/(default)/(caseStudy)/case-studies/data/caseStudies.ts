@@ -1,7 +1,9 @@
 export const 
 CASE_STUDIES =
  [
-  {
+    {
+     metaTitle: "Articul8 | Intel Manufacturing: Root Cause Analysis Case Study",
+      metaDiscription:"Learn how Intel leveraged Articul8's platform to build a GenAI-powered root cause analysis (RCA) application that saved millions by minimizing fab equipment downtime.",
     BasicDetail: {
       Title: "Intel: Manufacturing Root Cause Analysis",
       Content: "Learn how Intel leveraged Articul8's platform to build a GenAI-powered root cause analysis (RCA) application that saved millions by minimizing fab equipment downtime.",
@@ -14,7 +16,7 @@ CASE_STUDIES =
     Challenge: "Machine downtime in semiconductor fabs costs millions of dollars. Identifying issues during downtime is complicated, highly manual, and depends on the engineer/technician's work experience as well as the ability to draw quick insights from past historical data and multiple data sources and types (structured, unstructured data, time series data, etc.). Intel was looking for a GenAI powered solution to diagnose & resolve manufacturing problems & improve overall manufacturing process efficiency.",
     Solution: {
       content: "Using Articul8's GenAI platform, Intel ingested and analyzed structured and unstructured data from diverse sources, including historical data and real-time feeds from sensors and semiconductor manufacturing equipment, to empower manufacturing engineers and technicians to gain valuable insights into their manufacturing operations and make data-driven decisions for failure mode root cause analysis, reduction of manufacturing downtime, automated work order creation, and improving overall manufacturing process efficiency.",
-      videoUrl: '/images/case-study/intel-video.mp4'
+      videoUrl: "https://www.youtube.com/embed/2Dqekzf3jyM?rel=0&showinfo=0&controls=1"
     },
     Outcomes: [
       {
@@ -23,7 +25,9 @@ CASE_STUDIES =
       }
     ]
   },
-  {
+    {
+     metaTitle: "Articul8 | BCG Case Study: Knowledge Discovery & Enterprise Search",
+      metaDiscription:"Learn how Intel leveraged Articul8's platform to build a GenAI-powered root cause analysis (RCA) application that saved millions by minimizing fab equipment downtime.",
     BasicDetail: {
       Title: "BCG: Knowledge Discovery and Enterprise Search",
       Content: "Discover how Boston Consulting Group (BCG) achieved a 39% uplift in work completion rate and a 27% improvement in search relevance with Articul8's platform.",
@@ -69,7 +73,9 @@ CASE_STUDIES =
       }
     ]
   },
-  {
+    {
+     metaTitle: "Articul8 | Streamlining Financial Research: Analyst Assistant Case Study",
+      metaDiscription:"Learn how a major financial data and analytics company leveraged Articul8's platform to automate data understanding and to generate multimodal insights across 2 million financial documents.",
     BasicDetail: {
       Title: "Financial Research Analyst Assistant",
       Content: "Learn how a major financial data and analytics company leveraged Articul8's platform to automate data understanding and to generate multimodal insights across 2 million financial documents.",

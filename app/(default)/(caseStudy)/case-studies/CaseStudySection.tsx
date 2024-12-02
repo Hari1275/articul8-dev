@@ -1,6 +1,8 @@
 import Image from "next/image"
 import Link from "next/link"
 
+
+
 // Update the interface to match the actual data structure
 interface CaseStudyBasicDetail {
   Title: string;
@@ -12,6 +14,8 @@ interface CaseStudyBasicDetail {
 }
 
 interface CaseStudy {
+  metaTitle?: string,
+  metaDiscription?: string,
   BasicDetail: CaseStudyBasicDetail;
   Background?: string;
   Challenge?: string;
@@ -88,7 +92,7 @@ export default function CaseStudySection({ caseStudies }: CaseStudySectionProps)
                 <h3 className="font-space-grotesk text-black
                   text-[18px] leading-[23px] min-h-[46px]
                   sm:text-[20px] sm:leading-[25.5px] sm:min-h-[51px]
-                  md:text-[22px] md:leading-[28.07px] md:min-h-[56px]
+                  md:text-[26px] md:leading-[28.07px] md:min-h-[56px]
                   2xl:min-h-[56.15px]
                   font-bold mb-4 uppercase">
                   {study.BasicDetail.Title}
@@ -101,7 +105,7 @@ export default function CaseStudySection({ caseStudies }: CaseStudySectionProps)
                   {study.BasicDetail.Content}
                 </p>
               </div>
-              <Link 
+              <Link
                 href={`/case-studies/${createSlug(study.BasicDetail.Title)}`}
                 className="font-space-grotesk text-[#112FFF]
                   text-[16px] leading-[20px]
