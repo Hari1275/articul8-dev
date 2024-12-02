@@ -25,6 +25,7 @@ interface CaseStudyData {
   statistics: Array<{
     value: string;
     label: string;
+    color?: string;
   }>;
 }
 
@@ -33,6 +34,7 @@ interface Props {
 }
 
 export default function CaseStudyDetailSection({ data }: Props) {
+ 
   const contentSections = React.useMemo(() => 
     Object.keys(data.sections).map(key => ({
       id: key,
@@ -224,6 +226,7 @@ export default function CaseStudyDetailSection({ data }: Props) {
                     width={100}
                     height={100}
                     priority
+                    className="mb-6"
                   />
                 )}
                 <h1 className="font-space-grotesk text-black 
@@ -275,18 +278,13 @@ export default function CaseStudyDetailSection({ data }: Props) {
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-8">
                 {data.statistics.map((stat, index) => (
                   <div key={index} className="bg-white p-6 md:p-8 rounded-lg">
-                    <h3 className="font-proxima-nova text-[#FA05C3]
-                      text-[40px] leading-[48px]
-                      sm:text-[52px] sm:leading-[62.4px]
-                      md:text-[64px] md:leading-[76.8px]
-                      font-bold mb-3">
+                    <h3 
+                      className="font-proxima-nova text-[40px] leading-[48px] sm:text-[52px] sm:leading-[62.4px] md:text-[64px] md:leading-[76.8px] font-bold mb-3"
+                      style={{ color: stat.color || '#FA05C3' }}
+                    >
                       {stat.value}
                     </h3>
-                    <p className="font-proxima-nova text-black
-                      text-[18px] leading-[21.6px]
-                      sm:text-[20px] sm:leading-[24px]
-                      md:text-[24px] md:leading-[28.8px]
-                      font-normal">
+                    <p className="font-proxima-nova text-black text-[18px] leading-[21.6px] sm:text-[20px] sm:leading-[24px] md:text-[24px] md:leading-[28.8px] font-normal">
                       {stat.label}
                     </p>
                   </div>

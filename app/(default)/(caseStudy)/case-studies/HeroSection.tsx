@@ -38,6 +38,7 @@ const HeroSection = ({ caseStudy }: HeroSectionProps) => {
         </div>
 
         <div className="flex flex-col justify-center w-full pr-4 lg:pr-8">
+       
           <h1 className="font-space-grotesk text-black
             text-[32px] leading-[40px]
             2xl:!text-[40px] 2xl:!leading-[51px]

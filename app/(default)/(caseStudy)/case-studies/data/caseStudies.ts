@@ -3,12 +3,12 @@ CASE_STUDIES =
  [
   {
     BasicDetail: {
-      Title: "MANUFACTURING ROOT CAUSE ANALYSIS",
-      Content: "Learn how Intel partnered with Articul8 to build a GenAI-powered 'incident assistant' that diagnoses and resolves manufacturing issues, saving millions in downtime costs.",
+      Title: "Intel: Manufacturing Root Cause Analysis",
+      Content: "Learn how Intel leveraged Articul8's platform to build a GenAI-powered root cause analysis (RCA) application that saved millions by minimizing fab equipment downtime.",
       Image: {
         url: "/images/case-study/intel-case.png"
       },
-      logo: '/images/case-study/intel-logo.svg'
+      logo: '/images/logos/intel-logo.png'
     },
     Background: "Chip manufacturing is a complex, dynamic process that requires constant monitoring, analysis, and optimization. Intel developed a manufacturing 'incident assistant' using Articul8's GenAI platform to diagnose & resolve manufacturing problems & improve overall manufacturing process efficiency.",
     Challenge: "Machine downtime in semiconductor fabs costs millions of dollars. Identifying issues during downtime is complicated, highly manual, and depends on the engineer/technician's work experience as well as the ability to draw quick insights from past historical data and multiple data sources and types (structured, unstructured data, time series data, etc.). Intel was looking for a GenAI powered solution to diagnose & resolve manufacturing problems & improve overall manufacturing process efficiency.",
@@ -25,12 +25,12 @@ CASE_STUDIES =
   },
   {
     BasicDetail: {
-      Title: "KNOWLEDGE DISCOVERY & ENTERPRISE SEARCH",
-      Content: "Discover how Articul8 GenAI boosted BCG's productivity by 39% and search relevance by 27%, unlocking insights from 50+ years of data.",
+      Title: "BCG: Knowledge Discovery and Enterprise Search",
+      Content: "Discover how Boston Consulting Group (BCG) achieved a 39% uplift in work completion rate and a 27% improvement in search relevance with Articul8's platform.",
       Image: {
         url: "/images/case-study/bcg-case.png"
       },
-      logo: '/images/case-study/bcg-logo.svg'
+      logo: '/images/logos/bcg-logo.png'
     },
     Background: "Boston Consulting Group (BCG), a leading global management consulting firm, was looking to improve the productivity of their consulting staff. Specifically, their goal was to bring actionable insights from 50+ years of accumulated data and knowledge to their consultants' fingertips, thereby enabling them to focus on valuable analysis and developing better insights rather than spending time searching and locating information.",
     Challenge: "For BCG's consultants to deliver value in a timely manner to their clients, they were up against the significant challenge of making sense of an ever-growing digital repository accumulated over 50+ years dispersed across multiple data sources and involving multiple data formats. Every document was rich in text, graphs, and imagery and was hard to analyze quickly. Existing knowledge systems often forced consultants to use keyword-based searches, sometimes having to go page by page, and scanning entire documents from top to bottom. Consultants struggled to find the most relevant insights despite time-consuming search efforts.",
@@ -54,27 +54,30 @@ CASE_STUDIES =
     PercentageCards: [
       {
         Percentage: "39%",
-        Title: "Uplift in work completion rate."
+        Title: "Uplift in work completion rate.",
+        color: "#FA05C3"
       },
       {
         Percentage: "27%",
-        Title: "Enhancement in search relevance."
+        Title: "Enhancement in search relevance.",
+        color: "#FA05C3"
       },
       {
         Percentage: "+46",
-        Title: "Point Net Promoter Score (NPS) increase."
+        Title: "Point Net Promoter Score (NPS) increase.",
+        color: "#FA05C3"
       }
     ]
   },
   {
     BasicDetail: {
-      Title: "MAJOR FINANCIAL ANALYTICS COMPANY: FINANCIAL RESEARCH ANALYST ASSISTANT",
-      Content: "Find out how a leading financial data company's analysts leveraged GenAI to accelerate analyst work, delivering faster insights and generating millions in new revenue.",
+      Title: "Financial Research Analyst Assistant",
+      Content: "Learn how a major financial data and analytics company leveraged Articul8's platform to automate data understanding and to generate multimodal insights across 2 million financial documents.",
       Image: {
         url: "/images/case-study/financial-case.png"
       }
     },
-    Background: "A leading B2B financial data and analytics company, was looking to leverage the power of Generative AI (GenAI) to drive transformational change in their software products. The mission was to transform the large financial data corpus owned by the customer into actionable insights for their end customers, pushing beyond the limits of traditional financial analysis offered in their current software products.",
+    Background: "A leading B2B financial data and analytics company was looking to leverage GenAI to drive transformational change in their software products. The mission was to transform the large financial data corpus owned by the customer into actionable insights for their end customers, pushing beyond the limits of traditional financial analysis offered in their current software products.",
     Challenge: "The company's end-users such as investment banking and equity research teams deal with vast quantities of financial data - from market reports and economic indicators to company filings and global events. Traditional methods of financial data analysis are manual and time-consuming, and financial analysts spend hours on the company's platform searching and reading through all relevant documents to distill the data into actionable insights. In addition, they spend a considerable amount of time manually putting together reports that could sometimes be hundreds of pages long. They rely on tools offered by the Financial Analytics Company to inform and improve their investment thesis, however, the exiting tools didn't offer rich connected inputs sourced from multi-modal datasets. This left a significant burden of connecting disparate sources of data on the analysts.",
     Solution: {
       content: "The company partnered with Articul8 AI to leverage GenAI to drive automated data understanding and multimodal insights, with a focus on improving their end-user experience to bring customer-facing, revenue generating use cases to market quickly. Leveraging Articul8 AI's GenAI platform, the team processed and ingested 2M+ documents (250B+ tokens) including 10K filings, 10Qs, earnings transcripts and proprietary research and analysis documents in their production deployment. The outcome was a GenAI-powered financial analyst copilot that included capabilities such as conversational search, on-demand summaries and insights with source links, role-based metadata filtering for customized access, and multi-dimensional summarization through a knowledge graph for exhaustive analysis."
@@ -92,15 +95,18 @@ CASE_STUDIES =
     PercentageCards: [
       {
         Percentage: "2 million+",
-        Title: "Documents ingested"
+        Title: "Documents ingested",
+        color: "#FF7500"
       },
       {
         Percentage: "~100ms",
-        Title: "Roundtrip search retrieval time."
+        Title: "Roundtrip search retrieval time.",
+        color: "#FF7500"
       },
       {
         Percentage: "Fastest",
-        Title: "Beta to production deployment"
+        Title: "Beta to production deployment",
+        color: "#FF7500"
       }
     ]
   }

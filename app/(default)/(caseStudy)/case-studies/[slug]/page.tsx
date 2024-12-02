@@ -29,6 +29,7 @@ interface CaseStudy {
   PercentageCards?: Array<{
     Percentage: string;
     Title: string;
+    color?: string; 
   }>;
 }
 
@@ -69,8 +70,9 @@ function getCaseStudyData(slug: string) {
       })) || []
     },
     statistics: caseStudy.PercentageCards?.map(card => ({
-      value: card.Percentage.toString(),
-      label: card.Title
+      value: card.Percentage,
+      label: card.Title,
+      color: card.color || '#FA05C3'
     })) || []
   };
 }
