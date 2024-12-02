@@ -24,7 +24,7 @@ const HeroSection = ({ caseStudy }: HeroSectionProps) => {
   return (
     <section className="relative py-4 pb-6 md:pt-24 md:pb-12">
       
-      <div className="grid lg:grid-cols-2 py-8 gap-8 lg:gap-12 items-center md:py-16">
+      <div className="grid lg:grid-cols-2 py-8 gap-8 lg:gap-12 items-start md:py-16">
         <div className="relative w-full">
           <Image
             src={caseStudy.Image.url}
@@ -37,8 +37,10 @@ const HeroSection = ({ caseStudy }: HeroSectionProps) => {
           />
         </div>
 
-        <div className="flex flex-col justify-center w-full pr-4 lg:pr-8">
-       
+        <div className="flex flex-col justify-center  w-full pr-4 lg:pr-8">
+        <p className="font-space-grotesk text-[#112FFF] !text-[18px] !leading-[22px] xl:!text-[32px] xl:!leading-[39px]  font-bold">
+            Case Study Spotlight
+          </p>
           <h1 className="font-space-grotesk text-black
             text-[32px] leading-[40px]
             2xl:!text-[40px] 2xl:!leading-[51px]
