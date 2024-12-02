@@ -4,10 +4,18 @@ import HeroSection from './HeroSection';
 import StartArticulatingSection from './StartArticulatingSection';
 import { CASE_STUDIES, LAST_SECTION } from './data/caseStudies';
 
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: 'Articul8 | Case Studies',
+  description:
+    'Intel: Manufacturing Root Cause Analysis',
+};
+
+
 export default function CaseStudyPage() {
   // Use first case study for hero section
   const firstCaseStudy = CASE_STUDIES[0];
-  
+
   return (
     <main className="bg-white">
       <div className="container mx-auto px-4 md:px-6 lg:px-6">

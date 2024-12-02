@@ -3,6 +3,12 @@ import CaseStudyDetailSection from './CaseStudyDetailSection';
 import { notFound } from 'next/navigation';
 import ErrorBoundary from '../components/ErrorBoundary';
 import { CASE_STUDIES } from '../data/caseStudies';
+import { Metadata } from "next";
+export let metadata: Metadata = {
+  title: 'Articul8 | Case Studies',
+  description:
+    "Learn how Intel leveraged Articul8's platform to build a GenAI-powered root cause analysis (RCA) application that saved millions by minimizing fab equipment downtime."
+};
 
 // Create interfaces to match the data structure
 interface CaseStudyBasicDetail {
@@ -15,6 +21,8 @@ interface CaseStudyBasicDetail {
 }
 
 interface CaseStudy {
+  metaTitle?: string,
+  metaDiscription?: string,
   BasicDetail: CaseStudyBasicDetail;
   Background?: string;
   Challenge?: string;
@@ -29,7 +37,7 @@ interface CaseStudy {
   PercentageCards?: Array<{
     Percentage: string;
     Title: string;
-    color?: string; 
+    color?: string;
   }>;
 }
 
@@ -47,13 +55,19 @@ function getCaseStudyData(slug: string) {
   const caseStudy = CASE_STUDIES.find(
     study => createSlug(study.BasicDetail.Title) === slug
   ) as CaseStudy | undefined;
-  
+
   if (!caseStudy) {
     notFound();
   }
-
+  metadata = {
+    title: caseStudy.metaTitle,
+    description:
+      caseStudy.metaTitle
+  };
   return {
     title: caseStudy.BasicDetail.Title,
+    metaTitle: caseStudy.metaTitle,
+    metaDiscription: caseStudy.metaDiscription,
     description: caseStudy.BasicDetail.Content,
     image: caseStudy.BasicDetail.Image.url,
     logo: caseStudy.BasicDetail.logo,
@@ -79,7 +93,7 @@ function getCaseStudyData(slug: string) {
 
 export default function CaseStudyPage({
   params
-}: {  
+}: {
   params: { slug: string }
 }) {
   const caseStudy = getCaseStudyData(params.slug);

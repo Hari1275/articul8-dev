@@ -5,6 +5,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { throttle } from 'lodash'
 
+
 interface CaseStudyData {
   title: string;
   description: string;
@@ -34,8 +35,8 @@ interface Props {
 }
 
 export default function CaseStudyDetailSection({ data }: Props) {
- 
-  const contentSections = React.useMemo(() => 
+
+  const contentSections = React.useMemo(() =>
     Object.keys(data.sections).map(key => ({
       id: key,
       title: key.charAt(0).toUpperCase() + key.slice(1)
@@ -177,19 +178,31 @@ export default function CaseStudyDetailSection({ data }: Props) {
             md:text-[20px] md:leading-[24px]">
             {data.sections.solution.content}
           </p>
-          
+
           {data.sections.solution.videoUrl && (
+            // <div className="relative aspect-video w-full mt-8">
+            //   <video
+            //     className="w-full rounded-lg [&::-webkit-media-controls-download-button]:hidden [&::-webkit-media-controls-enclosure]:!rounded-lg"
+            //     controls
+            //     poster="/images/case-study/video-thumbnail.png"
+            //     controlsList="nodownload"
+            //     playsInline
+            //   >
+            //     <source src={data.sections.solution.videoUrl} type="video/mp4" />
+            //     Your browser does not support the video tag.
+            //   </video>
+            // </div>
             <div className="relative aspect-video w-full mt-8">
-              <video
-                className="w-full rounded-lg [&::-webkit-media-controls-download-button]:hidden [&::-webkit-media-controls-enclosure]:!rounded-lg"
-                controls
-                poster="/images/case-study/video-thumbnail.png"
-                controlsList="nodownload"
-                playsInline
-              >
-                <source src={data.sections.solution.videoUrl} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+              <div className="w-full h-0 pb-[56.25%] relative">
+                <iframe
+                  className="absolute top-0 left-0 w-full h-full rounded-lg"
+                  src={data.sections.solution.videoUrl}
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                ></iframe>
+              </div>
             </div>
           )}
         </div>
@@ -244,17 +257,17 @@ export default function CaseStudyDetailSection({ data }: Props) {
                 </p>
               </div>
               <div className="w-full relative">
-               
-                  <Image
-                    src={data.image}
-                    alt={data.title}
-                    width={0}
-                    height={0}
-                    sizes="100vw"
-                    className="w-full h-auto"
-                    priority
-                  />
-              
+
+                <Image
+                  src={data.image}
+                  alt={data.title}
+                  width={0}
+                  height={0}
+                  sizes="100vw"
+                  className="w-full h-auto"
+                  priority
+                />
+
               </div>
             </div>
           </div>
@@ -278,7 +291,7 @@ export default function CaseStudyDetailSection({ data }: Props) {
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-8">
                 {data.statistics.map((stat, index) => (
                   <div key={index} className="bg-white p-6 md:p-8 rounded-lg">
-                    <h3 
+                    <h3
                       className="font-proxima-nova text-[40px] leading-[48px] sm:text-[52px] sm:leading-[62.4px] md:text-[64px] md:leading-[76.8px] font-bold mb-3"
                       style={{ color: stat.color || '#FA05C3' }}
                     >
@@ -292,7 +305,7 @@ export default function CaseStudyDetailSection({ data }: Props) {
               </div>
             </div>
           </div>
-        ) : <div className="pt-12 pb-0 md:py-12 lg:py-12"></div>}  
+        ) : <div className="pt-12 pb-0 md:py-12 lg:py-12"></div>}
 
         {/* Content Section with Left Menu */}
         <div className="container mx-auto px-4 lg:px-0 md:px-6">
@@ -318,8 +331,8 @@ export default function CaseStudyDetailSection({ data }: Props) {
                       className={`relative text-left px-6 py-2 font-space-grotesk w-full
                         text-[24px] leading-[36px]
                         font-medium transition-colors duration-200
-                        ${activeSection === section.id 
-                          ? 'text-[#112FFF]' 
+                        ${activeSection === section.id
+                          ? 'text-[#112FFF]'
                           : 'text-black hover:text-[#112FFF]'
                         }`}
                     >
