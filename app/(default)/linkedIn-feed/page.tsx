@@ -56,7 +56,7 @@ const LinkedInFeedHero = () => {
 
       {/* LinkedIn Feed Section */}
       <section className="bg-white">
-        <div className="py-12 px-4 lg:py-20 lg:px-6" dangerouslySetInnerHTML={{ __html: flocklerEmbed }} />
+        <div className="container mx-auto py-12 px-4 lg:py-20 lg:px-6" dangerouslySetInnerHTML={{ __html: flocklerEmbed }} />
       </section>
       <section className="bg-[#112FFF] relative">
       <div className="container mx-auto px-4 sm:px-6">
