@@ -55,7 +55,31 @@ const LinkedInFeedHero = () => {
       </section>
 
       {/* LinkedIn Feed Section */}
+
       <section className="bg-white">
+      <div className="flex justify-between items-baseline mb-2 md:mb-4 container mx-auto px-4 lg:px-6">
+        <h2 className="font-space-grotesk text-black
+          text-[32px] leading-[48px]
+          sm:text-[44px] sm:leading-[66px]
+          md:text-[56px] md:leading-[84px]
+          font-bold">
+        Latest News
+        </h2>
+        {/* <button className="flex items-center font-space-grotesk text-[#1130FF]
+          text-[18px] leading-[23px]
+          sm:text-[20px] sm:leading-[25.5px]
+          md:text-[22px] md:leading-[28.07px]
+          font-bold">
+          Sort by
+          <Image
+            src="/images/case-study/icons/arrow-down.svg"
+            alt="Sort"
+            width={12}
+            height={12}
+            className="ml-2"
+          />
+        </button> */}
+      </div>
         <div className="container mx-auto py-12 px-4 lg:py-20 lg:px-6" dangerouslySetInnerHTML={{ __html: flocklerEmbed }} />
       </section>
       <section className="bg-[#112FFF] relative">
