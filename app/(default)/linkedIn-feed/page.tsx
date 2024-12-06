@@ -18,7 +18,7 @@ const LinkedInFeedHero = () => {
       <section>
         <div className='bg-[#F3F2F2] lg:py-24 py-4'>
           <div className='container mx-auto'>
-            <div className='flex flex-col-reverse lg:flex-row items-center gap-8 px-4 py-8 lg:py-16'>
+            <div className='flex flex-col-reverse lg:flex-row items-center gap-8 px-4 pt-8 lg:pt-16'>
               {/* Content Container */}
               <div className='w-full lg:w-1/2'>
                 <h1
@@ -60,7 +60,7 @@ const LinkedInFeedHero = () => {
       {/* LinkedIn Feed Section */}
 
       <section className='bg-white'>
-        <div className='flex justify-between items-baseline  md:mb-4 container mx-auto px-4 lg:px-6'>
+        <div className='flex justify-between items-baseline   container mx-auto px-4 lg:px-6 '>
           <h2
             className='font-space-grotesk text-black text-center sm:text-left
               text-[32px] leading-[48px]
@@ -72,7 +72,7 @@ const LinkedInFeedHero = () => {
           </h2>
         </div>
         <div
-          className='container mx-auto py-12 px-4 lg:py-20 lg:px-6'
+          className='container mx-auto py-12 px-4 lg:py-16 lg:px-6'
           dangerouslySetInnerHTML={{ __html: flocklerEmbed }}
         />
       </section>
@@ -117,14 +117,14 @@ const LinkedInFeedHero = () => {
             </div>
 
             <div
-              className='order-2 lg:order-2 relative lg:absolute right-0 -bottom-0 lg:-bottom-12 
+              className='order-2 lg:order-2 relative lg:absolute lg:right-14 right-0 -bottom-0 lg:-bottom-12 
             w-full lg:w-auto flex justify-center lg:justify-center'
             >
               <div
                 className='relative w-[280px] h-[250px]
               sm:w-[400px] sm:h-[400px]
               md:w-[400px] md:h-[280px]
-              transform translate-y-0 lg:-translate-y-12'
+              transform translate-y-0 lg:-translate-y-12 '
               >
                 <Image
                   src='/images/linkedIn/linkedIn-growth.png'
