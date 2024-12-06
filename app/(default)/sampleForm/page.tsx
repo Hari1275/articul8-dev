@@ -2,16 +2,13 @@
 import React, { useEffect, useRef } from 'react';
 import '../../../styles/globals.css';
 
-interface ModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-}
 
-const SampleFormPage: React.FC<ModalProps> = ({ isOpen = true, onClose }) => {
+
+const SampleFormPage: React.FC<any> = () => {
   const formContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (isOpen && formContainerRef.current) {
+    if ( formContainerRef.current) {
       // Inject external content directly into the div
       const formContainer = formContainerRef.current;
 
@@ -36,9 +33,9 @@ const SampleFormPage: React.FC<ModalProps> = ({ isOpen = true, onClose }) => {
         formContainerRef.current.innerHTML = ''; 
       }
     };
-  }, [isOpen]);
+  }, []);
 
-  if (!isOpen) return null;
+  // if (!isOpen) return 
 
   return (
     <div className='md:pt-[120px] pt-8 lg:pt-14 pb-0 md:pb-6 bg-white'>
