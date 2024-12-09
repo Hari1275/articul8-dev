@@ -18,7 +18,7 @@ const HomePageClient = () => {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const urlParams = new URLSearchParams(window.location.search);
-      const hasFormParam = urlParams.has('form');
+      const hasFormParam = urlParams.has('signup');
 
       if (hasFormParam) {
         setIsModalOpen(true);
