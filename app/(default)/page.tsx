@@ -1,33 +1,14 @@
-import type { Metadata } from 'next';
-import ConvertSection from './(home)/ConvertSection';
-import Hero from './(home)/Hero';
-import InnovationsSection from './(home)/InnovationsSection';
-import SimplestWay from './(home)/SimplestWay';
-import TrustedBy from './(home)/TrustedBy';
-import UnlockSection from './(home)/UnlockSection';
-import PlatformArchitecture from './(home)/PlatformArchitecture';
-import '../../styles/globals.css';
+
+import { Metadata } from 'next';
+import HomePageClient from './HomePageClient'; 
+
 export const metadata: Metadata = {
   title: 'Articul8 | The GenAI platform that simply works.',
   description:
     'Welcome to Articul8 - The GenAI platform that brings order to chaos.',
 };
 
-const HomePage = () => {
-  return (
-    <div>
-      <Hero />
-      <TrustedBy />
-      <SimplestWay />
-      <UnlockSection />
-      <PlatformArchitecture />
-      <InnovationsSection />
-      <ConvertSection />
-      {/* <Features />
-      <BlogPreview />
-      <Contact /> */}
-    </div>
-  );
-};
 
-export default HomePage;
+export default function Page() {
+  return <HomePageClient />;
+}
