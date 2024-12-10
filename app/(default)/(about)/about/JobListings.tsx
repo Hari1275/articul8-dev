@@ -151,14 +151,19 @@ export default function JobListings() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className='flex items-start sm:items-center gap-2 mb-8 lg:mb-12'
+          className='mb-8 lg:mb-12'
         >
-          <h1 className='font-space-grotesk text-[30px] leading-[45px] sm:text-[40px] sm:leading-[60px] lg:text-[56px] lg:leading-[84px] font-[700] text-left'>
-            Take a look at our open positions
-          </h1>
-          <span className='bg-[#00F4C5] px-2 py-1 rounded text-[14px] sm:text-[15px] lg:text-[16px] font-space-grotesk font-[700] xl:-mt-4 mt-2'>
-            {totalJobs}
-          </span>
+          <div className='sm:flex sm:items-center sm:gap-2'>
+            <h1 className='font-space-grotesk !text-[30px] !leading-[45px] sm:!text-[40px] sm:!leading-[60px] lg:!text-[56px] lg:!leading-[84px] font-[700] text-left'>
+              Take a look at our open positions{' '}
+              <span className='inline-block sm:hidden bg-[#00F4C5] px-2  rounded text-[14px] font-space-grotesk font-[700]'>
+                {totalJobs}
+              </span>
+            </h1>
+            <span className='hidden sm:inline-block bg-[#00F4C5] px-2 py-1 rounded sm:text-[15px] lg:text-[16px] font-space-grotesk font-[700] xl:-mt-4'>
+              {totalJobs}
+            </span>
+          </div>
         </motion.div>
 
         {/* Filters */}
@@ -325,12 +330,12 @@ export default function JobListings() {
           animate='show'
           className='mb-8 lg:mb-12'
         >
-          <motion.h2
+          <motion.p
             variants={itemVariants}
-            className='font-space-grotesk text-[30px] sm:text-[35px] lg:text-[40px] font-[700] leading-[35px] sm:leading-[40px] lg:leading-[40px] text-left mb-6 lg:mb-8'
+            className='font-space-grotesk !text-[30px] sm:!text-[35px] lg:!text-[40px] font-[700] !leading-[35px] sm:!leading-[40px] lg:!leading-[40px] text-left mb-6 lg:mb-8'
           >
             Applied Research
-          </motion.h2>
+          </motion.p>
 
           {/* Job Listings */}
           <div className='space-y-4'>
