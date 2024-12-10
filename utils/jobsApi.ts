@@ -109,11 +109,16 @@ export function getDepartmentName(
 
 export function getLocationName(locations: Location[], id: string): string {
   const location = locations.find((loc) => loc.id === id);
-  if (!location) {
-    console.warn(`Location not found for ID: ${id}`);
-    return '';
-  }
+  if (!location) return '';
   return location.name;
+}
+
+export function formatLocationDisplay(locationName: string) {
+  const [country, remote] = locationName.split('/');
+  return {
+    country: country || '',
+    isRemote: remote === 'Remote',
+  };
 }
 
 export function getJobType(type: string): string {
