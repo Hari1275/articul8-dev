@@ -9,6 +9,7 @@ import {
   getLocationName,
   getJobType,
   getUniqueEmploymentTypes,
+  formatLocationDisplay,
 } from '../../../../utils/jobsApi';
 
 export default function JobListings() {
@@ -145,7 +146,7 @@ export default function JobListings() {
 
   return (
     <section className='bg-white'>
-      <div className='container mx-auto px-4 py-8 lg:px-8'>
+      <div className='container mx-auto px-4 py-8 lg:px-6'>
         {/* Header with inline badge */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -365,15 +366,56 @@ export default function JobListings() {
                     <h3 className='font-proxima-nova text-[20px] sm:text-[24px] lg:text-[28px] font-[400] leading-[30px] sm:leading-[36px] lg:leading-[42px] text-left mb-2'>
                       {job.title}
                     </h3>
-                    <p className='font-proxima-nova text-[16px] sm:text-[18px] lg:text-[20px] font-[400] leading-[20px] sm:leading-[22px] lg:leading-[24px] text-left text-gray-600'>
+
+                    <p className='font-proxima-nova text-[16px] sm:text-[18px] lg:text-[20px] font-[400] leading-[20px] sm:leading-[22px] lg:leading-[24px] text-left'>
+                      <span className='text-black'>• </span>
                       {[
-                        getDepartmentName(data.departments, job.departmentId),
-                        getLocationName(data.locations, job.locationId),
-                        job.isRemote ? 'Remote' : '',
-                        getJobType(job.employmentType),
+                        <span key='department' className='text-black'>
+                          {getDepartmentName(
+                            data.departments,
+                            job.departmentId
+                          )}
+                        </span>,
+                        <span
+                          key='location'
+                          className='inline-flex items-center gap-1'
+                        >
+                          <span className='font-[300] text-[#1130FF]'>
+                            {
+                              formatLocationDisplay(
+                                getLocationName(data.locations, job.locationId)
+                              ).country
+                            }
+                          </span>
+                          {formatLocationDisplay(
+                            getLocationName(data.locations, job.locationId)
+                          ).isRemote && (
+                            <>
+                              <span className='text-black font-bold'>.</span>
+                              <span className='text-black font-bold'>
+                                Remote
+                              </span>
+                            </>
+                          )}
+                        </span>,
+                        <span
+                          key='jobType'
+                          className='font-[700] text-[#1130FF]'
+                        >
+                          {getJobType(job.employmentType)}
+                        </span>,
                       ]
                         .filter(Boolean)
-                        .join(' • ')}
+                        .map((item, index, array) => (
+                          <React.Fragment key={index}>
+                            {item}
+                            {index < array.length - 1 ? (
+                              <span className='text-gray-600'> • </span>
+                            ) : (
+                              ''
+                            )}
+                          </React.Fragment>
+                        ))}
                     </p>
                   </div>
                 </div>
