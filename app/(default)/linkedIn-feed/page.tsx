@@ -6,11 +6,10 @@ import { useState } from 'react';
 
 const LinkedInFeedHero = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
   const flocklerEmbed = `
-<script src="https://plugins.flockler.com/embed/193af58a69e0f0eeaa6fd27ac871ddd5/193afb21cc205a7828c0876627ebc9d5" async></script>
+<script src="https://plugins.flockler.com/embed/193af58a69e0f0eeaa6fd27ac871ddd5/193afaca8380d895fabfb5aec14f70b0" async></script>
+<div id="flockler-embed-193afaca8380d895fabfb5aec14f70b0"></div>
 
-  <div id="flockler-embed-193afb21cc205a7828c0876627ebc9d5"></div>
   `;
 
   return (
