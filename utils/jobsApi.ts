@@ -56,35 +56,47 @@ const fetchWithAuth = async (endpoint: string) => {
   return response.json();
 };
 
-export async function fetchJobs(): Promise<Job[]> {
+export async function fetchAllData() {
   try {
-    const data: ApiResponse = await fetchWithAuth('job.list');
-    return (data.results as Job[]).filter(
+    const [jobsData, departmentsData, locationsData] = await Promise.all([
+      fetchWithAuth('job.list'),
+      fetchWithAuth('department.list'),
+      fetchWithAuth('location.list'),
+    ]);
+
+    // Filter active jobs with postings
+    const jobs = (jobsData.results as Job[]).filter(
       (job) => job.jobPostingIds.length > 0 && job.status === 'Open'
     );
-  } catch (error) {
-    console.error('Error fetching jobs:', error);
-    return [];
-  }
-}
 
-export async function fetchDepartments(): Promise<Department[]> {
-  try {
-    const data: ApiResponse = await fetchWithAuth('department.list');
-    return data.results as Department[];
-  } catch (error) {
-    console.error('Error fetching departments:', error);
-    return [];
-  }
-}
+    // Get unique location IDs from active jobs
+    const activeLocationIds = new Set(jobs.map((job) => job.locationId));
 
-export async function fetchLocations(): Promise<Location[]> {
-  try {
-    const data: ApiResponse = await fetchWithAuth('location.list');
-    return data.results as Location[];
+    // Filter locations that are used in active jobs
+    const locations = (locationsData.results as Location[])
+      .filter((loc) => !loc.isArchived && activeLocationIds.has(loc.id))
+      .sort((a, b) => a.name.localeCompare(b.name)); // Sort alphabetically
+
+    // Get unique department IDs from active jobs
+    const activeDepartmentIds = new Set(jobs.map((job) => job.departmentId));
+
+    // Filter departments that are used in active jobs
+    const departments = (departmentsData.results as Department[])
+      .filter((dept) => !dept.isArchived && activeDepartmentIds.has(dept.id))
+      .sort((a, b) => a.name.localeCompare(b.name)); // Sort alphabetically
+
+    return {
+      jobs,
+      departments,
+      locations,
+    };
   } catch (error) {
-    console.error('Error fetching locations:', error);
-    return [];
+    console.error('Error fetching data:', error);
+    return {
+      jobs: [],
+      departments: [],
+      locations: [],
+    };
   }
 }
 
@@ -97,9 +109,20 @@ export function getDepartmentName(
 
 export function getLocationName(locations: Location[], id: string): string {
   const location = locations.find((loc) => loc.id === id);
-  return location ? location.name.replace('/Remote', '') : '';
+  if (!location) {
+    console.warn(`Location not found for ID: ${id}`);
+    return '';
+  }
+  return location.name;
 }
 
 export function getJobType(type: string): string {
   return type === 'FullTime' ? 'Full time' : 'Part time';
+}
+
+export function getUniqueEmploymentTypes(jobs: Job[]): string[] {
+  const uniqueTypes = new Set(jobs.map((job) => job.employmentType));
+  return Array.from(uniqueTypes)
+    .map((type) => (type === 'FullTime' ? 'Full time' : 'Part time'))
+    .sort();
 }
