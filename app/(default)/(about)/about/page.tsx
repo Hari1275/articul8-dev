@@ -7,6 +7,7 @@ import CultureAndValues from './CultureAndValues';
 import CEOQuoteSection from './CEOQuoteSection';
 import HumbleGangsters from './HumbleGangsters';
 import TeamPhotoSection from './TeamPhotoSection';
+import JobListings from './JobListings';
 
 import '../../../../styles/globals.css';
 import JoinTeamSection from './JoinTeamSection';
@@ -27,6 +28,7 @@ const AboutPage: React.FC = () => {
       <CultureAndValues />
       <HumbleGangsters />
       <TeamPhotoSection />
+      <JobListings />
       <JoinTeamSection />
     </div>
   );
