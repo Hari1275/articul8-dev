@@ -27,8 +27,8 @@ const AboutPage: React.FC = () => {
       <CEOQuoteSection />
       <CultureAndValues />
       <HumbleGangsters />
-      <TeamPhotoSection />
       <JobListings />
+      <TeamPhotoSection />
       <JoinTeamSection />
     </div>
   );

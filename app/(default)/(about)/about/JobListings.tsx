@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 import {
   fetchAllData,
@@ -25,12 +26,17 @@ export default function JobListings() {
   const [selectedType, setSelectedType] = useState('');
   const [showAllJobs, setShowAllJobs] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const loadData = async () => {
-      const result = await fetchAllData();
-
-      setData(result);
+      setIsLoading(true);
+      try {
+        const result = await fetchAllData();
+        setData(result);
+      } finally {
+        setIsLoading(false);
+      }
     };
     loadData();
   }, []);
@@ -95,21 +101,73 @@ export default function JobListings() {
     }
   };
 
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: 'easeOut',
+      },
+    },
+  };
+
+  if (isLoading) {
+    return (
+      <div className='min-h-[600px] flex items-center justify-center'>
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            rotate: [0, 180, 360],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          }}
+          className='w-16 h-16 border-4 border-[#1130FF] border-t-transparent rounded-full'
+        />
+      </div>
+    );
+  }
+
   return (
     <section className='bg-white'>
       <div className='container mx-auto px-4 py-8 lg:px-8'>
         {/* Header with inline badge */}
-        <div className='flex items-start sm:items-center gap-2 mb-8 lg:mb-12'>
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className='flex items-start sm:items-center gap-2 mb-8 lg:mb-12'
+        >
           <h1 className='font-space-grotesk text-[30px] leading-[45px] sm:text-[40px] sm:leading-[60px] lg:text-[56px] lg:leading-[84px] font-[700] text-left'>
             Take a look at our open positions
           </h1>
-          <span className='bg-[#00F4C5] px-2 py-1 rounded text-[14px] sm:text-[15px] lg:text-[16px] font-space-grotesk font-[700] mt-2'>
+          <span className='bg-[#00F4C5] px-2 py-1 rounded text-[14px] sm:text-[15px] lg:text-[16px] font-space-grotesk font-[700] xl:-mt-4 mt-2'>
             {totalJobs}
           </span>
-        </div>
+        </motion.div>
 
         {/* Filters */}
-        <div className='mb-8 lg:mb-12'>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+          className='mb-8 lg:mb-12'
+        >
           <p className='font-proxima-nova text-[16px] sm:text-[18px] lg:text-[20px] font-[600] leading-[24.36px] text-left mb-4'>
             Filters:
           </p>
@@ -258,20 +316,29 @@ export default function JobListings() {
               )}
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Job Category */}
-        <div className='mb-8 lg:mb-12'>
-          <h2 className='font-space-grotesk text-[30px] sm:text-[35px] lg:text-[40px] font-[700] leading-[35px] sm:leading-[40px] lg:leading-[40px] text-left mb-6 lg:mb-8'>
+        <motion.div
+          variants={containerVariants}
+          initial='hidden'
+          animate='show'
+          className='mb-8 lg:mb-12'
+        >
+          <motion.h2
+            variants={itemVariants}
+            className='font-space-grotesk text-[30px] sm:text-[35px] lg:text-[40px] font-[700] leading-[35px] sm:leading-[40px] lg:leading-[40px] text-left mb-6 lg:mb-8'
+          >
             Applied Research
-          </h2>
+          </motion.h2>
 
           {/* Job Listings */}
           <div className='space-y-4'>
             {displayedJobs.map((job) => (
-              <div
+              <motion.div
                 key={job.id}
-                className={`p-4 sm:p-6 bg-[#F2F7FF] cursor-pointer hover:shadow-lg transition-all duration-200 rounded-lg`}
+                variants={itemVariants}
+                className={`p-4 sm:p-6 bg-[#F2F7FF] cursor-pointer rounded-lg`}
                 onClick={() => handleJobClick(job.jobPostingIds)}
                 role='button'
                 tabIndex={0}
@@ -305,17 +372,22 @@ export default function JobListings() {
                     </p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* View More Button */}
         {filteredJobs.length > 5 && (
-          <div className='flex justify-end'>
-            <button
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
+            className='flex justify-end'
+          >
+            <motion.button
               onClick={() => setShowAllJobs(!showAllJobs)}
-              className='font-space-grotesk text-[18px] sm:text-[20px] lg:text-[24px] font-[700] leading-[24px] sm:leading-[28px] lg:leading-[30.62px] text-[#1130FF] flex items-center gap-2 hover:underline'
+              className='font-space-grotesk text-[18px] sm:text-[20px] lg:text-[24px] font-[700] leading-[24px] sm:leading-[28px] lg:leading-[30.62px] text-[#1130FF] flex items-center gap-2'
             >
               {showAllJobs ? 'Show Less' : 'View More Jobs'}
               <Image
@@ -327,8 +399,8 @@ export default function JobListings() {
                   showAllJobs ? 'rotate-180' : ''
                 }`}
               />
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
         )}
       </div>
     </section>
