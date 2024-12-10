@@ -1,198 +1,300 @@
 'use client';
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import styles from './JobListings.module.css';
 
-interface FilterOption {
-  label: string;
-  options: string[];
-}
-
-const filterOptions: FilterOption[] = [
-  {
-    label: 'Department',
-    options: [
-      'Applied Research',
-      'Engineering',
-      'Product',
-      'Design',
-      'Marketing',
-    ],
-  },
-  {
-    label: 'Location',
-    options: ['Brazil', 'USA', 'Remote', 'India', 'Europe'],
-  },
-  {
-    label: 'Employment Type',
-    options: ['Full time', 'Part time', 'Contract', 'Internship'],
-  },
-];
+import {
+  fetchJobs,
+  fetchDepartments,
+  fetchLocations,
+  getDepartmentName,
+  getLocationName,
+  getJobType,
+} from '../../../../utils/jobsApi';
 
 export default function JobListings() {
-  const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
-  const [selectedFilters, setSelectedFilters] = useState<{
-    [key: string]: string;
-  }>({});
+  const [jobs, setJobs] = useState<any[]>([]);
+  const [departments, setDepartments] = useState<any[]>([]);
+  const [locations, setLocations] = useState<any[]>([]);
+  const [selectedDepartment, setSelectedDepartment] = useState('');
+  const [selectedLocation, setSelectedLocation] = useState('');
+  const [selectedType, setSelectedType] = useState('');
   const [showAllJobs, setShowAllJobs] = useState(false);
-  const dropdownRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
 
-  // Close dropdown when clicking outside
   useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (
-        activeDropdown !== null &&
-        dropdownRefs.current[activeDropdown] &&
-        !dropdownRefs.current[activeDropdown]?.contains(event.target as Node)
-      ) {
-        setActiveDropdown(null);
-      }
-    }
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [activeDropdown]);
+    const loadData = async () => {
+      const [jobsData, deptsData, locsData] = await Promise.all([
+        fetchJobs(),
+        fetchDepartments(),
+        fetchLocations(),
+      ]);
+      setJobs(jobsData);
+      setDepartments(deptsData);
+      setLocations(locsData);
+    };
+    loadData();
+  }, []);
 
   const toggleDropdown = (index: number) => {
     setActiveDropdown(activeDropdown === index ? null : index);
   };
 
-  const selectOption = (filterLabel: string, option: string) => {
-    setSelectedFilters((prev) => ({
-      ...prev,
-      [filterLabel]: option,
-    }));
+  const selectOption = (filterType: string, value: string) => {
+    switch (filterType) {
+      case 'Department':
+        setSelectedDepartment(value);
+        break;
+      case 'Location':
+        setSelectedLocation(value);
+        break;
+      case 'Type':
+        setSelectedType(value);
+        break;
+    }
     setActiveDropdown(null);
   };
 
-  const jobListings = [
-    'Applied AI Researcher (Brazil)',
-    'Applied AI Researcher, MLOps (Brazil)',
-    'Applied AI Researcher, Multimodal (Brazil)',
-    // Add more jobs if needed for "View More" functionality
-  ];
+  const filteredJobs = jobs.filter((job) => {
+    const matchesDepartment =
+      !selectedDepartment || job.departmentId === selectedDepartment;
+    const matchesLocation =
+      !selectedLocation || job.locationId === selectedLocation;
+    const matchesType = !selectedType || job.employmentType === selectedType;
+    return matchesDepartment && matchesLocation && matchesType;
+  });
 
-  const displayedJobs = showAllJobs ? jobListings : jobListings.slice(0, 3);
+  const displayedJobs = showAllJobs ? filteredJobs : filteredJobs.slice(0, 5);
+
+  // Get unique departments from jobs
+  const availableDepartments = React.useMemo(() => {
+    const deptIds = Array.from(new Set(jobs.map((job) => job.departmentId)));
+    return departments.filter((dept) => deptIds.includes(dept.id));
+  }, [jobs, departments]);
+
+  // Get unique locations from jobs
+  const availableLocations = React.useMemo(() => {
+    const locIds = Array.from(new Set(jobs.map((job) => job.locationId)));
+    return locations.filter((loc) => locIds.includes(loc.id));
+  }, [jobs, locations]);
+
+  // Get unique employment types from jobs
+  const availableTypes = React.useMemo(() => {
+    return Array.from(
+      new Set(jobs.map((job) => getJobType(job.employmentType)))
+    );
+  }, [jobs]);
 
   return (
-    <div className='container mx-auto px-4 py-8'>
-      {/* Header with inline badge */}
-      <div className='flex items-center gap-2 mb-8'>
-        <h1 className='font-space-grotesk text-[30px] leading-[45px] lg:text-[56px] lg:leading-[84px] font-bold'>
-          Take a look at our open positions
-        </h1>
-        <div className='bg-[#00F4C5] px-2 py-1 rounded'>
-          <span className='font-space-grotesk text-[14px] lg:text-[16px] font-bold'>
+    <section className='bg-white'>
+      <div className='container mx-auto px-4 py-8 lg:px-8'>
+        {/* Header with inline badge */}
+        <div className='flex items-center gap-2 mb-12'>
+          <h1 className='font-space-grotesk text-[56px] leading-[84px] font-[700] text-left'>
+            Take a look at our open positions
+          </h1>
+          <span className='bg-[#00F4C5] px-2 py-1 rounded text-[16px] font-space-grotesk font-[700]'>
             15
           </span>
         </div>
-      </div>
 
-      {/* Filters */}
-      <div className='mb-8'>
-        <p className='font-proxima-nova text-[16px] lg:text-[20px] font-semibold leading-[24.36px] mb-4'>
-          Filters:
-        </p>
-        <div className='flex flex-col md:flex-row w-full gap-2 md:gap-0'>
-          {filterOptions.map((filter, index) => (
-            <div
-              key={filter.label}
-              ref={(el: HTMLDivElement | null) => {
-                dropdownRefs.current[index] = el;
-              }}
-              className='relative flex-1'
-            >
+        {/* Filters */}
+        <div className='mb-12'>
+          <p className='font-proxima-nova text-[20px] font-[600] leading-[24.36px] text-left mb-4'>
+            Filters:
+          </p>
+          <div className='grid grid-cols-3 gap-0'>
+            {/* Department Dropdown */}
+            <div className='relative'>
               <button
-                onClick={() => toggleDropdown(index)}
+                onClick={() => toggleDropdown(0)}
                 className={`
-                  w-full bg-[#F2F7FF] font-proxima-nova text-[16px] lg:text-[20px] font-normal leading-6 
-                  flex items-center justify-between px-4 py-3 border border-gray-300
-                  ${index === 0 ? 'md:rounded-l-md md:border-r-0' : ''} 
-                  ${index === 1 ? 'md:border-r-0' : ''}
-                  ${index === 2 ? 'md:rounded-r-md' : ''}
-                  ${activeDropdown === index ? 'border-[#1130FF]' : ''}
-                  rounded-md md:rounded-none
+                  w-full bg-[#F2F7FF] font-proxima-nova text-[20px] font-[400] leading-[24px] text-left
+                  flex items-center justify-between px-6 py-4
+                  border-b border-r border-gray-200
+                  rounded-l-lg
                 `}
               >
-                {selectedFilters[filter.label] || filter.label}
+                {selectedDepartment
+                  ? getDepartmentName(departments, selectedDepartment)
+                  : 'All Departments'}
                 <Image
                   src='/images/icons/about/dropdown.svg'
                   alt='Toggle dropdown'
-                  width={12}
-                  height={12}
-                  className={`ml-2 transition-transform duration-200 ${
-                    activeDropdown === index ? 'rotate-180' : ''
+                  width={24}
+                  height={24}
+                  className={`transition-transform duration-200 ${
+                    activeDropdown === 0 ? 'rotate-180' : ''
                   }`}
                 />
               </button>
 
-              {activeDropdown === index && (
-                <div className='absolute z-10 w-full mt-1 bg-white border border-gray-200 rounded-md shadow-lg'>
-                  {filter.options.map((option) => (
+              {activeDropdown === 0 && (
+                <div className='absolute z-10 w-full mt-1 bg-white border-b border-r border-gray-200 shadow-lg'>
+                  <button
+                    onClick={() => selectOption('Department', '')}
+                    className='w-full px-6 py-4 text-left hover:bg-[#F2F7FF] font-proxima-nova text-[20px] font-[400] leading-[24px] border-b border-gray-200'
+                  >
+                    All Departments
+                  </button>
+                  {availableDepartments.map((dept) => (
                     <button
-                      key={option}
-                      onClick={() => selectOption(filter.label, option)}
-                      className='w-full px-4 py-2 text-left hover:bg-[#F2F7FF] font-proxima-nova text-[16px] lg:text-[20px]'
+                      key={dept.id}
+                      onClick={() => selectOption('Department', dept.id)}
+                      className='w-full px-6 py-4 text-left hover:bg-[#F2F7FF] font-proxima-nova text-[20px] font-[400] leading-[24px] border-b border-gray-200 last:border-b-0'
                     >
-                      {option}
+                      {dept.name}
                     </button>
                   ))}
                 </div>
               )}
             </div>
-          ))}
-        </div>
-      </div>
 
-      {/* Job Category */}
-      <div className='mb-8'>
-        <h2 className='font-space-grotesk text-[28px] lg:text-[40px] font-bold leading-[40px] mb-8'>
-          Applied Research
-        </h2>
+            {/* Location Dropdown */}
+            <div className='relative'>
+              <button
+                onClick={() => toggleDropdown(1)}
+                className={`
+                  w-full bg-[#F2F7FF] font-proxima-nova text-[20px] font-[400] leading-[24px] text-left
+                  flex items-center justify-between px-6 py-4
+                  border-b border-r border-gray-200
+                `}
+              >
+                {selectedLocation
+                  ? getLocationName(locations, selectedLocation)
+                  : 'All Locations'}
+                <Image
+                  src='/images/icons/about/dropdown.svg'
+                  alt='Toggle dropdown'
+                  width={24}
+                  height={24}
+                  className={`transition-transform duration-200 ${
+                    activeDropdown === 1 ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
 
-        {/* Job Listings */}
-        <div className='space-y-4'>
-          {displayedJobs.map((title) => (
-            <div
-              key={title}
-              className='p-6 bg-[#F2F7FF] rounded-lg shadow hover:shadow-md transition-shadow'
-            >
-              <div className='flex items-start gap-4'>
-                <div className='w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center'>
-                  🤖
+              {activeDropdown === 1 && (
+                <div className='absolute z-10 w-full mt-1 bg-white border-b border-r border-gray-200 shadow-lg'>
+                  <button
+                    onClick={() => selectOption('Location', '')}
+                    className='w-full px-6 py-4 text-left hover:bg-[#F2F7FF] font-proxima-nova text-[20px] font-[400] leading-[24px] border-b border-gray-200'
+                  >
+                    All Locations
+                  </button>
+                  {availableLocations.map((loc) => (
+                    <button
+                      key={loc.id}
+                      onClick={() => selectOption('Location', loc.id)}
+                      className='w-full px-6 py-4 text-left hover:bg-[#F2F7FF] font-proxima-nova text-[20px] font-[400] leading-[24px] border-b border-gray-200 last:border-b-0'
+                    >
+                      {loc.name}
+                    </button>
+                  ))}
                 </div>
-                <div>
-                  <h3 className='font-proxima-nova text-[20px] lg:text-[28px] font-normal leading-[42px]'>
-                    {title}
-                  </h3>
-                  <p className='font-proxima-nova text-[16px] lg:text-[20px] font-normal leading-6 text-gray-600'>
-                    Applied Research • Brazil • Remote • Full time
-                  </p>
+              )}
+            </div>
+
+            {/* Employment Type Dropdown */}
+            <div className='relative'>
+              <button
+                onClick={() => toggleDropdown(2)}
+                className={`
+                  w-full bg-[#F2F7FF] font-proxima-nova text-[20px] font-[400] leading-[24px] text-left
+                  flex items-center justify-between px-6 py-4
+                  border-b border-gray-200
+                  rounded-r-lg
+                `}
+              >
+                {selectedType || 'All Employment Types'}
+                <Image
+                  src='/images/icons/about/dropdown.svg'
+                  alt='Toggle dropdown'
+                  width={24}
+                  height={24}
+                  className={`transition-transform duration-200 ${
+                    activeDropdown === 2 ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
+
+              {activeDropdown === 2 && (
+                <div className='absolute z-10 w-full mt-1 bg-white border-b border-r border-gray-200 shadow-lg'>
+                  <button
+                    onClick={() => selectOption('Type', '')}
+                    className='w-full px-6 py-4 text-left hover:bg-[#F2F7FF] font-proxima-nova text-[20px] font-[400] leading-[24px] border-b border-gray-200'
+                  >
+                    All Employment Types
+                  </button>
+                  {availableTypes.map((type) => (
+                    <button
+                      key={type}
+                      onClick={() => selectOption('Type', type)}
+                      className='w-full px-6 py-4 text-left hover:bg-[#F2F7FF] font-proxima-nova text-[20px] font-[400] leading-[24px] border-b border-gray-200 last:border-b-0'
+                    >
+                      {type}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Job Category */}
+        <div className='mb-12'>
+          <h2 className='font-space-grotesk text-[40px] font-[700] leading-[40px] text-left mb-8'>
+            Applied Research
+          </h2>
+
+          {/* Job Listings */}
+          <div className='space-y-4'>
+            {displayedJobs.map((job) => (
+              <div key={job.id} className={`p-6 bg-[#F2F7FF]`}>
+                <div className='flex items-start gap-6'>
+                  <Image
+                    src='/images/icons/about/job.svg'
+                    alt='Job icon'
+                    width={48}
+                    height={48}
+                  />
+                  <div>
+                    <h3 className='font-proxima-nova text-[28px] font-[400] leading-[42px] text-left mb-2'>
+                      {job.title}
+                    </h3>
+                    <p className='font-proxima-nova text-[20px] font-[400] leading-[24px] text-left text-gray-600'>
+                      {`${getDepartmentName(departments, job.departmentId)} • 
+                        ${getLocationName(locations, job.locationId)} • 
+                        ${job.isRemote ? 'Remote' : ''} • 
+                        ${getJobType(job.employmentType)}`}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
 
-      {/* View More Button */}
-      <div className='flex justify-end'>
-        <button
-          onClick={() => setShowAllJobs(!showAllJobs)}
-          className='font-space-grotesk text-[18px] lg:text-[24px] font-bold leading-[30.62px] text-[#1130FF] p-0 flex items-center gap-2 hover:underline'
-        >
-          {showAllJobs ? 'Show Less' : 'View More Jobs'}
-          <Image
-            src='/images/icons/about/more.svg'
-            alt='Toggle view'
-            width={18}
-            height={18}
-            className={`ml-2 transition-transform duration-200 ${
-              showAllJobs ? 'rotate-180' : ''
-            }`}
-          />
-        </button>
+        {/* View More Button */}
+        {filteredJobs.length > 5 && (
+          <div className='flex justify-end'>
+            <button
+              onClick={() => setShowAllJobs(!showAllJobs)}
+              className='font-space-grotesk text-[24px] font-[700] leading-[30.62px] text-[#1130FF] flex items-center gap-2 hover:underline'
+            >
+              {showAllJobs ? 'Show Less' : 'View More Jobs'}
+              <Image
+                src='/images/icons/about/more.svg'
+                alt='Toggle view'
+                width={24}
+                height={24}
+                className={`transition-transform duration-200 ${
+                  showAllJobs ? 'rotate-180' : ''
+                }`}
+              />
+            </button>
+          </div>
+        )}
       </div>
-    </div>
+    </section>
   );
 }
