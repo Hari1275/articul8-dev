@@ -161,7 +161,7 @@ export default function JobListings() {
                 {totalJobs}
               </span>
             </h1>
-            <span className='hidden sm:inline-block bg-[#00F4C5] px-2 py-1 rounded sm:text-[15px] lg:text-[16px] font-space-grotesk font-[700] xl:-mt-4'>
+            <span className='hidden sm:inline-block bg-[#00F4C5] px-2 py-1 rounded sm:text-[15px] lg:text-[40px] font-space-grotesk font-[700] xl:-mt-4'>
               {totalJobs}
             </span>
           </div>
@@ -335,7 +335,9 @@ export default function JobListings() {
             variants={itemVariants}
             className='font-space-grotesk !text-[30px] sm:!text-[35px] lg:!text-[40px] font-[700] !leading-[35px] sm:!leading-[40px] lg:!leading-[40px] text-left mb-6 lg:mb-8'
           >
-            Applied Research
+            {selectedDepartment
+              ? getDepartmentName(data.departments, selectedDepartment)
+              : 'All Departments'}
           </motion.p>
 
           {/* Job Listings */}
