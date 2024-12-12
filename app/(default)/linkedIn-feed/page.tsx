@@ -20,7 +20,9 @@ const LinkedInFeedHero = () => {
           <div className='container mx-auto'>
             <div className='flex flex-col-reverse lg:flex-row items-center gap-8 px-4 pt-8 lg:pt-16'>
               {/* Content Container */}
-              <div className='w-full lg:w-1/2'>
+              <div className='flex-1 min-w-0'>
+                {' '}
+                {/* Replace w-full lg:w-1/2 */}
                 <h1
                   className='font-space-grotesk font-bold 
                 !text-[32px] !leading-[40px] 
@@ -43,7 +45,9 @@ const LinkedInFeedHero = () => {
               </div>
 
               {/* Image Container */}
-              <div className='w-full lg:w-1/2 flex items-center justify-center'>
+              <div className='flex-1 min-w-0 flex items-center justify-center'>
+                {' '}
+                {/* Replace w-full lg:w-1/2 */}
                 <div className='relative w-full'>
                   <Image
                     src='/images/linkedIn/linkedin-hero.png'
