@@ -51,7 +51,7 @@ const LinkedInFeedHero = () => {
                     width={0}
                     height={0}
                     sizes='100vw'
-                    className='w-full h-[200px]'
+                    className='w-full h-[300px]'
                     priority
                   />
                 </div>
