@@ -16,25 +16,29 @@ const LinkedInFeedHero = () => {
     <div>
       {/* Hero Section */}
       <section>
-        <div className='bg-[#F3F2F2] lg:py-24 py-4'>
+        <div className='bg-[#F3F2F2] lg:py-16 py-4'>
           <div className='container mx-auto'>
             <div className='flex flex-col-reverse lg:flex-row items-center gap-8 px-4 pt-8 lg:pt-16'>
               {/* Content Container */}
               <div className='w-full lg:w-1/2'>
                 <h1
                   className='font-space-grotesk font-bold 
-                text-4xl leading-[50px] md:text-5xl md:leading-[65px] lg:text-[64px] lg:leading-[81.66px]
-                mb-4'
+                !text-[32px] !leading-[40px] 
+                sm:!text-[48px] sm:!leading-[60px] 
+                lg:!text-[64px] lg:!leading-[81.66px]
+                mb-4 !capitalize'
                 >
-                  NEWS
+                  LATEST NEWS
                 </h1>
                 <p
                   className='font-proxima-nova 
-                text-lg leading-[22px] md:text-xl md:leading-[26px] lg:text-[24px] lg:leading-[29.23px]
-                text-gray-500 mb-6 lg:mb-8'
+                text-[16px] leading-[19px] 
+                sm:text-[20px] sm:leading-[24px] 
+                lg:text-[24px] lg:leading-[29.23px]
+                text-black mb-6 lg:mb-8'
                 >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Catch up on the latest news, stories and updates about
+                  Articul8 AI
                 </p>
               </div>
 
@@ -42,12 +46,12 @@ const LinkedInFeedHero = () => {
               <div className='w-full lg:w-1/2 flex items-center justify-center'>
                 <div className='relative w-full'>
                   <Image
-                    src='/images/linkedIn/linkedIn.png'
+                    src='/images/linkedIn/linkedin-hero.png'
                     alt='News Hero'
                     width={0}
                     height={0}
                     sizes='100vw'
-                    className='w-full h-auto'
+                    className='w-full h-[200px]'
                     priority
                   />
                 </div>
@@ -60,7 +64,7 @@ const LinkedInFeedHero = () => {
       {/* LinkedIn Feed Section */}
 
       <section className='bg-white'>
-        <div className='flex justify-between items-baseline   container mx-auto px-4 lg:px-6 '>
+        {/* <div className='flex justify-between items-baseline   container mx-auto px-4 lg:px-6 '>
           <h2
             className='font-space-grotesk text-black text-center sm:text-left
               text-[32px] leading-[48px]
@@ -70,9 +74,9 @@ const LinkedInFeedHero = () => {
           >
             Latest News
           </h2>
-        </div>
+        </div> */}
         <div
-          className='container mx-auto py-12 px-4 lg:py-16 lg:px-6'
+          className='container mx-auto py-12 px-4 lg:pt-16 lg:px-6'
           dangerouslySetInnerHTML={{ __html: flocklerEmbed }}
         />
       </section>
