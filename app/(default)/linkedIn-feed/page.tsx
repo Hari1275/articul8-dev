@@ -17,7 +17,7 @@ const LinkedInFeedHero = () => {
       {/* Hero Section */}
       <section>
         <div className='bg-[#F3F2F2] lg:py-16 py-4'>
-          <div className='container mx-auto'>
+          <div className='container mx-auto  sm:px-2'>
             <div className='flex flex-col-reverse lg:flex-row items-center gap-8 px-4 pt-8 lg:pt-16'>
               {/* Content Container */}
               <div className='flex-1 min-w-0'>
@@ -84,7 +84,7 @@ const LinkedInFeedHero = () => {
           dangerouslySetInnerHTML={{ __html: flocklerEmbed }}
         />
       </section>
-      <section className=' relative'>
+      {/* <section className=' relative'>
         <div className='container mx-auto px-4 sm:px-6'>
           <div className='bg-[#112FFF] grid lg:grid-cols-2 items-center min-h-[250px] relative'>
             <div className='order-1 lg:order-1 py-4 lg:pt-16 lg:pb-16 relative z-10'>
@@ -145,7 +145,7 @@ const LinkedInFeedHero = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };
