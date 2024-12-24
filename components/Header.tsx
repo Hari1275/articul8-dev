@@ -12,6 +12,7 @@ const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const [isCompanyDropdownOpen, setIsCompanyDropdownOpen] = useState(false);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -38,12 +39,12 @@ const Header = () => {
   };
 
   return (
-    <header className='fixed top-0 left-0 right-0 bg-white z-50'>
-      {/* Desktop Header */}
-      <div className='container mx-auto px-6 items-center justify-between hidden md:flex'>
-        {/* Desktop content (left side) */}
-        <div className='flex gap-4 items-center'>
-          <Link href='/' className='flex items-center py-4'>
+    <header className='fixed top-0 left-0 right-0 z-50'>
+      {/* Desktop Header - Updated with matching Glassmorphism effect */}
+      <div className='container mx-auto hidden md:flex'>
+        <div className='w-full mx-6 my-4 backdrop-blur-md bg-white/70 border border-gray-200/20 rounded-sm px-6 py-6 flex items-center justify-between'>
+          {/* Logo (left side) */}
+          <Link href='/' className='flex items-center'>
             <Image
               src='/images/logo.svg'
               alt='Articul8 Logo'
@@ -52,35 +53,88 @@ const Header = () => {
               priority
             />
           </Link>
-          <nav className='flex gap-6  ml-4'>
-            <Link href='/products' className={getLinkClassName('/products')}>
-              Product
-            </Link>
-            <Link href='/case-studies' className={getLinkClassName('/case-studies')}>Case Studies</Link>
-            <Link href='/about' className={getLinkClassName('/about')}>
-              About Us
-            </Link>
-          </nav>
-        </div>
 
-        <CTAForm isOpen={isOpen} onClose={() => setIsOpen(false)} />
-        {/* "Start Articul8'ing" link */}
-        <div className='flex items-center'>
-          <button
-            onClick={() => setIsOpen(true)}
-            className='text-[#1130FF] hover:underline font-semibold flex items-center'
-          >
-            <span className='font-space-grotesk text-[22px] font-[700] leading-[27.07px] text-[#1130FF]'>
-              Start Articul8&apos;ing
-            </span>
-            <Image
-              src='/images/icons/header-arrow.svg'
-              alt='Arrow right'
-              width={13}
-              height={13}
-              className='ml-2'
-            />
-          </button>
+          {/* Navigation and CTA (right side) */}
+          <div className='flex items-center gap-8'>
+            <nav className='flex gap-6'>
+              <Link href='/products' className={getLinkClassName('/products')}>
+                Product
+              </Link>
+              <Link href='/case-studies' className={getLinkClassName('/case-studies')}>
+                Case Studies
+              </Link>
+              {/* Company Dropdown with matching Glassmorphism */}
+              <div 
+                className='relative group'
+                onMouseEnter={() => setIsCompanyDropdownOpen(true)}
+                onMouseLeave={() => setIsCompanyDropdownOpen(false)}
+              >
+                <button 
+                  className={`flex items-center gap-1 ${getLinkClassName('/company')}`}
+                >
+                  Company
+                  <svg 
+                    width="12" 
+                    height="8" 
+                    viewBox="0 0 12 8" 
+                    fill="none" 
+                    className={`transition-transform duration-200 ${isCompanyDropdownOpen ? 'rotate-180' : ''}`}
+                  >
+                    <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" strokeWidth="2"/>
+                  </svg>
+                </button>
+                {/* Dropdown Menu - With slightly more blur effect */}
+                <div 
+                  className={`
+                    absolute top-full right-0 mt-2 
+                   backdrop-blur-md bg-white/70 
+                    border border-gray-200/20 
+                    rounded-sm
+                    w-48 
+                    py-2
+                    transition-all duration-200
+                    ${isCompanyDropdownOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-1'}
+                  `}
+                >
+                  <Link 
+                    href="/about" 
+                    className="block px-4 py-2 text-[18px] text-black font-proxima-nova hover:bg-white/50 transition-colors duration-200"
+                  >
+                    About Us
+                  </Link>
+                  <Link 
+                    href="/linkedIn-feed" 
+                    className="block px-4 py-2 text-[18px] text-black font-proxima-nova hover:bg-white/50 transition-colors duration-200"
+                  >
+                    News
+                  </Link>
+                  {/* <Link 
+                    href="/careers" 
+                    className="block px-4 py-2 text-[18px] text-black font-proxima-nova hover:bg-white/50 transition-colors duration-200"
+                  >
+                    Careers
+                  </Link> */}
+                </div>
+              </div>
+            </nav>
+
+            {/* "Start Articul8'ing" link */}
+            <button
+              onClick={() => setIsOpen(true)}
+              className='text-[#1130FF] hover:underline font-semibold flex items-center'
+            >
+              <span className='font-space-grotesk text-[22px] font-[700] leading-[27.07px] text-[#1130FF]'>
+                Start Articul8&apos;ing
+              </span>
+              <Image
+                src='/images/icons/header-arrow.svg'
+                alt='Arrow right'
+                width={13}
+                height={13}
+                className='ml-2'
+              />
+            </button>
+          </div>
         </div>
       </div>
 
@@ -144,7 +198,6 @@ const Header = () => {
               >
                 Home
               </Link>
-
               <Link
                 href='/products'
                 onClick={toggleMenu}
@@ -159,14 +212,49 @@ const Header = () => {
               >
                 Case Studies
               </Link>
-              <Link
-                href='/about'
-                className={getLinkClassNameMobile('/about')}
-                onClick={toggleMenu}
-              >
-                About Us
-              </Link>
-              
+              {/* Company Section with Dropdown */}
+              <div className='flex flex-col items-center'>
+                <button 
+                  className={`text-white font-proxima-nova text-[34px] font-[400] leading-[40px] px-8 py-2 flex items-center gap-2 hover:border-2 hover:border-[#4D6EFF] hover:rounded-md transition-all duration-300`}
+                  onClick={() => setIsCompanyDropdownOpen(!isCompanyDropdownOpen)}
+                >
+                  Company
+                  <svg 
+                    width="16" 
+                    height="10" 
+                    viewBox="0 0 12 8" 
+                    fill="none" 
+                    className={`transition-transform duration-200 ${isCompanyDropdownOpen ? 'rotate-180' : ''}`}
+                  >
+                    <path d="M1 1.5L6 6.5L11 1.5" stroke="white" strokeWidth="2"/>
+                  </svg>
+                </button>
+                {isCompanyDropdownOpen && (
+                  <div className='flex flex-col items-center mt-4 space-y-4'>
+                    <Link
+                      href="/about"
+                      className="text-white font-proxima-nova text-[28px] font-[400] hover:text-[#4D6EFF] transition-colors duration-200"
+                      onClick={toggleMenu}
+                    >
+                      About Us
+                    </Link>
+                    <Link
+                      href="/linkedIn-feed"
+                      className="text-white font-proxima-nova text-[28px] font-[400] hover:text-[#4D6EFF] transition-colors duration-200"
+                      onClick={toggleMenu}
+                    >
+                      News
+                    </Link>
+                    {/* <Link
+                      href="/careers"
+                      className="text-white font-proxima-nova text-[28px] font-[400] hover:text-[#4D6EFF] transition-colors duration-200"
+                      onClick={toggleMenu}
+                    >
+                      Careers
+                    </Link> */}
+                  </div>
+                )}
+              </div>
             </nav>
           </div>
           {/* <div className='p-4'>
