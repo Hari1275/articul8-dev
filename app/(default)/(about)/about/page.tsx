@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 const AboutPage: React.FC = () => {
   return (
     <>
-      <div className="absolute top-0 left-0 right-0 h-[130px] bg-gradient-to-b from-white via-white to-transparent z-10" />
+      <div className="absolute top-0 left-0 right-0 h-[50px] lg:h-[105px] bg-white z-10" />
       
       <div className="relative">
         <Hero />
@@ -39,3 +39,4 @@ const AboutPage: React.FC = () => {
 };
 
 export default AboutPage;
+

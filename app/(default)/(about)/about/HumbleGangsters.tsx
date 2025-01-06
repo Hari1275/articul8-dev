@@ -49,13 +49,13 @@ const gangsters = [
     description:
       "I'm an Infrastructure Engineer, maintaining and enhancing the underlying infrastructure of our product. In addition to my core responsibilities, I also contribute to various tasks related to automation, API development, and feature engineering.",
   },
-  {
-    image: '/images/icons/about/slider/Rob Carroll-1.png',
-    name: 'Rob Carroll',
-    // role: 'Product Manager',
-    description:
-      'I am a Product Manager at Articul8 AI and work with our teams to drive a differentiated AI platform which helps enterprises leverage a combination of AI models and their proprietary data to solve their most challenging problems. Enterprises have a large volume of valuable data and we help them turn that data into a key differentiator in their market.',
-  },
+  // {
+  //   image: '/images/icons/about/slider/Rob Carroll-1.png',
+  //   name: 'Rob Carroll',
+  //   // role: 'Product Manager',
+  //   description:
+  //     'I am a Product Manager at Articul8 AI and work with our teams to drive a differentiated AI platform which helps enterprises leverage a combination of AI models and their proprietary data to solve their most challenging problems. Enterprises have a large volume of valuable data and we help them turn that data into a key differentiator in their market.',
+  // },
   {
     image: '/images/icons/about/slider/Renato Giorgiani.png',
     name: 'Renato Giorgiani do Nascimento',

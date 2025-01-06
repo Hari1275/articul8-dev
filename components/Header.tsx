@@ -60,12 +60,12 @@ const Header = () => {
   return (
     <header className='fixed top-0 left-0 right-0 z-50'>
       {/* Desktop Header - Updated border color and opacity */}
-      <div className='container mx-auto hidden md:flex'>
+      <div className='container mx-auto hidden lg:flex'>
         <div className={`
           w-full mx-6 my-4 
           backdrop-blur-[8px] 
           bg-white/95
-          rounded-[12px]
+          rounded-[4px]
           px-6 py-6 
           flex items-center justify-between
           transition-all duration-300
@@ -101,19 +101,13 @@ const Header = () => {
                   className={`flex items-center gap-2 ${getLinkClassName('/company')}`}
                 >
                   Company
-                  <svg 
-                    width="20"
-                    height="16"
-                    viewBox="0 0 12 8" 
-                    fill="none" 
-                    className={`transition-transform duration-200 ${isCompanyDropdownOpen ? 'rotate-180' : ''}`}
-                  >
-                    <path 
-                      d="M1 1.5L6 6.5L11 1.5" 
-                      stroke="currentColor" 
-                      strokeWidth="1.5"
-                    />
-                  </svg>
+                  <Image
+                    src='/images/icons/header-dropdown.svg'
+                    alt='Arrow right'
+                    width={20}
+                    height={20}
+                    className='ml-0 translate-y-[3px]'
+                  />
                 </button>
                 {/* Dropdown Menu - With slightly more blur effect */}
                 <div 
@@ -123,7 +117,7 @@ const Header = () => {
                     backdrop-blur-[8px]
                     bg-white/95
                     border border-gray-200/20
-                    rounded-sm
+                    rounded-[4px]
                     w-[280px]
                     py-4
                     z-50
@@ -175,7 +169,7 @@ const Header = () => {
       </div>
 
       {/* Mobile Header */}
-      <div className='flex items-center justify-between px-4 py-2 md:hidden'>
+      <div className='flex items-center justify-between px-4 py-2 lg:hidden'>
         <Link href='/' className='flex items-center'>
           <Image
             src='/images/logo.svg'
@@ -205,7 +199,7 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className='fixed inset-0 bg-[#1130FF] z-50 flex flex-col md:hidden'>
+        <div className='fixed inset-0 bg-[#1130FF] z-50 flex flex-col lg:hidden'>
           <div className='flex-grow flex flex-col items-center justify-center'>
             <button
               onClick={toggleMenu}
