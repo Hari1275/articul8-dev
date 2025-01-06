@@ -15,7 +15,7 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isCompanyDropdownOpen, setIsCompanyDropdownOpen] = useState(false);
 
-  // Add scroll event handler
+  // Add scroll event handler.
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {
