@@ -1,14 +1,13 @@
 'use client';
 import Image from 'next/image';
 import '../../../styles/globals.css';
-import Modal from '../../../components/Modal';
+// import Modal from '../../../components/Modal';
 import { useState } from 'react';
 
 const LinkedInFeedHero = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
   const flocklerEmbed = `
-<script src="https://plugins.flockler.com/embed/193af58a69e0f0eeaa6fd27ac871ddd5/193afaca8380d895fabfb5aec14f70b0" async></script>
-<div id="flockler-embed-193afaca8380d895fabfb5aec14f70b0"></div>
+<div id="flockler-embed-1943a2f9c920ff6e66ad48425c89a19a"></div> <script src="https://plugins.flockler.com/embed/193af58a69e0f0eeaa6fd27ac871ddd5/1943a2f9c920ff6e66ad48425c89a19a" async></script>
 
   `;
 

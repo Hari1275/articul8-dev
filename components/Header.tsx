@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -10,9 +10,28 @@ import CTAForm from './Modal';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [isCompanyDropdownOpen, setIsCompanyDropdownOpen] = useState(false);
+
+  // Add scroll event handler
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    // Check initial scroll position
+    handleScroll();
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -40,9 +59,18 @@ const Header = () => {
 
   return (
     <header className='fixed top-0 left-0 right-0 z-50'>
-      {/* Desktop Header - Updated with matching Glassmorphism effect */}
+      {/* Desktop Header - Updated border color and opacity */}
       <div className='container mx-auto hidden md:flex'>
-        <div className='w-full mx-6 my-4 backdrop-blur-md bg-white/70 border border-gray-200/20 rounded-sm px-6 py-6 flex items-center justify-between'>
+        <div className={`
+          w-full mx-6 my-4 
+          backdrop-blur-[8px] 
+          bg-white/95
+          rounded-[12px]
+          px-6 py-6 
+          flex items-center justify-between
+          transition-all duration-300
+          ${!isScrolled ? 'border border-gray-200/90' : 'border-transparent'}
+        `}>
           {/* Logo (left side) */}
           <Link href='/' className='flex items-center'>
             <Image
@@ -55,8 +83,8 @@ const Header = () => {
           </Link>
 
           {/* Navigation and CTA (right side) */}
-          <div className='flex items-center gap-8'>
-            <nav className='flex gap-6'>
+          <div className='flex items-center gap-20'>
+            <nav className='flex gap-16'>
               <Link href='/products' className={getLinkClassName('/products')}>
                 Product
               </Link>
@@ -70,41 +98,49 @@ const Header = () => {
                 onMouseLeave={() => setIsCompanyDropdownOpen(false)}
               >
                 <button 
-                  className={`flex items-center gap-1 ${getLinkClassName('/company')}`}
+                  className={`flex items-center gap-2 ${getLinkClassName('/company')}`}
                 >
                   Company
                   <svg 
-                    width="12" 
-                    height="8" 
+                    width="20"
+                    height="16"
                     viewBox="0 0 12 8" 
                     fill="none" 
                     className={`transition-transform duration-200 ${isCompanyDropdownOpen ? 'rotate-180' : ''}`}
                   >
-                    <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" strokeWidth="2"/>
+                    <path 
+                      d="M1 1.5L6 6.5L11 1.5" 
+                      stroke="currentColor" 
+                      strokeWidth="1.5"
+                    />
                   </svg>
                 </button>
                 {/* Dropdown Menu - With slightly more blur effect */}
                 <div 
                   className={`
-                    absolute top-full right-0 mt-2 
-                   backdrop-blur-md bg-white/70 
-                    border border-gray-200/20 
+                    absolute top-[calc(100%+2.0rem)]
+                    left-[60%] transform -translate-x-1/2
+                    backdrop-blur-[8px]
+                    bg-white/95
+                    border border-gray-200/20
                     rounded-sm
-                    w-48 
-                    py-2
+                    w-[280px]
+                    py-4
+                    z-50
                     transition-all duration-200
+                    shadow-sm
                     ${isCompanyDropdownOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-1'}
                   `}
                 >
                   <Link 
                     href="/about" 
-                    className="block px-4 py-2 text-[18px] text-black font-proxima-nova hover:bg-white/50 transition-colors duration-200"
+                    className="block px-8 py-2 text-[22px] text-black font-proxima-nova hover:bg-white/50 transition-colors duration-200"
                   >
                     About Us
                   </Link>
                   <Link 
                     href="/linkedIn-feed" 
-                    className="block px-4 py-2 text-[18px] text-black font-proxima-nova hover:bg-white/50 transition-colors duration-200"
+                    className="block px-8 py-2 text-[22px] text-black font-proxima-nova hover:bg-white/50 transition-colors duration-200"
                   >
                     News
                   </Link>

@@ -20,17 +20,21 @@ export const metadata: Metadata = {
 
 const AboutPage: React.FC = () => {
   return (
-    <div>
-      <Hero />
-      <MissionSection />
-      <ImpactSection />
-      <CEOQuoteSection />
-      <CultureAndValues />
-      <HumbleGangsters />
-      <JobListings />
-      <TeamPhotoSection />
-      <JoinTeamSection />
-    </div>
+    <>
+      <div className="absolute top-0 left-0 right-0 h-[130px] bg-gradient-to-b from-white via-white to-transparent z-10" />
+      
+      <div className="relative">
+        <Hero />
+        <MissionSection />
+        <ImpactSection />
+        <CEOQuoteSection />
+        <CultureAndValues />
+        <HumbleGangsters />
+        <JobListings />
+        <TeamPhotoSection />
+        <JoinTeamSection />
+      </div>
+    </>
   );
 };
 
