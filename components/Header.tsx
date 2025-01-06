@@ -101,19 +101,13 @@ const Header = () => {
                   className={`flex items-center gap-2 ${getLinkClassName('/company')}`}
                 >
                   Company
-                  <svg 
-                    width="20"
-                    height="16"
-                    viewBox="0 0 12 8" 
-                    fill="none" 
-                    className={`transition-transform duration-200 ${isCompanyDropdownOpen ? 'rotate-180' : ''}`}
-                  >
-                    <path 
-                      d="M1 1.5L6 6.5L11 1.5" 
-                      stroke="currentColor" 
-                      strokeWidth="1.5"
-                    />
-                  </svg>
+                  <Image
+                    src='/images/icons/header-dropdown.svg'
+                    alt='Arrow right'
+                    width={20}
+                    height={20}
+                    className='ml-0 translate-y-[3px]'
+                  />
                 </button>
                 {/* Dropdown Menu - With slightly more blur effect */}
                 <div 
