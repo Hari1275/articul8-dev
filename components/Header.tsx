@@ -63,13 +63,13 @@ const Header = () => {
       <div className='container mx-auto hidden lg:flex'>
         <div className={`
           w-full mx-6 my-4 
-          backdrop-blur-[8px] 
+          backdrop-blur-[20px] 
           bg-gradient-to-r from-white/40 to-white/10
           rounded-[4px]
           px-6 py-6 
           flex items-center justify-between
           transition-all duration-300
-          shadow-[0_2px_8px_0px_rgba(0,0,0,0.08)]
+          shadow-[0_8px_16px_0px_rgba(0,0,0,0.04)]
           border border-[#F8F8F8]
         `}>
           {/* Logo (left side) */}
@@ -153,16 +153,16 @@ const Header = () => {
               </div>
             </nav>
 
-            {/* "Start Articul8'ing" link */}
+            {/* "Start Articul8'ing" button */}
             <button
               onClick={() => setIsOpen(true)}
-              className='text-[#1130FF] hover:underline font-semibold flex items-center'
+              className='bg-[#1130FF] rounded-[4px] px-2 py-2 flex items-center hover:bg-[#1130FF]/90 transition-all duration-300'
             >
-              <span className='font-space-grotesk text-[22px] font-[700] leading-[27.07px] text-[#1130FF]'>
+              <span className='font-space-grotesk text-[22px] font-[700] leading-[27.07px] text-white'>
                 Start Articul8&apos;ing
               </span>
               <Image
-                src='/images/icons/header-arrow.svg'
+                src='/images/icons/header-arrow-white.svg'
                 alt='Arrow right'
                 width={13}
                 height={13}
