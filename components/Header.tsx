@@ -114,11 +114,11 @@ const Header = () => {
                   className={`
                     absolute top-[calc(100%+2.0rem)]
                     left-[60%] transform -translate-x-1/2
-                    backdrop-blur-[8px]
+                    backdrop-blur-[18px]
                     bg-white/95
                     border border-gray-200/20
                     rounded-[4px]
-                    w-[280px]
+                    w-[200px]
                     py-4
                     z-50
                     transition-all duration-200
@@ -128,13 +128,13 @@ const Header = () => {
                 >
                   <Link 
                     href="/about" 
-                    className="block px-8 py-2 text-[22px] text-black font-proxima-nova hover:bg-white/50 transition-colors duration-200"
+                    className="block px-6 py-2 text-[18px] text-black font-proxima-nova hover:bg-white/50 transition-colors duration-200"
                   >
                     About Us
                   </Link>
                   <Link 
                     href="/news" 
-                    className="block px-8 py-2 text-[22px] text-black font-proxima-nova hover:bg-white/50 transition-colors duration-200"
+                    className="block px-6 py-2 text-[18px] text-black font-proxima-nova hover:bg-white/50 transition-colors duration-200"
                   >
                     News
                   </Link>
