@@ -59,17 +59,18 @@ const Header = () => {
 
   return (
     <header className='fixed top-0 left-0 right-0 z-50'>
-      {/* Desktop Header - Updated border color and opacity */}
+      {/* Desktop Header */}
       <div className='container mx-auto hidden lg:flex'>
         <div className={`
           w-full mx-6 my-4 
           backdrop-blur-[8px] 
-          bg-white/95
+          bg-gradient-to-r from-white/40 to-white/10
           rounded-[4px]
           px-6 py-6 
           flex items-center justify-between
           transition-all duration-300
-          ${!isScrolled ? 'border border-gray-200/90' : 'border-transparent'}
+          shadow-[0_2px_8px_0px_rgba(0,0,0,0.08)]
+          border border-[#F8F8F8]
         `}>
           {/* Logo (left side) */}
           <Link href='/' className='flex items-center'>
