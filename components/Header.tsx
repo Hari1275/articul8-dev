@@ -106,7 +106,11 @@ const Header = () => {
                     alt='Arrow right'
                     width={20}
                     height={20}
-                    className='ml-0 translate-y-[3px]'
+                    className={`
+                      ml-0 translate-y-[3px] 
+                      transition-transform duration-200
+                      ${isCompanyDropdownOpen ? 'rotate-180' : ''}
+                    `}
                   />
                 </button>
                 {/* Dropdown Menu - With slightly more blur effect */}
@@ -118,7 +122,7 @@ const Header = () => {
                     bg-white/95
                     border border-gray-200/20
                     rounded-[4px]
-                    w-[200px]
+                    w-[190px]
                     py-4
                     z-50
                     transition-all duration-200
