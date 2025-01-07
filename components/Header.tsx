@@ -133,7 +133,7 @@ const Header = () => {
                     About Us
                   </Link>
                   <Link 
-                    href="/linkedIn-feed" 
+                    href="/news" 
                     className="block px-8 py-2 text-[22px] text-black font-proxima-nova hover:bg-white/50 transition-colors duration-200"
                   >
                     News
@@ -269,7 +269,7 @@ const Header = () => {
                       About Us
                     </Link>
                     <Link
-                      href="/linkedIn-feed"
+                      href="/news"
                       className="text-white font-proxima-nova text-[28px] font-[400] hover:text-[#4D6EFF] transition-colors duration-200"
                       onClick={toggleMenu}
                     >
