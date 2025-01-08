@@ -39,8 +39,8 @@ const Header = () => {
   const getLinkClassName = (href: string) => {
     const isActive = pathname === href || 
       (href === '/case-studies' && pathname?.startsWith('/case-studies/'));
-    return `text-black font-proxima-nova text-[22px] leading-[27.07px] font-[${
-      isActive ? '700' : '400'
+    return `text-black font-space-grotesk text-[18px] leading-[18px] font-[${
+      isActive ? '700' : '500'
     }] hover:text-black transition duration-300 ${
       isActive ? 'text-gray-900' : ''
     }`;
@@ -60,39 +60,40 @@ const Header = () => {
   return (
     <header className='fixed top-0 left-0 right-0 z-50'>
       {/* Desktop Header */}
-      <div className='container mx-auto hidden lg:flex'>
+      <div className='container mx-auto hidden lg:flex justify-center'>
         <div className={`
           w-full mx-6 my-4 
           backdrop-blur-[20px] 
           bg-gradient-to-r from-white/40 to-white/10
           rounded-[4px]
-          px-6 py-6 
-          flex items-center justify-between
+          px-6 py-4 
+          flex items-center
           transition-all duration-300
           shadow-[0_8px_16px_0px_rgba(0,0,0,0.04)]
           border border-[#F8F8F8]
         `}>
           {/* Logo (left side) */}
-          <Link href='/' className='flex items-center'>
-            <Image
-              src='/images/logo.svg'
-              alt='Articul8 Logo'
-              width={130}
-              height={30}
-              priority
-            />
-          </Link>
+          <div className="flex-none">
+            <Link href='/' className='flex items-center'>
+              <Image
+                src='/images/logo.svg'
+                alt='Articul8 Logo'
+                width={130}
+                height={30}
+                priority
+              />
+            </Link>
+          </div>
 
-          {/* Navigation and CTA (right side) */}
-          <div className='flex items-center gap-20'>
-            <nav className='flex gap-16'>
+          {/* Navigation (center) */}
+          <div className='flex-1 flex justify-center'>
+            <nav className='flex gap-12'>
               <Link href='/products' className={getLinkClassName('/products')}>
                 Product
               </Link>
               <Link href='/case-studies' className={getLinkClassName('/case-studies')}>
                 Case Studies
               </Link>
-              {/* Company Dropdown with matching Glassmorphism */}
               <div 
                 className='relative group'
                 onMouseEnter={() => setIsCompanyDropdownOpen(true)}
@@ -105,10 +106,10 @@ const Header = () => {
                   <Image
                     src='/images/icons/header-dropdown.svg'
                     alt='Arrow right'
-                    width={20}
-                    height={20}
+                    width={16}
+                    height={16}
                     className={`
-                      ml-0 translate-y-[3px] 
+                      ml-0 
                       transition-transform duration-200
                       ${isCompanyDropdownOpen ? 'rotate-180' : ''}
                     `}
@@ -133,13 +134,13 @@ const Header = () => {
                 >
                   <Link 
                     href="/about" 
-                    className="block px-6 py-2 text-[18px] text-black font-proxima-nova hover:bg-white/50 transition-colors duration-200"
+                    className="block px-8 py-2 text-[16px] text-black font-space-grotesk hover:bg-white/50 transition-colors duration-200"
                   >
                     About Us
                   </Link>
                   <Link 
                     href="/news" 
-                    className="block px-6 py-2 text-[18px] text-black font-proxima-nova hover:bg-white/50 transition-colors duration-200"
+                    className="block px-8 py-2 text-[16px] text-black font-space-grotesk hover:bg-white/50 transition-colors duration-200"
                   >
                     News
                   </Link>
@@ -152,20 +153,22 @@ const Header = () => {
                 </div>
               </div>
             </nav>
+          </div>
 
-            {/* "Start Articul8'ing" button */}
+          {/* CTA Button (right side) */}
+          <div className="flex-none">
             <button
               onClick={() => setIsOpen(true)}
-              className='bg-[#1130FF] rounded-[4px] px-2 py-2 flex items-center hover:bg-[#1130FF]/90 transition-all duration-300'
+              className='bg-[#1130FF] rounded-[4px] px-3 py-2 flex items-center hover:bg-[#1130FF]/90 transition-all duration-300'
             >
-              <span className='font-space-grotesk text-[22px] font-[700] leading-[27.07px] text-white'>
+              <span className='font-space-grotesk text-[18px] font-[700] leading-[18px] text-white'>
                 Start Articul8&apos;ing
               </span>
               <Image
                 src='/images/icons/header-arrow-white.svg'
                 alt='Arrow right'
-                width={13}
-                height={13}
+                width={10}
+                height={10}
                 className='ml-2'
               />
             </button>
