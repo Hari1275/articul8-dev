@@ -179,8 +179,8 @@ const Header = () => {
               <Image
                 src='/images/icons/header-arrow-white.svg'
                 alt='Arrow right'
-                width={10}
-                height={10}
+                width={8}
+                height={8}
                 className='ml-2'
               />
             </button>
