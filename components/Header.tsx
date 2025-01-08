@@ -39,11 +39,21 @@ const Header = () => {
   const getLinkClassName = (href: string) => {
     const isActive = pathname === href || 
       (href === '/case-studies' && pathname?.startsWith('/case-studies/'));
-    return `text-black font-space-grotesk text-[18px] leading-[18px] font-[${
-      isActive ? '700' : '500'
-    }] hover:text-black transition duration-300 ${
-      isActive ? 'text-gray-900' : ''
-    }`;
+    return `
+      text-black 
+      font-space-grotesk 
+      text-[18px] 
+      leading-[18px] 
+      font-[${isActive ? '700' : '500'}] 
+      relative 
+      transition-all 
+      duration-300
+      px-4
+      py-2
+      rounded-[4px]
+      hover:bg-[#F4F4F4]
+      ${isActive ? 'text-gray-900 bg-[#F4F4F4]' : ''}
+    `;
   };
 
   const getLinkClassNameMobile = (href: string) => {
@@ -87,7 +97,7 @@ const Header = () => {
 
           {/* Navigation (center) */}
           <div className='flex-1 flex justify-center'>
-            <nav className='flex gap-12'>
+            <nav className='flex gap-2'>
               <Link href='/products' className={getLinkClassName('/products')}>
                 Product
               </Link>
@@ -134,13 +144,13 @@ const Header = () => {
                 >
                   <Link 
                     href="/about" 
-                    className="block px-8 py-2 text-[16px] text-black font-space-grotesk hover:bg-white/50 transition-colors duration-200"
+                    className="block px-6 py-2 text-[16px] text-black font-space-grotesk hover:bg-white/50 transition-colors duration-200"
                   >
                     About Us
                   </Link>
                   <Link 
                     href="/news" 
-                    className="block px-8 py-2 text-[16px] text-black font-space-grotesk hover:bg-white/50 transition-colors duration-200"
+                    className="block px-6 py-2 text-[16px] text-black font-space-grotesk hover:bg-white/50 transition-colors duration-200"
                   >
                     News
                   </Link>
