@@ -173,7 +173,7 @@ const Header = () => {
                 hover:bg-[#1130FF]/90 hover:shadow-[0_8px_14px_0px_rgba(17,48,255,0.25)]
                 transition-all duration-300'
             >
-              <span className='font-space-grotesk text-[18px] font-[700] leading-[18px] text-white'>
+              <span className='font-space-grotesk text-[18px] font-[600] leading-[18px] text-white'>
                 Start Articul8&apos;ing
               </span>
               <Image
