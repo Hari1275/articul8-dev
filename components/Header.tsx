@@ -116,8 +116,8 @@ const Header = () => {
                   <Image
                     src='/images/icons/header-dropdown.svg'
                     alt='Arrow right'
-                    width={16}
-                    height={16}
+                    width={14}
+                    height={14}
                     className={`
                       ml-0 
                       transition-transform duration-200
@@ -169,7 +169,9 @@ const Header = () => {
           <div className="flex-none">
             <button
               onClick={() => setIsOpen(true)}
-              className='bg-[#1130FF] rounded-[4px] px-3 py-2 flex items-center hover:bg-[#1130FF]/90 transition-all duration-300'
+              className='bg-[#1130FF] rounded-[4px] px-3 py-2 flex items-center 
+                hover:bg-[#1130FF]/90 hover:shadow-[0_8px_14px_0px_rgba(17,48,255,0.25)]
+                transition-all duration-300'
             >
               <span className='font-space-grotesk text-[18px] font-[700] leading-[18px] text-white'>
                 Start Articul8&apos;ing
